@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Burritos",
+    "description": "Creamy Juicy Burritos",
+    "image": "url"
+  },
+  {
+    "name": "Tortas",
+    "description": "Creamy Juicy Tortas",
+    "image": "url"
+  },
+  {
+    "name": "Tacos",
+    "description": "Creamy Juicy Tacos",
+    "image": "url"
+  },
+  {
+    "name": "Sopes",
+    "description": "Creamy Juicy Sopes",
+    "image": "url"
+  },
+  {
+    "name": "Gorditas",
+    "description": "Creamy Juicy Gorditas",
+    "image": "url"
+  },
+  {
+    "name": "Huaraches",
+    "description": "Creamy Juicy Huaraches",
+    "image": "url"
+  },
+  {
+    "name": "Quesadillas",
+    "description": "Creamy Juicy Quesadillas",
+    "image": "url"
+  },
+  {
+    "name": "Nachos",
+    "description": "Creamy Juicy Nachos",
+    "image": "url"
+  }
+]
