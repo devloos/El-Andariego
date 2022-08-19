@@ -4,7 +4,7 @@
       class="p-2 ps-3 bg-image text-start text-white fw-bold fs-3 text-uppercase"
       style="
         background-image: url(../assets/Header-bg.jpeg);
-        height: 200px;
+        height: 150px;
         background-size: cover;
       "
     >
