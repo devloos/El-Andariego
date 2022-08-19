@@ -3,7 +3,7 @@
     <div
       class="p-2 ps-3 bg-image text-start text-white fw-bold fs-3 text-uppercase"
       style="
-        background-image: url(../assets/Header-bg.jpeg);
+        background-image: url(/Header-bg.jpeg);
         height: 150px;
         background-size: cover;
       "
@@ -28,7 +28,7 @@
       <div
         v-for="category in categories"
         :key="category.name"
-        class="col-lg-4 col-md-6 mt-1"
+        class="col-lg-4 col-md-6 mt-1 p-0"
       >
         <img
           :src="category.url"
@@ -62,7 +62,7 @@ export default {
   async mounted() {
     this.categories = await Categories.GetCategories();
     this.categories.forEach((category) => {
-      category.url = `../assets/thumbnails/${category.name}.jpeg`;
+      category.url = `/thumbnails/${category.name}.jpeg`;
     });
   },
 };

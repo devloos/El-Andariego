@@ -4,6 +4,7 @@ const ItemSchema = new Schema({
   name: {
     type: String,
     required: true,
+    index: true,
   },
   content: {
     type: String,
@@ -12,6 +13,7 @@ const ItemSchema = new Schema({
   category: {
     type: String,
     required: true,
+    index: true,
   },
   price: {
     type: String,

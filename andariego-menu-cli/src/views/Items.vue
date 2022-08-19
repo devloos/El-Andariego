@@ -3,7 +3,7 @@
     <div class="row justify-content-center mb-3 mt-2">
       <div class="col-2">
         <img
-          src="../assets/El-Andariego-Logo.jpeg"
+          src="/El-Andariego-Logo.jpeg"
           class="border border-secondary border-1 rounded-circle w-75"
           alt="Logo"
         />
@@ -54,7 +54,7 @@ export default {
   },
   async mounted() {
     this.items = await Items.GetItemsByCategory(this.$route.name);
-    this.$refs.HeroImage.src = `/assets/heros/${this.$route.name}.jpeg`;
+    this.$refs.HeroImage.src = `/heros/${this.$route.name}.jpeg`;
   },
 };
 </script>
