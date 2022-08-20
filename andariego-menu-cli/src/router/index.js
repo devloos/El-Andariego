@@ -48,6 +48,16 @@ const routes = [
     name: 'Quesadillas',
     component: Items,
   },
+  {
+    path: '/Platillos',
+    name: 'Platillos',
+    component: Items,
+  },
+  {
+    path: '/Kids',
+    name: 'Kids',
+    component: Items,
+  },
 ];
 
 const router = createRouter({
