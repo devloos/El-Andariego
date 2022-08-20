@@ -28,7 +28,7 @@
       <div
         v-for="category in categories"
         :key="category.name"
-        class="col-lg-4 col-md-6 mt-1 p-0"
+        class="col-lg-3 me-lg-1 col-md-6 col-sm-6 mb-3 p-1"
       >
         <img
           :src="category.url"

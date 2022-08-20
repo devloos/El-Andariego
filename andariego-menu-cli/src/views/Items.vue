@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row justify-content-center mb-3 mt-2">
-      <div class="col-2">
+      <div class="col-3">
         <img
           src="/El-Andariego-Logo.jpeg"
           class="border border-secondary border-1 rounded-circle w-75"
