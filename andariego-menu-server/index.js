@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 const ITEMS_PATH = require('./routes/api/items');
 const CATEGORIES_PATH = require('./routes/api/categories');
 
