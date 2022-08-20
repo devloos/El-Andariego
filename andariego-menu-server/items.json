@@ -1,62 +1,20 @@
 [
   {
-    "name": "Alambre",
-    "category": "Plateos",
-    "price": "10.00"
+    "name": "Mini Burrito & Fries",
+    "category": "Kids",
+    "content": "No Carne, or Asada, Pastor, Pollo, Carnitas",
+    "price": "8.00"
   },
   {
-    "name": "Que Me Ves",
-    "category": "Plateos",
-    "price": "10.00"
+    "name": "Mini Quesadilla & Fries",
+    "category": "Kids",
+    "content": "No Carne, or Asada, Pastor, Pollo, Carnitas",
+    "price": "8.00"
   },
   {
-    "name": "Vegetariano",
-    "category": "Plateos",
-    "price": "10.00"
-  },
-  {
-    "name": "Zarape",
-    "category": "Plateos",
-    "price": "10.00"
-  },
-  {
-    "name": "Aventurero",
-    "category": "Plateos",
-    "price": "10.00"
-  },
-  {
-    "name": "Continental",
-    "category": "Plateos",
-    "price": "10.00"
-  },
-  {
-    "name": "Fortachon",
-    "category": "Plateos",
-    "price": "10.00"
-  },
-  {
-    "name": "Gallito",
-    "category": "Plateos",
-    "price": "10.00"
-  },
-  {
-    "name": "Granjero",
-    "category": "Plateos",
-    "price": "10.00"
-  },
-  {
-    "name": "Gringa",
-    "category": "Plateos",
-    "price": "10.00"
-  },
-  {
-    "name": "Hawaiano",
-    "category": "Plateos",
-    "price": "10.00"
-  },
-  {
-    "name": "Que Me Notas",
-    "category": "Plateos",
-    "price": "10.00"
+    "name": "Chicken Nuggets & Fries",
+    "category": "Kids",
+    "content": "Chicken Nuggets, y Papas",
+    "price": "8.00"
   }
 ]
