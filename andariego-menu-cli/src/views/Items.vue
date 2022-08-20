@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="row justify-content-center mb-4">
-      <div class="col-10">
+      <div class="col-10 col-lg-7">
         <img src="" ref="HeroImage" class="img-fluid rounded-3" :alt="HeroImage" />
       </div>
     </div>
