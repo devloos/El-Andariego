@@ -1,14 +1,5 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center mb-3 mt-2">
-      <div class="col-3 col-lg-2">
-        <img
-          src="/El-Andariego-Logo.jpeg"
-          class="border border-secondary border-1 rounded-circle w-75"
-          alt="Logo"
-        />
-      </div>
-    </div>
     <div class="row justify-content-center mb-4">
       <div class="col-10 col-lg-7">
         <img
@@ -53,7 +44,7 @@
 import Items from '../items';
 
 export default {
-  name: 'Items-View',
+  name: 'Items-V',
   data() {
     return {
       items: [],
