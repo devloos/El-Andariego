@@ -63,14 +63,13 @@ export default {
   },
   async mounted() {
     this.categories = await Categories.GetCategories();
-
-    for (let i = 0; i < this.categories.length; i++) {
-      if (this.categories[i].name === 'Platillos') {
-        this.platillos = this.categories[i];
-        this.categories.splice(i, 1);
-        break;
-      }
-    }
+    const res = await Categories.GetPlatillos();
+    this.platillos = {
+      name: res[0].name,
+      description: res[0].description,
+      image: res[0].image,
+    };
+    this.categories.sort((cat1, cat2) => cat1.priority - cat2.priority);
   },
 };
 </script>

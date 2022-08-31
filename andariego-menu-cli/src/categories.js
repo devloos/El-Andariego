@@ -9,6 +9,15 @@ class Categories {
       return err;
     }
   }
+
+  static async GetPlatillos() {
+    try {
+      const res = await axios.get('/api/categories/platillos');
+      return res.data;
+    } catch (err) {
+      return err;
+    }
+  }
 }
 
 export default Categories;
