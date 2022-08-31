@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import Categories from '../categories';
+import Categories from '../api/categories';
 
 export default {
   name: 'Home-V',

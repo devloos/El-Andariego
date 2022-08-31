@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import Items from '../items';
+import Items from '../api/items';
 
 export default {
   name: 'Items-V',
