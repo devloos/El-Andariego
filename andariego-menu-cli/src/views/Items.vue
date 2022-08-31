@@ -3,8 +3,7 @@
     <div class="row justify-content-center mb-4">
       <div class="col-10 col-lg-7">
         <img
-          src=""
-          ref="HeroImage"
+          :src="`/heros/${this.$route.name}.jpeg`"
           class="img-fluid rounded-3"
           :alt="HeroImage"
           width="1080"
@@ -52,7 +51,6 @@ export default {
   },
   async mounted() {
     this.items = await Items.GetItemsByCategory(this.$route.name);
-    this.$refs.HeroImage.src = `/heros/${this.$route.name}.jpeg`;
   },
 };
 </script>
