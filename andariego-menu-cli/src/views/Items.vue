@@ -11,7 +11,14 @@
     </div>
     <div class="row justify-content-center mb-4">
       <div class="col-10 col-lg-7">
-        <img src="" ref="HeroImage" class="img-fluid rounded-3" :alt="HeroImage" />
+        <img
+          src=""
+          ref="HeroImage"
+          class="img-fluid rounded-3"
+          :alt="HeroImage"
+          width="1080"
+          height="1080"
+        />
       </div>
     </div>
     <div class="row justify-content-center mb-4">
