@@ -32,7 +32,12 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Catering Info</a>
+            <a class="nav-link" href="#" @click.prevent="$router.push('/')">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" @click.prevent="$router.push('/catering')">
+              Catering
+            </a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -63,7 +68,9 @@
                 >
               </li>
               <li><hr class="dropdown-divider" /></li>
-              <li><button class="dropdown-item">949-806-0123</button></li>
+              <li>
+                <button class="dropdown-item" @click="CopyPhone">949-806-0123</button>
+              </li>
             </ul>
           </li>
         </ul>
@@ -84,6 +91,15 @@
 <script>
 export default {
   name: 'App',
+  methods: {
+    async CopyPhone() {
+      try {
+        await navigator.clipboard.writeText('949-806-0123');
+      } catch (err) {
+        alert('Could not copy');
+      }
+    },
+  },
 };
 </script>
 
