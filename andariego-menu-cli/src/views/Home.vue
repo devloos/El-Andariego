@@ -8,7 +8,8 @@
     <div class="row justify-content-center">
       <div class="col-10 col-sm-9 col-md-6 col-lg-5">
         <img
-          :src="platillos.image"
+          :srcset="platillos.image"
+          :src="placeHolderSrc"
           class="img-thumbnail p-1 border border-0 rounded-3"
           :alt="platillos.name"
           width="1080"
@@ -31,7 +32,8 @@
         class="col-6 col-lg-3 me-lg-1 col-md-4 mb-3 p-1"
       >
         <img
-          :src="category.image"
+          :srcset="category.image"
+          :src="placeHolderSrc"
           class="img-thumbnail rounded-3 border border-0"
           :alt="category.name"
           width="320"
@@ -59,6 +61,8 @@ export default {
     return {
       categories: [],
       platillos: {},
+      placeHolderSrc:
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
     };
   },
   async mounted() {

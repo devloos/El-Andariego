@@ -3,7 +3,8 @@
     <div class="row justify-content-center mb-4">
       <div class="col-10 col-lg-7">
         <img
-          :src="`/heros/${this.$route.name}.jpeg`"
+          :srcset="`/heros/${this.$route.name}.jpeg`"
+          :src="placeHolderSrc"
           class="img-fluid rounded-3"
           :alt="HeroImage"
           width="1080"
@@ -47,6 +48,8 @@ export default {
   data() {
     return {
       items: [],
+      placeHolderSrc:
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
     };
   },
   async mounted() {

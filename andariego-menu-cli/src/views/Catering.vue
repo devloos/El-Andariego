@@ -72,10 +72,6 @@
             <option>Other</option>
           </select>
         </div>
-        <div class="col-6 col-md-3 col-lg-2">
-          <label for="date" class="form-label">Date</label>
-          <input type="date" v-model="Date" class="form-control" id="date" required />
-        </div>
       </div>
       <div class="row justify-content-center mt-4">
         <button type="submit" class="col-4 col-md-2 col-lg-2 btn btn-outline-success">
@@ -83,6 +79,10 @@
         </button>
       </div>
     </form>
+    <div class="col-6 col-md-3 col-lg-2">
+      <label for="date" class="form-label">Date</label>
+      <input type="date" v-model="Date" class="form-control" id="date" required />
+    </div>
   </div>
 </template>
 
@@ -99,7 +99,7 @@ export default {
       Phone: '',
       Description: '',
       EventType: '',
-      Date: new Date().toISOString().substr(0, 10),
+      Date: null,
     };
   },
   methods: {
