@@ -19,21 +19,33 @@
       <div class="row d-flex justify-content-center text-start mb-2">
         <div class="col-6 col-md-4 col-lg-3">
           <label for="FirstName" class="form-label">First Name</label>
-          <input type="text" v-model="FirstName" class="form-control" id="FirstName" />
+          <input
+            type="text"
+            v-model="FirstName"
+            class="form-control"
+            id="FirstName"
+            required
+          />
         </div>
         <div class="col-6 col-md-4 col-lg-3">
           <label for="LastName" class="form-label">Last Name</label>
-          <input type="text" v-model="LastName" class="form-control" id="LastName" />
+          <input
+            type="text"
+            v-model="LastName"
+            class="form-control"
+            id="LastName"
+            required
+          />
         </div>
       </div>
       <div class="row d-flex justify-content-center text-start mb-2">
         <div class="col-7 col-md-5 col-lg-4">
           <label for="email" class="form-label">Email</label>
-          <input type="email" v-model="Email" class="form-control" id="email" />
+          <input type="email" v-model="Email" class="form-control" id="email" required />
         </div>
         <div class="col-5 col-md-3 col-lg-2">
           <label for="phone" class="form-label">Phone #</label>
-          <input type="text" v-model="Phone" class="form-control" id="phone" />
+          <input type="text" v-model="Phone" class="form-control" id="phone" required />
         </div>
       </div>
       <div class="row d-flex justify-content-center text-start mb-2">
@@ -45,13 +57,14 @@
             id="description"
             v-model="Description"
             placeholder="Number of people? Expectation? etc..."
+            required
           />
         </div>
       </div>
       <div class="row d-flex justify-content-center text-start mb-2">
         <div class="col-6 col-md-3 col-lg-2">
           <label for="type" class="form-label">Event Type</label>
-          <select v-model="EventType" class="form-select" id="type">
+          <select v-model="EventType" class="form-select" id="type" required>
             <option disabled value="">Please Select</option>
             <option>Party</option>
             <option>School</option>
@@ -61,7 +74,7 @@
         </div>
         <div class="col-6 col-md-3 col-lg-2">
           <label for="date" class="form-label">Date</label>
-          <input type="date" v-model="Date" class="form-control" id="date" />
+          <input type="date" v-model="Date" class="form-control" id="date" required />
         </div>
       </div>
       <div class="row justify-content-center mt-4">
@@ -78,9 +91,6 @@ import SendGrid from '../api/sendGrid';
 
 export default {
   name: 'Catering-V',
-  // computed: {
-  //   Date: new Date().toISOString().substr(0, 10),
-  // },
   data() {
     return {
       FirstName: '',
