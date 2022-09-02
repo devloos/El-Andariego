@@ -16,15 +16,6 @@ export default {
     Nav,
     Footer,
   },
-  methods: {
-    async CopyPhone() {
-      try {
-        await navigator.clipboard.writeText('949-806-0123');
-      } catch (err) {
-        alert('Could not copy');
-      }
-    },
-  },
 };
 </script>
 
