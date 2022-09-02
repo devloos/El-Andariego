@@ -4,4 +4,12 @@ module.exports = defineConfig({
   devServer: {
     proxy: 'http://localhost:3000',
   },
+  configureWebpack: {
+    optimization: {
+      splitChunks: {
+        minSize: 10000,
+        maxSize: 250000,
+      },
+    },
+  },
 });

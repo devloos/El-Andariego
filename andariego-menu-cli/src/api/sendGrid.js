@@ -5,7 +5,7 @@ class SendGrid {
     try {
       await axios.post('/api/sendgrid', data);
     } catch (err) {
-      console.log(err);
+      alert(err);
     }
   }
 }
