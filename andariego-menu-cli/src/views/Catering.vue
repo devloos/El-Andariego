@@ -45,7 +45,7 @@
         </div>
         <div class="col-5 col-md-3 col-lg-2">
           <label for="phone" class="form-label">Phone #</label>
-          <input type="text" v-model="Phone" class="form-control" id="phone" required />
+          <input type="tel" v-model="Phone" class="form-control" id="phone" required />
         </div>
       </div>
       <div class="row d-flex justify-content-center text-start mb-2">
