@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
   try {
     const msg = {
       to: 'connordarling@me.com',
-      from: '18aguilerac@gmail.com',
+      from: 'elandariegomex@gmail.com',
       subject: 'Catering Info',
       html: `
       <div>
