@@ -28,6 +28,7 @@ mongoose
 
 app.use('/api/items', ITEMS_PATH);
 app.use('/api/categories', CATEGORIES_PATH);
+app.use('/api/sendgrid', require('./routes/api/sendGrid'));
 
 if (process.env.NODE_ENV === 'production') {
   app.get('/*', (req, res) => {
