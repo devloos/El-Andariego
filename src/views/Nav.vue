@@ -29,9 +29,7 @@
             <a class="nav-link" href="#" @click.prevent="$router.push('/')">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" @click.prevent="$router.push('/categories')"
-              >Menu</a
-            >
+            <a class="nav-link" href="#" @click.prevent="$router.push('/menu')">Menu</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" @click.prevent="$router.push('/catering')">
