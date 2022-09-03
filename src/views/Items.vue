@@ -17,7 +17,7 @@
         <button
           class="btn btn-outline-secondary fw-bold"
           type="button"
-          @click="$router.push('/')"
+          @click="$router.push('/menu')"
         >
           Back To Categories
         </button>

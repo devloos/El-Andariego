@@ -2,13 +2,15 @@
   <nav class="navbar navbar-expand-lg bg-light mb-4">
     <div class="container-fluid">
       <div class="col-1">
-        <img
-          src="/El-Andariego-Logo.jpeg"
-          class="border border-secondary border-1 rounded-circle"
-          alt="Logo"
-          width="50"
-          height="50"
-        />
+        <a href="#" @click.prevent="$router.push('/')">
+          <img
+            src="/El-Andariego-Logo.jpeg"
+            class="border border-secondary border-1 rounded-circle"
+            alt="Logo"
+            width="50"
+            height="50"
+          />
+        </a>
       </div>
       <button
         class="navbar-toggler border"
@@ -24,15 +26,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              href="https://elandariegotruck.com/"
-              >Home</a
-            >
+            <a class="nav-link" href="#" @click.prevent="$router.push('/')">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" @click.prevent="$router.push('/')">Menu</a>
+            <a class="nav-link" href="#" @click.prevent="$router.push('/categories')"
+              >Menu</a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" @click.prevent="$router.push('/catering')">

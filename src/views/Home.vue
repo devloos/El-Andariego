@@ -1,79 +1,109 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div>
-        <h2 class="fw-bold">Menu</h2>
+  <div class="container pt-5">
+    <div class="row d-grid">
+      <header class="col">
+        <h1 class="text-success fw-bold">El Andariego Truck</h1>
+      </header>
+      <div class="col mb-4">
+        <p class="m-0">Authentic Mexican Food</p>
+        <p class="m-0" v-text="ScheduleText"></p>
       </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-10 col-sm-9 col-md-6 col-lg-5">
-        <img
-          :srcset="platillos.image"
-          :src="placeHolderSrc"
-          class="img-thumbnail p-1 border border-0 rounded-3"
-          :alt="platillos.name"
-          width="1080"
-          height="720"
-        />
-        <br />
+      <div class="col mb-5">
         <button
-          class="btn btn-outline-success m-2 p-1 ps-3 pe-3 fw-bold"
-          type="button"
-          v-text="platillos.name"
-          @click="$router.push(`/${platillos.name}`)"
-        ></button>
-        <p v-text="platillos.description"></p>
+          class="col-4 col-md-3 col-lg-2 btn btn-outline-success"
+          @click="$router.push('/menu')"
+        >
+          View Menu
+        </button>
       </div>
-    </div>
-    <div class="row justify-content-evenly">
       <div
-        v-for="category in categories"
-        :key="category.name"
-        class="col-6 col-lg-3 me-lg-1 col-md-4 mb-3 p-1"
+        id="Controls"
+        class="col-12 col-lg-10 col-xl-8 carousel carousel-dark slide mx-auto d-block mb-5"
+        data-bs-ride="carousel"
       >
-        <img
-          :srcset="category.image"
-          :src="placeHolderSrc"
-          class="img-thumbnail rounded-3 border border-0"
-          :alt="category.name"
-          width="320"
-          height="320"
-        />
-        <br />
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/home/slider/Logo.jpeg" class="img-fluid" alt="..." />
+          </div>
+          <div v-for="(image, i) in ImageSlider" :key="i" class="carousel-item">
+            <img :src="image" class="img-fluid" alt="..." />
+          </div>
+        </div>
         <button
-          class="btn btn-outline-success m-2 p-1 ps-3 pe-3 fw-bold"
+          class="carousel-control-prev"
           type="button"
-          v-text="category.name"
-          @click="$router.push(`/${category.name}`)"
-        ></button>
-        <p v-text="category.description"></p>
+          data-bs-target="#Controls"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#Controls"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="col">
+        <hr class="col-1 mx-auto d-block m-2 border border-dark border-1" />
+        <p class="text-muted fs-6">Find El Andariego</p>
+      </div>
+      <div class="col-12 col-lg-10 col-xl-8 mx-auto d-block">
+        <img
+          src="/home/Location.png"
+          class="img-fluid"
+          alt="La Zanja San Juan Capistrano, CA 92675 US"
+        />
+      </div>
+      <div class="col mt-5 text-start">
+        <label for="hours" class="mb-1 fw-bold">Business Hours</label>
+        <table class="table table-sm table-borderless" id="hours">
+          <tr>
+            <td>Mon: Closed</td>
+          </tr>
+          <tr>
+            <td>Tue: Closed</td>
+          </tr>
+          <tr>
+            <td>Wed: 5:00 - 10:00 PM</td>
+          </tr>
+          <tr>
+            <td>Thu: 5:00 - 10:00 PM</td>
+          </tr>
+          <tr>
+            <td>Fri: 5:00 - 11:00 PM</td>
+          </tr>
+          <tr>
+            <td>Sat: 5:00 - 11:00 PM</td>
+          </tr>
+          <tr>
+            <td>Sun: 11:00 AM - 9:00 PM</td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Categories from '../api/categories';
-
 export default {
   name: 'Home-V',
   data() {
     return {
-      categories: [],
-      platillos: {},
-      placeHolderSrc:
-        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
+      ImageSlider: ['/home/slider/Platillos.jpeg', '/home/slider/Tacos.jpeg'],
+      ScheduleText: '',
     };
   },
-  async mounted() {
-    this.categories = await Categories.GetCategories();
-    const res = await Categories.GetPlatillos();
-    this.platillos = {
-      name: res[0].name,
-      description: res[0].description,
-      image: res[0].image,
-    };
-    this.categories.sort((cat1, cat2) => cat1.priority - cat2.priority);
+  mounted() {
+    const date = new Date();
+    const hour = date.getHours();
+    if (hour >= 17) {
+      this.ScheduleText = 'Open today until 11:00 PM';
+      return;
+    }
+    this.ScheduleText = 'Opening at 5:00 PM';
   },
 };
 </script>
