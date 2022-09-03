@@ -74,7 +74,14 @@
         </div>
         <div class="col-6 col-md-3 col-lg-2">
           <label for="date" class="form-label">Date</label>
-          <input type="date" v-model="Date" class="form-control" id="date" required />
+          <input
+            type="date"
+            :value="new Date().toISOString().substr(0, 10)"
+            class="form-control"
+            id="date"
+            @input="HandleDate($event.target.value)"
+            required
+          />
         </div>
       </div>
       <div class="row justify-content-center mt-4">
@@ -99,7 +106,7 @@ export default {
       Phone: '',
       Description: '',
       EventType: '',
-      Date: new Date().toISOString().substr(0, 10),
+      Date: '',
     };
   },
   methods: {
@@ -114,6 +121,9 @@ export default {
         date: this.Date,
       });
       window.location.reload();
+    },
+    HandleDate(DateInput) {
+      this.Date = DateInput;
     },
   },
 };
