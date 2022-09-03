@@ -99,7 +99,7 @@ export default {
       Phone: '',
       Description: '',
       EventType: '',
-      Date: null,
+      Date: new Date().toISOString().substr(0, 10),
     };
   },
   methods: {
