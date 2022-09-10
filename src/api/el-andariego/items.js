@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 class Items {
-  static async GetItemsByCategory(category) {
+  static async GetByCategory(category) {
     try {
       const res = await axios.get(`/api/items/${category}`);
       return res.data;

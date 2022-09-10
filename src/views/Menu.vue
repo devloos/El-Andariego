@@ -20,7 +20,7 @@
           class="btn btn-outline-success m-2 p-1 ps-3 pe-3 fw-bold"
           type="button"
           v-text="platillos.name"
-          @click="$router.push(`/${platillos.name}`)"
+          @click="$router.push(`/items/${platillos.name}`)"
         ></button>
         <p v-text="platillos.description"></p>
       </div>
@@ -44,7 +44,7 @@
           class="btn btn-outline-success m-2 p-1 ps-3 pe-3 fw-bold"
           type="button"
           v-text="category.name"
-          @click="$router.push(`/${category.name}`)"
+          @click="$router.push(`/items/${category.name}`)"
         ></button>
         <p v-text="category.description"></p>
       </div>
@@ -66,7 +66,7 @@ export default {
     };
   },
   async mounted() {
-    this.categories = await Categories.GetCategories();
+    this.categories = await Categories.Get();
     const res = await Categories.GetPlatillos();
     this.platillos = {
       name: res[0].name,

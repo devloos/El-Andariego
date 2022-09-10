@@ -3,10 +3,9 @@
     <div class="row justify-content-center mb-4">
       <div class="col-10 col-lg-7">
         <img
-          :srcset="`/heros/${this.$route.name}.jpeg`"
+          :srcset="`/heros/${this.$route.params.item}.jpeg`"
           :src="placeHolderSrc"
           class="img-fluid rounded-3"
-          :alt="HeroImage"
           width="1080"
           height="1080"
         />
@@ -53,7 +52,7 @@ export default {
     };
   },
   async mounted() {
-    this.items = await Items.GetItemsByCategory(this.$route.name);
+    this.items = await Items.GetByCategory(this.$route.params.item);
   },
 };
 </script>

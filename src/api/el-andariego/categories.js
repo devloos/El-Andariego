@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 class Categories {
-  static async GetCategories() {
+  static async Get() {
     try {
       const res = await axios.get('/api/categories');
       return res.data;

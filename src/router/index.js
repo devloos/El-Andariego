@@ -16,53 +16,8 @@ const routes = [
     component: Menu,
   },
   {
-    path: '/Burritos',
-    name: 'Burritos',
-    component: Items,
-  },
-  {
-    path: '/Tacos',
-    name: 'Tacos',
-    component: Items,
-  },
-  {
-    path: '/Tortas',
-    name: 'Tortas',
-    component: Items,
-  },
-  {
-    path: '/Sopes',
-    name: 'Sopes',
-    component: Items,
-  },
-  {
-    path: '/Gorditas',
-    name: 'Gorditas',
-    component: Items,
-  },
-  {
-    path: '/Huaraches',
-    name: 'Huaraches',
-    component: Items,
-  },
-  {
-    path: '/Nachos',
-    name: 'Nachos',
-    component: Items,
-  },
-  {
-    path: '/Quesadillas',
-    name: 'Quesadillas',
-    component: Items,
-  },
-  {
-    path: '/Platillos',
-    name: 'Platillos',
-    component: Items,
-  },
-  {
-    path: '/Kids',
-    name: 'Kids',
+    path: '/items/:item',
+    name: 'Items',
     component: Items,
   },
   {
