@@ -6,7 +6,7 @@
       </header>
       <div class="col mb-4">
         <p class="m-0">Authentic Mexican Food</p>
-        <p class="m-0" v-text="ScheduleText"></p>
+        <p class="m-0" v-text="scheduleText"></p>
       </div>
       <div class="col mb-5">
         <button
@@ -25,7 +25,7 @@
           <div class="carousel-item active">
             <img src="/home/slider/Logo.jpeg" class="img-fluid" alt="..." />
           </div>
-          <div v-for="(image, i) in ImageSlider" :key="i" class="carousel-item">
+          <div v-for="(image, i) in imageSlider" :key="i" class="carousel-item">
             <img :src="image" class="img-fluid" alt="..." />
           </div>
         </div>
@@ -92,18 +92,18 @@ export default {
   name: 'Home-V',
   data() {
     return {
-      ImageSlider: ['/home/slider/Platillos.jpeg', '/home/slider/Tacos.jpeg'],
-      ScheduleText: '',
+      imageSlider: ['/home/slider/Platillos.jpeg', '/home/slider/Tacos.jpeg'],
+      scheduleText: '',
     };
   },
   mounted() {
     const date = new Date();
     const hour = date.getHours();
-    if (hour >= 17) {
-      this.ScheduleText = 'Open today until 11:00 PM';
+    if (hour >= 17 && hour <= 21) {
+      this.scheduleText = 'Open today until 11:00 PM';
       return;
     }
-    this.ScheduleText = 'Opening at 5:00 PM';
+    this.scheduleText = 'Opening at 5:00 PM';
   },
 };
 </script>

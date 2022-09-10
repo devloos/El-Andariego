@@ -53,7 +53,8 @@
 </template>
 
 <script>
-import Categories from '../api/categories';
+import Categories from '../api/el-andariego/categories';
+import blankPixel from '../utility/PlaceHolder';
 
 export default {
   name: 'Categories-V',
@@ -61,8 +62,7 @@ export default {
     return {
       categories: [],
       platillos: {},
-      placeHolderSrc:
-        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
+      placeHolderSrc: blankPixel,
     };
   },
   async mounted() {

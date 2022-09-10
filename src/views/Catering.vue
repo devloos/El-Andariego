@@ -18,44 +18,44 @@
     <form @submit="HandleForm">
       <div class="row d-flex justify-content-center text-start mb-2">
         <div class="col-6 col-md-4 col-lg-3">
-          <label for="FirstName" class="form-label">First Name</label>
+          <label for="firstName" class="form-label">First Name</label>
           <input
             type="text"
-            v-model="FirstName"
+            v-model="firstName"
             class="form-control"
-            id="FirstName"
+            id="firstName"
             required
           />
         </div>
         <div class="col-6 col-md-4 col-lg-3">
-          <label for="LastName" class="form-label">Last Name</label>
+          <label for="lastName" class="form-label">Last Name</label>
           <input
             type="text"
-            v-model="LastName"
+            v-model="lastName"
             class="form-control"
-            id="LastName"
+            id="lastName"
             required
           />
         </div>
       </div>
       <div class="row d-flex justify-content-center text-start mb-2">
         <div class="col-7 col-md-5 col-lg-4">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" v-model="Email" class="form-control" id="email" required />
+          <label for="email" class="form-label">email</label>
+          <input type="email" v-model="email" class="form-control" id="email" required />
         </div>
         <div class="col-5 col-md-3 col-lg-2">
-          <label for="phone" class="form-label">Phone #</label>
-          <input type="tel" v-model="Phone" class="form-control" id="phone" required />
+          <label for="phone" class="form-label">phone #</label>
+          <input type="tel" v-model="phone" class="form-control" id="phone" required />
         </div>
       </div>
       <div class="row d-flex justify-content-center text-start mb-2">
         <div class="col-12 col-md-8 col-lg-6">
-          <label for="description" class="form-label">Brief Description</label>
+          <label for="description" class="form-label">Brief description</label>
           <textarea
             type="text"
             class="form-control"
             id="description"
-            v-model="Description"
+            v-model="description"
             placeholder="Number of people? Expectation? etc..."
             required
           />
@@ -64,7 +64,7 @@
       <div class="row d-flex justify-content-center text-start mb-2">
         <div class="col-6 col-md-3 col-lg-2">
           <label for="type" class="form-label">Event Type</label>
-          <select v-model="EventType" class="form-select" id="type" required>
+          <select v-model="eventType" class="form-select" id="type" required>
             <option disabled value="">Please Select</option>
             <option>Party</option>
             <option>School</option>
@@ -73,7 +73,7 @@
           </select>
         </div>
         <div class="col-6 col-md-3 col-lg-2">
-          <label for="date" class="form-label">Date</label>
+          <label for="date" class="form-label">date</label>
           <input
             type="date"
             :value="new Date().toISOString().substr(0, 10)"
@@ -94,36 +94,36 @@
 </template>
 
 <script>
-import SendGrid from '../api/sendGrid';
+import SendGrid from '../api/send-grid/sendGrid';
 
 export default {
   name: 'Catering-V',
   data() {
     return {
-      FirstName: '',
-      LastName: '',
-      Email: '',
-      Phone: '',
-      Description: '',
-      EventType: '',
-      Date: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      description: '',
+      eventType: '',
+      date: '',
     };
   },
   methods: {
     async HandleForm() {
       await SendGrid.FormReq({
-        first_name: this.FirstName,
-        last_name: this.LastName,
-        email: this.Email,
-        phone: this.Phone,
-        description: this.Description,
-        event_type: this.EventType,
-        date: this.Date,
+        first_name: this.firstName,
+        last_name: this.lastName,
+        email: this.email,
+        phone: this.phone,
+        description: this.description,
+        event_type: this.eventType,
+        date: this.date,
       });
       window.location.reload();
     },
-    HandleDate(DateInput) {
-      this.Date = DateInput;
+    HandleDate(dateInput) {
+      this.date = dateInput;
     },
   },
 };

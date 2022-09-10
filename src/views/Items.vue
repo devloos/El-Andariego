@@ -41,15 +41,15 @@
 </template>
 
 <script>
-import Items from '../api/items';
+import Items from '../api/el-andariego/items';
+import blankPixel from '../utility/PlaceHolder';
 
 export default {
   name: 'Items-V',
   data() {
     return {
       items: [],
-      placeHolderSrc:
-        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
+      placeHolderSrc: blankPixel,
     };
   },
   async mounted() {
