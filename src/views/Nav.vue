@@ -1,19 +1,19 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-light mb-4">
+  <nav class="navbar navbar-expand-lg bg-light py-1 pb-1 mb-4">
     <div class="container-fluid">
-      <div class="col-1">
+      <div class="me-3">
         <a href="#" @click.prevent="$router.push('/')">
           <img
             src="/El-Andariego-Logo.jpeg"
-            class="border border-secondary border-1 rounded-circle"
+            class="border rounded-circle"
             alt="Logo"
-            width="50"
-            height="50"
+            width="40"
+            height="40"
           />
         </a>
       </div>
       <button
-        class="navbar-toggler border"
+        class="navbar-toggler border p-1 m-1"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent"

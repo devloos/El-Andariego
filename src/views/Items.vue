@@ -23,7 +23,10 @@
       </div>
     </div>
     <div class="row justify-content-center ms-5 me-5">
-      <span v-text="$route.name" class="mb-2 fs-3 text-uppercase fw-bold text-danger" />
+      <span
+        v-text="$route.params.item"
+        class="mb-2 fs-3 text-uppercase fw-bold text-danger"
+      />
       <hr class="border border-success border-2 ms-4 me-4" />
     </div>
     <table class="row justify-content-evenly ms-5 me-5">
