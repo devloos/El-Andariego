@@ -67,19 +67,19 @@
             <td>Tue: Closed</td>
           </tr>
           <tr>
-            <td>Wed: 5:00 - 10:00 PM</td>
+            <td>Wed: 4:00 - 11:30 PM</td>
           </tr>
           <tr>
-            <td>Thu: 5:00 - 10:00 PM</td>
+            <td>Thu: 4:00 - 11:30 PM</td>
           </tr>
           <tr>
-            <td>Fri: 5:00 - 11:00 PM</td>
+            <td>Fri: 4:00 - 11:30 PM</td>
           </tr>
           <tr>
-            <td>Sat: 5:00 - 11:00 PM</td>
+            <td>Sat: Closed</td>
           </tr>
           <tr>
-            <td>Sun: 11:00 AM - 9:00 PM</td>
+            <td>Sun: 4:00 PM - 11:30 PM</td>
           </tr>
         </table>
       </div>
