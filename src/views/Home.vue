@@ -57,53 +57,36 @@
           alt="La Zanja San Juan Capistrano, CA 92675 US"
         />
       </div>
-      <div class="col mt-5 text-start">
-        <label for="hours" class="mb-1 fw-bold">Business Hours</label>
-        <table class="table table-sm table-borderless" id="hours">
-          <tr>
-            <td>Mon: Closed</td>
-          </tr>
-          <tr>
-            <td>Tue: Closed</td>
-          </tr>
-          <tr>
-            <td>Wed: 4:00 - 11:30 PM</td>
-          </tr>
-          <tr>
-            <td>Thu: 4:00 - 11:30 PM</td>
-          </tr>
-          <tr>
-            <td>Fri: 4:00 - 11:30 PM</td>
-          </tr>
-          <tr>
-            <td>Sat: Closed</td>
-          </tr>
-          <tr>
-            <td>Sun: 4:00 PM - 11:30 PM</td>
-          </tr>
-        </table>
-      </div>
     </div>
+    <Info />
   </div>
 </template>
 
 <script>
+import Info from '@/components/Info.vue';
+
 export default {
   name: 'Home-V',
   data() {
     return {
       imageSlider: ['/home/slider/Platillos.jpeg', '/home/slider/Tacos.jpeg'],
-      scheduleText: '',
+      scheduleText: 'Opening at 4:00 PM',
     };
+  },
+  components: {
+    Info,
   },
   mounted() {
     const date = new Date();
     const hour = date.getHours();
-    if (hour >= 17 && hour <= 21) {
-      this.scheduleText = 'Open today until 11:00 PM';
-      return;
+    if (this.isBetweenSchedule(hour)) {
+      this.scheduleText = 'Open today until 11:30 PM';
     }
-    this.scheduleText = 'Opening at 5:00 PM';
+  },
+  methods: {
+    isBetweenSchedule(hour) {
+      return hour >= 17 && hour <= 23;
+    },
   },
 };
 </script>
