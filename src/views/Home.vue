@@ -85,7 +85,7 @@ export default {
   },
   methods: {
     isBetweenSchedule(hour) {
-      return hour >= 17 && hour <= 23;
+      return hour >= 16 && hour <= 23;
     },
   },
 };
