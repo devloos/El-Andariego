@@ -1,9 +1,9 @@
 <template>
   <div class="container mb-5 pb-5 pt-3">
-    <div class="row">
+    <div class="row text-center">
       <p class="text-uppercase fs-3 fw-bold">Catering Info</p>
     </div>
-    <div class="row d-flex flex-column align-items-center">
+    <div class="row d-flex flex-column align-items-center text-center">
       <p class="col-12 col-md-8 col-lg-5">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam omnis ipsa
         iusto consectetur deleniti quasi voluptatem ratione qui id cum, molestiae dicta
@@ -40,11 +40,11 @@
       </div>
       <div class="row d-flex justify-content-center text-start mb-2">
         <div class="col-7 col-md-5 col-lg-4">
-          <label for="email" class="form-label">email</label>
+          <label for="email" class="form-label">Email</label>
           <input type="email" v-model="email" class="form-control" id="email" required />
         </div>
         <div class="col-5 col-md-3 col-lg-2">
-          <label for="phone" class="form-label">phone #</label>
+          <label for="phone" class="form-label">Phone #</label>
           <input type="tel" v-model="phone" class="form-control" id="phone" required />
         </div>
       </div>
@@ -73,7 +73,7 @@
           </select>
         </div>
         <div class="col-6 col-md-3 col-lg-2">
-          <label for="date" class="form-label">date</label>
+          <label for="date" class="form-label">Date</label>
           <input
             type="date"
             :value="new Date().toISOString().substr(0, 10)"

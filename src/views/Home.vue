@@ -2,15 +2,15 @@
   <div class="container pt-5">
     <div class="row d-grid">
       <header class="col">
-        <h1 class="text-success fw-bold">El Andariego Truck</h1>
+        <h1 class="text-center text-success fw-bold">El Andariego Truck</h1>
       </header>
-      <div class="col mb-4">
+      <div class="col mb-4 text-center">
         <p class="m-0">Authentic Mexican Food</p>
         <p class="m-0" v-text="scheduleText"></p>
       </div>
       <div class="col mb-5">
         <button
-          class="col-4 col-md-3 col-lg-2 btn btn-outline-success"
+          class="col-4 col-md-3 col-lg-2 btn btn-outline-success mx-auto d-block"
           @click="$router.push('/menu')"
         >
           View Menu
@@ -48,7 +48,7 @@
       </div>
       <div class="col">
         <hr class="col-1 mx-auto d-block m-2 border border-dark border-1" />
-        <p class="text-muted fs-6">Find El Andariego</p>
+        <p class="text-center text-muted fs-6">Find El Andariego</p>
       </div>
       <div class="col-12 col-lg-10 col-xl-8 mx-auto d-block">
         <img
@@ -71,21 +71,45 @@ export default {
     return {
       imageSlider: ['/home/slider/Platillos.jpeg', '/home/slider/Tacos.jpeg'],
       scheduleText: 'Opening at 4:00 PM',
+      date: {
+        monday: 1,
+        tuesday: 2,
+        satuday: 6,
+      },
     };
   },
   components: {
     Info,
   },
   mounted() {
-    const date = new Date();
-    const hour = date.getHours();
-    if (this.isBetweenSchedule(hour)) {
-      this.scheduleText = 'Open today until 11:30 PM';
-    }
+    this.schedule();
   },
   methods: {
-    isBetweenSchedule(hour) {
-      return hour >= 16 && hour <= 23;
+    schedule() {
+      const day = new Date().getDay();
+      switch (day) {
+        case this.date.monday:
+        case this.date.tuesday:
+          this.scheduleText = 'Closed, Opening Wednesday at 4:00 PM';
+          return;
+        case this.date.satuday:
+          this.scheduleText = 'Closed, Opening Sunday at 4:00 PM';
+          return;
+        default:
+          break;
+      }
+      if (this.isWorkSchedule()) {
+        this.scheduleText = 'Open today until 11:30 PM';
+      }
+    },
+    isWorkSchedule() {
+      const hour = new Date().getHours();
+      const FOUR_PM = 16;
+      const ELEVEN_PM = 23;
+      if (hour >= FOUR_PM && hour <= ELEVEN_PM) {
+        return true;
+      }
+      return false;
     },
   },
 };

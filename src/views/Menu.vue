@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div>
-        <h2 class="text-success fw-bold">Menu</h2>
+        <h2 class="text-center text-success fw-bold">Menu</h2>
       </div>
     </div>
     <div class="row justify-content-center mb-2">
