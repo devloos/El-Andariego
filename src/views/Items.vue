@@ -1,22 +1,22 @@
 <template>
   <div class="container">
-    <div class="row justify-content-end p-0 m-0">
-      <div class="col-auto">
-        <button
-          class="btn btn-outline-secondary fw-bold pt-0 pb-0 m-0"
-          type="button"
-          @click="$router.push('/menu')"
-        >
-          &#8249;
-        </button>
-      </div>
-    </div>
-    <div class="row justify-content-center mb-2">
-      <div class="col-auto">
-        <span
-          v-text="$route.params.item"
-          class="mb-2 fs-3 text-uppercase fw-bold text-danger"
-        />
+    <div class="row justify-content-center mt-4 mb-2">
+      <div class="col-9 col-md-7 d-flex">
+        <div class="col-auto mx-auto text-center">
+          <span
+            v-text="$route.params.item"
+            class="fs-3 text-uppercase fw-bold text-danger"
+          />
+        </div>
+        <div class="col-1 text-center pt-1">
+          <button
+            class="btn btn-outline-secondary fw-bold pt-0 pb-0 m-0"
+            type="button"
+            @click="$router.push('/menu')"
+          >
+            &#8249;
+          </button>
+        </div>
       </div>
     </div>
     <div class="row justify-content-center mb-4">

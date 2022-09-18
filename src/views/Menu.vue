@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row mt-4">
       <div>
         <h2 class="text-center text-success fw-bold">Menu</h2>
       </div>
