@@ -16,7 +16,7 @@
           class="card-img-top pt-1"
           :alt="platillos.name"
         />
-        <div class="card-body">
+        <div class="card-body text-dark">
           <h5 class="card-title" v-text="platillos.name"></h5>
           <p class="card-text" v-text="platillos.description"></p>
         </div>
@@ -35,7 +35,7 @@
           class="card-img-top"
           :alt="category.name"
         />
-        <div class="card-body">
+        <div class="card-body text-dark">
           <h5 class="card-title" v-text="category.name"></h5>
           <p class="card-text" v-text="category.description"></p>
         </div>
