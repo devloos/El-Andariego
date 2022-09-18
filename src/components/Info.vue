@@ -31,3 +31,12 @@ export default {
   name: 'Info-V',
 };
 </script>
+
+<style scoped>
+p {
+  font-size: 14px;
+}
+td {
+  font-size: 14px;
+}
+</style>

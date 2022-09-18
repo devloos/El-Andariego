@@ -5,49 +5,41 @@
         <h2 class="text-success fw-bold">Menu</h2>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-10 col-sm-9 col-md-6 col-lg-5">
+    <div class="row justify-content-center mb-2">
+      <button
+        class="card border-0 col-10 col-sm-9 col-md-6 col-lg-5"
+        @click="$router.push(`/items/${platillos.name}`)"
+      >
         <img
           :srcset="platillos.image"
           :src="placeHolderSrc"
-          class="img-thumbnail p-1 border border-0 rounded-3"
+          class="card-img-top pt-1"
           :alt="platillos.name"
-          width="1080"
-          height="720"
         />
-        <br />
-        <button
-          class="btn btn-outline-success m-2 p-1 ps-3 pe-3 fw-bold"
-          type="button"
-          v-text="platillos.name"
-          @click="$router.push(`/items/${platillos.name}`)"
-        ></button>
-        <p v-text="platillos.description"></p>
-      </div>
+        <div class="card-body">
+          <h5 class="card-title" v-text="platillos.name"></h5>
+          <p class="card-text" v-text="platillos.description"></p>
+        </div>
+      </button>
     </div>
     <div class="row justify-content-evenly">
-      <div
+      <button
         v-for="category in categories"
         :key="category.name"
-        class="col-6 col-lg-3 me-lg-1 col-md-4 mb-3 p-1"
+        class="card border-0 col-6 col-lg-3 me-lg-1 col-md-4 mb-3 p-1"
+        @click="$router.push(`/items/${category.name}`)"
       >
         <img
           :srcset="category.image"
           :src="placeHolderSrc"
-          class="img-thumbnail rounded-3 border border-0"
+          class="card-img-top"
           :alt="category.name"
-          width="320"
-          height="320"
         />
-        <br />
-        <button
-          class="btn btn-outline-success m-2 p-1 ps-3 pe-3 fw-bold"
-          type="button"
-          v-text="category.name"
-          @click="$router.push(`/items/${category.name}`)"
-        ></button>
-        <p v-text="category.description"></p>
-      </div>
+        <div class="card-body">
+          <h5 class="card-title" v-text="category.name"></h5>
+          <p class="card-text" v-text="category.description"></p>
+        </div>
+      </button>
     </div>
   </div>
 </template>
@@ -77,3 +69,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+p {
+  font-size: 14px;
+}
+.card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+</style>

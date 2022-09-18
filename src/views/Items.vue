@@ -1,7 +1,26 @@
 <template>
   <div class="container">
+    <div class="row justify-content-end p-0 m-0">
+      <div class="col-auto">
+        <button
+          class="btn btn-outline-secondary fw-bold pt-0 pb-0 m-0"
+          type="button"
+          @click="$router.push('/menu')"
+        >
+          &#8249;
+        </button>
+      </div>
+    </div>
+    <div class="row justify-content-center mb-2">
+      <div class="col-auto">
+        <span
+          v-text="$route.params.item"
+          class="mb-2 fs-3 text-uppercase fw-bold text-danger"
+        />
+      </div>
+    </div>
     <div class="row justify-content-center mb-4">
-      <div class="col-10 col-lg-7">
+      <div class="col-10 col-lg-7 mb-4">
         <img
           :srcset="`/heros/${this.$route.params.item}.jpeg`"
           :src="placeHolderSrc"
@@ -10,24 +29,9 @@
           height="1080"
         />
       </div>
-    </div>
-    <div class="row justify-content-center mb-4">
-      <div class="col-lg-3">
-        <button
-          class="btn btn-outline-secondary fw-bold"
-          type="button"
-          @click="$router.push('/menu')"
-        >
-          Back To Categories
-        </button>
-      </div>
-    </div>
-    <div class="row justify-content-center ms-5 me-5">
-      <span
-        v-text="$route.params.item"
-        class="mb-2 fs-3 text-uppercase fw-bold text-danger"
+      <hr
+        class="col-7 col-md-9 col-lg-9 col-xl-10 border border-success border-2 ms-4 me-4"
       />
-      <hr class="border border-success border-2 ms-4 me-4" />
     </div>
     <table class="row justify-content-evenly ms-5 me-5">
       <tr v-for="item in items" :key="item.name" class="col-lg-4 col-md-6 mb-2">
