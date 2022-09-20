@@ -11,13 +11,14 @@
         />
       </a>
       <button
-        class="navbar-toggler border p-1 m-1"
+        id="navBurger"
+        class="navbar-toggler border fa-bounce"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar"
       >
-        <span class="navbar-toggler-icon"></span>
+        <i class="fa-solid fa-bars"></i>
       </button>
       <div
         class="offcanvas offcanvas-end"
@@ -92,16 +93,23 @@
                   <a
                     class="dropdown-item"
                     href="https://www.facebook.com/profile.php?id=100082710796984"
+                    target="_blank"
                     >Facebook</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="https://instagram.com/el_andariegotruck"
+                  <a
+                    class="dropdown-item"
+                    href="https://instagram.com/el_andariegotruck"
+                    target="_blank"
                     >Instagram</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="https://g.page/r/CY53oo_JlDb8EAI/review"
+                  <a
+                    class="dropdown-item"
+                    href="https://g.page/r/CY53oo_JlDb8EAI/review"
+                    target="_blank"
                     >Leave a review!</a
                   >
                 </li>
@@ -147,3 +155,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#navBurger {
+  --fa-animation-iteration-count: 3;
+}
+</style>

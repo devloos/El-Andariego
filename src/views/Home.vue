@@ -58,8 +58,8 @@
         />
       </div>
     </div>
-    <Info />
   </div>
+  <Info />
 </template>
 
 <script>
@@ -69,7 +69,7 @@ export default {
   name: 'Home-V',
   data() {
     return {
-      imageSlider: ['/home/slider/Platillos.jpeg', '/home/slider/Tacos.jpeg'],
+      imageSlider: ['/home/slider/Tacos.jpeg'],
       scheduleText: 'Opening at 4:00 PM',
       date: {
         monday: 1,

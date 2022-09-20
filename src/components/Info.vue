@@ -1,20 +1,20 @@
 <template>
-  <div class="container">
+  <div class="container-fluid ms-1 ms-sm-2 ms-md-3 ms-lg-3 ms-xl-3">
     <div class="col mt-5 text-start">
       <label for="contact-us" class="col-12 mb-1 fw-bold">Contact Us</label>
       <p class="m-0 ms-1">
-        <img src="/icons/food-truck.png" alt="truck" />
+        <i class="fa-solid fa-truck fa-lg me-1"></i>
         31345 Los Rios St,
       </p>
       <p class="mb-1 ms-1">San Juan Capistrano, CA 92675</p>
       <p class="ms-1">
-        <img src="/icons/phone.png" class="me-1" width="24" height="24" alt="phone#" />
+        <i class="fa-solid fa-phone fa-shake fa-lg me-1"></i>
         (949) 806 - 0123
       </p>
     </div>
     <div class="col mt-2 text-start">
       <label for="hours" class="mb-1 fw-bold">Business Hours</label>
-      <table class="table table-sm table-borderless" id="hours">
+      <table class="table table-sm table-borderless mb-1" id="hours">
         <tr>
           <td>Mon - Tue - Sat: Closed</td>
         </tr>
@@ -22,6 +22,21 @@
           <td>Wed - Thu - Fri - Sun: 4:00 - 11:30 PM</td>
         </tr>
       </table>
+    </div>
+    <div class="d-flex justify-content-start">
+      <a
+        href="https://www.facebook.com/profile.php?id=100082710796984"
+        class="me-2"
+        target="_blank"
+      >
+        <i class="fa-brands fa-facebook fa-lg"></i>
+      </a>
+      <a href="https://instagram.com/el_andariegotruck" class="me-2" target="_blank">
+        <i class="fa-brands fa-instagram fa-lg"></i>
+      </a>
+      <a href="https://g.page/r/CY53oo_JlDb8EAI/review" class="me-2" target="_blank">
+        <i class="fa-brands fa-google fa-md"></i>
+      </a>
     </div>
   </div>
 </template>
@@ -38,5 +53,17 @@ p {
 }
 td {
   font-size: 14px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+i {
+  --fa-animation-delay: 3s;
+  --fa-animation-iteration-count: 2;
 }
 </style>
