@@ -129,14 +129,21 @@
               v-model="itemSearch"
             />
           </form>
-          <!-- <div v-if="itemSearch" class="mt-3">
+          <div v-if="itemSearch" class="mt-3">
             <ul>
-              <li v-for="item in searchResult" :key="item" class="pt-2 ps-2 border">
-                <h6 v-text="item.name"></h6>
-                <p id="searchPrice" v-text="item.price"></p>
+              <li v-for="item in searchResult" :key="item" class="pt-2 ps-3 border">
+                <a
+                  href="#"
+                  @click.prevent="$router.push(`/items/${item.category}`)"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                >
+                  <h6 v-text="item.name"></h6>
+                  <p id="searchPrice" class="mb-1" v-text="'$' + item.price"></p>
+                </a>
               </li>
             </ul>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -144,35 +151,25 @@
 </template>
 
 <script>
+import { getSearchResults } from '@/api/el-andariego/search';
+
 export default {
   name: 'Nav-V',
   data() {
     return {
       itemSearch: '',
-      // searchResult: [],
+      searchResult: [],
     };
   },
-  // watch: {
-  //   itemSearch() {
-  //     this.searchResult = [];
-  //     this.searchResult.push({
-  //       name: 'Carne Asada Taco',
-  //       price: '$8.00',
-  //     });
-  //     this.searchResult.push({
-  //       name: 'Chicken Taco',
-  //       price: '$8.00',
-  //     });
-  //     this.searchResult.push({
-  //       name: 'Lengua Taco',
-  //       price: '$7.00',
-  //     });
-  //     this.searchResult.push({
-  //       name: 'Chorizo Taco',
-  //       price: '$6.00',
-  //     });
-  //   },
-  // },
+  watch: {
+    async itemSearch() {
+      this.searchResult = [];
+      if (this.itemSearch) {
+        const res = await getSearchResults(this.itemSearch);
+        this.searchResult = res;
+      }
+    },
+  },
   methods: {
     async CopyPhone() {
       try {
@@ -189,12 +186,20 @@ export default {
 #navBurger {
   --fa-animation-iteration-count: 3;
 }
-/* ul {
+ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-} */
-/* #searchPrice {
+}
+#searchPrice {
   font-size: 14px;
-} */
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  color: green;
+  text-decoration: none;
+}
 </style>
