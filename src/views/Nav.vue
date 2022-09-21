@@ -26,7 +26,7 @@
         id="offcanvasNavbar"
         aria-labelledby="offcanvasNavbarLabel"
       >
-        <div class="offcanvas-header">
+        <div class="offcanvas-header bg-light pt-1 pb-1">
           <img
             src="/El-Andariego-Logo.jpeg"
             class="offcanvas-title border rounded-circle"
@@ -41,9 +41,9 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body pt-1 pe-0 ps-0 ms-0 me-0">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item ms-1">
+            <li class="nav-item mt-1 mb-1 ms-3 fw-bold">
               <a
                 class="nav-link"
                 href="#"
@@ -54,7 +54,7 @@
               >
             </li>
             <hr class="p-0 m-0" />
-            <li class="nav-item ms-1">
+            <li class="nav-item mt-1 mb-1 ms-3 fw-bold">
               <a
                 class="nav-link"
                 href="#"
@@ -65,7 +65,7 @@
               >
             </li>
             <hr class="p-0 m-0" />
-            <li class="nav-item ms-1">
+            <li class="nav-item mt-1 mb-1 ms-3 fw-bold">
               <a
                 class="nav-link"
                 href="#"
@@ -77,14 +77,13 @@
               </a>
             </li>
             <hr class="p-0 m-0" />
-            <li class="nav-item dropdown ms-1">
+            <li class="nav-item dropdown mt-1 mb-1 ms-3 fw-bold">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                @click="contactToggled = !contactToggled"
               >
                 Contact
               </a>
@@ -119,17 +118,25 @@
                 </li>
               </ul>
             </li>
-            <hr v-show="!contactToggled" class="p-0 m-0 mb-2" />
+            <hr class="p-0 m-0 mb-2" />
           </ul>
-          <form class="d-flex" role="search">
+          <form class="d-flex mt-1 ms-3 me-3" role="search">
             <input
               class="form-control me-2"
-              type="search"
+              type="text"
               placeholder="Search"
               aria-label="Search"
+              v-model="itemSearch"
             />
-            <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
+          <!-- <div v-if="itemSearch" class="mt-3">
+            <ul>
+              <li v-for="item in searchResult" :key="item" class="pt-2 ps-2 border">
+                <h6 v-text="item.name"></h6>
+                <p id="searchPrice" v-text="item.price"></p>
+              </li>
+            </ul>
+          </div> -->
         </div>
       </div>
     </div>
@@ -141,9 +148,31 @@ export default {
   name: 'Nav-V',
   data() {
     return {
-      contactToggled: false,
+      itemSearch: '',
+      // searchResult: [],
     };
   },
+  // watch: {
+  //   itemSearch() {
+  //     this.searchResult = [];
+  //     this.searchResult.push({
+  //       name: 'Carne Asada Taco',
+  //       price: '$8.00',
+  //     });
+  //     this.searchResult.push({
+  //       name: 'Chicken Taco',
+  //       price: '$8.00',
+  //     });
+  //     this.searchResult.push({
+  //       name: 'Lengua Taco',
+  //       price: '$7.00',
+  //     });
+  //     this.searchResult.push({
+  //       name: 'Chorizo Taco',
+  //       price: '$6.00',
+  //     });
+  //   },
+  // },
   methods: {
     async CopyPhone() {
       try {
@@ -160,4 +189,12 @@ export default {
 #navBurger {
   --fa-animation-iteration-count: 3;
 }
+/* ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+} */
+/* #searchPrice {
+  font-size: 14px;
+} */
 </style>
