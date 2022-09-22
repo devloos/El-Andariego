@@ -1,8 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import Menu from '../views/Menu.vue';
-import Items from '../views/Items.vue';
-import Catering from '../views/Catering.vue';
+import Home from '@/views/Home.vue';
+import Menu from '@/views/menu/Categories.vue';
+import Items from '@/views/menu/Items.vue';
+import Catering from '@/views/catering/Catering.vue';
+import PageNotFound from '@/views/PageNotFound.vue';
 
 const routes = [
   {
@@ -24,6 +25,16 @@ const routes = [
     path: '/catering',
     name: 'Catering',
     component: Catering,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'PageNotFound',
+    component: PageNotFound,
+  },
+  {
+    path: '/items/undefined',
+    name: 'Undefined',
+    component: PageNotFound,
   },
 ];
 

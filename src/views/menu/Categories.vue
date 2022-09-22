@@ -45,8 +45,8 @@
 </template>
 
 <script>
-import Categories from '../api/el-andariego/categories';
-import blankPixel from '../utility/PlaceHolder';
+import Categories from '../../api/el-andariego/categories';
+import blankPixel from '../../utility/PlaceHolder';
 
 export default {
   name: 'Categories-V',

@@ -56,8 +56,8 @@
 </template>
 
 <script>
-import Items from '../api/el-andariego/items';
-import blankPixel from '../utility/PlaceHolder';
+import Items from '../../api/el-andariego/items';
+import blankPixel from '../../utility/PlaceHolder';
 
 export default {
   name: 'Items-V',
