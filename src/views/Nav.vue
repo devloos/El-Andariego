@@ -10,16 +10,16 @@
           height="40"
         />
       </a>
-      <button
+      <a
         id="navBurger"
-        class="navbar-toggler border fa-bounce"
+        class="navbar-toggler fa-bounce border border-0"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar"
       >
-        <i class="fa-solid fa-bars"></i>
-      </button>
+        <i class="fa-solid fa-bars fa-lg"></i>
+      </a>
       <div
         class="offcanvas offcanvas-end"
         tabindex="-1"
@@ -34,12 +34,12 @@
             width="40"
             height="40"
           />
-          <button
+          <a
             type="button"
-            class="btn-close"
+            class="fa-solid fa-xmark fa-xl"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-          ></button>
+          ></a>
         </div>
         <div class="offcanvas-body pt-1 pe-0 ps-0 ms-0 me-0">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">

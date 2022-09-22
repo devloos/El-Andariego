@@ -1,20 +1,29 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center mt-4 mb-2">
-      <div class="col-9 col-md-7 d-flex">
+    <div class="col-10 col-lg-7 mx-auto justify-content-center mt-4 mb-2">
+      <div class="d-flex">
+        <div class="col-auto text-center pt-1" id="hidden">
+          <button
+            class="btn btn-outline-secondary fw-bold pt-0 pb-0 ms-2"
+            type="button"
+            @click="$router.push('/menu')"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
         <div class="col-auto mx-auto text-center">
           <span
             v-text="$route.params.item"
             class="fs-3 text-uppercase fw-bold text-danger"
           />
         </div>
-        <div class="col-1 text-center pt-1">
+        <div class="col-auto text-center pt-1">
           <button
-            class="btn btn-outline-secondary fw-bold pt-0 pb-0 m-0"
+            class="btn btn-outline-secondary fw-bold pt-0 pb-0 me-2"
             type="button"
             @click="$router.push('/menu')"
           >
-            &#8249;
+            <i class="fa-solid fa-arrow-left"></i>
           </button>
         </div>
       </div>
@@ -63,3 +72,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#hidden {
+  visibility: hidden;
+}
+</style>
