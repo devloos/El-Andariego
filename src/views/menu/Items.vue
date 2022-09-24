@@ -70,6 +70,13 @@ export default {
   async mounted() {
     this.items = await Items.GetByCategory(this.$route.params.item);
   },
+  watch: {
+    async $route(to) {
+      if (to.path !== '/menu') {
+        this.items = await Items.GetByCategory(to.params.item);
+      }
+    },
+  },
 };
 </script>
 

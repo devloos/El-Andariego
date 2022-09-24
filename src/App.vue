@@ -1,7 +1,9 @@
 <template>
   <Nav />
   <!-- Calling Router View -->
-  <router-view id="main" />
+  <div id="main">
+    <router-view />
+  </div>
   <!-- End Call Router View -->
   <Footer />
 </template>
