@@ -10,7 +10,7 @@
       </div>
       <div class="col mb-5">
         <button
-          class="col-4 col-md-3 col-lg-2 btn btn-outline-success mx-auto d-block"
+          class="col-4 col-md-3 col-lg-2 btn btn-success mx-auto d-block"
           @click="$router.push('/menu')"
         >
           View Menu
@@ -69,7 +69,7 @@ export default {
   name: 'Home-V',
   data() {
     return {
-      imageSlider: ['/home/slider/Tacos.jpeg'],
+      imageSlider: ['/home/slider/Tacos.jpeg', '/home/slider/Cubana.png'],
       scheduleText: 'Opening at 4:00 PM',
       date: {
         monday: 1,
