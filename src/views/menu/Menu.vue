@@ -62,7 +62,6 @@ export default {
   methods: {
     async getMenu() {
       this.menu = await Menu.get();
-      console.log(this.menu);
       // this.menu.sort((list, list2) => list.priority - list2.priority);
     },
     async getCategories() {
