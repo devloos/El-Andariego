@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import Items from '@/api/el-andariego/items';
+import Menu from '@/api/el-andariego/Menu';
 import blankPixel from '@/utility/PlaceHolder';
 
 export default {
@@ -68,12 +68,12 @@ export default {
     };
   },
   async mounted() {
-    this.items = await Items.GetByCategory(this.$route.params.item);
+    this.items = await Menu.getItemsByCategory(this.$route.params.item);
   },
   watch: {
     async $route(to) {
       if (to.path !== '/menu') {
-        this.items = await Items.GetByCategory(to.params.item);
+        this.items = await Menu.getItemsByCategory(to.params.item);
       }
     },
   },

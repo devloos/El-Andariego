@@ -136,7 +136,7 @@
               <li v-for="item in searchResult" :key="item" class="pt-2 ps-3 border">
                 <a
                   href="#"
-                  @click.prevent="$router.push(`/items/${item.category}`)"
+                  @click.prevent="$router.push(`/menu/items/${item.category}`)"
                   data-bs-dismiss="offcanvas"
                   aria-label="Close"
                 >

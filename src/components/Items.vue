@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import Items from '@/api/el-andariego/items';
+import Menu from '@/api/el-andariego/Menu';
 
 export default {
   name: 'Items-C',
@@ -43,7 +43,7 @@ export default {
     },
   },
   async mounted() {
-    this.items = await Items.GetByCategory(this.category);
+    this.items = await Menu.getItemsByCategory(this.category);
   },
 };
 </script>

@@ -15,7 +15,7 @@
         accusantium voluptate nam harum quae pariatur provident culpa?
       </p>
     </div>
-    <form @submit="HandleForm">
+    <form @submit="sendgridSave">
       <div class="row d-flex justify-content-center text-start mb-2">
         <div class="col-6 col-md-4 col-lg-3">
           <label for="firstName" class="form-label">First Name</label>
@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import SendGrid from '@/api/send-grid/sendGrid';
+import SendGrid from '@/api/SendGrid';
 
 export default {
   name: 'Catering-V',
@@ -110,8 +110,8 @@ export default {
     };
   },
   methods: {
-    async HandleForm() {
-      await SendGrid.FormReq({
+    async sendgridSave() {
+      const data = {
         first_name: this.firstName,
         last_name: this.lastName,
         email: this.email,
@@ -119,7 +119,9 @@ export default {
         description: this.description,
         event_type: this.eventType,
         date: this.date,
-      });
+      };
+      await SendGrid.save(data);
+      // TODO show that save was complete
       window.location.reload();
     },
     HandleDate(dateInput) {

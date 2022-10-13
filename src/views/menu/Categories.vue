@@ -5,6 +5,7 @@
         <h2 class="text-center text-success fw-bold">Menu</h2>
       </div>
     </div>
+    <category v-for="category in menu" :key="category" :items="category" />
     <div class="row justify-content-center mb-2">
       <button
         class="card border-0 col-10 col-sm-9 col-md-6 col-lg-5"
@@ -45,8 +46,9 @@
 </template>
 
 <script>
-import Categories from '../../api/el-andariego/categories';
-import blankPixel from '../../utility/PlaceHolder';
+import Menu from '@/api/el-andariego/Menu';
+import Category from '@/components/menu/Categories.vue';
+import blankPixel from '@/utility/PlaceHolder';
 
 export default {
   name: 'Categories-V',
@@ -54,18 +56,15 @@ export default {
     return {
       categories: [],
       platillos: {},
+      menu: [],
       placeHolderSrc: blankPixel,
     };
   },
+  components: {
+    Category,
+  },
   async mounted() {
-    this.categories = await Categories.Get();
-    const res = await Categories.GetPlatillos();
-    this.platillos = {
-      name: res[0].name,
-      description: res[0].description,
-      image: res[0].image,
-    };
-    this.categories.sort((cat1, cat2) => cat1.priority - cat2.priority);
+    this.menu = await Menu.get();
   },
 };
 </script>

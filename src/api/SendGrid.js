@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 class SendGrid {
-  static async FormReq(data) {
+  static async save(data) {
     try {
-      await axios.post('/api/sendgrid', data);
+      await axios.post('/sendgrid/save', data);
     } catch (err) {
       alert(err);
     }

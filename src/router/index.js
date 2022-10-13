@@ -17,7 +17,7 @@ const routes = [
     component: Menu,
   },
   {
-    path: '/items/:item',
+    path: '/menu/items/:item',
     name: 'Items',
     component: Items,
   },
