@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from '@/views/Home.vue';
-import Menu from '@/views/menu/Categories.vue';
+import Menu from '@/views/menu/Menu.vue';
 import Items from '@/views/menu/Items.vue';
 import Catering from '@/views/catering/Catering.vue';
 import PageNotFound from '@/views/PageNotFound.vue';
