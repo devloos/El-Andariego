@@ -1,41 +1,32 @@
 <template>
-  <div class="mt-2 mb-5">
-    <p id="subtitle" v-text="category" class="text-center text-danger"></p>
+  <div class="mt-2">
+    <div class="mt-2 mb-5">
+      <p id="subtitle" v-text="category" class="text-center text-danger"></p>
+    </div>
+    <table class="row justify-content-evenly ms-5 me-5">
+      <tr v-for="item in itemList" :key="item.name" class="col-lg-4 col-md-6 mb-2">
+        <div class="text-center">
+          <span class="fs-6 m-1 fw-bold text-success" v-text="item.name" />
+          <span class="fs-6 m-1" v-text="' ($' + item.price + ')'" />
+          <p class="fs-6 m-1" v-text="item.content" />
+          <p class="fs-6 mt-4">..............................................</p>
+        </div>
+      </tr>
+    </table>
   </div>
-  <table class="row justify-content-evenly ms-5 me-5">
-    <tr v-for="item in categoryItems" :key="item.name" class="col-lg-4 col-md-6 mb-2">
-      <div class="text-center">
-        <span class="fs-6 m-1 fw-bold text-success" v-text="item.name" />
-        <span class="fs-6 m-1" v-text="' ($' + item.price + ')'" />
-        <p class="fs-6 m-1" v-text="item.content" />
-        <p class="fs-6 mt-4">..............................................</p>
-      </div>
-    </tr>
-  </table>
 </template>
 
 <script>
 export default {
   name: 'Categories-C',
   props: {
-    categoryItems: {
+    itemList: {
       type: Array,
       default: null,
     },
-  },
-  data() {
-    return {
-      category: '',
-    };
-  },
-  watch: {
-    categoryItems: {
-      immediate: true,
-      handler(newValue) {
-        if (newValue) {
-          this.category = newValue[0].category;
-        }
-      },
+    category: {
+      type: String,
+      default: null,
     },
   },
 };

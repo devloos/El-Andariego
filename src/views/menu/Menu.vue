@@ -3,17 +3,22 @@
     <div class="row mt-4 mb-5">
       <header>
         <h1 id="title" class="text-center text-success text-uppercase">Menu</h1>
-        <p class="col-10 col-md-7 col-lg-5 col-xl-4 mx-auto mt-4 text-center">
+        <!-- <p class="col-10 col-md-7 col-lg-5 col-xl-4 mx-auto mt-4 text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis nostrum
           corporis voluptate. Iste, necessitatibus quae. Nemo commodi impedit neque
           dolores minima facere deleniti, quas a ullam vitae blanditiis fugiat error.
         </p>
+        <p class="col-10 col-md-7 col-lg-5 col-xl-4 mx-auto mt-4 text-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis nostrum
+          corporis voluptate. Iste, necessitatibus quae. Nemo commodi impedit neque
+          dolores minima facere deleniti, quas a ullam vitae blanditiis fugiat error.
+        </p> -->
       </header>
       <div class="text-center">
-        <p class="m-1 text-center text-uppercase">Categories</p>
+        <p class="mt-3 mb-0 text-center fw-bold text-uppercase">Categories</p>
         <i class="fa-solid fa-angle-down"></i>
       </div>
-      <div id="horizontal-scroll" class="col-6 col-lg-4 mt-3 mx-auto">
+      <div id="horizontal-scroll" class="col-8 col-lg-4 mt-1 mx-auto">
         <a
           v-for="category in categories"
           :key="category.name"
@@ -25,10 +30,10 @@
       </div>
     </div>
     <categories
-      v-for="categoryItems in menu"
-      :key="categoryItems"
-      class="mt-2"
-      :categoryItems="categoryItems"
+      v-for="items in menu"
+      :key="items.category"
+      :itemList="items.list"
+      :category="items.category"
     />
   </div>
 </template>
@@ -57,10 +62,14 @@ export default {
   methods: {
     async getMenu() {
       this.menu = await Menu.get();
+      console.log(this.menu);
+      // this.menu.sort((list, list2) => list.priority - list2.priority);
     },
     async getCategories() {
       this.categories = await Menu.getCategories();
-      console.log(this.categories);
+      this.categories.sort(
+        (category, category2) => category.priority - category2.priority
+      );
     },
   },
 };
