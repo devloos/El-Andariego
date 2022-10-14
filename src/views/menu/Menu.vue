@@ -32,7 +32,7 @@
     <categories
       v-for="items in menu"
       :key="items.category"
-      :itemList="items.list"
+      :list="items.list"
       :category="items.category"
     />
   </div>
@@ -40,7 +40,7 @@
 
 <script>
 import Menu from '@/api/el-andariego/Menu';
-import categories from '@/components/menu/Categories.vue';
+import categories from '@/components/menu/List.vue';
 import blankPixel from '@/utility/PlaceHolder';
 
 export default {
@@ -62,7 +62,7 @@ export default {
   methods: {
     async getMenu() {
       this.menu = await Menu.get();
-      // this.menu.sort((list, list2) => list.priority - list2.priority);
+      this.menu.sort((list, list2) => list.priority - list2.priority);
     },
     async getCategories() {
       this.categories = await Menu.getCategories();

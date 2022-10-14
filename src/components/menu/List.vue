@@ -4,7 +4,7 @@
       <p id="subtitle" v-text="category" class="text-center text-danger"></p>
     </div>
     <table class="row justify-content-evenly ms-5 me-5">
-      <tr v-for="item in itemList" :key="item.name" class="col-lg-4 col-md-6 mb-2">
+      <tr v-for="item in list" :key="item.name" class="col-lg-4 col-md-6 mb-2">
         <div class="text-center">
           <span class="fs-6 m-1 fw-bold text-success" v-text="item.name" />
           <span class="fs-6 m-1" v-text="' ($' + item.price + ')'" />
@@ -20,7 +20,7 @@
 export default {
   name: 'Categories-C',
   props: {
-    itemList: {
+    list: {
       type: Array,
       default: null,
     },

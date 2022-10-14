@@ -6,7 +6,7 @@
       </header>
       <div class="col mb-4 text-center">
         <p class="m-0">Authentic Mexican Food</p>
-        <p class="m-0" v-text="scheduleText"></p>
+        <p class="m-0" v-text="schedule"></p>
       </div>
       <div class="col mb-5">
         <button
@@ -17,7 +17,7 @@
         </button>
       </div>
       <div
-        id="Controls"
+        id="Home-Slider"
         class="col-12 col-lg-10 col-xl-8 carousel carousel-dark slide mx-auto d-block mb-5"
         data-bs-ride="carousel"
       >
@@ -25,14 +25,14 @@
           <div class="carousel-item active">
             <img src="/home/slider/Logo.jpeg" class="img-fluid" alt="..." />
           </div>
-          <div v-for="(image, i) in imageSlider" :key="i" class="carousel-item">
+          <div v-for="(image, i) in sliderImages" :key="i" class="carousel-item">
             <img :src="image" class="img-fluid" alt="..." />
           </div>
         </div>
         <button
           class="carousel-control-prev"
           type="button"
-          data-bs-target="#Controls"
+          data-bs-target="#Home-Slider"
           data-bs-slide="prev"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,7 +40,7 @@
         <button
           class="carousel-control-next"
           type="button"
-          data-bs-target="#Controls"
+          data-bs-target="#Home-Slider"
           data-bs-slide="next"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -64,42 +64,46 @@
 
 <script>
 import Info from '@/components/Info.vue';
+import Days from '@/utility/constants/Days';
 
 export default {
   name: 'Home-V',
   data() {
     return {
-      imageSlider: ['/home/slider/Tacos.jpeg', '/home/slider/Cubana.png'],
-      scheduleText: 'Opening at 4:00 PM',
-      date: {
-        monday: 1,
-        tuesday: 2,
-        satuday: 6,
-      },
+      sliderImages: ['/home/slider/Tacos.jpeg', '/home/slider/Cubana.png'],
+      schedule: 'Opening at 4:00 PM',
     };
   },
   components: {
     Info,
   },
-  mounted() {
-    this.schedule();
+  watch: {
+    schedule: {
+      immediate: true,
+      handler() {
+        this.setSchedule();
+      },
+    },
   },
   methods: {
-    schedule() {
+    setSchedule() {
       const day = new Date().getDay();
       switch (day) {
-        case this.date.monday:
-        case this.date.tuesday:
-          this.scheduleText = 'Closed, Opening Wednesday at 4:00 PM';
+        case Days.Monday:
+        case Days.Tuesday: {
+          this.schedule = 'Closed, Opening Wednesday at 4:00 PM';
           return;
-        case this.date.satuday:
-          this.scheduleText = 'Closed, Opening Sunday at 4:00 PM';
+        }
+        case Days.Saturday: {
+          this.schedule = 'Closed, Opening Sunday at 4:00 PM';
           return;
-        default:
+        }
+        default: {
           break;
+        }
       }
       if (this.isWorkSchedule()) {
-        this.scheduleText = 'Open today until 11:30 PM';
+        this.schedule = 'Open today until 11:30 PM';
       }
     },
     isWorkSchedule() {
