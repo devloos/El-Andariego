@@ -5,7 +5,8 @@ class SendGrid {
     try {
       await axios.post('/sendgrid/save', data);
     } catch (err) {
-      alert(err);
+      // took it off because of category -> menu alert
+      // handle errors
     }
   }
 }

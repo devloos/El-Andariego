@@ -6,7 +6,8 @@ class Menu {
       const res = await axios.get('/api/menu');
       return res.data;
     } catch (err) {
-      alert(err);
+      // took it off because of category -> menu alert
+      // handle errors
     }
   }
 
@@ -15,7 +16,8 @@ class Menu {
       const res = await axios.get('/api/menu/categories');
       return res.data;
     } catch (err) {
-      alert(err);
+      // took it off because of category -> menu alert
+      // handle errors
     }
   }
 
@@ -24,7 +26,8 @@ class Menu {
       const res = await axios.get(`/api/menu/items/${category}`);
       return res.data;
     } catch (err) {
-      alert(err);
+      // took it off because of category -> menu alert
+      // handle errors
     }
   }
 }

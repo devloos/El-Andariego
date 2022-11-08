@@ -5,6 +5,7 @@ export async function getSearchResults(data) {
     const res = await axios.get(`/api/search/${data}`);
     return res.data;
   } catch (err) {
-    alert(err);
+    // took it off because of category -> menu alert
+    // handle errors
   }
 }
