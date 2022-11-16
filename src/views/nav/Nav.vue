@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#" @click.prevent="$router.push('/')">
         <img
-          src="/El-Andariego-Logo.jpeg"
+          src="/logo/El-Andariego-Logo.jpeg"
           class="border rounded-circle"
           alt="Logo"
           width="40"
@@ -28,7 +28,7 @@
       >
         <div class="offcanvas-header bg-light pt-1 pb-1">
           <img
-            src="/El-Andariego-Logo.jpeg"
+            src="/logo/El-Andariego-Logo.jpeg"
             class="offcanvas-title border rounded-circle"
             alt="Logo"
             width="40"
