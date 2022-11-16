@@ -18,7 +18,7 @@
         <p class="mt-3 mb-0 text-center fw-bold text-uppercase">Categories</p>
         <i class="fa-solid fa-angle-down"></i>
       </div>
-      <div id="horizontal-scroll" class="col-8 col-lg-4 mt-1 mx-auto">
+      <div class="hidden-scroll col-8 col-lg-4 mt-1 mx-auto">
         <a
           v-for="category in categories"
           :key="category.name"
@@ -82,9 +82,15 @@ export default {
   color: #f5f5f5;
   text-shadow: 1px 1px 1px #515151, 1px 2px 1px #515151, 1px 3px 1px #515151;
 }
-#horizontal-scroll {
-  overflow: auto;
-  white-space: nowrap;
+.hidden-scroll {
+  overflow-x: scroll;
+}
+.hidden-scroll::-webkit-scrollbar {
+  display: none;
+}
+.hidden-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 a {
   color: inherit;
