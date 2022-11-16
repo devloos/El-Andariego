@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Nav from '@/views/nav/Nav.vue';
-import Footer from '@/views/footer/Footer.vue';
+import Nav from '@/views/nav/index.vue';
+import Footer from '@/views/footer/index.vue';
 
 export default {
   name: 'App',

@@ -63,8 +63,8 @@
 </template>
 
 <script>
-import Info from '@/components/Info.vue';
-import Days from '@/utility/constants/Days';
+import Info from '@/components/footer/info.vue';
+import Days from '@/utility/constants/weekdays';
 
 export default {
   name: 'Home-V',

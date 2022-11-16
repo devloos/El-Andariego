@@ -39,9 +39,9 @@
 </template>
 
 <script>
-import Menu from '@/api/el-andariego/Menu';
-import categories from '@/components/menu/List.vue';
-import blankPixel from '@/utility/PlaceHolder';
+import Menu from '@/api/el-andariego/menu-c';
+import categories from '@/components/category/list.vue';
+import blankPixel from '@/utility/place-holder';
 
 export default {
   name: 'Menu-V',

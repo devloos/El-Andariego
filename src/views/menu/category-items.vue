@@ -56,8 +56,8 @@
 </template>
 
 <script>
-import Menu from '@/api/el-andariego/Menu';
-import blankPixel from '@/utility/PlaceHolder';
+import Menu from '@/api/el-andariego/menu-c';
+import blankPixel from '@/utility/place-holder';
 
 export default {
   name: 'Items-V',

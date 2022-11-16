@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import SendGrid from '@/api/SendGrid';
+import SendGrid from '@/api/send-grid';
 
 export default {
   name: 'Catering-V',

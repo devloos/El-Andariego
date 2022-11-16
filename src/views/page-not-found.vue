@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'PageNotFound-V',
+  name: 'page-not-found',
 };
 </script>
 

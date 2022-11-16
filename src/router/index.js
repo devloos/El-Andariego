@@ -1,9 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '@/views/Home.vue';
-import Menu from '@/views/menu/Menu.vue';
-import Items from '@/views/menu/Items.vue';
-import Catering from '@/views/catering/Catering.vue';
-import PageNotFound from '@/views/PageNotFound.vue';
+import Home from '@/views/index.vue';
+import Menu from '@/views/menu/index.vue';
+import Items from '@/views/menu/category-items.vue';
+import Catering from '@/views/catering/index.vue';
+import PageNotFound from '@/views/page-not-found.vue';
 
 const routes = [
   {
