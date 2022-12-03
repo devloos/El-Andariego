@@ -4,17 +4,31 @@
       <header class="col">
         <h1 class="text-center text-success fw-bold">El Andariego Truck</h1>
       </header>
-      <div class="col mb-4 text-center">
+      <div class="col mb-2 text-center">
         <p class="m-0">Authentic Mexican Food</p>
         <p class="m-0" v-text="schedule"></p>
       </div>
-      <div class="col mb-5">
-        <button
-          class="col-4 col-md-3 col-lg-2 btn btn-success mx-auto d-block"
-          @click="$router.push('/menu')"
-        >
-          View Menu
-        </button>
+      <div class="col-lg-9 col-xl-7 my-3 mx-auto">
+        <div class="card text-center">
+          <div class="card-header fw-bold">NEW SATURDAY LOCATION</div>
+          <div class="card-body">
+            <h5 class="card-title">Village San Juan Capistrano</h5>
+            <p class="card-text">
+              El Andariego is coming to Village San Juan Capistrano, we will be stationed
+              at:
+              <br />
+              26295 Marina Rd, San Juan Capistrano, CA 92675
+            </p>
+          </div>
+          <div class="my-3">
+            <button
+              class="col-3 btn btn-success mx-auto d-block"
+              @click="$router.push('/menu')"
+            >
+              View Menu
+            </button>
+          </div>
+        </div>
       </div>
       <div
         id="Home-Slider"
@@ -71,7 +85,7 @@ export default {
   data() {
     return {
       sliderImages: ['/home/slider/Tacos.jpeg', '/home/slider/Cubana.png'],
-      schedule: 'Opening at 4:00 PM',
+      schedule: 'Opening at 4:30 PM',
     };
   },
   components: {
@@ -91,26 +105,23 @@ export default {
       switch (day) {
         case Days.Monday:
         case Days.Tuesday: {
-          this.schedule = 'Closed, Opening Wednesday at 4:00 PM';
-          return;
-        }
-        case Days.Saturday: {
-          this.schedule = 'Closed, Opening Sunday at 4:00 PM';
+          this.schedule = 'Closed, Opening Wednesday at 4:30 PM';
           return;
         }
         default: {
           break;
         }
       }
+
       if (this.isWorkSchedule()) {
         this.schedule = 'Open today until 11:30 PM';
       }
     },
     isWorkSchedule() {
-      const hour = new Date().getHours();
-      const FOUR_PM = 16;
-      const ELEVEN_PM = 23;
-      if (hour >= FOUR_PM && hour <= ELEVEN_PM) {
+      const time = new Date().getHours() + new Date().getMinutes();
+      const FOUR_THIRTY_PM = 46;
+      const ELEVEN_THIRTY_PM = 53;
+      if (time >= FOUR_THIRTY_PM && time <= ELEVEN_THIRTY_PM) {
         return true;
       }
       return false;
