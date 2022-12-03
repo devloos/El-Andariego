@@ -23,7 +23,7 @@
           </div>
           <div class="my-3">
             <button
-              class="col-3 btn btn-success mx-auto d-block"
+              class="col-5 col-sm-3 btn btn-success mx-auto d-block"
               @click="$router.push('/menu')"
             >
               View Menu
