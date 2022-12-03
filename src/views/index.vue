@@ -8,6 +8,7 @@
         <p class="m-0">Authentic Mexican Food</p>
         <p class="m-0" v-text="schedule"></p>
       </div>
+      <!-- TEMPORARY -->
       <div class="col-lg-9 col-xl-7 my-3 mx-auto">
         <div class="card text-center">
           <div class="card-header fw-bold">NEW SATURDAY LOCATION</div>
@@ -30,6 +31,7 @@
           </div>
         </div>
       </div>
+      <!-- TEMPORARY -->
       <div
         id="Home-Slider"
         class="col-12 col-lg-10 col-xl-8 carousel carousel-dark slide mx-auto d-block mb-5"
