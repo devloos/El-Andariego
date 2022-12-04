@@ -97,12 +97,12 @@ export default {
     schedule: {
       immediate: true,
       handler() {
-        this.setSchedule();
+        this.setTextSchedule();
       },
     },
   },
   methods: {
-    setSchedule() {
+    setTextSchedule() {
       const day = new Date().getDay();
       switch (day) {
         case Days.Monday:
@@ -115,18 +115,15 @@ export default {
         }
       }
 
-      if (this.isWorkSchedule()) {
+      if (this.inWorkSchedule()) {
         this.schedule = 'Open today until 11:30 PM';
       }
     },
-    isWorkSchedule() {
-      const time = new Date().getHours();
-      const FOUR_THIRTY_PM = 16;
-      const ELEVEN_THIRTY_PM = 23;
-      if (time >= FOUR_THIRTY_PM && time <= ELEVEN_THIRTY_PM) {
-        return true;
-      }
-      return false;
+    inWorkSchedule() {
+      const now = new Date().getHours() * 60 * new Date().getMinutes();
+      const start = 16 * 60 + 30;
+      const end = 23 * 60 + 30;
+      return start <= now && now <= end;
     },
   },
 };
