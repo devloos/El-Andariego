@@ -120,9 +120,9 @@ export default {
       }
     },
     isWorkSchedule() {
-      const time = new Date().getHours() + new Date().getMinutes();
-      const FOUR_THIRTY_PM = 46;
-      const ELEVEN_THIRTY_PM = 53;
+      const time = new Date().getHours();
+      const FOUR_THIRTY_PM = 16;
+      const ELEVEN_THIRTY_PM = 23;
       if (time >= FOUR_THIRTY_PM && time <= ELEVEN_THIRTY_PM) {
         return true;
       }
