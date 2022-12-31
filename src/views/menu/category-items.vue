@@ -47,7 +47,7 @@
         <div class="text-center">
           <span class="fs-6 m-1 fw-bold text-success" v-text="item.name" />
           <span class="fs-6 m-1" v-text="' ($' + item.price + ')'" />
-          <p class="fs-6 m-1" v-text="item.content" />
+          <p class="fs-6 m-1 w-75 mx-auto" v-text="item.content" />
           <p class="fs-6 mt-4">..............................................</p>
         </div>
       </tr>

@@ -3,16 +3,6 @@
     <div class="row mt-4 mb-5">
       <header>
         <h1 id="title" class="text-center text-success text-uppercase">Menu</h1>
-        <!-- <p class="col-10 col-md-7 col-lg-5 col-xl-4 mx-auto mt-4 text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis nostrum
-          corporis voluptate. Iste, necessitatibus quae. Nemo commodi impedit neque
-          dolores minima facere deleniti, quas a ullam vitae blanditiis fugiat error.
-        </p>
-        <p class="col-10 col-md-7 col-lg-5 col-xl-4 mx-auto mt-4 text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis nostrum
-          corporis voluptate. Iste, necessitatibus quae. Nemo commodi impedit neque
-          dolores minima facere deleniti, quas a ullam vitae blanditiis fugiat error.
-        </p> -->
       </header>
       <div class="text-center">
         <p class="mt-3 mb-0 text-center fw-bold text-uppercase">Categories</p>

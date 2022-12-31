@@ -9,7 +9,7 @@
       <p class="mb-1 ms-1">San Juan Capistrano, CA 92675</p>
       <p class="ms-1">
         <i class="fa-solid fa-phone fa-shake fa-lg me-1"></i>
-        (949) 806 - 0123
+        <span @click="copyPhone" class="phone-number"> (949) 806 - 0123 </span>
       </p>
     </div>
     <div class="col mt-2 text-start">
@@ -44,6 +44,15 @@
 <script>
 export default {
   name: 'Info-V',
+  methods: {
+    async copyPhone() {
+      try {
+        await navigator.clipboard.writeText('949-806-0123');
+      } catch (err) {
+        alert('Could not copy');
+      }
+    },
+  },
 };
 </script>
 
@@ -51,19 +60,29 @@ export default {
 p {
   font-size: 14px;
 }
+
 td {
   font-size: 14px;
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
+
 a:hover {
   color: inherit;
   text-decoration: none;
+  opacity: 0.8;
 }
+
 i {
   --fa-animation-delay: 3s;
   --fa-animation-iteration-count: 2;
+}
+
+.phone-number:hover {
+  cursor: pointer;
+  font-weight: bold;
 }
 </style>
