@@ -1,22 +1,58 @@
 <template>
-  <div class="nav-header container-fluid bg-success">
-    <a class="nav-title fs-4 fw-bold" href="#" @click.prevent="$router.push('/')">
+  <div class="nav-header container-fluid">
+    <a class="nav-title fs-4 fw-bold mt-2" href="#" @click.prevent="$router.push('/')">
       El Andariego
     </a>
     <button class="nav-burger btn fa-bounce border border-0" type="button">
       <i class="fa-solid fa-bars fa-lg"></i>
     </button>
+    <div class="nav-expanded">
+      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/')">Home</a>
+      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/menu')">
+        Menu
+      </a>
+      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/news')"
+        >News</a
+      >
+      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/contact')"
+        >Contact</a
+      >
+      <a
+        href="https://www.facebook.com/profile.php?id=100082710796984"
+        class="nav-expanded-item"
+        target="_blank"
+      >
+        <i class="fa-brands fa-facebook fa-lg"></i>
+      </a>
+      <a
+        href="https://instagram.com/el_andariegotruck"
+        class="nav-expanded-item"
+        target="_blank"
+      >
+        <i class="fa-brands fa-instagram fa-lg"></i>
+      </a>
+      <a
+        href="https://g.page/r/CY53oo_JlDb8EAI/review"
+        class="nav-expanded-item"
+        target="_blank"
+      >
+        <i class="fa-brands fa-google fa-md"></i>
+      </a>
+      <button class="btn rounded-pill btn-dark ms-3 px-5 py-3" type="button">
+        Call Us
+      </button>
+    </div>
   </div>
   <div class="nav-offcanvas bg-danger">
     <ul class="justify-content-end flex-grow-1 pe-3">
-      <li class="nav-item mt-1 mb-1 ms-3 fw-bold">
+      <li class="mt-1 mb-1 ms-3 fw-bold">
         <a href="#" @click.prevent="$router.push('/')">Home</a>
       </li>
       <li class="mt-1 mb-1 ms-3 fw-bold">
         <a href="#" @click.prevent="$router.push('/menu')">Menu</a>
       </li>
       <li class="mt-1 mb-1 ms-3 fw-bold">
-        <a href="#" @click.prevent="$router.push('/catering')"> News </a>
+        <a href="#" @click.prevent="$router.push('/news')"> News </a>
       </li>
       <li class="mt-1 mb-1 ms-3 fw-bold">
         <a href="#" @click.prevent="$router.push('/contact')"> Contact </a>
@@ -78,12 +114,21 @@ export default {
 
 <style scoped>
 .nav-header {
-  padding-top: 26px;
-  padding-bottom: 26px;
-  padding-left: 15px;
+  padding: 35px 35px 45px 35px;
+  display: flex;
+  justify-content: space-between;
 }
 
-@media (max-width: 800px) {
+.nav-title {
+  color: #006847;
+}
+
+.nav-title:hover {
+  color: #006847;
+  opacity: 0.6;
+}
+
+@media (max-width: 799px) {
   .nav-burger {
     display: block;
     visibility: visible;
@@ -91,7 +136,9 @@ export default {
     --fa-animation-iteration-count: 3;
   }
 
-  .nav-offcanvas {
+  .nav-expanded {
+    display: none;
+    visibility: hidden;
   }
 }
 
@@ -105,6 +152,15 @@ export default {
     display: none;
     visibility: hidden;
   }
+
+  .nav-expanded {
+    display: inline;
+    vertical-align: middle;
+  }
+
+  .nav-expanded-item {
+    margin-right: 15px;
+  }
 }
 
 ul {
@@ -117,6 +173,17 @@ ul {
   font-size: 14px;
 }
 
+.btn {
+  background-color: #006847;
+  border-color: #006847;
+}
+
+.btn:hover {
+  background-color: #006847;
+  border-color: #006847;
+  opacity: 0.6;
+}
+
 a {
   color: black;
   text-decoration: none;
@@ -124,5 +191,6 @@ a {
 
 a:hover {
   color: black;
+  opacity: 0.6;
 }
 </style>
