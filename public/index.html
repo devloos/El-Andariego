@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>El-Andariego-Logo.jpeg" />
     <title>El Andariego</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/0fac46ffa6.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-      [v-cloak] {
-        display: none;
-      }
-    </style>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -37,7 +38,16 @@
         Please enable it to continue.</strong
       >
     </noscript>
-    <div id="app" v-cloak></div>
     <!-- built files will be auto injected -->
+    <div id="app" v-cloak></div>
   </body>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+
+    body {
+      background-color: rgb(241, 241, 239);
+    }
+  </style>
 </html>

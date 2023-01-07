@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" class="row mt-3 bg-light bg-gradient align-items-center">
+  <footer id="footer" class="row mt-3 align-items-center">
     <p class="text-center mt-3">© 2022 El Andariego</p>
   </footer>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <Nav />
   <!-- Calling Router View -->
-  <div id="main">
+  <div class="main">
     <router-view />
   </div>
   <!-- End Call Router View -->
@@ -23,14 +23,14 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Libre Baskerville', Helvetica, Arial;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   /* Needed for white space on the right */
   /* Messes with sticky-top */
   overflow-x: hidden;
 }
-#main {
+.main {
   min-height: 100vh;
 }
 </style>
