@@ -1,22 +1,80 @@
 <template>
-  <Nav />
-  <!-- Calling Router View -->
-  <div class="main">
-    <router-view />
+  <Navbar />
+  <div class="nav-offcanvas bg-danger">
+    <ul class="justify-content-end flex-grow-1 pe-3">
+      <li class="mt-1 mb-1 ms-3 fw-bold">
+        <a href="#" @click.prevent="$router.push('/')">Home</a>
+      </li>
+      <li class="mt-1 mb-1 ms-3 fw-bold">
+        <a href="#" @click.prevent="$router.push('/menu')">Menu</a>
+      </li>
+      <li class="mt-1 mb-1 ms-3 fw-bold">
+        <a href="#" @click.prevent="$router.push('/news')"> News </a>
+      </li>
+      <li class="mt-1 mb-1 ms-3 fw-bold">
+        <a href="#" @click.prevent="$router.push('/contact')"> Contact </a>
+      </li>
+    </ul>
+    <form class="d-flex mt-1 ms-3 me-3" role="search">
+      <input
+        class="form-control me-2"
+        type="text"
+        placeholder="Search"
+        aria-label="Search"
+        v-model="itemSearch"
+      />
+    </form>
+    <div v-if="itemSearch" class="mt-3">
+      <ul>
+        <li v-for="item in searchResult" :key="item" class="pt-2 ps-3 border">
+          <a href="#" @click.prevent="$router.push(`/menu/items/${item.category}`)">
+            <h6 v-text="item.name"></h6>
+            <p class="searchPrice mb-1" v-text="'$' + item.price"></p>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <!-- End Call Router View -->
-  <Footer />
+  <main>
+    <router-view />
+  </main>
+  <Footer class="footer" />
 </template>
 
 <script>
-import Nav from '@/views/nav/index.vue';
+import Navbar from '@/views/nav/index.vue';
 import Footer from '@/views/footer/index.vue';
+import { getSearchResults } from '@/api/el-andariego/search';
 
 export default {
   name: 'App',
   components: {
-    Nav,
+    Navbar,
     Footer,
+  },
+  data() {
+    return {
+      itemSearch: '',
+      searchResult: [],
+    };
+  },
+  watch: {
+    async itemSearch() {
+      this.searchResult = [];
+      if (this.itemSearch) {
+        const res = await getSearchResults(this.itemSearch);
+        this.searchResult = res;
+      }
+    },
+  },
+  methods: {
+    async CopyPhone() {
+      try {
+        await navigator.clipboard.writeText('949-806-0123');
+      } catch (err) {
+        alert('Could not copy');
+      }
+    },
   },
 };
 </script>
@@ -24,13 +82,76 @@ export default {
 <style>
 #app {
   font-family: 'Libre Baskerville', Helvetica, Arial;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  padding-top: 120px;
   /* Needed for white space on the right */
   /* Messes with sticky-top */
   overflow-x: hidden;
 }
-.main {
+
+.searchPrice {
+  font-size: 14px;
+}
+</style>
+
+<style scoped>
+@media (min-width: 800px) {
+  .nav-offcanvas {
+    display: none;
+    visibility: hidden;
+  }
+
+  main {
+    display: block;
+    visibility: visible;
+  }
+
+  .footer {
+    display: block;
+    visibility: visible;
+  }
+}
+
+/* only should happen when button is clicked */
+@media (max-width: 799px) {
+  main {
+    display: none;
+    visibility: hidden;
+  }
+
+  .nav-offcanvas {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 120px;
+    bottom: 0px;
+    z-index: 2;
+    overflow: scroll;
+  }
+
+  .footer {
+    display: none;
+    visibility: hidden;
+  }
+}
+/* only should happen when button is clicked */
+
+main {
   min-height: 100vh;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  opacity: 0.6;
 }
 </style>
