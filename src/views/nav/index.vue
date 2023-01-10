@@ -3,8 +3,15 @@
     <a class="nav-title fs-4 fw-bold mt-2" href="#" @click.prevent="$router.push('/')">
       El Andariego
     </a>
-    <button class="nav-burger btn fa-bounce border border-0" type="button">
-      <i class="fa-solid fa-bars fa-lg"></i>
+    <button
+      class="hamburger hamburger--squeeze"
+      :class="{ 'is-active': isActive }"
+      @click="$emit('toggle-nav'), (isActive = !isActive)"
+      type="button"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
     </button>
     <div class="nav-expanded">
       <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/')">Home</a>
@@ -48,10 +55,17 @@
 <script>
 export default {
   name: 'Nav-V',
+  data() {
+    return {
+      isActive: false,
+    };
+  },
 };
 </script>
 
 <style scoped>
+@import '@/assets/hamburgers.css';
+
 .nav-header {
   padding: 35px 35px 45px 35px;
   display: flex;
@@ -74,11 +88,10 @@ export default {
 }
 
 @media (max-width: 799px) {
-  .nav-burger {
+  .hamburger {
     display: block;
     visibility: visible;
     float: right;
-    --fa-animation-iteration-count: 3;
   }
 
   .nav-expanded {
@@ -88,7 +101,7 @@ export default {
 }
 
 @media (min-width: 800px) {
-  .nav-burger {
+  .hamburger {
     display: none;
     visibility: hidden;
   }

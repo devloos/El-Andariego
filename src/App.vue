@@ -1,6 +1,6 @@
 <template>
-  <Navbar />
-  <div class="nav-offcanvas bg-danger">
+  <Navbar @toggle-nav="predicate = !predicate" />
+  <div class="nav-offcanvas" :class="{ 'nav-offcanvas--active': !predicate }">
     <ul class="justify-content-end flex-grow-1 pe-3">
       <li class="mt-1 mb-1 ms-3 fw-bold">
         <a href="#" @click.prevent="$router.push('/')">Home</a>
@@ -35,10 +35,10 @@
       </ul>
     </div>
   </div>
-  <main>
+  <main :class="{ 'non-active': !predicate }">
     <router-view />
   </main>
-  <Footer class="footer" />
+  <Footer :class="{ 'non-active': !predicate }" />
 </template>
 
 <script>
@@ -56,6 +56,7 @@ export default {
     return {
       itemSearch: '',
       searchResult: [],
+      predicate: true,
     };
   },
   watch: {
@@ -91,6 +92,33 @@ export default {
 .searchPrice {
   font-size: 14px;
 }
+
+.non-active {
+  visibility: hidden;
+  display: none;
+}
+
+.nav-offcanvas {
+  background-color: white;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 120px;
+  bottom: 0px;
+  z-index: 2;
+  overflow: scroll;
+
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: opacity 0.9s ease;
+}
+
+.nav-offcanvas--active {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+}
 </style>
 
 <style scoped>
@@ -110,30 +138,6 @@ export default {
     visibility: visible;
   }
 }
-
-/* only should happen when button is clicked */
-@media (max-width: 799px) {
-  main {
-    display: none;
-    visibility: hidden;
-  }
-
-  .nav-offcanvas {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 120px;
-    bottom: 0px;
-    z-index: 2;
-    overflow: scroll;
-  }
-
-  .footer {
-    display: none;
-    visibility: hidden;
-  }
-}
-/* only should happen when button is clicked */
 
 main {
   min-height: 100vh;
