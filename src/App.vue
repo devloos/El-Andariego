@@ -67,6 +67,9 @@ export default {
         this.searchResult = res;
       }
     },
+    $route() {
+      this.predicate = true;
+    },
   },
   methods: {
     async CopyPhone() {
@@ -83,7 +86,7 @@ export default {
 <style>
 #app {
   font-family: 'Libre Baskerville', Helvetica, Arial;
-  padding-top: 120px;
+  padding-top: 116.5px;
   /* Needed for white space on the right */
   /* Messes with sticky-top */
   overflow-x: hidden;

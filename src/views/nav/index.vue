@@ -60,6 +60,11 @@ export default {
       isActive: false,
     };
   },
+  watch: {
+    $route() {
+      this.isActive = false;
+    },
+  },
 };
 </script>
 
@@ -67,7 +72,7 @@ export default {
 @import '@/assets/hamburgers.css';
 
 .nav-header {
-  padding: 35px 35px 45px 35px;
+  padding: 28px 35px 28px 35px;
   display: flex;
   justify-content: space-between;
   background-color: white;
