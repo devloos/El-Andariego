@@ -106,7 +106,7 @@ export default {
   position: absolute;
   left: 0px;
   right: 0px;
-  top: 120px;
+  top: 116.5px;
   bottom: 0px;
   z-index: 2;
   overflow: scroll;
