@@ -4,10 +4,6 @@
       <header>
         <h1 id="title" class="text-center text-success text-uppercase">Menu</h1>
       </header>
-      <div class="text-center">
-        <p class="mt-3 mb-0 text-center fw-bold text-uppercase">Categories</p>
-        <i class="fa-solid fa-angle-down"></i>
-      </div>
       <div class="hidden-scroll col-8 col-lg-4 mt-1 mx-auto">
         <a
           v-for="category in categories"
@@ -86,7 +82,7 @@ a {
   color: inherit;
 }
 a:hover {
-  color: green;
+  color: rgb(20, 97, 20);
   cursor: pointer;
 }
 </style>
