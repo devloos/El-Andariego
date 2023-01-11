@@ -1,5 +1,5 @@
 <template>
-  <Navbar @toggle-nav="predicate = !predicate" />
+  <navbar @toggle-nav="predicate = !predicate" />
   <div class="nav-offcanvas pt-2" :class="{ 'nav-offcanvas--active': !predicate }">
     <div class="position-relative h-75">
       <ul class="mx-4 mt-5 fs-1 fw-light">
@@ -61,19 +61,21 @@
   <main :class="{ 'non-active': !predicate }">
     <router-view />
   </main>
-  <Footer :class="{ 'non-active': !predicate }" />
+  <div :class="{ 'non-active': !predicate }">
+    <footer-index />
+  </div>
 </template>
 
 <script>
 import Navbar from '@/views/nav/index.vue';
-import Footer from '@/views/footer/index.vue';
+import FooterIndex from '@/views/footer/index.vue';
 import { getSearchResults } from '@/api/el-andariego/search';
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    Footer,
+    FooterIndex,
   },
   data() {
     return {
@@ -114,7 +116,9 @@ export default {
   /* Messes with sticky-top */
   overflow-x: hidden;
 }
+</style>
 
+<style scoped>
 .searchPrice {
   font-size: 14px;
 }
@@ -137,7 +141,7 @@ export default {
   visibility: hidden;
   opacity: 0;
   height: 0;
-  transition: opacity 0.9s ease;
+  transition: opacity 0.5s ease;
 }
 
 .nav-offcanvas--active {
@@ -145,9 +149,7 @@ export default {
   opacity: 1;
   height: auto;
 }
-</style>
 
-<style scoped>
 @media (min-width: 800px) {
   .nav-offcanvas {
     display: none;

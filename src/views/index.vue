@@ -75,11 +75,9 @@
       </div>
     </div>
   </div>
-  <Info />
 </template>
 
 <script>
-import Info from '@/components/footer/info.vue';
 import Days from '@/utility/constants/weekdays';
 
 export default {
@@ -89,9 +87,6 @@ export default {
       sliderImages: ['/home/slider/Tacos.jpeg', '/home/slider/Cubana.png'],
       schedule: 'Opening at 4:30 PM',
     };
-  },
-  components: {
-    Info,
   },
   watch: {
     schedule: {
