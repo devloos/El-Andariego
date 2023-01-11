@@ -60,9 +60,19 @@ export default {
       isActive: false,
     };
   },
+  created() {
+    window.addEventListener('resize', this.toggleNavBurger);
+  },
   watch: {
     $route() {
       this.isActive = false;
+    },
+  },
+  methods: {
+    toggleNavBurger() {
+      if (window.innerWidth > 800) {
+        this.isActive = false;
+      }
     },
   },
 };

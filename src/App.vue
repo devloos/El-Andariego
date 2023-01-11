@@ -84,6 +84,9 @@ export default {
       predicate: true,
     };
   },
+  created() {
+    window.addEventListener('resize', this.closeOffCanvas);
+  },
   watch: {
     async itemSearch() {
       this.searchResult = [];
@@ -102,6 +105,11 @@ export default {
         await navigator.clipboard.writeText('949-806-0123');
       } catch (err) {
         alert('Could not copy');
+      }
+    },
+    closeOffCanvas() {
+      if (window.innerWidth > 800) {
+        this.predicate = true;
       }
     },
   },
