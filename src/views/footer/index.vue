@@ -48,7 +48,7 @@
       </div>
     </div>
   </footer>
-  <p class="text-center my-4">© 2022 El Andariego</p>
+  <p class="text-center my-4">© 2023 El Andariego</p>
 </template>
 
 <script>
