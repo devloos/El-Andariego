@@ -65,7 +65,7 @@
   <main :class="{ 'non-active': !predicate }">
     <router-view />
   </main>
-  <div :class="{ 'non-active': !predicate }">
+  <div class="footer" :class="{ 'non-active': !predicate }">
     <footer-index />
   </div>
 </template>
@@ -137,7 +137,8 @@ export default {
 
 .non-active {
   visibility: hidden;
-  display: none;
+  opacity: 0;
+  height: 0;
 }
 
 .nav-offcanvas {
@@ -169,18 +170,27 @@ export default {
   }
 
   main {
-    display: block;
     visibility: visible;
+    opacity: 1;
+    height: auto;
   }
 
   .footer {
-    display: block;
+    transition: opacity 0.5s ease;
     visibility: visible;
+    opacity: 1;
+    height: auto;
   }
 }
 
 main {
+  transition: opacity 0.5s ease;
   min-height: 100vh;
+}
+
+.footer {
+  background-color: white;
+  transition: opacity 0.5s ease;
 }
 
 ul {

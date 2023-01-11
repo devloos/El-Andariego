@@ -42,13 +42,13 @@
     </div>
     <div>
       <p>Sign up with your email address to receive news and updates.</p>
-      <div class="d-flex justify-content-center">
-        <input type="text" placeholder="Email Address" />
-        <button>Sign up</button>
-      </div>
+      <form class="d-flex justify-content-center gap-2">
+        <input type="email" class="form-control w-75" placeholder="Email Address" />
+        <button class="btn btn-dark btn-sm">Sign up</button>
+      </form>
     </div>
   </footer>
-  <p class="text-center my-4">© 2023 El Andariego</p>
+  <p class="text-center py-4 my-0">© 2023 El Andariego</p>
 </template>
 
 <script>
@@ -92,6 +92,17 @@ a:hover {
   color: inherit;
   text-decoration: none;
   opacity: 0.8;
+}
+
+.btn {
+  background-color: #006847;
+  border-color: #006847;
+}
+
+.btn:hover {
+  background-color: #006847;
+  border-color: #006847;
+  opacity: 0.6;
 }
 
 i {
