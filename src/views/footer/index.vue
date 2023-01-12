@@ -56,7 +56,7 @@
           <input
             type="email"
             v-model="email"
-            class="form-control w-75"
+            class="form-control form-control-lg fs-6 w-75"
             placeholder="Email Address"
             required
           />
