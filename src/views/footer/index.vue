@@ -41,19 +41,44 @@
       </div>
     </div>
     <div>
-      <p>Sign up with your email address to receive news and updates.</p>
-      <form class="d-flex justify-content-center gap-2">
-        <input type="email" class="form-control w-75" placeholder="Email Address" />
-        <button class="btn btn-dark btn-sm">Sign up</button>
-      </form>
+      <div v-if="submitted" class="d-flex gap-3">
+        <div>
+          <img src="email-icon.webp" alt="email-icon" />
+        </div>
+        <div class="d-flex flex-column align-items-center py-2">
+          <p class="fw-bold my-0">Check Your Inbox!</p>
+          <p class="my-0">You've been subscribed to emails</p>
+        </div>
+      </div>
+      <div v-else>
+        <p>Sign up with your email address to receive news and updates.</p>
+        <form class="d-flex justify-content-center gap-1" @submit="signup">
+          <input
+            type="email"
+            v-model="email"
+            class="form-control w-75"
+            placeholder="Email Address"
+            required
+          />
+          <button type="submit" class="btn btn-dark btn-sm">Sign up</button>
+        </form>
+      </div>
     </div>
   </footer>
   <p class="text-center py-4 my-0">© 2023 El Andariego</p>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Footer-V',
+  data() {
+    return {
+      email: '',
+      submitted: false,
+    };
+  },
   methods: {
     async copyPhone() {
       try {
@@ -61,6 +86,17 @@ export default {
       } catch (err) {
         alert('Could not copy');
       }
+    },
+    async signup() {
+      if (this.email === '') {
+        return;
+      }
+
+      axios.post('/sendgrid/subscribe', {
+        email: this.email,
+      });
+
+      this.submitted = true;
     },
   },
 };
