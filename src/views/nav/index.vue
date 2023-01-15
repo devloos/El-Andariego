@@ -47,7 +47,7 @@
       </a>
       <button
         class="btn rounded-pill btn-dark ms-3 px-5 py-3"
-        @click="copyPhone"
+        @click="$_andariego_copyPhone"
         type="button"
       >
         Call Us
@@ -73,13 +73,6 @@ export default {
     },
   },
   methods: {
-    async copyPhone() {
-      try {
-        await navigator.clipboard.writeText('949-806-0123');
-      } catch (err) {
-        alert('Could not copy');
-      }
-    },
     toggleNavBurger() {
       if (window.innerWidth > 800) {
         this.isActive = false;

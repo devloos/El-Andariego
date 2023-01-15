@@ -20,8 +20,8 @@
       <div>
         <h5 class="mb-4">Business Hours</h5>
         <div>
-          <p class="mb-1">Mon - Tue - Sat: Closed</p>
-          <p>Wed - Thu - Fri - Sun: 4:00 - 11:30 PM</p>
+          <p class="mb-1">Mon &middot; Tue: Closed</p>
+          <p>Wed &middot; Sun: 4:00 - 11:30 PM</p>
         </div>
         <div class="d-flex justify-content-start">
           <a
@@ -52,7 +52,7 @@
       </div>
       <div v-else>
         <p>Sign up with your email address to receive news and updates.</p>
-        <form class="d-flex justify-content-center gap-1" @submit="signup">
+        <form class="d-flex justify-content-center gap-1" @submit.prevent="signup">
           <input
             type="email"
             v-model="email"
@@ -69,8 +69,6 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
   name: 'Footer-V',
   data() {
@@ -87,13 +85,17 @@ export default {
         alert('Could not copy');
       }
     },
-    async signup() {
-      if (this.email === '') {
+    signup() {
+      if (!this.email) {
         return;
       }
 
-      axios.post('/sendgrid/subscribe', {
-        email: this.email,
+      this.$_andariego_axios({
+        url: '/sendgrid/subscribe',
+        method: 'POST',
+        data: {
+          email: this.email,
+        },
       });
 
       this.submitted = true;

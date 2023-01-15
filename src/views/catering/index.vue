@@ -15,7 +15,7 @@
         accusantium voluptate nam harum quae pariatur provident culpa?
       </p>
     </div>
-    <form @submit="sendgridSave">
+    <form @submit.prevent="sendgridSave">
       <div class="row d-flex justify-content-center text-start mb-2">
         <div class="col-6 col-md-4 col-lg-3">
           <label for="firstName" class="form-label">First Name</label>
@@ -94,8 +94,6 @@
 </template>
 
 <script>
-import SendGrid from '@/api/send-grid';
-
 export default {
   name: 'Catering-V',
   data() {
@@ -111,16 +109,26 @@ export default {
   },
   methods: {
     async sendgridSave() {
-      const data = {
-        first_name: this.firstName,
-        last_name: this.lastName,
-        email: this.email,
-        phone: this.phone,
-        description: this.description,
-        event_type: this.eventType,
-        date: this.date,
-      };
-      await SendGrid.save(data);
+      try {
+        const response = await this.$_andariego_axios({
+          url: '/sendgrid/save',
+          method: 'POST',
+          data: {
+            first_name: this.firstName,
+            last_name: this.lastName,
+            email: this.email,
+            phone: this.phone,
+            description: this.description,
+            event_type: this.eventType,
+            date: this.date,
+          },
+        });
+        console.log(response);
+      } catch (e) {
+        // todo toast
+        console.log(e);
+      }
+
       // TODO show that save was complete
       window.location.reload();
     },

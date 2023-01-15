@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import Menu from '@/api/el-andariego/menu-c';
 import categories from '@/components/category/list.vue';
 import blankPixel from '@/utility/place-holder';
 
@@ -47,14 +46,32 @@ export default {
   },
   methods: {
     async getMenu() {
-      this.menu = await Menu.get();
-      this.menu.sort((list, list2) => list.priority - list2.priority);
+      try {
+        const response = await this.$_andariego_axios({
+          url: '/api/menu',
+        });
+
+        this.menu = response.data;
+        this.menu.sort((list, list2) => list.priority - list2.priority);
+      } catch (e) {
+        // todo toast
+        console.log(e);
+      }
     },
     async getCategories() {
-      this.categories = await Menu.getCategories();
-      this.categories.sort(
-        (category, category2) => category.priority - category2.priority
-      );
+      try {
+        const response = await this.$_andariego_axios({
+          url: '/api/menu/categories',
+        });
+
+        this.categories = response.data;
+        this.categories.sort(
+          (category, category2) => category.priority - category2.priority
+        );
+      } catch (e) {
+        // todo toast
+        console.log(e);
+      }
     },
   },
 };

@@ -33,7 +33,7 @@
           <div class="d-flex justify-content-center my-5">
             <button
               class="btn rounded-pill btn-dark fs-4 px-5 py-3"
-              @click="copyPhone"
+              @click="$_andariego_copyPhone"
               type="button"
             >
               Call Us
@@ -73,7 +73,6 @@
 <script>
 import Navbar from '@/views/nav/index.vue';
 import FooterIndex from '@/views/footer/index.vue';
-import { getSearchResults } from '@/api/el-andariego/search';
 
 export default {
   name: 'App',
@@ -94,9 +93,20 @@ export default {
   watch: {
     async itemSearch() {
       this.searchResult = [];
-      if (this.itemSearch) {
-        const res = await getSearchResults(this.itemSearch);
-        this.searchResult = res;
+
+      if (!this.itemSearch) {
+        return;
+      }
+
+      try {
+        const response = await this.$_andariego_axios({
+          url: `/api/search/${this.itemSearch}`,
+        });
+
+        this.searchResult = response.data;
+      } catch (e) {
+        // todo toast
+        console.log(e);
       }
     },
     $route() {
@@ -104,13 +114,6 @@ export default {
     },
   },
   methods: {
-    async copyPhone() {
-      try {
-        await navigator.clipboard.writeText('949-806-0123');
-      } catch (err) {
-        alert('Could not copy');
-      }
-    },
     closeOffCanvas() {
       if (window.innerWidth > 800) {
         this.predicate = true;
