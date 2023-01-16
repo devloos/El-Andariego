@@ -1,14 +1,7 @@
 <template>
-  <div class="container pt-5">
+  <div class="container-fluid">
+    <hero-section />
     <div class="row d-grid">
-      <header class="col">
-        <h1 class="text-center text-success fw-bold">El Andariego Truck</h1>
-      </header>
-      <div class="col mb-2 text-center">
-        <p class="m-0">Authentic Mexican Food</p>
-        <p class="m-0" v-text="schedule"></p>
-      </div>
-      <!-- TEMPORARY -->
       <div class="col-lg-9 col-xl-7 my-3 mx-auto">
         <div class="card text-center">
           <div class="card-header fw-bold">NEW SATURDAY LOCATION</div>
@@ -31,7 +24,6 @@
           </div>
         </div>
       </div>
-      <!-- TEMPORARY -->
       <div
         id="Home-Slider"
         class="col-12 col-lg-10 col-xl-8 carousel carousel-dark slide mx-auto d-block mb-5"
@@ -78,48 +70,32 @@
 </template>
 
 <script>
-import Days from '@/utility/constants/weekdays';
+import heroSection from '@/views/home/hero-section.vue';
 
 export default {
-  name: 'Home-V',
+  name: 'home-index',
+  components: {
+    heroSection,
+  },
   data() {
     return {
       sliderImages: ['/home/slider/Tacos.jpeg', '/home/slider/Cubana.png'],
-      schedule: 'Opening at 4:30 PM',
     };
-  },
-  watch: {
-    schedule: {
-      immediate: true,
-      handler() {
-        this.setTextSchedule();
-      },
-    },
-  },
-  methods: {
-    setTextSchedule() {
-      const day = new Date().getDay();
-      switch (day) {
-        case Days.Monday:
-        case Days.Tuesday: {
-          this.schedule = 'Closed, Opening Wednesday at 4:30 PM';
-          return;
-        }
-        default: {
-          break;
-        }
-      }
-
-      if (this.inWorkSchedule()) {
-        this.schedule = 'Open today until 11:30 PM';
-      }
-    },
-    inWorkSchedule() {
-      const now = new Date().getHours() * 60 * new Date().getMinutes();
-      const start = 16 * 60 + 30;
-      const end = 23 * 60 + 30;
-      return start <= now && now <= end;
-    },
   },
 };
 </script>
+
+<style scoped>
+.btn {
+  transition: opacity 0.15s;
+}
+
+.btn-success {
+  background-color: #006847;
+  border-color: #006847;
+}
+
+.btn:hover {
+  opacity: 0.6;
+}
+</style>
