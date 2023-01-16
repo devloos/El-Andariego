@@ -106,7 +106,7 @@ export default {
   opacity: 0.6;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 999px) {
   .hamburger {
     display: block;
     visibility: visible;
@@ -119,7 +119,7 @@ export default {
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   .hamburger {
     display: none;
     visibility: hidden;

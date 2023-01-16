@@ -42,25 +42,6 @@
         </li>
       </ul>
     </div>
-    <!-- <form class="d-flex mt-1 ms-3 me-3" role="search">
-      <input
-        class="form-control me-2"
-        type="text"
-        placeholder="Search"
-        aria-label="Search"
-        v-model="itemSearch"
-      />
-    </form>
-    <div v-if="itemSearch" class="mt-3">
-      <ul>
-        <li v-for="item in searchResult" :key="item" class="pt-2 ps-3 border">
-          <a href="#" @click.prevent="$router.push(`/menu/items/${item.category}`)">
-            <h6 v-text="item.name"></h6>
-            <p class="searchPrice mb-1" v-text="'$' + item.price"></p>
-          </a>
-        </li>
-      </ul>
-    </div> -->
   </div>
   <main :class="{ 'non-active': !predicate }">
     <router-view />
@@ -82,8 +63,6 @@ export default {
   },
   data() {
     return {
-      itemSearch: '',
-      searchResult: [],
       predicate: true,
     };
   },
@@ -91,24 +70,6 @@ export default {
     window.addEventListener('resize', this.closeOffCanvas);
   },
   watch: {
-    async itemSearch() {
-      this.searchResult = [];
-
-      if (!this.itemSearch) {
-        return;
-      }
-
-      try {
-        const response = await this.$_andariego_axios({
-          url: `/api/search/${this.itemSearch}`,
-        });
-
-        this.searchResult = response.data;
-      } catch (e) {
-        // todo toast
-        console.log(e);
-      }
-    },
     $route() {
       this.predicate = true;
     },
@@ -166,7 +127,7 @@ export default {
   height: auto;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   .nav-offcanvas {
     display: none;
     visibility: hidden;

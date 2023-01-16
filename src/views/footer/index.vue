@@ -106,11 +106,7 @@ export default {
 
 <style scoped>
 .info p {
-  font-size: 12px;
-}
-
-.info h5 {
-  font-size: 18px;
+  font-size: 13px;
 }
 
 p {
