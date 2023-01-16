@@ -27,9 +27,21 @@
 <script>
 import categories from '@/components/category/list.vue';
 import blankPixel from '@/utility/place-holder';
+import { useHead } from '@vueuse/head';
 
 export default {
   name: 'Menu-V',
+  setup() {
+    useHead({
+      title: 'Menu | El Andariego',
+      meta: [
+        {
+          name: 'description',
+          content: 'El Andariego Menu',
+        },
+      ],
+    });
+  },
   data() {
     return {
       menu: [],

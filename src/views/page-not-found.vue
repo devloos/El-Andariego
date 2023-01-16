@@ -20,8 +20,21 @@
 </template>
 
 <script>
+import { useHead } from '@vueuse/head';
+
 export default {
   name: 'page-not-found',
+  setup() {
+    useHead({
+      title: 'Page Not Found | El Andariego',
+      meta: [
+        {
+          name: 'description',
+          content: 'Page Not Found El Andariego',
+        },
+      ],
+    });
+  },
 };
 </script>
 
@@ -31,7 +44,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: green;
+  color: #006847;
   text-decoration: none;
 }
 </style>

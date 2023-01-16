@@ -32,7 +32,7 @@
           </div>
           <div class="d-flex justify-content-center my-5">
             <button
-              class="btn rounded-pill btn-dark fs-4 px-5 py-3"
+              class="btn rounded-pill btn-success fs-4 px-5 py-3"
               @click="$_andariego_copyPhone"
               type="button"
             >
@@ -52,11 +52,23 @@
 </template>
 
 <script>
+import { useHead } from '@vueuse/head';
 import Navbar from '@/views/nav/index.vue';
 import FooterIndex from '@/views/footer/index.vue';
 
 export default {
   name: 'App',
+  setup() {
+    useHead({
+      title: 'El Andariego',
+      meta: [
+        {
+          name: 'description',
+          content: 'Authentic Mexican Food Truck',
+        },
+      ],
+    });
+  },
   components: {
     Navbar,
     FooterIndex,
@@ -95,10 +107,6 @@ export default {
 </style>
 
 <style scoped>
-.searchPrice {
-  font-size: 14px;
-}
-
 .non-active {
   visibility: hidden;
   opacity: 0;
@@ -164,13 +172,15 @@ ul {
 }
 
 .btn {
+  transition: opacity 0.15s;
+}
+
+.btn-success {
   background-color: #006847;
   border-color: #006847;
 }
 
 .btn:hover {
-  background-color: #006847;
-  border-color: #006847;
   opacity: 0.6;
 }
 

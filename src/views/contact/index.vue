@@ -94,8 +94,21 @@
 </template>
 
 <script>
+import { useHead } from '@vueuse/head';
+
 export default {
   name: 'Catering-V',
+  setup() {
+    useHead({
+      title: 'Contact | El Andariego',
+      meta: [
+        {
+          name: 'description',
+          content: 'Contact El Andariego',
+        },
+      ],
+    });
+  },
   data() {
     return {
       firstName: '',

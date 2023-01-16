@@ -60,7 +60,7 @@
             placeholder="Email Address"
             required
           />
-          <button type="submit" class="btn btn-dark btn-sm">Sign up</button>
+          <button type="submit" class="btn btn-success btn-sm">Sign up</button>
         </form>
       </div>
     </div>
@@ -113,10 +113,6 @@ p {
   font-size: 14px;
 }
 
-td {
-  font-size: 14px;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -129,13 +125,15 @@ a:hover {
 }
 
 .btn {
+  transition: opacity 0.15s;
+}
+
+.btn-success {
   background-color: #006847;
   border-color: #006847;
 }
 
 .btn:hover {
-  background-color: #006847;
-  border-color: #006847;
   opacity: 0.6;
 }
 
@@ -144,8 +142,12 @@ i {
   --fa-animation-iteration-count: 2;
 }
 
-.phone-number:hover {
+.phone-number {
+  transition: font-weight 0.15s;
   cursor: pointer;
+}
+
+.phone-number:hover {
   font-weight: bold;
 }
 </style>

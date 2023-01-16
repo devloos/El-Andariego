@@ -1,40 +1,46 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '@/views/home/index.vue';
-import Menu from '@/views/menu/index.vue';
-import Items from '@/views/menu/category-items.vue';
-import Catering from '@/views/catering/index.vue';
-import PageNotFound from '@/views/page-not-found.vue';
+import home from '@/views/home/index.vue';
+import menu from '@/views/menu/index.vue';
+import items from '@/views/menu/category-items.vue';
+import contact from '@/views/contact/index.vue';
+import news from '@/views/news/index.vue';
+import pageNotFound from '@/views/page-not-found.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'home',
+    component: home,
   },
   {
     path: '/menu',
-    name: 'Menu',
-    component: Menu,
+    name: 'menu',
+    component: menu,
   },
   {
     path: '/menu/items/:item',
-    name: 'Items',
-    component: Items,
+    name: 'items',
+    component: items,
   },
   {
-    path: '/catering',
-    name: 'Catering',
-    component: Catering,
+    path: '/contact',
+    name: 'contact',
+    component: contact,
+  },
+  {
+    path: '/news',
+    name: 'news',
+    component: news,
   },
   {
     path: '/:pathMatch(.*)*',
-    name: 'PageNotFound',
-    component: PageNotFound,
+    name: 'pageNotFound',
+    component: pageNotFound,
   },
   {
     path: '/items/undefined',
-    name: 'Undefined',
-    component: PageNotFound,
+    name: 'undefined',
+    component: pageNotFound,
   },
 ];
 
