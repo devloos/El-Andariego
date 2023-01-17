@@ -4,6 +4,7 @@
 
 <script>
 import { useHead } from '@vueuse/head';
+
 export default {
   name: 'news-index',
   setup() {

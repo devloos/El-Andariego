@@ -4,6 +4,7 @@ import menu from '@/views/menu/index.vue';
 import items from '@/views/menu/category-items.vue';
 import contact from '@/views/contact/index.vue';
 import news from '@/views/news/index.vue';
+import platilloDetails from '@/components/platillos/index.vue';
 import pageNotFound from '@/views/page-not-found.vue';
 
 const routes = [
@@ -31,6 +32,11 @@ const routes = [
     path: '/news',
     name: 'news',
     component: news,
+  },
+  {
+    path: '/platillo/:name',
+    name: 'platillo-details',
+    component: platilloDetails,
   },
   {
     path: '/:pathMatch(.*)*',

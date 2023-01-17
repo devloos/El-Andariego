@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid">
     <hero-section />
+    <platillos-slider />
     <div class="row d-grid">
       <div class="col-lg-9 col-xl-7 my-3 mx-auto">
         <div class="card text-center">
@@ -71,11 +72,13 @@
 
 <script>
 import heroSection from '@/views/home/hero-section.vue';
+import platillosSlider from '@/views/home/platillos-slider.vue';
 
 export default {
   name: 'home-index',
   components: {
     heroSection,
+    platillosSlider,
   },
   data() {
     return {
