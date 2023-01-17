@@ -14,7 +14,9 @@
         </div>
         <p class="ms-1">
           <i class="fa-solid fa-phone fa-shake fa-lg me-1"></i>
-          <span @click="copyPhone" class="phone-number"> (949) 806 - 0123 </span>
+          <span @click="$_andariego_copyPhone" class="phone-number">
+            (949) 806 - 0123
+          </span>
         </p>
       </div>
       <div>
@@ -78,13 +80,6 @@ export default {
     };
   },
   methods: {
-    async copyPhone() {
-      try {
-        await navigator.clipboard.writeText('949-806-0123');
-      } catch (err) {
-        alert('Could not copy');
-      }
-    },
     signup() {
       if (!this.email) {
         return;

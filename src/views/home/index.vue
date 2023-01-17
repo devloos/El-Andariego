@@ -2,29 +2,7 @@
   <div class="container-fluid">
     <hero-section />
     <platillos-slider />
-    <div class="row d-grid">
-      <div class="col-lg-9 col-xl-7 my-3 mx-auto">
-        <div class="card text-center">
-          <div class="card-header fw-bold">NEW SATURDAY LOCATION</div>
-          <div class="card-body">
-            <h5 class="card-title">Village San Juan Capistrano</h5>
-            <p class="card-text">
-              El Andariego is coming to Village San Juan Capistrano, we will be stationed
-              at:
-              <br />
-              26295 Marina Rd, San Juan Capistrano, CA 92675
-            </p>
-          </div>
-          <div class="my-3">
-            <button
-              class="col-5 col-sm-3 btn btn-success mx-auto d-block"
-              @click="$router.push('/menu')"
-            >
-              View Menu
-            </button>
-          </div>
-        </div>
-      </div>
+    <div class="row px-2 mt-5">
       <div
         id="Home-Slider"
         class="col-12 col-lg-10 col-xl-8 carousel carousel-dark slide mx-auto d-block mb-5"
@@ -55,11 +33,16 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
       </div>
-      <div class="col">
-        <hr class="col-1 mx-auto d-block m-2 border border-dark border-1" />
+    </div>
+
+    <category-selector />
+
+    <div class="row px-2">
+      <div class="col-12">
+        <hr class="mx-auto m-2 border border-dark border-1" style="width: 5rem" />
         <p class="text-center text-muted fs-6">Find El Andariego</p>
       </div>
-      <div class="col-12 col-lg-10 col-xl-8 mx-auto d-block">
+      <div class="col-12 col-lg-10 col-xl-8 mx-auto">
         <img
           src="/home/Location.png"
           class="img-fluid"
@@ -73,12 +56,14 @@
 <script>
 import heroSection from '@/views/home/hero-section.vue';
 import platillosSlider from '@/views/home/platillos-slider.vue';
+import categorySelector from '@/views/home/category-selector.vue';
 
 export default {
   name: 'home-index',
   components: {
     heroSection,
     platillosSlider,
+    categorySelector,
   },
   data() {
     return {
