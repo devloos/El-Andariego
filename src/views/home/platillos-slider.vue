@@ -9,7 +9,7 @@
         @click="$router.push(`platillo/${platillo.name}`)"
       >
         <div>
-          <img src="platillo.png" class="platillo-img" width="220" alt="" />
+          <img src="platillo-thumbnail.png" class="platillo-img" width="220" alt="" />
         </div>
         <div class="platillo-info px-2 border">
           <p class="my-1">{{ platillo.name }}</p>
