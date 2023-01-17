@@ -11,7 +11,16 @@
         </div>
       </div>
     </div>
-    <div></div>
+    <div class="d-sm-flex gap-3 my-5 px-3 mx-auto" style="max-width: 50rem">
+      <div class="d-flex flex-column align-items-center text-center">
+        <h3>{{ platillo.name }}</h3>
+        <p class="text-muted">{{ platillo.content }}</p>
+        <p>{{ platillo.description }}</p>
+      </div>
+      <div class="text-center align-self-center">
+        <img src="platillo-thumbnail.png" class="rounded-3" width="220" alt="" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -120,5 +129,10 @@ export default {
   right: 30px;
   bottom: -15px;
   width: auto;
+}
+
+.btn-success {
+  background-color: #006847;
+  border-color: #006847;
 }
 </style>
