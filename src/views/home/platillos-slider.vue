@@ -11,7 +11,7 @@
         <div>
           <img src="platillo-thumbnail.png" class="platillo-img" width="220" alt="" />
         </div>
-        <div class="platillo-info px-2 border">
+        <div class="platillo-info px-2 border bg-light">
           <p class="my-1">{{ platillo.name }}</p>
           <p class="platillo-price text-muted mb-2">{{ '$' + platillo.price }}</p>
         </div>

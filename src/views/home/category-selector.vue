@@ -1,13 +1,20 @@
 <template>
-  <div class="px-2 my-3">
-    <h4>Top Categories</h4>
-    <div class="row justify-content-center text-center gap-3">
-      <div v-for="category in categories" :key="category.name" class="col-5 bg-light p-3">
+  <div class="px-2 my-3 px-lg-5">
+    <h4 class="mb-4">Top Categories</h4>
+    <div class="row justify-content-evenly">
+      <div
+        v-for="category in categories"
+        :key="category.name"
+        class="category-card col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2"
+        @click="handle"
+      >
         <div>
-          <img src="categories.png" width="180" alt="" />
+          <img src="categories.png" class="img-fluid rounded-top-3" alt="" />
         </div>
-        <div>
-          <p class="m-0">{{ category.name }}</p>
+        <div
+          class="py-2 mb-2 bg-light text-center rounded-bottom-3 border border-bottom-3"
+        >
+          <p class="mb-0">{{ category.name }}</p>
         </div>
       </div>
     </div>
@@ -46,7 +53,16 @@ export default {
       ],
     };
   },
+  methods: {
+    handle() {
+      console.log('category clicked');
+    },
+  },
 };
 </script>
 
-<style></style>
+<style scoped>
+.category-card {
+  cursor: pointer;
+}
+</style>
