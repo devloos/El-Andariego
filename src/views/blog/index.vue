@@ -10,7 +10,8 @@
         :class="{ 'order-lg-2': i % 2 === 0 }"
         @click="$router.push(`/blog/${blog._id}`)"
       >
-        <img src="blog.png" class="img-fluid" alt="" />
+        <!-- Change Image -->
+        <img src="/blogs/blog.png" class="img-fluid" alt="" />
       </div>
       <div
         class="d-flex flex-column justify-content-center gap-4 col-lg-6 px-4 order-1"

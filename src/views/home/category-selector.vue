@@ -9,7 +9,12 @@
         @click="$router.push(`/menu/${category.name}`)"
       >
         <div>
-          <img src="categories.png" class="img-fluid rounded-top-3" alt="" />
+          <!-- Change Image -->
+          <img
+            src="/home/categories/categories.png"
+            class="img-fluid rounded-top-3"
+            alt=""
+          />
         </div>
         <div
           class="py-2 mb-2 bg-light text-center rounded-bottom-3 border border-bottom-3"

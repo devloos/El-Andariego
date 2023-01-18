@@ -9,7 +9,8 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <img src="blog.png" class="col-xl-8 img-fluid" alt="" />
+      <!-- Change Image -->
+      <img src="/blogs/blog.png" class="col-xl-8 img-fluid" alt="" />
     </div>
     <p class="text-center mx-auto my-4" style="max-width: 40rem">
       {{ blog.description }}
