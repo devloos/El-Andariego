@@ -11,7 +11,7 @@
         @click="$router.push(`/blog/${blog._id}`)"
       >
         <!-- Change Image -->
-        <img src="/blogs/blog.png" class="img-fluid" alt="" />
+        <img src="/blogs/blog.jpg" class="img-fluid" alt="" />
       </div>
       <div
         class="d-flex flex-column justify-content-center gap-4 col-lg-6 px-4 order-1"

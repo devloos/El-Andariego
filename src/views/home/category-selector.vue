@@ -11,7 +11,7 @@
         <div>
           <!-- Change Image -->
           <img
-            src="/home/categories/categories.png"
+            src="/home/categories/categories.jpg"
             class="img-fluid rounded-top-3"
             alt=""
           />

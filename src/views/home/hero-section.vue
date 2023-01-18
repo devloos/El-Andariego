@@ -4,7 +4,7 @@
       <div class="row gap-4 gap-md-0" style="height: 100%">
         <div class="mb-3">
           <!-- Change Image -->
-          <img src="/home/hero-section/familia.png" class="img-fluid" alt="" />
+          <img src="/home/hero-section/familia.jpg" class="img-fluid" alt="" />
         </div>
         <div class="text-center">
           <div>
@@ -23,7 +23,7 @@
     </div>
     <div class="col-md-5 text-center align-items-center">
       <!-- Change Image -->
-      <img src="/home/hero-section/pastor.png" class="img-fluid" alt="" />
+      <img src="/home/hero-section/pastor.jpg" class="img-fluid" alt="" />
     </div>
   </div>
 </template>

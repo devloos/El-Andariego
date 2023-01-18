@@ -11,7 +11,7 @@
         <div>
           <!-- Change Image -->
           <img
-            src="/platillos/thumbnails/platillo-thumbnail.png"
+            src="/platillos/thumbnails/platillo-thumbnail.jpg"
             class="platillo-img"
             width="220"
             alt=""

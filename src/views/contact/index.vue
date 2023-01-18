@@ -6,7 +6,7 @@
         <div class="row justify-content-start">
           <div class="my-3">
             <!-- Change Image -->
-            <img src="/contact/contact.png" class="img-fluid" alt="" />
+            <img src="/contact/contact.jpg" class="img-fluid" alt="" />
           </div>
           <div class="my-3">
             <div class="row justify-content-between">
