@@ -3,6 +3,7 @@ import home from '@/views/home/index.vue';
 import menu from '@/views/menu/index.vue';
 import contact from '@/views/contact/index.vue';
 import blog from '@/views/blog/index.vue';
+import blogDetails from '@/views/blog/blog-details.vue';
 import platilloDetails from '@/components/platillos/index.vue';
 import pageNotFound from '@/views/page-not-found.vue';
 
@@ -30,6 +31,12 @@ const routes = [
     path: '/blog',
     name: 'blog',
     component: blog,
+  },
+  {
+    path: '/blog/:id',
+    name: 'blog-details',
+    component: blogDetails,
+    props: true,
   },
   {
     path: '/platillo/:name',
