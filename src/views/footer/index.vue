@@ -14,14 +14,16 @@
         </div>
         <p class="ms-1">
           <i class="fa-solid fa-phone fa-shake fa-lg me-1"></i>
-          <span @click="copyPhone" class="phone-number"> (949) 806 - 0123 </span>
+          <span @click="$_andariego_copyPhone" class="phone-number">
+            (949) 806 - 0123
+          </span>
         </p>
       </div>
       <div>
         <h5 class="mb-4">Business Hours</h5>
         <div>
-          <p class="mb-1">Mon - Tue - Sat: Closed</p>
-          <p>Wed - Thu - Fri - Sun: 4:00 - 11:30 PM</p>
+          <p class="mb-1">Mon &middot; Tue: Closed</p>
+          <p>Wed &middot; Sun: 4:00 - 11:30 PM</p>
         </div>
         <div class="d-flex justify-content-start">
           <a
@@ -41,11 +43,28 @@
       </div>
     </div>
     <div>
-      <p>Sign up with your email address to receive news and updates.</p>
-      <form class="d-flex justify-content-center gap-2">
-        <input type="email" class="form-control w-75" placeholder="Email Address" />
-        <button class="btn btn-dark btn-sm">Sign up</button>
-      </form>
+      <div v-if="submitted" class="d-flex gap-3">
+        <div>
+          <img src="email-icon.webp" alt="email-icon" />
+        </div>
+        <div class="d-flex flex-column align-items-center py-2">
+          <p class="fw-bold my-0">Check Your Inbox!</p>
+          <p class="my-0">You've been subscribed to emails</p>
+        </div>
+      </div>
+      <div v-else>
+        <p>Sign up with your email address to receive news and updates.</p>
+        <form class="d-flex justify-content-center gap-1" @submit.prevent="signup">
+          <input
+            type="email"
+            v-model="email"
+            class="form-control form-control-lg fs-6 w-75"
+            placeholder="Email Address"
+            required
+          />
+          <button type="submit" class="btn btn-success btn-sm">Sign up</button>
+        </form>
+      </div>
     </div>
   </footer>
   <p class="text-center py-4 my-0">© 2023 El Andariego</p>
@@ -54,13 +73,27 @@
 <script>
 export default {
   name: 'Footer-V',
+  data() {
+    return {
+      email: '',
+      submitted: false,
+    };
+  },
   methods: {
-    async copyPhone() {
-      try {
-        await navigator.clipboard.writeText('949-806-0123');
-      } catch (err) {
-        alert('Could not copy');
+    signup() {
+      if (!this.email) {
+        return;
       }
+
+      this.$_andariego_axios({
+        url: '/sendgrid/subscribe',
+        method: 'POST',
+        data: {
+          email: this.email,
+        },
+      });
+
+      this.submitted = true;
     },
   },
 };
@@ -68,18 +101,10 @@ export default {
 
 <style scoped>
 .info p {
-  font-size: 12px;
-}
-
-.info h5 {
-  font-size: 18px;
+  font-size: 13px;
 }
 
 p {
-  font-size: 14px;
-}
-
-td {
   font-size: 14px;
 }
 
@@ -95,13 +120,15 @@ a:hover {
 }
 
 .btn {
+  transition: opacity 0.15s;
+}
+
+.btn-success {
   background-color: #006847;
   border-color: #006847;
 }
 
 .btn:hover {
-  background-color: #006847;
-  border-color: #006847;
   opacity: 0.6;
 }
 
@@ -110,8 +137,12 @@ i {
   --fa-animation-iteration-count: 2;
 }
 
-.phone-number:hover {
+.phone-number {
+  transition: font-weight 0.15s;
   cursor: pointer;
+}
+
+.phone-number:hover {
   font-weight: bold;
 }
 </style>

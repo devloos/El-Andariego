@@ -1,40 +1,50 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '@/views/index.vue';
-import Menu from '@/views/menu/index.vue';
-import Items from '@/views/menu/category-items.vue';
-import Catering from '@/views/catering/index.vue';
-import PageNotFound from '@/views/page-not-found.vue';
+import home from '@/views/home/index.vue';
+import menu from '@/views/menu/index.vue';
+import contact from '@/views/contact/index.vue';
+import blog from '@/views/blog/index.vue';
+import platilloDetails from '@/components/platillos/index.vue';
+import pageNotFound from '@/views/page-not-found.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'home',
+    component: home,
   },
   {
     path: '/menu',
-    name: 'Menu',
-    component: Menu,
+    redirect: '/menu/Platillos',
   },
   {
-    path: '/menu/items/:item',
-    name: 'Items',
-    component: Items,
+    path: '/menu/:category',
+    name: 'menu',
+    component: menu,
   },
   {
-    path: '/catering',
-    name: 'Catering',
-    component: Catering,
+    path: '/contact',
+    name: 'contact',
+    component: contact,
+  },
+  {
+    path: '/blog',
+    name: 'blog',
+    component: blog,
+  },
+  {
+    path: '/platillo/:name',
+    name: 'platillo-details',
+    component: platilloDetails,
   },
   {
     path: '/:pathMatch(.*)*',
-    name: 'PageNotFound',
-    component: PageNotFound,
+    name: 'pageNotFound',
+    component: pageNotFound,
   },
   {
     path: '/items/undefined',
-    name: 'Undefined',
-    component: PageNotFound,
+    name: 'undefined',
+    component: pageNotFound,
   },
 ];
 

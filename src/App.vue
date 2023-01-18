@@ -10,10 +10,10 @@
           <a href="#" @click.prevent="$router.push('/menu')">Menu</a>
         </li>
         <li class="text-center my-4">
-          <a href="#" @click.prevent="$router.push('/news')"> News </a>
+          <a href="#" @click.prevent="$router.push('/Blog')">Blog</a>
         </li>
         <li class="text-center my-4">
-          <a href="#" @click.prevent="$router.push('/contact')"> Contact </a>
+          <a href="#" @click.prevent="$router.push('/contact')">Contact</a>
         </li>
         <li class="d-flex flex-column justify-content-center my-5">
           <div class="d-flex justify-content-center mt-5 gap-3">
@@ -32,8 +32,8 @@
           </div>
           <div class="d-flex justify-content-center my-5">
             <button
-              class="btn rounded-pill btn-dark fs-4 px-5 py-3"
-              @click="copyPhone"
+              class="btn rounded-pill btn-success fs-4 px-5 py-3"
+              @click="$_andariego_copyPhone"
               type="button"
             >
               Call Us
@@ -42,25 +42,6 @@
         </li>
       </ul>
     </div>
-    <!-- <form class="d-flex mt-1 ms-3 me-3" role="search">
-      <input
-        class="form-control me-2"
-        type="text"
-        placeholder="Search"
-        aria-label="Search"
-        v-model="itemSearch"
-      />
-    </form>
-    <div v-if="itemSearch" class="mt-3">
-      <ul>
-        <li v-for="item in searchResult" :key="item" class="pt-2 ps-3 border">
-          <a href="#" @click.prevent="$router.push(`/menu/items/${item.category}`)">
-            <h6 v-text="item.name"></h6>
-            <p class="searchPrice mb-1" v-text="'$' + item.price"></p>
-          </a>
-        </li>
-      </ul>
-    </div> -->
   </div>
   <main :class="{ 'non-active': !predicate }">
     <router-view />
@@ -71,20 +52,29 @@
 </template>
 
 <script>
+import { useHead } from '@vueuse/head';
 import Navbar from '@/views/nav/index.vue';
 import FooterIndex from '@/views/footer/index.vue';
-import { getSearchResults } from '@/api/el-andariego/search';
 
 export default {
   name: 'App',
+  setup() {
+    useHead({
+      title: 'El Andariego',
+      meta: [
+        {
+          name: 'description',
+          content: 'Authentic Mexican Food Truck',
+        },
+      ],
+    });
+  },
   components: {
     Navbar,
     FooterIndex,
   },
   data() {
     return {
-      itemSearch: '',
-      searchResult: [],
       predicate: true,
     };
   },
@@ -92,25 +82,11 @@ export default {
     window.addEventListener('resize', this.closeOffCanvas);
   },
   watch: {
-    async itemSearch() {
-      this.searchResult = [];
-      if (this.itemSearch) {
-        const res = await getSearchResults(this.itemSearch);
-        this.searchResult = res;
-      }
-    },
     $route() {
       this.predicate = true;
     },
   },
   methods: {
-    async copyPhone() {
-      try {
-        await navigator.clipboard.writeText('949-806-0123');
-      } catch (err) {
-        alert('Could not copy');
-      }
-    },
     closeOffCanvas() {
       if (window.innerWidth > 800) {
         this.predicate = true;
@@ -131,10 +107,6 @@ export default {
 </style>
 
 <style scoped>
-.searchPrice {
-  font-size: 14px;
-}
-
 .non-active {
   visibility: hidden;
   opacity: 0;
@@ -163,7 +135,7 @@ export default {
   height: auto;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   .nav-offcanvas {
     display: none;
     visibility: hidden;
@@ -200,13 +172,15 @@ ul {
 }
 
 .btn {
+  transition: opacity 0.15s;
+}
+
+.btn-success {
   background-color: #006847;
   border-color: #006847;
 }
 
 .btn:hover {
-  background-color: #006847;
-  border-color: #006847;
   opacity: 0.6;
 }
 

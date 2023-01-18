@@ -18,8 +18,8 @@
       <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/menu')">
         Menu
       </a>
-      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/news')"
-        >News</a
+      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/blog')"
+        >Blog</a
       >
       <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/contact')"
         >Contact</a
@@ -47,7 +47,7 @@
       </a>
       <button
         class="btn rounded-pill btn-dark ms-3 px-5 py-3"
-        @click="copyPhone"
+        @click="$_andariego_copyPhone"
         type="button"
       >
         Call Us
@@ -73,13 +73,6 @@ export default {
     },
   },
   methods: {
-    async copyPhone() {
-      try {
-        await navigator.clipboard.writeText('949-806-0123');
-      } catch (err) {
-        alert('Could not copy');
-      }
-    },
     toggleNavBurger() {
       if (window.innerWidth > 800) {
         this.isActive = false;
@@ -113,7 +106,7 @@ export default {
   opacity: 0.6;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 999px) {
   .hamburger {
     display: block;
     visibility: visible;
@@ -126,7 +119,7 @@ export default {
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   .hamburger {
     display: none;
     visibility: hidden;
