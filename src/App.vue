@@ -10,10 +10,10 @@
           <a href="#" @click.prevent="$router.push('/menu')">Menu</a>
         </li>
         <li class="text-center my-4">
-          <a href="#" @click.prevent="$router.push('/news')"> News </a>
+          <a href="#" @click.prevent="$router.push('/Blog')">Blog</a>
         </li>
         <li class="text-center my-4">
-          <a href="#" @click.prevent="$router.push('/contact')"> Contact </a>
+          <a href="#" @click.prevent="$router.push('/contact')">Contact</a>
         </li>
         <li class="d-flex flex-column justify-content-center my-5">
           <div class="d-flex justify-content-center mt-5 gap-3">

@@ -25,5 +25,15 @@ export default {
         alert('Could not copy');
       }
     },
+    $_mongo_dateToString(data) {
+      data.forEach((d) => {
+        d.date = new Date(d.date).toLocaleString('en-us', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+        });
+      });
+    },
   },
 };

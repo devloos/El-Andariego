@@ -18,8 +18,8 @@
       <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/menu')">
         Menu
       </a>
-      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/news')"
-        >News</a
+      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/blog')"
+        >Blog</a
       >
       <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/contact')"
         >Contact</a

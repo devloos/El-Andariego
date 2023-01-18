@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 import home from '@/views/home/index.vue';
 import menu from '@/views/menu/index.vue';
 import contact from '@/views/contact/index.vue';
-import news from '@/views/news/index.vue';
+import blog from '@/views/blog/index.vue';
 import platilloDetails from '@/components/platillos/index.vue';
 import pageNotFound from '@/views/page-not-found.vue';
 
@@ -27,9 +27,9 @@ const routes = [
     component: contact,
   },
   {
-    path: '/news',
-    name: 'news',
-    component: news,
+    path: '/blog',
+    name: 'blog',
+    component: blog,
   },
   {
     path: '/platillo/:name',
