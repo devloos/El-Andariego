@@ -5,7 +5,8 @@
       <div class="col-lg-6">
         <div class="row justify-content-start">
           <div class="my-3">
-            <img src="contact.png" class="img-fluid" alt="" />
+            <!-- Change Image -->
+            <img src="/contact/contact.jpg" class="img-fluid" alt="" />
           </div>
           <div class="my-3">
             <div class="row justify-content-between">

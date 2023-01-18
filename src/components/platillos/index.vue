@@ -2,7 +2,8 @@
   <div v-if="platillo">
     <div class="row justify-content-center">
       <div class="platillo-img col-12 col-lg-10 col-xl-8">
-        <img src="platillo-hero.png" class="img-fluid" alt="" />
+        <!-- Change Image -->
+        <img src="/platillos/heros/platillo-hero.jpg" class="img-fluid" alt="" />
         <div class="like-platillo input-group">
           <button class="btn border-end" :class="checkLiked" @click="setUserLiked">
             <i class="fa-solid fa-heart"></i>
@@ -18,7 +19,13 @@
         <p>{{ platillo.description }}</p>
       </div>
       <div class="text-center align-self-center">
-        <img src="platillo-thumbnail.png" class="rounded-3" width="220" alt="" />
+        <!-- Change Image -->
+        <img
+          src="/platillos/thumbnails/platillo-thumbnail.jpg"
+          class="rounded-3"
+          width="220"
+          alt=""
+        />
       </div>
     </div>
   </div>
