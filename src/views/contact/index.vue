@@ -1,23 +1,50 @@
 <template>
-  <div class="container mb-5 pb-5 pt-3">
-    <div class="row text-center">
-      <p class="text-uppercase fs-3 fw-bold">Catering Info</p>
-    </div>
-    <div class="row d-flex flex-column align-items-center text-center">
-      <p class="col-12 col-md-8 col-lg-5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam omnis ipsa
-        iusto consectetur deleniti quasi voluptatem ratione qui id cum, molestiae dicta
-        accusantium voluptate nam harum quae pariatur provident culpa?
-      </p>
-      <p class="col-12 col-md-8 col-lg-5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam omnis ipsa
-        iusto consectetur deleniti quasi voluptatem ratione qui id cum, molestiae dicta
-        accusantium voluptate nam harum quae pariatur provident culpa?
-      </p>
+  <div class="container">
+    <div class="row justify-content-start">
+      <div class="my-3">
+        <img src="contact.png" class="img-fluid" alt="" />
+      </div>
+      <div class="my-3">
+        <div class="row justify-content-between">
+          <div class="col-6 info">
+            <h5>El Andariego</h5>
+            <p class="my-2">31345 Los Rios St, San Juan Capistrano, CA 92675</p>
+            <p>(949) 806 - 0123</p>
+          </div>
+          <div class="col-6 info">
+            <h5>Business Hours</h5>
+            <p class="my-0">Mon · Tue: Closed</p>
+            <p class="mb-1">Wed · Sun: 4:00 - 11:30 PM</p>
+            <div class="d-flex justify-content-start">
+              <a
+                href="https://www.facebook.com/profile.php?id=100082710796984"
+                class="me-2"
+                target="_blank"
+              >
+                <i class="fa-brands fa-facebook fa-md"></i>
+              </a>
+              <a
+                href="https://instagram.com/el_andariegotruck"
+                class="me-2"
+                target="_blank"
+              >
+                <i class="fa-brands fa-instagram fa-md"></i>
+              </a>
+              <a
+                href="https://g.page/r/CY53oo_JlDb8EAI/review"
+                class="me-2"
+                target="_blank"
+              >
+                <i class="fa-brands fa-google fa-sm"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <form @submit.prevent="sendgridSave">
-      <div class="row d-flex justify-content-center text-start mb-2">
-        <div class="col-6 col-md-4 col-lg-3">
+      <div>
+        <div>
           <label for="firstName" class="form-label">First Name</label>
           <input
             type="text"
@@ -27,7 +54,7 @@
             required
           />
         </div>
-        <div class="col-6 col-md-4 col-lg-3">
+        <div>
           <label for="lastName" class="form-label">Last Name</label>
           <input
             type="text"
@@ -38,18 +65,18 @@
           />
         </div>
       </div>
-      <div class="row d-flex justify-content-center text-start mb-2">
-        <div class="col-7 col-md-5 col-lg-4">
+      <div>
+        <div>
           <label for="email" class="form-label">Email</label>
           <input type="email" v-model="email" class="form-control" id="email" required />
         </div>
-        <div class="col-5 col-md-3 col-lg-2">
+        <div>
           <label for="phone" class="form-label">Phone #</label>
           <input type="tel" v-model="phone" class="form-control" id="phone" required />
         </div>
       </div>
-      <div class="row d-flex justify-content-center text-start mb-2">
-        <div class="col-12 col-md-8 col-lg-6">
+      <div>
+        <div>
           <label for="description" class="form-label">Brief description</label>
           <textarea
             type="text"
@@ -61,8 +88,8 @@
           />
         </div>
       </div>
-      <div class="row d-flex justify-content-center text-start mb-2">
-        <div class="col-6 col-md-3 col-lg-2">
+      <div>
+        <div>
           <label for="type" class="form-label">Event Type</label>
           <select v-model="eventType" class="form-select" id="type" required>
             <option disabled value="">Please Select</option>
@@ -72,7 +99,7 @@
             <option>Other</option>
           </select>
         </div>
-        <div class="col-6 col-md-3 col-lg-2">
+        <div>
           <label for="date" class="form-label">Date</label>
           <input
             type="date"
@@ -84,11 +111,7 @@
           />
         </div>
       </div>
-      <div class="row justify-content-center mt-4">
-        <button type="submit" class="col-4 col-md-2 col-lg-2 btn btn-outline-success">
-          Submit
-        </button>
-      </div>
+      <button type="submit" class="btn">Submit</button>
     </form>
   </div>
 </template>
@@ -151,3 +174,20 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.info p {
+  font-size: 14px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+}
+</style>
