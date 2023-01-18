@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import home from '@/views/home/index.vue';
 import menu from '@/views/menu/index.vue';
-import items from '@/views/menu/category-items.vue';
 import contact from '@/views/contact/index.vue';
 import news from '@/views/news/index.vue';
 import platilloDetails from '@/components/platillos/index.vue';
@@ -15,13 +14,12 @@ const routes = [
   },
   {
     path: '/menu',
-    name: 'menu',
-    component: menu,
+    redirect: '/menu/Platillos',
   },
   {
-    path: '/menu/items/:item',
-    name: 'items',
-    component: items,
+    path: '/menu/:category',
+    name: 'menu',
+    component: menu,
   },
   {
     path: '/contact',

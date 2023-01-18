@@ -6,7 +6,7 @@
         v-for="category in categories"
         :key="category.name"
         class="category-card col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2"
-        @click="handle"
+        @click="$router.push(`/menu/${category.name}`)"
       >
         <div>
           <img src="categories.png" class="img-fluid rounded-top-3" alt="" />
@@ -52,11 +52,6 @@ export default {
         },
       ],
     };
-  },
-  methods: {
-    handle() {
-      console.log('category clicked');
-    },
   },
 };
 </script>
