@@ -11,7 +11,7 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/home/slider/img-slider-0.jpg" class="img-fluid" alt="slider-img" />
+          <img src="/home/carousel/img-slider-0.jpg" class="img-fluid" alt="slider-img" />
         </div>
         <div v-for="(image, i) in sliderImages" :key="i" class="carousel-item">
           <img :src="image" class="img-fluid" alt="slider-img" />
@@ -51,7 +51,10 @@ export default {
   },
   data() {
     return {
-      sliderImages: ['/home/slider/img-slider-1.jpg', '/home/slider/img-slider-0.jpg'],
+      sliderImages: [
+        '/home/carousel/img-slider-1.jpg',
+        '/home/carousel/img-slider-0.jpg',
+      ],
     };
   },
 };
