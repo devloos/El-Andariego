@@ -22,8 +22,10 @@
       <div>
         <h5 class="mb-4">Business Hours</h5>
         <div>
-          <p class="mb-1">Mon &middot; Tue: Closed</p>
-          <p>Wed &middot; Sun: 4:00 - 11:30 PM</p>
+          <!-- <p class="mb-1">Mon &middot; Tue: Closed</p> -->
+          <p class="mb-1 text-uppercase">Temporalmente cerrado</p>
+          <!-- <p>Wed &middot; Sun: 4:00 - 11:30 PM</p> -->
+          <p>TEMPORARILY CLOSED</p>
         </div>
         <div class="d-flex justify-content-start">
           <a

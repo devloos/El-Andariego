@@ -9,7 +9,8 @@
         <div class="text-center">
           <div>
             <h4>Authentic Mexican Food</h4>
-            <p class="text-muted my-2" v-text="schedule"></p>
+            <!-- <p class="text-muted my-2" v-text="schedule"></p> -->
+            <p class="text-muted my-2 text-uppercase">Temporalmente cerrado</p>
           </div>
           <p class="home-text mx-auto">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus laboriosam
