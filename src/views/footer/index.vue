@@ -47,7 +47,7 @@
     <div>
       <div v-if="submitted" class="d-flex gap-3">
         <div>
-          <img src="/icon/email-icon.webp" alt="email-icon" />
+          <img src="/icons/email-icon.webp" alt="email-icon" />
         </div>
         <div class="d-flex flex-column align-items-center py-2">
           <p class="fw-bold my-0">Check Your Inbox!</p>
