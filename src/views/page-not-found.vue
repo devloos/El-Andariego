@@ -23,7 +23,6 @@
 import { useHead } from '@vueuse/head';
 
 export default {
-  name: 'page-not-found',
   setup() {
     useHead({
       title: 'Page Not Found | El Andariego',
