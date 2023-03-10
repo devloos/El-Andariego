@@ -10,11 +10,7 @@
       >
         <div>
           <!-- Change Image -->
-          <img
-            src="/home/categories/categories.jpg"
-            class="img-fluid rounded-top-3"
-            alt=""
-          />
+          <img :src="category.image" class="img-fluid rounded-top-3" alt="" />
         </div>
         <div
           class="py-2 mb-2 bg-light text-center rounded-bottom-3 border border-bottom-3"
@@ -33,27 +29,27 @@ export default {
       categories: [
         {
           name: 'Platillos',
-          image: 'categories/platillos.jpeg',
+          image: '/home/categories/platillos.jpg',
         },
         {
           name: 'Burritos',
-          image: 'categories/burritos.jpeg',
+          image: '/home/categories/burritos.jpg',
         },
         {
           name: 'Tacos',
-          image: 'categories/tacos.jpeg',
+          image: '/home/categories/tacos.jpg',
         },
         {
           name: 'Tortas',
-          image: 'categories/tortas.jpeg',
+          image: '/home/categories/tortas.jpg',
         },
         {
           name: 'Sopes',
-          image: 'categories/sopes.jpeg',
+          image: '/home/categories/sopes.jpg',
         },
         {
           name: 'Quesadillas',
-          image: 'categories/quesadillas.jpeg',
+          image: '/home/categories/quesadillas.jpg',
         },
       ],
     };
