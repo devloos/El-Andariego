@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="platillo-img col-12 col-lg-10 col-xl-8">
         <!-- Change Image -->
-        <img src="/hero/platillos/platillo-hero.jpg" class="img-fluid" alt="" />
+        <img src="/platillos/heros/platillo.jpg" class="img-fluid" alt="" />
         <div class="like-platillo input-group">
           <button class="btn border-end" :class="checkLiked" @click="setUserLiked">
             <i class="fa-solid fa-heart"></i>

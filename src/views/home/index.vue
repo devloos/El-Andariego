@@ -8,10 +8,11 @@
         <li data-bs-target="#img-slider" data-bs-slide-to="0" class="active"></li>
         <li data-bs-target="#img-slider" data-bs-slide-to="1"></li>
         <li data-bs-target="#img-slider" data-bs-slide-to="2"></li>
+        <li data-bs-target="#img-slider" data-bs-slide-to="3"></li>
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/home/carousel/img-slider-0.jpg" class="img-fluid" alt="slider-img" />
+          <img src="/home/carousel/logo.jpg" class="img-fluid" alt="slider-img" />
         </div>
         <div v-for="(image, i) in sliderImages" :key="i" class="carousel-item">
           <img :src="image" class="img-fluid" alt="slider-img" />
@@ -52,8 +53,9 @@ export default {
   data() {
     return {
       sliderImages: [
-        '/home/carousel/img-slider-1.jpg',
-        '/home/carousel/img-slider-0.jpg',
+        '/home/carousel/card.jpg',
+        '/home/carousel/sopes.jpg',
+        '/home/carousel/truck.jpg',
       ],
     };
   },
