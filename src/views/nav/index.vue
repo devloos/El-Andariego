@@ -98,11 +98,12 @@ export default {
 }
 
 .nav-title {
-  color: #006847;
+  font-family: 'Merriweather', serif;
+  color: #1a532e;
 }
 
 .nav-title:hover {
-  color: #006847;
+  color: #1a532e;
   opacity: 0.6;
 }
 
@@ -142,13 +143,13 @@ ul {
 }
 
 .btn {
-  background-color: #006847;
-  border-color: #006847;
+  background-color: #1a532e;
+  border-color: #1a532e;
 }
 
 .btn:hover {
-  background-color: #006847;
-  border-color: #006847;
+  background-color: #1a532e;
+  border-color: #1a532e;
   opacity: 0.6;
 }
 

@@ -78,12 +78,12 @@ export default {
 
 <style scoped>
 a {
-  color: #006847;
+  color: #1a532e;
   transition: opacity 0.15s;
 }
 
 a:hover {
-  color: #006847;
+  color: #1a532e;
   opacity: 0.6;
 }
 

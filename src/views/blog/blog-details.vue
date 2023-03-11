@@ -59,6 +59,6 @@ export default {
 
 <style scoped>
 .success {
-  color: #006847;
+  color: #1a532e;
 }
 </style>

@@ -98,7 +98,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Libre Baskerville', Helvetica, Arial;
+  font-family: Helvetica;
   padding-top: 116.5px;
   /* Needed for white space on the right */
   /* Messes with sticky-top */
@@ -176,8 +176,8 @@ ul {
 }
 
 .btn-success {
-  background-color: #006847;
-  border-color: #006847;
+  background-color: #1a532e;
+  border-color: #1a532e;
 }
 
 .btn:hover {

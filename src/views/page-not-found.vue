@@ -43,7 +43,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #006847;
+  color: #1a532e;
   text-decoration: none;
 }
 </style>

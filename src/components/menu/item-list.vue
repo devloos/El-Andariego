@@ -64,15 +64,15 @@ export default {
 }
 
 h4 {
-  color: #c8102e;
+  color: #76070a;
 }
 
 .success {
-  color: #006847;
+  color: #1a532e;
 }
 
 .border-danger {
-  background-color: #c8102e;
+  background-color: #76070a;
   opacity: 0.2;
 }
 

@@ -226,7 +226,7 @@ a:hover {
 }
 
 .success {
-  color: #006847;
+  color: #1a532e;
 }
 
 .btn {
@@ -234,8 +234,8 @@ a:hover {
 }
 
 .btn-success {
-  background-color: #006847;
-  border-color: #006847;
+  background-color: #1a532e;
+  border-color: #1a532e;
 }
 
 .btn:hover {

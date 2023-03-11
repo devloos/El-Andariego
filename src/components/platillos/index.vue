@@ -134,7 +134,7 @@ export default {
 }
 
 .btn-success {
-  background-color: #006847;
-  border-color: #006847;
+  background-color: #1a532e;
+  border-color: #1a532e;
 }
 </style>

@@ -13,8 +13,12 @@
             <p class="text-muted my-2 text-uppercase">Temporalmente cerrado</p>
           </div>
           <p class="home-text mx-auto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus laboriosam
-            aliquam esse ipsam sapiente similique dolor at unde magnam enim.
+            El Andariego is a new gastronomic proposal in the area of San Juan Capistrano,
+            California. Sharing the Mexican flavors with an authentic tastings. Through
+            tortas, tacos, burritos and quesadillas, El Andariego offers a variety of
+            products that, together with dishes such as Alambre, Fortachon or Que Me
+            Notas, seeks to satisfy the palates of southern California and position itself
+            as one of the favorite options in the area.
           </p>
           <button class="btn btn-success px-4" @click="$router.push('/menu')">
             View Menu
@@ -75,8 +79,8 @@ export default {
 }
 
 .btn-success {
-  background-color: #006847;
-  border-color: #006847;
+  background-color: #1a532e;
+  border-color: #1a532e;
 }
 
 .btn:hover {
@@ -84,6 +88,6 @@ export default {
 }
 
 .home-text {
-  max-width: 400px;
+  max-width: 600px;
 }
 </style>

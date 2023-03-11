@@ -75,7 +75,7 @@ export default {
 
 <style scoped>
 h1 {
-  color: #006847;
+  color: #1a532e;
 }
 
 .hidden-scroll {
@@ -98,12 +98,12 @@ h1 {
 }
 
 .router-link:hover {
-  color: #006847;
+  color: #1a532e;
 }
 
 .active {
   text-decoration: underline;
-  color: #006847;
+  color: #1a532e;
   font-weight: bold;
 }
 </style>
