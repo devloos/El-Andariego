@@ -13,8 +13,9 @@
             class="router-link"
             :class="{ active: category.name === $route.params.category }"
           >
-            {{ category.name }}<span class="mx-2">|</span>
+            {{ category.name }}
           </span>
+          <span class="mx-2">|</span>
         </a>
       </div>
     </div>
