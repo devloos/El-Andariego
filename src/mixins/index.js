@@ -20,6 +20,7 @@ export default {
     async $_andariego_copyPhone() {
       try {
         await navigator.clipboard.writeText('949-806-0123');
+        alert('Phone Number Copied!');
       } catch (err) {
         // todo toast
         alert('Could not copy');
