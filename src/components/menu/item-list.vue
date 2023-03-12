@@ -1,6 +1,7 @@
 <template>
   <div class="mt-2">
-    <h4 v-text="category" class="text-center fw-bold my-5"></h4>
+    <h4 v-text="category" class="text-center fw-bold mt-5 mb-2"></h4>
+    <img :src="category_image" class="img-fluid mb-5 rounded-2" alt="" />
     <div class="row justify-content-evenly px-2">
       <div v-for="item in items" :key="item.name" class="item col-lg-4 col-md-6 mb-2">
         <div class="row justify-content-between text-center">
@@ -25,17 +26,23 @@ export default {
   data() {
     return {
       items: [],
+      category_image: null,
     };
   },
-
   watch: {
     $route: {
-      handler(to) {
+      async handler(to) {
         if (to.params.category === 'Platillos') {
           this.getItemsByCategory('/api/menu/platillos');
-          return;
+        } else {
+          this.getItemsByCategory(`/api/menu/items/${to.params.category}`);
         }
-        this.getItemsByCategory(`/api/menu/items/${to.params.category}`);
+
+        const res = await this.$_andariego_axios({
+          url: `/api/menu/category/${to.params.category}`,
+        });
+
+        this.category_image = res.data[0].hero_image;
       },
       immediate: true,
     },

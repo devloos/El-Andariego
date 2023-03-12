@@ -10,7 +10,7 @@
       >
         <div>
           <!-- Change Image -->
-          <img :src="category.image" class="img-fluid rounded-top-3" alt="" />
+          <img :src="category.thumbnail_image" class="img-fluid rounded-top-3" alt="" />
         </div>
         <div
           class="py-2 mb-2 bg-light text-center rounded-bottom-3 border border-bottom-3"
@@ -26,33 +26,27 @@
 export default {
   data() {
     return {
-      categories: [
-        {
-          name: 'Platillos',
-          image: '/home/categories/platillos.jpg',
-        },
-        {
-          name: 'Burritos',
-          image: '/home/categories/burritos.jpg',
-        },
-        {
-          name: 'Tacos',
-          image: '/home/categories/tacos.jpg',
-        },
-        {
-          name: 'Tortas',
-          image: '/home/categories/tortas.jpg',
-        },
-        {
-          name: 'Sopes',
-          image: '/home/categories/sopes.jpg',
-        },
-        {
-          name: 'Quesadillas',
-          image: '/home/categories/quesadillas.jpg',
-        },
+      categories: [],
+      top_categories: [
+        'Platillos',
+        'Burritos',
+        'Tacos',
+        'Tortas',
+        'Sopes',
+        'Quesadillas',
       ],
     };
+  },
+  async mounted() {
+    const res = await this.$_andariego_axios({
+      url: '/api/menu/categories',
+    });
+
+    this.categories = res.data.filter((category) =>
+      this.top_categories.includes(category.name)
+    );
+
+    this.categories.sort((category, category2) => category.priority - category2.priority);
   },
 };
 </script>

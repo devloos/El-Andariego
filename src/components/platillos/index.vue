@@ -12,13 +12,14 @@
         </div>
       </div>
     </div>
-    <div class="d-sm-flex gap-3 my-5 px-3 mx-auto" style="max-width: 50rem">
-      <div class="d-flex flex-column align-items-center text-center">
-        <h3>{{ platillo.name }}</h3>
-        <p class="text-muted">{{ platillo.content }}</p>
-        <p>{{ platillo.description }}</p>
+    <div
+      class="d-flex flex-column flex-sm-row my-5 gap-4 px-3 align-items-center justify-content-center"
+    >
+      <div class="d-flex flex-column text-center">
+        <h3 class="fw-bold">{{ platillo.name }}</h3>
+        <p style="max-width: 250px">{{ platillo.content }}</p>
       </div>
-      <div class="text-center align-self-center">
+      <div>
         <!-- Change Image -->
         <img :src="platillo.thumbnail_image" class="rounded-3" width="220" alt="" />
       </div>
@@ -43,11 +44,7 @@ export default {
   },
   computed: {
     checkLiked() {
-      if (this.userLiked) {
-        return 'btn-success';
-      }
-
-      return 'btn-light';
+      return this.userLiked ? 'btn-success' : 'btn-light';
     },
   },
   methods: {
@@ -136,5 +133,9 @@ export default {
 .btn-success {
   background-color: #1a532e;
   border-color: #1a532e;
+}
+
+h3 {
+  color: #76070a;
 }
 </style>
