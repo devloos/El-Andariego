@@ -1,4 +1,7 @@
 import axios from 'axios';
+import { useToast } from 'vue-toastification';
+
+const toast = useToast();
 
 export default {
   methods: {
@@ -17,14 +20,30 @@ export default {
         data,
       });
     },
-    async $_andariego_copyPhone() {
+    async $_andariego_copyPhone(toastOptions = {}) {
       try {
         await navigator.clipboard.writeText('949-806-0123');
-        alert('Phone Number Copied!');
+        this.$_andariego_toast('Phone number copied.', toastOptions);
       } catch (err) {
-        // todo toast
-        alert('Could not copy');
+        this.$_andariego_toast('Error copying phone number.', { type: 'error' });
       }
+    },
+    $_andariego_toast(message, options = {}) {
+      const toastOptions = {
+        position: 'bottom-center',
+        toastClassName: 'el-andariego-toast',
+        timeout: 1968,
+        closeOnClick: true,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: false,
+        icon: true,
+        rtl: false,
+        type: 'success',
+        ...options,
+      };
+
+      toast(message, toastOptions);
     },
     $_mongo_dateToString(data) {
       data.forEach((d) => {
