@@ -56,8 +56,7 @@ export default {
 
         this.items = response.data;
       } catch (e) {
-        // todo toast
-        console.log(e);
+        this.$_andariego_toast('Failed to fetch items.', { type: 'error' });
       }
     },
   },

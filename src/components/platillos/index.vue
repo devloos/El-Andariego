@@ -57,8 +57,7 @@ export default {
         this.platillo = response.data[0];
         this.likes = this.platillo.likes;
       } catch (e) {
-        // todo toast
-        console.log(e);
+        this.$_andariego_toast('Failed to fetch platillo.', { type: 'error' });
       }
     },
     getPlatillosLiked() {
@@ -93,8 +92,7 @@ export default {
           },
         });
       } catch (e) {
-        // todo toast
-        console.log(e);
+        this.$_andariego_toast('Failed to update platillo.', { type: 'error' });
       }
     },
     async addLiked() {
@@ -110,8 +108,7 @@ export default {
           },
         });
       } catch (e) {
-        // todo toast
-        console.log(e);
+        this.$_andariego_toast('Failed to update platillo.', { type: 'error' });
       }
     },
   },

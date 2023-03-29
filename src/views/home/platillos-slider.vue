@@ -40,8 +40,9 @@ export default {
 
         this.platillos = response.data;
       } catch (e) {
-        // todo toast
-        console.log(e);
+        this.$_andariego_toast('Failed to fetch platillos.', {
+          type: 'error',
+        });
       }
     },
   },

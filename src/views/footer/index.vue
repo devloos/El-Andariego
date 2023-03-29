@@ -2,7 +2,9 @@
   <footer
     class="container-fluid d-flex flex-wrap justify-content-center justify-content-lg-around gap-4 px-3 px-md-4 py-5 mt-4"
   >
-    <div class="info d-flex gap-4">
+    <div
+      class="info flex-grow-1 flex-lg-grow-0 d-flex justify-content-evenly justify-content-lg-start gap-4"
+    >
       <div>
         <h5 class="mb-4">El Andariego</h5>
         <div>
@@ -22,10 +24,10 @@
       <div>
         <h5 class="mb-4">Business Hours</h5>
         <div>
-          <!-- <p class="mb-1">Mon &middot; Tue: Closed</p> -->
-          <p class="mb-1 text-uppercase">Temporalmente cerrado</p>
-          <!-- <p>Wed &middot; Sun: 4:00 - 11:30 PM</p> -->
-          <p>TEMPORARILY CLOSED</p>
+          <p class="mb-1">Monday &middot; Tuesday: Closed</p>
+          <p>Wednesday &middot; Sunday: Open</p>
+          <!-- <p class="mb-1 text-uppercase">Temporalmente cerrado</p> -->
+          <!-- <p>TEMPORARILY CLOSED</p> -->
         </div>
         <div class="d-flex justify-content-start">
           <a

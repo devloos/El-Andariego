@@ -68,8 +68,7 @@ export default {
         this.blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
         this.$_mongo_dateToString(this.blogs);
       } catch (e) {
-        // todo toast
-        console.log(e);
+        this.$_andariego_toast('Failed to fetch blogs.', { type: 'error' });
       }
     },
   },

@@ -65,8 +65,9 @@ export default {
           (category, category2) => category.priority - category2.priority
         );
       } catch (e) {
-        // todo toast
-        console.log(e);
+        this.$_andariego_toast('Failed to fetch categories.', {
+          type: 'error',
+        });
       }
     },
   },

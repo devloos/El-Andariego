@@ -30,7 +30,7 @@ export default {
     },
     $_andariego_toast(message, options = {}) {
       const toastOptions = {
-        position: 'bottom-center',
+        position: 'top-center',
         toastClassName: 'el-andariego-toast',
         timeout: 1968,
         closeOnClick: true,
@@ -39,7 +39,6 @@ export default {
         closeButton: false,
         icon: true,
         rtl: false,
-        type: 'success',
         ...options,
       };
 

@@ -1,4 +1,4 @@
-const Days = {
+const DAY = {
   Sunday: 0,
   Monday: 1,
   Tuesday: 2,
@@ -8,4 +8,4 @@ const Days = {
   Saturday: 6,
 };
 
-export default Days;
+export default DAY;

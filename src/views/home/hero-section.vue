@@ -9,8 +9,8 @@
         <div class="text-center">
           <div>
             <h4>Authentic Mexican Food</h4>
-            <!-- <p class="text-muted my-2" v-text="schedule"></p> -->
-            <p class="text-muted my-2 text-uppercase">Temporalmente cerrado</p>
+            <p class="text-muted my-2" v-text="schedule"></p>
+            <!-- <p class="text-muted my-2 text-uppercase">Temporalmente cerrado</p> -->
           </div>
           <p class="home-text mx-auto">
             El Andariego is a new gastronomic proposal in the area of San Juan Capistrano,
@@ -34,33 +34,36 @@
 </template>
 
 <script>
-import Days from '@/utility/constants/weekdays';
+import DAY from '@/utility/constants/weekdays';
 
 export default {
   data() {
     return {
-      schedule: 'Opening at 4:30 PM',
+      schedule: null,
     };
   },
   mounted() {
-    this.setTextSchedule();
+    this.schedule = this.getSchedule();
   },
   methods: {
-    setTextSchedule() {
+    getSchedule() {
       const day = new Date().getDay();
-      switch (day) {
-        case Days.Monday:
-        case Days.Tuesday: {
-          this.schedule = 'Closed, Opening Wednesday at 4:30 PM';
-          return;
-        }
-        default: {
-          break;
-        }
+      if (day == DAY.Monday || day == DAY.Tuesday) {
+        return 'Closed, Opening Wednesday at 4:30 PM';
       }
 
-      if (this.inWorkSchedule()) {
-        this.schedule = 'Open today until 11:30 PM';
+      if (!this.inWorkSchedule()) {
+        return 'Opening at 4:30 PM';
+      }
+
+      if (day == DAY.Wednesday) {
+        return `Open in Laguna Hills until 10:30 PM`;
+      } else if (day == DAY.Thursday) {
+        return `Open in Lake Forest until 10:30 PM`;
+      } else if (day == DAY.Saturday) {
+        return `Open in San Juan Village until 10:30 PM`;
+      } else {
+        return `Open in San Juan Capistrano until 11:30 PM`;
       }
     },
     inWorkSchedule() {

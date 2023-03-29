@@ -195,8 +195,9 @@ export default {
           },
         });
       } catch (e) {
-        // todo toast
-        console.log(e);
+        this.$_andariego_toast('Failed to send information try again.', {
+          type: 'error',
+        });
       }
 
       // TODO show that save was complete

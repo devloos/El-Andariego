@@ -49,8 +49,7 @@ export default {
           day: 'numeric',
         });
       } catch (e) {
-        // todo toast
-        console.log(e);
+        this.$_andariego_toast('Failed to fetch blog details.', { type: 'error' });
       }
     },
   },
