@@ -22,10 +22,7 @@
 
     <category-selector />
 
-    <div class="mt-5 mb-4">
-      <hr class="mx-auto m-2 border border-dark border-1" style="width: 5rem" />
-      <p class="text-center text-muted">Find El Andariego</p>
-    </div>
+    <smart-divider :divider_name="'Find El Andariego'" />
     <div class="row gap-1 px-2 justify-content-evenly text-lg-center">
       <div class="col-12 col-sm-5">
         <p class="fw-bold text-decoration-underline m-1">San Juan Capistrano</p>
@@ -73,6 +70,7 @@
 import heroSection from '@/views/home/hero-section.vue';
 import platillosSlider from '@/views/home/platillos-slider.vue';
 import categorySelector from '@/views/home/category-selector.vue';
+import smartDivider from '@/components/smart-divider.vue';
 
 export default {
   name: 'home-index',
@@ -80,6 +78,7 @@ export default {
     heroSection,
     platillosSlider,
     categorySelector,
+    smartDivider,
   },
   data() {
     return {
@@ -94,20 +93,7 @@ export default {
 </script>
 
 <style scoped>
-.btn {
-  transition: opacity 0.15s;
-}
-
 p {
   font-size: 15px;
-}
-
-.btn-success {
-  background-color: #1a532e;
-  border-color: #1a532e;
-}
-
-.btn:hover {
-  opacity: 0.6;
 }
 </style>

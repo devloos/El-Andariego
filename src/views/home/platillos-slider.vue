@@ -1,6 +1,6 @@
 <template>
   <div class="px-2 px-lg-5 mx-lg-3">
-    <h4 class="mt-5 mb-4">Our Specialty Platillos</h4>
+    <smart-divider :divider_name="'Our Specialty Platillos'" />
     <div class="d-flex gap-3 overflow-auto">
       <div
         v-for="platillo in platillos"
@@ -22,7 +22,12 @@
 </template>
 
 <script>
+import smartDivider from '@/components/smart-divider.vue';
+
 export default {
+  components: {
+    smartDivider,
+  },
   data() {
     return {
       platillos: [],

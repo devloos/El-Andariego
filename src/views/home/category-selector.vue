@@ -1,6 +1,6 @@
 <template>
-  <div class="px-2 my-3 px-lg-5">
-    <h4 class="mb-4">Top Categories</h4>
+  <div class="px-2 px-lg-5">
+    <smart-divider :divider_name="'Top Categories'" />
     <div class="row justify-content-evenly">
       <div
         v-for="category in categories"
@@ -23,7 +23,12 @@
 </template>
 
 <script>
+import smartDivider from '@/components/smart-divider.vue';
+
 export default {
+  components: {
+    smartDivider,
+  },
   data() {
     return {
       categories: [],

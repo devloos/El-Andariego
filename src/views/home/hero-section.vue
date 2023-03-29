@@ -40,30 +40,27 @@ export default {
   data() {
     return {
       schedule: null,
+      location: null,
     };
   },
   mounted() {
-    this.schedule = this.getSchedule();
+    const day = new Date().getDay();
+    this.setLocation(day);
+    this.setSchedule(day);
   },
   methods: {
-    getSchedule() {
-      const day = new Date().getDay();
+    setSchedule(day) {
       if (day == DAY.Monday || day == DAY.Tuesday) {
-        return 'Closed, Opening Wednesday at 4:30 PM';
+        this.schedule = 'Closed, Opening Wednesday at 4:30 PM';
+        return;
       }
 
       if (!this.inWorkSchedule()) {
-        return 'Opening at 4:30 PM';
-      }
-
-      if (day == DAY.Wednesday) {
-        return `Open in Laguna Hills until 10:30 PM`;
-      } else if (day == DAY.Thursday) {
-        return `Open in Lake Forest until 10:30 PM`;
-      } else if (day == DAY.Saturday) {
-        return `Open in San Juan Village until 10:30 PM`;
+        this.schedule = `Opening in ${this.location} at 4:30 PM`;
+      } else if (day == DAY.Friday || day == DAY.Sunday) {
+        this.schedule = `Open in ${this.location} until 11:30 PM`;
       } else {
-        return `Open in San Juan Capistrano until 11:30 PM`;
+        this.schedule = `Open in ${this.location} until 10:30 PM`;
       }
     },
     inWorkSchedule() {
@@ -71,6 +68,17 @@ export default {
       const start = 16 * 60 + 30;
       const end = 23 * 60 + 30;
       return start <= now && now <= end;
+    },
+    setLocation(day) {
+      if (day == DAY.Wednesday) {
+        this.location = 'Laguna Hills';
+      } else if (day == DAY.Thursday) {
+        this.location = 'Lake Forest';
+      } else if (day == DAY.Saturday) {
+        this.location = 'San Juan Village';
+      } else {
+        this.location = 'San Juan Capistrano';
+      }
     },
   },
 };

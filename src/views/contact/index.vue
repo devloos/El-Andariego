@@ -13,7 +13,11 @@
               <div class="col-6 info">
                 <h5>El Andariego</h5>
                 <p class="my-2">31345 Los Rios St, San Juan Capistrano, CA 92675</p>
-                <p>(949) 806 - 0123</p>
+                <p>
+                  <span @click="$_andariego_copyPhone" class="phone-number">
+                    (949) 806 - 0123
+                  </span>
+                </p>
               </div>
               <div class="col-6 info">
                 <h5>Business Hours</h5>
@@ -241,5 +245,14 @@ a:hover {
 
 .btn:hover {
   opacity: 0.6;
+}
+
+.phone-number {
+  transition: font-weight 0.15s;
+  cursor: pointer;
+}
+
+.phone-number:hover {
+  font-weight: bold;
 }
 </style>
