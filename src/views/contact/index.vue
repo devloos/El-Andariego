@@ -6,7 +6,7 @@
         <div class="row justify-content-start">
           <div class="my-3">
             <!-- Change Image -->
-            <img src="/contact/contact.jpg" class="img-fluid" alt="" />
+            <smart-img :src="'/contact/contact.jpg'" />
           </div>
           <div class="my-3">
             <div class="row justify-content-between">
@@ -157,9 +157,12 @@
 
 <script>
 import { useHead } from '@vueuse/head';
+import smartImg from '@/components/smart-img.vue';
 
 export default {
-  name: 'Catering-V',
+  components: {
+    smartImg,
+  },
   setup() {
     useHead({
       title: 'Contact | El Andariego',

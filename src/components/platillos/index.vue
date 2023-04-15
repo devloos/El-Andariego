@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="platillo-img col-12 col-lg-10 col-xl-8">
         <!-- Change Image -->
-        <img src="/platillos/heros/platillo.jpg" class="img-fluid" alt="" />
+        <smart-img :src="'/platillos/heros/platillo.jpg'" />
         <div class="like-platillo input-group">
           <button class="btn border-end" :class="checkLiked" @click="setUserLiked">
             <i class="fa-solid fa-heart"></i>
@@ -21,15 +21,19 @@
       </div>
       <div>
         <!-- Change Image -->
-        <img :src="platillo.thumbnail_image" class="rounded-3" width="220" alt="" />
+        <smart-img :src="platillo.thumbnail_image" :class="'rounded-3'" :width="'220'" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import smartImg from '@/components/smart-img.vue';
+
 export default {
-  name: 'platillos-index',
+  components: {
+    smartImg,
+  },
   data() {
     return {
       platillo: null,

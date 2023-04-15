@@ -12,10 +12,10 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/home/carousel/logo.jpg" class="img-fluid" alt="slider-img" />
+          <smart-img src="/home/carousel/logo.jpg" />
         </div>
         <div v-for="(image, i) in sliderImages" :key="i" class="carousel-item">
-          <img :src="image" class="img-fluid" alt="slider-img" />
+          <smart-img :src="image" />
         </div>
       </div>
     </div>
@@ -71,6 +71,7 @@ import heroSection from '@/views/home/hero-section.vue';
 import platillosSlider from '@/views/home/platillos-slider.vue';
 import categorySelector from '@/views/home/category-selector.vue';
 import smartDivider from '@/components/smart-divider.vue';
+import smartImg from '@/components/smart-img.vue';
 
 export default {
   name: 'home-index',
@@ -79,6 +80,7 @@ export default {
     platillosSlider,
     categorySelector,
     smartDivider,
+    smartImg,
   },
   data() {
     return {

@@ -49,7 +49,7 @@
     <div>
       <div v-if="submitted" class="d-flex gap-3">
         <div>
-          <img src="/icons/email-icon.webp" alt="email-icon" />
+          <smart-img :src="'/icons/email.png'" :width="'70'" />
         </div>
         <div class="d-flex flex-column align-items-center py-2">
           <p class="fw-bold my-0">Check Your Inbox!</p>
@@ -75,8 +75,12 @@
 </template>
 
 <script>
+import smartImg from '@/components/smart-img.vue';
+
 export default {
-  name: 'Footer-V',
+  components: {
+    smartImg,
+  },
   data() {
     return {
       email: '',

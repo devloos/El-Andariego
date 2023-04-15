@@ -10,7 +10,12 @@
       >
         <div>
           <!-- Change Image -->
-          <img :src="platillo.thumbnail_image" class="platillo-img" width="220" alt="" />
+          <smart-img
+            :src="platillo.thumbnail_image"
+            :class="'none'"
+            :style="platilloImgStyle"
+            :width="'220'"
+          />
         </div>
         <div class="platillo-info px-2 border bg-light">
           <p class="my-1">{{ platillo.name }}</p>
@@ -23,10 +28,12 @@
 
 <script>
 import smartDivider from '@/components/smart-divider.vue';
+import smartImg from '@/components/smart-img.vue';
 
 export default {
   components: {
     smartDivider,
+    smartImg,
   },
   data() {
     return {
@@ -35,6 +42,14 @@ export default {
   },
   mounted() {
     this.getPlatillos();
+  },
+  computed: {
+    platilloImgStyle() {
+      return {
+        'border-top-left-radius': '5px',
+        'border-top-right-radius': '5px',
+      };
+    },
   },
   methods: {
     async getPlatillos() {
@@ -57,11 +72,6 @@ export default {
 <style scoped>
 .platillo-card {
   cursor: pointer;
-}
-
-.platillo-img {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 
 .platillo-info {

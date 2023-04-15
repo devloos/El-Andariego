@@ -10,7 +10,7 @@
     </div>
     <div class="row justify-content-center">
       <!-- Change Image -->
-      <img src="/blogs/blog.jpg" class="col-xl-8 img-fluid" alt="" />
+      <smart-img :src="'/blogs/blog.jpg'" :class="'col-xl-8 img-fluid'" />
     </div>
     <p class="text-center mx-auto my-4" style="max-width: 40rem">
       {{ blog.description }}
@@ -19,7 +19,12 @@
 </template>
 
 <script>
+import smartImg from '@/components/smart-img.vue';
+
 export default {
+  components: {
+    smartImg,
+  },
   props: {
     id: {
       type: String,

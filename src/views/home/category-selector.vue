@@ -9,8 +9,7 @@
         @click="$router.push(`/menu/${category.name}`)"
       >
         <div>
-          <!-- Change Image -->
-          <img :src="category.thumbnail_image" class="img-fluid rounded-top-3" alt="" />
+          <smart-img :src="category.thumbnail_image" :class="'img-fluid rounded-top-3'" />
         </div>
         <div
           class="py-2 mb-2 bg-light text-center rounded-bottom-3 border border-bottom-3"
@@ -24,10 +23,12 @@
 
 <script>
 import smartDivider from '@/components/smart-divider.vue';
+import smartImg from '@/components/smart-img.vue';
 
 export default {
   components: {
     smartDivider,
+    smartImg,
   },
   data() {
     return {

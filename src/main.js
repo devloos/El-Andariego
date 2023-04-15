@@ -3,9 +3,9 @@ import { createHead } from '@vueuse/head';
 import App from './App.vue';
 import router from './router';
 import mixins from '@/mixins/index';
+import Toast from 'vue-toastification';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
-import Toast from 'vue-toastification';
 import 'vue-toastification/dist/index.css';
 import '@/assets/vue-toast-override.css';
 
