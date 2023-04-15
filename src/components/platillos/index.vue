@@ -21,7 +21,11 @@
       </div>
       <div>
         <!-- Change Image -->
-        <smart-img :src="platillo.thumbnail_image" :class="'rounded-3'" :width="'220'" />
+        <smart-img
+          :src="platillo.thumbnail_image"
+          :classes="'rounded-3'"
+          :width="'220'"
+        />
       </div>
     </div>
   </div>
@@ -31,6 +35,7 @@
 import smartImg from '@/components/smart-img.vue';
 
 export default {
+  name: 'platillos-index',
   components: {
     smartImg,
   },

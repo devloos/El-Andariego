@@ -25,7 +25,6 @@
 
 <script>
 import itemList from '@/components/menu/item-list.vue';
-import blankPixel from '@/utility/place-holder';
 import { useHead } from '@vueuse/head';
 
 export default {
@@ -47,7 +46,6 @@ export default {
   data() {
     return {
       categories: [],
-      placeHolderSrc: blankPixel,
     };
   },
   mounted() {

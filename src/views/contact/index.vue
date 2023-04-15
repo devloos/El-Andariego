@@ -160,6 +160,7 @@ import { useHead } from '@vueuse/head';
 import smartImg from '@/components/smart-img.vue';
 
 export default {
+  name: 'contact-index',
   components: {
     smartImg,
   },
