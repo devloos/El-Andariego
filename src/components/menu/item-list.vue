@@ -17,6 +17,7 @@
 
 <script>
 import smartImg from '@/components/smart-img.vue';
+import { prettyContent } from '@/assets/js/mixins';
 
 export default {
   components: {
@@ -60,6 +61,10 @@ export default {
         });
 
         this.items = response.data;
+
+        this.items.forEach((item) => {
+          item.content = prettyContent(item.content);
+        });
       } catch (e) {
         this.$_andariego_toast('Failed to fetch items.', { type: 'error' });
       }

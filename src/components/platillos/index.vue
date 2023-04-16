@@ -33,6 +33,7 @@
 
 <script>
 import smartImg from '@/components/smart-img.vue';
+import { prettyContent } from '@/assets/js/mixins';
 
 export default {
   name: 'platillos-index',
@@ -64,6 +65,7 @@ export default {
         });
 
         this.platillo = response.data[0];
+        this.platillo.content = prettyContent(this.platillo.content);
         this.likes = this.platillo.likes;
       } catch (e) {
         this.$_andariego_toast('Failed to fetch platillo.', { type: 'error' });
