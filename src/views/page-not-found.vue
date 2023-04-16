@@ -1,3 +1,21 @@
+<script>
+import { useHead } from '@vueuse/head';
+
+export default {
+  setup() {
+    useHead({
+      title: 'Page Not Found | El Andariego',
+      meta: [
+        {
+          name: 'description',
+          content: 'Page Not Found El Andariego',
+        },
+      ],
+    });
+  },
+};
+</script>
+
 <template>
   <div class="container">
     <div class="row justify-content-center mt-3">
@@ -18,24 +36,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import { useHead } from '@vueuse/head';
-
-export default {
-  setup() {
-    useHead({
-      title: 'Page Not Found | El Andariego',
-      meta: [
-        {
-          name: 'description',
-          content: 'Page Not Found El Andariego',
-        },
-      ],
-    });
-  },
-};
-</script>
 
 <style scoped>
 a {
