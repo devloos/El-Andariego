@@ -1,6 +1,3 @@
-<template>
-  <img :src="smartSrc" :class="classes" :style="style" :width="width" :alt="alt" />
-</template>
 <script>
 import blankPixel from '@/utility/place-holder';
 
@@ -37,3 +34,7 @@ export default {
   },
 };
 </script>
+
+<template>
+  <img :src="smartSrc" :class="classes" :style="style" :width="width" :alt="alt" />
+</template>

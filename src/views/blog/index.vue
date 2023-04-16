@@ -1,38 +1,3 @@
-<template>
-  <div class="container-fluid py-3 px-sm-5">
-    <div
-      v-for="(blog, i) in blogs"
-      :key="blog._id"
-      class="row justify-content-between gap-3 gap-lg-0 my-4"
-    >
-      <div
-        class="clickable col-lg-6"
-        :class="{ 'order-lg-2': i % 2 === 0 }"
-        @click="$router.push(`/blog/${blog._id}`)"
-      >
-        <!-- Change Image -->
-        <smart-img :src="'/blogs/blog.jpg'" />
-      </div>
-      <div
-        class="d-flex flex-column justify-content-center gap-4 col-lg-6 px-4 order-1"
-        :class="{ 'order-lg-1': i % 2 === 0 }"
-      >
-        <div class="clickable d-flex gap-2" @click="$router.push(`/blog/${blog._id}`)">
-          <p>{{ blog.type }}</p>
-          &middot;
-          <p>{{ blog.date }}</p>
-        </div>
-        <div class="clickable" @click="$router.push(`/blog/${blog._id}`)">
-          <h1>{{ blog.title }}</h1>
-        </div>
-        <div>
-          <a href="#" @click.prevent="$router.push(`/blog/${blog._id}`)">Read More</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 import { useHead } from '@vueuse/head';
 import smartImg from '@/components/smart-img.vue';
@@ -78,6 +43,41 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="container-fluid py-3 px-sm-5">
+    <div
+      v-for="(blog, i) in blogs"
+      :key="blog._id"
+      class="row justify-content-between gap-3 gap-lg-0 my-4"
+    >
+      <div
+        class="clickable col-lg-6"
+        :class="{ 'order-lg-2': i % 2 === 0 }"
+        @click="$router.push(`/blog/${blog._id}`)"
+      >
+        <!-- Change Image -->
+        <smart-img :src="'/blogs/blog.jpg'" />
+      </div>
+      <div
+        class="d-flex flex-column justify-content-center gap-4 col-lg-6 px-4 order-1"
+        :class="{ 'order-lg-1': i % 2 === 0 }"
+      >
+        <div class="clickable d-flex gap-2" @click="$router.push(`/blog/${blog._id}`)">
+          <p>{{ blog.type }}</p>
+          &middot;
+          <p>{{ blog.date }}</p>
+        </div>
+        <div class="clickable" @click="$router.push(`/blog/${blog._id}`)">
+          <h1>{{ blog.title }}</h1>
+        </div>
+        <div>
+          <a href="#" @click.prevent="$router.push(`/blog/${blog._id}`)">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 a {
