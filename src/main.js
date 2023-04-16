@@ -4,7 +4,7 @@ import App from './App.vue';
 import router from './router';
 import mixins from '@/mixins/index';
 import Toast from 'vue-toastification';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '@/assets/scss/styles.scss';
 import 'bootstrap';
 import 'vue-toastification/dist/index.css';
 import '@/assets/vue-toast-override.css';
