@@ -1,28 +1,3 @@
-<template>
-  <div class="container">
-    <div class="my-2 mb-5 px-2">
-      <h1 class="text-center fw-bold mb-5">MENU</h1>
-      <div class="d-flex justify-content-lg-center hidden-scroll">
-        <span class="mx-2">|</span>
-        <a
-          v-for="category in categories"
-          :key="category.name"
-          @click="$router.push(`/menu/${category.name}`)"
-        >
-          <span
-            class="router-link"
-            :class="{ active: category.name === $route.params.category }"
-          >
-            {{ category.name }}
-          </span>
-          <span class="mx-2">|</span>
-        </a>
-      </div>
-    </div>
-    <item-list :category="$route.params.category" />
-  </div>
-</template>
-
 <script>
 import itemList from '@/components/menu/item-list.vue';
 import { useHead } from '@vueuse/head';
@@ -59,9 +34,7 @@ export default {
         });
 
         this.categories = response.data;
-        this.categories.sort(
-          (category, category2) => category.priority - category2.priority
-        );
+        this.categories.sort((category, category2) => category.priority - category2.priority);
       } catch (e) {
         this.$_andariego_toast('Failed to fetch categories.', {
           type: 'error',
@@ -71,6 +44,28 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="container">
+    <div class="my-2 mb-5 px-2">
+      <h1 class="text-center fw-bold mb-5">MENU</h1>
+      <div class="d-flex justify-content-lg-center hidden-scroll">
+        <span class="mx-2">|</span>
+        <a
+          v-for="category in categories"
+          :key="category.name"
+          @click="$router.push(`/menu/${category.name}`)"
+        >
+          <span class="router-link" :class="{ active: category.name === $route.params.category }">
+            {{ category.name }}
+          </span>
+          <span class="mx-2">|</span>
+        </a>
+      </div>
+    </div>
+    <item-list :category="$route.params.category" />
+  </div>
+</template>
 
 <style scoped>
 h1 {

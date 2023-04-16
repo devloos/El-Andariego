@@ -1,3 +1,37 @@
+<script>
+import smartImg from '@/components/smart-img.vue';
+
+export default {
+  name: 'Footer-V',
+  components: {
+    smartImg,
+  },
+  data() {
+    return {
+      email: '',
+      submitted: false,
+    };
+  },
+  methods: {
+    signup() {
+      if (!this.email) {
+        return;
+      }
+
+      this.$_andariego_axios({
+        url: '/api/sendgrid/subscribe',
+        method: 'POST',
+        data: {
+          email: this.email,
+        },
+      });
+
+      this.submitted = true;
+    },
+  },
+};
+</script>
+
 <template>
   <footer
     class="container-fluid d-flex flex-wrap justify-content-center justify-content-lg-around gap-4 px-3 px-md-4 py-5 mt-4"
@@ -16,9 +50,7 @@
         </div>
         <p class="ms-1">
           <i class="fa-solid fa-phone fa-shake fa-lg me-1"></i>
-          <span @click="$_andariego_copyPhone" class="phone-number">
-            (949) 806 - 0123
-          </span>
+          <span @click="$_andariego_copyPhone" class="phone-number"> (949) 806 - 0123 </span>
         </p>
       </div>
       <div>
@@ -73,40 +105,6 @@
   </footer>
   <p class="text-center py-4 my-0">© 2023 El Andariego</p>
 </template>
-
-<script>
-import smartImg from '@/components/smart-img.vue';
-
-export default {
-  name: 'Footer-V',
-  components: {
-    smartImg,
-  },
-  data() {
-    return {
-      email: '',
-      submitted: false,
-    };
-  },
-  methods: {
-    signup() {
-      if (!this.email) {
-        return;
-      }
-
-      this.$_andariego_axios({
-        url: '/sendgrid/subscribe',
-        method: 'POST',
-        data: {
-          email: this.email,
-        },
-      });
-
-      this.submitted = true;
-    },
-  },
-};
-</script>
 
 <style scoped>
 .info p {

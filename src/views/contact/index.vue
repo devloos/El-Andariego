@@ -1,3 +1,66 @@
+<script>
+import { useHead } from '@vueuse/head';
+import smartImg from '@/components/smart-img.vue';
+
+export default {
+  name: 'contact-index',
+  components: {
+    smartImg,
+  },
+  setup() {
+    useHead({
+      title: 'Contact | El Andariego',
+      meta: [
+        {
+          name: 'description',
+          content: 'Contact El Andariego',
+        },
+      ],
+    });
+  },
+  data() {
+    return {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      description: '',
+      eventType: '',
+      date: '',
+    };
+  },
+  methods: {
+    async emailForm() {
+      try {
+        await this.$_andariego_axios({
+          url: '/api/sendgrid/save',
+          method: 'POST',
+          data: {
+            first_name: this.firstName,
+            last_name: this.lastName,
+            email: this.email,
+            phone: this.phone,
+            description: this.description,
+            event_type: this.eventType,
+            date: this.date,
+          },
+        });
+      } catch (e) {
+        this.$_andariego_toast('Failed to send information try again.', {
+          type: 'error',
+        });
+      }
+
+      // TODO show that save was complete
+      window.location.reload();
+    },
+    setDate(e) {
+      this.date = e.target.value;
+    },
+  },
+};
+</script>
+
 <template>
   <div class="container">
     <h4 class="success text-center fw-bold my-4">Contact El Andariego</h4>
@@ -31,18 +94,10 @@
                   >
                     <i class="fa-brands fa-facebook fa-md"></i>
                   </a>
-                  <a
-                    href="https://instagram.com/el_andariegotruck"
-                    class="me-2"
-                    target="_blank"
-                  >
+                  <a href="https://instagram.com/el_andariegotruck" class="me-2" target="_blank">
                     <i class="fa-brands fa-instagram fa-md"></i>
                   </a>
-                  <a
-                    href="https://g.page/r/CY53oo_JlDb8EAI/review"
-                    class="me-2"
-                    target="_blank"
-                  >
+                  <a href="https://g.page/r/CY53oo_JlDb8EAI/review" class="me-2" target="_blank">
                     <i class="fa-brands fa-google fa-sm"></i>
                   </a>
                 </div>
@@ -154,69 +209,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import { useHead } from '@vueuse/head';
-import smartImg from '@/components/smart-img.vue';
-
-export default {
-  name: 'contact-index',
-  components: {
-    smartImg,
-  },
-  setup() {
-    useHead({
-      title: 'Contact | El Andariego',
-      meta: [
-        {
-          name: 'description',
-          content: 'Contact El Andariego',
-        },
-      ],
-    });
-  },
-  data() {
-    return {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      description: '',
-      eventType: '',
-      date: '',
-    };
-  },
-  methods: {
-    async emailForm() {
-      try {
-        await this.$_andariego_axios({
-          url: '/sendgrid/save',
-          method: 'POST',
-          data: {
-            first_name: this.firstName,
-            last_name: this.lastName,
-            email: this.email,
-            phone: this.phone,
-            description: this.description,
-            event_type: this.eventType,
-            date: this.date,
-          },
-        });
-      } catch (e) {
-        this.$_andariego_toast('Failed to send information try again.', {
-          type: 'error',
-        });
-      }
-
-      // TODO show that save was complete
-      window.location.reload();
-    },
-    setDate(e) {
-      this.date = e.target.value;
-    },
-  },
-};
-</script>
 
 <style scoped>
 .info p {

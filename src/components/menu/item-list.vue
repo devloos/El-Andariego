@@ -1,20 +1,3 @@
-<template>
-  <div class="mt-2">
-    <h4 v-text="category" class="text-center fw-bold mt-5 mb-2"></h4>
-    <smart-img :src="category_image" :classes="'img-fluid mb-5 rounded-2'" />
-    <div class="row justify-content-evenly px-2">
-      <div v-for="item in items" :key="item.name" class="item col-lg-4 col-md-6 mb-2">
-        <div class="row justify-content-between text-center">
-          <p class="success col-auto fw-bold" v-text="item.name" />
-          <p class="col-auto" v-text="' ($' + item.price + ')'" />
-        </div>
-        <p class="mb-5" v-text="item.content" />
-        <hr class="border border-dark mx-auto" />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 import smartImg from '@/components/smart-img.vue';
 import { prettyContent } from '@/assets/js/mixins';
@@ -72,6 +55,23 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="mt-2">
+    <h4 v-text="category" class="text-center fw-bold mt-5 mb-2"></h4>
+    <smart-img :src="category_image" :classes="'img-fluid mb-5 rounded-2'" />
+    <div class="row justify-content-evenly px-2">
+      <div v-for="item in items" :key="item.name" class="item col-lg-4 col-md-6 mb-2">
+        <div class="row justify-content-between text-center">
+          <p class="success col-auto fw-bold" v-text="item.name" />
+          <p class="col-auto" v-text="' ($' + item.price + ')'" />
+        </div>
+        <p class="mb-5" v-text="item.content" />
+        <hr class="border border-dark mx-auto" />
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 #horizontal-scroll {

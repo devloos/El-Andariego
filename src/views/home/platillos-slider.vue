@@ -1,31 +1,3 @@
-<template>
-  <div class="px-2 px-lg-5 mx-lg-3">
-    <smart-divider :divider_name="'Our Specialty Platillos'" />
-    <div class="d-flex gap-3 overflow-auto">
-      <div
-        v-for="platillo in platillos"
-        :key="platillo.name"
-        class="platillo-card"
-        @click="$router.push(`platillo/${platillo.name}`)"
-      >
-        <div>
-          <!-- Change Image -->
-          <smart-img
-            :src="platillo.thumbnail_image"
-            :classes="'none'"
-            :style="platilloImgStyle"
-            :width="'220'"
-          />
-        </div>
-        <div class="platillo-info px-2 border bg-light">
-          <p class="my-1">{{ platillo.name }}</p>
-          <p class="platillo-price text-muted mb-2">{{ '$' + platillo.price }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 import smartDivider from '@/components/smart-divider.vue';
 import smartImg from '@/components/smart-img.vue';
@@ -68,6 +40,34 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="px-2 px-lg-5 mx-lg-3">
+    <smart-divider :divider_name="'Our Specialty Platillos'" />
+    <div class="d-flex gap-3 overflow-auto">
+      <div
+        v-for="platillo in platillos"
+        :key="platillo.name"
+        class="platillo-card"
+        @click="$router.push(`platillo/${platillo.name}`)"
+      >
+        <div>
+          <!-- Change Image -->
+          <smart-img
+            :src="platillo.thumbnail_image"
+            :classes="'none'"
+            :style="platilloImgStyle"
+            :width="'220'"
+          />
+        </div>
+        <div class="platillo-info px-2 border bg-light">
+          <p class="my-1">{{ platillo.name }}</p>
+          <p class="platillo-price text-muted mb-2">{{ '$' + platillo.price }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .platillo-card {

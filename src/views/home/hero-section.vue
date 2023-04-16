@@ -1,38 +1,3 @@
-<template>
-  <div class="row justify-content-center gap-4 gap-md-3 py-4 px-2">
-    <div class="col">
-      <div class="row gap-4 gap-md-0" style="height: 100%">
-        <div class="mb-3">
-          <!-- Change Image -->
-          <smart-img :src="'/home/hero-section/familia.jpg'" />
-        </div>
-        <div class="text-center">
-          <div>
-            <h4>Authentic Mexican Food</h4>
-            <p class="text-muted my-2" v-text="schedule"></p>
-            <!-- <p class="text-muted my-2 text-uppercase">Temporalmente cerrado</p> -->
-          </div>
-          <p class="home-text mx-auto">
-            El Andariego is a new gastronomic proposal in the area of San Juan Capistrano,
-            California. Sharing the Mexican flavors with an authentic tastings. Through
-            tortas, tacos, burritos and quesadillas, El Andariego offers a variety of
-            products that, together with dishes such as Alambre, Fortachon or Que Me
-            Notas, seeks to satisfy the palates of southern California and position itself
-            as one of the favorite options in the area.
-          </p>
-          <button class="btn btn-success px-4" @click="$router.push('/menu')">
-            View Menu
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-5 text-center align-items-center">
-      <!-- Change Image -->
-      <smart-img :src="'/home/hero-section/pastor.jpg'" />
-    </div>
-  </div>
-</template>
-
 <script>
 import smartImg from '@/components/smart-img.vue';
 import DAY from '@/utility/constants/weekdays';
@@ -87,6 +52,39 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="row justify-content-center gap-4 gap-md-3 py-4 px-2">
+    <div class="col">
+      <div class="row gap-4 gap-md-0" style="height: 100%">
+        <div class="mb-3">
+          <!-- Change Image -->
+          <smart-img :src="'/home/hero-section/familia.jpg'" />
+        </div>
+        <div class="text-center">
+          <div>
+            <h4>Authentic Mexican Food</h4>
+            <p class="text-muted my-2" v-text="schedule"></p>
+            <!-- <p class="text-muted my-2 text-uppercase">Temporalmente cerrado</p> -->
+          </div>
+          <p class="home-text mx-auto">
+            El Andariego is a new gastronomic proposal in the area of San Juan Capistrano,
+            California. Sharing the Mexican flavors with an authentic tastings. Through tortas,
+            tacos, burritos and quesadillas, El Andariego offers a variety of products that,
+            together with dishes such as Alambre, Fortachon or Que Me Notas, seeks to satisfy the
+            palates of southern California and position itself as one of the favorite options in the
+            area.
+          </p>
+          <button class="btn btn-success px-4" @click="$router.push('/menu')">View Menu</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 text-center align-items-center">
+      <!-- Change Image -->
+      <smart-img :src="'/home/hero-section/pastor.jpg'" />
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .btn {

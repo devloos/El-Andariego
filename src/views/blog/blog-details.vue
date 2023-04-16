@@ -1,23 +1,3 @@
-<template>
-  <div v-if="blog" class="container">
-    <h2 class="success text-center my-3 mb-5 fw-bold">{{ blog.title }}</h2>
-    <div class="row justify-content-center">
-      <div class="small d-flex gap-2 text-muted col-xl-8">
-        <p>{{ blog.type }}</p>
-        &middot;
-        <p>{{ blog.date }}</p>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <!-- Change Image -->
-      <smart-img :src="'/blogs/blog.jpg'" :classes="'col-xl-8 img-fluid'" />
-    </div>
-    <p class="text-center mx-auto my-4" style="max-width: 40rem">
-      {{ blog.description }}
-    </p>
-  </div>
-</template>
-
 <script>
 import smartImg from '@/components/smart-img.vue';
 
@@ -60,6 +40,26 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div v-if="blog" class="container">
+    <h2 class="success text-center my-3 mb-5 fw-bold">{{ blog.title }}</h2>
+    <div class="row justify-content-center">
+      <div class="small d-flex gap-2 text-muted col-xl-8">
+        <p>{{ blog.type }}</p>
+        &middot;
+        <p>{{ blog.date }}</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <!-- Change Image -->
+      <smart-img :src="'/blogs/blog.jpg'" :classes="'col-xl-8 img-fluid'" />
+    </div>
+    <p class="text-center mx-auto my-4" style="max-width: 40rem">
+      {{ blog.description }}
+    </p>
+  </div>
+</template>
 
 <style scoped>
 .success {
