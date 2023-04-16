@@ -12,7 +12,7 @@
           <!-- Change Image -->
           <smart-img
             :src="platillo.thumbnail_image"
-            :class="'none'"
+            :classes="'none'"
             :style="platilloImgStyle"
             :width="'220'"
           />

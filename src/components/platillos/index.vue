@@ -21,7 +21,11 @@
       </div>
       <div>
         <!-- Change Image -->
-        <smart-img :src="platillo.thumbnail_image" :class="'rounded-3'" :width="'220'" />
+        <smart-img
+          :src="platillo.thumbnail_image"
+          :classes="'rounded-3'"
+          :width="'220'"
+        />
       </div>
     </div>
   </div>
@@ -29,8 +33,10 @@
 
 <script>
 import smartImg from '@/components/smart-img.vue';
+import { prettyContent } from '@/assets/js/mixins';
 
 export default {
+  name: 'platillos-index',
   components: {
     smartImg,
   },
@@ -59,6 +65,7 @@ export default {
         });
 
         this.platillo = response.data[0];
+        this.platillo.content = prettyContent(this.platillo.content);
         this.likes = this.platillo.likes;
       } catch (e) {
         this.$_andariego_toast('Failed to fetch platillo.', { type: 'error' });

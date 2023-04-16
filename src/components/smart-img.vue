@@ -1,20 +1,22 @@
 <template>
-  <img :src="smartSrc" :class="class" :style="style" :width="width" :alt="alt" />
+  <img :src="smartSrc" :class="classes" :style="style" :width="width" :alt="alt" />
 </template>
 <script>
+import blankPixel from '@/utility/place-holder';
+
 export default {
   props: {
     src: {
       type: String,
-      default: null,
+      default: blankPixel,
     },
-    class: {
+    classes: {
       type: String,
       default: 'img-fluid',
     },
     style: {
       type: Object,
-      default: {},
+      default: new Object(),
     },
     alt: {
       type: String,
@@ -27,7 +29,10 @@ export default {
   },
   computed: {
     smartSrc() {
-      return new URL('/andariego' + this.src, 'https://ik.imagekit.io').href;
+      if (this.src) {
+        return new URL('/andariego' + this.src, 'https://ik.imagekit.io').href;
+      }
+      return blankPixel;
     },
   },
 };

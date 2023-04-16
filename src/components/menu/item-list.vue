@@ -1,7 +1,7 @@
 <template>
   <div class="mt-2">
     <h4 v-text="category" class="text-center fw-bold mt-5 mb-2"></h4>
-    <smart-img :src="category_image" :class="'img-fluid mb-5 rounded-2'" />
+    <smart-img :src="category_image" :classes="'img-fluid mb-5 rounded-2'" />
     <div class="row justify-content-evenly px-2">
       <div v-for="item in items" :key="item.name" class="item col-lg-4 col-md-6 mb-2">
         <div class="row justify-content-between text-center">
@@ -17,6 +17,7 @@
 
 <script>
 import smartImg from '@/components/smart-img.vue';
+import { prettyContent } from '@/assets/js/mixins';
 
 export default {
   components: {
@@ -60,6 +61,10 @@ export default {
         });
 
         this.items = response.data;
+
+        this.items.forEach((item) => {
+          item.content = prettyContent(item.content);
+        });
       } catch (e) {
         this.$_andariego_toast('Failed to fetch items.', { type: 'error' });
       }

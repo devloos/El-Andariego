@@ -78,6 +78,7 @@
 import smartImg from '@/components/smart-img.vue';
 
 export default {
+  name: 'Footer-V',
   components: {
     smartImg,
   },
