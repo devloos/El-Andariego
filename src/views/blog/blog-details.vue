@@ -53,7 +53,7 @@ export default {
     </div>
     <div class="row justify-content-center">
       <!-- Change Image -->
-      <smart-img :src="'/blogs/blog.jpg'" :classes="'col-xl-8 img-fluid'" />
+      <smart-img :src="blog.image" :classes="'col-xl-8 img-fluid'" />
     </div>
     <p class="text-center mx-auto my-4" style="max-width: 40rem">
       {{ blog.description }}
