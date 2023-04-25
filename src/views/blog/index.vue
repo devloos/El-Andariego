@@ -57,7 +57,7 @@ export default {
         @click="$router.push(`/blog/${blog._id}`)"
       >
         <!-- Change Image -->
-        <smart-img :src="'/blogs/blog.jpg'" />
+        <smart-img :src="blog.image" />
       </div>
       <div
         class="d-flex flex-column justify-content-center gap-4 col-lg-6 px-4 order-1"
