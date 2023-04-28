@@ -2,7 +2,6 @@
 import smartImg from '@/components/smart-img.vue';
 
 export default {
-  name: 'Footer-V',
   components: {
     smartImg,
   },
@@ -50,7 +49,9 @@ export default {
         </div>
         <p class="ms-1">
           <i class="fa-solid fa-phone fa-shake fa-lg me-1"></i>
-          <span @click="$_andariego_copyPhone" class="phone-number"> (949) 806 - 0123 </span>
+          <span @click="$_andariego_copyPhone" class="phone-number">
+            (949) 806 - 0123
+          </span>
         </p>
       </div>
       <div>

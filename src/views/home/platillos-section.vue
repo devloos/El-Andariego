@@ -1,10 +1,8 @@
 <script>
-import smartDivider from '@/components/smart-divider.vue';
 import smartImg from '@/components/smart-img.vue';
 
 export default {
   components: {
-    smartDivider,
     smartImg,
   },
   data() {
@@ -43,7 +41,6 @@ export default {
 
 <template>
   <div class="px-2 px-lg-5 mx-lg-3">
-    <smart-divider :divider_name="'Our Specialty Platillos'" />
     <div class="d-flex gap-3 overflow-auto">
       <div
         v-for="platillo in platillos"

@@ -6,11 +6,11 @@ const toast = useToast();
 export default {
   methods: {
     $_andariego_axios(request = {}) {
-      const url = request?.url ? request.url : null;
-      const method = request?.method ? request.method : 'GET';
-      const headers = request?.headers ? request.headers : {};
-      const params = request?.params ? request.params : {};
-      const data = request?.data ? request.data : {};
+      const url = request.url || null;
+      const method = request.method || 'GET';
+      const headers = request.headers || {};
+      const params = request.params || {};
+      const data = request.data || {};
 
       return axios.request({
         url,

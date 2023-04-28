@@ -2,10 +2,10 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 import home from '@/views/home/index.vue';
 import menu from '@/views/menu/index.vue';
 import contact from '@/views/contact/index.vue';
-import blog from '@/views/blog/index.vue';
-import blogDetails from '@/views/blog/blog-details.vue';
-import platilloDetails from '@/components/platillos/index.vue';
-import pageNotFound from '@/views/page-not-found.vue';
+import blog from '@/views/blog.vue';
+import blogDetails from '@/components/blog-details.vue';
+import platilloDetails from '@/components/platillo-details.vue';
+import error from '@/views/error.vue';
 
 const routes = [
   {
@@ -45,13 +45,13 @@ const routes = [
   },
   {
     path: '/:pathMatch(.*)*',
-    name: 'pageNotFound',
-    component: pageNotFound,
+    name: 'error',
+    component: error,
   },
   {
     path: '/items/undefined',
     name: 'undefined',
-    component: pageNotFound,
+    component: error,
   },
 ];
 

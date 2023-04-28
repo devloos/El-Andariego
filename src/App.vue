@@ -1,10 +1,9 @@
 <script>
 import { useHead } from '@vueuse/head';
-import Navbar from '@/views/nav/index.vue';
-import FooterIndex from '@/views/footer/index.vue';
+import navbar from '@/views/nav.vue';
+import footerIndex from '@/views/footer.vue';
 
 export default {
-  name: 'App',
   setup() {
     useHead({
       title: 'El Andariego',
@@ -17,8 +16,8 @@ export default {
     });
   },
   components: {
-    Navbar,
-    FooterIndex,
+    navbar,
+    footerIndex,
   },
   data() {
     return {
@@ -55,14 +54,17 @@ export default {
           <a href="#" @click.prevent="$router.push('/menu')">Menu</a>
         </li>
         <li class="text-center my-4">
-          <a href="#" @click.prevent="$router.push('/Blog')">Blog</a>
+          <a href="#" @click.prevent="$router.push('/blog')">Blog</a>
         </li>
         <li class="text-center my-4">
           <a href="#" @click.prevent="$router.push('/contact')">Contact</a>
         </li>
         <li class="d-flex flex-column justify-content-center my-5">
           <div class="d-flex justify-content-center mt-5 gap-3">
-            <a href="https://www.facebook.com/profile.php?id=100082710796984" target="_blank">
+            <a
+              href="https://www.facebook.com/profile.php?id=100082710796984"
+              target="_blank"
+            >
               <i class="fa-brands fa-facebook fa-sm"></i>
             </a>
             <a href="https://instagram.com/el_andariegotruck" target="_blank">

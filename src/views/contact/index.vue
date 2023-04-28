@@ -3,7 +3,6 @@ import { useHead } from '@vueuse/head';
 import smartImg from '@/components/smart-img.vue';
 
 export default {
-  name: 'contact-index',
   components: {
     smartImg,
   },
@@ -94,10 +93,18 @@ export default {
                   >
                     <i class="fa-brands fa-facebook fa-md"></i>
                   </a>
-                  <a href="https://instagram.com/el_andariegotruck" class="me-2" target="_blank">
+                  <a
+                    href="https://instagram.com/el_andariegotruck"
+                    class="me-2"
+                    target="_blank"
+                  >
                     <i class="fa-brands fa-instagram fa-md"></i>
                   </a>
-                  <a href="https://g.page/r/CY53oo_JlDb8EAI/review" class="me-2" target="_blank">
+                  <a
+                    href="https://g.page/r/CY53oo_JlDb8EAI/review"
+                    class="me-2"
+                    target="_blank"
+                  >
                     <i class="fa-brands fa-google fa-sm"></i>
                   </a>
                 </div>

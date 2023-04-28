@@ -3,7 +3,6 @@ import { useHead } from '@vueuse/head';
 import smartImg from '@/components/smart-img.vue';
 
 export default {
-  name: 'blog-index',
   components: {
     smartImg,
   },

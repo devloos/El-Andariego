@@ -3,7 +3,6 @@ import smartImg from '@/components/smart-img.vue';
 import { prettyContent } from '@/assets/js/mixins';
 
 export default {
-  name: 'platillos-index',
   components: {
     smartImg,
   },
@@ -55,7 +54,9 @@ export default {
       this.userLiked ? await this.addLiked() : await this.removeLiked();
     },
     async removeLiked() {
-      this.likedPlatillos = this.likedPlatillos.filter((name) => name != this.platillo.name);
+      this.likedPlatillos = this.likedPlatillos.filter(
+        (name) => name != this.platillo.name
+      );
 
       localStorage.setItem('liked-platillos', JSON.stringify(this.likedPlatillos));
 
@@ -114,7 +115,11 @@ export default {
       </div>
       <div>
         <!-- Change Image -->
-        <smart-img :src="platillo.thumbnail_image" :classes="'rounded-3'" :width="'220'" />
+        <smart-img
+          :src="platillo.thumbnail_image"
+          :classes="'rounded-3'"
+          :width="'220'"
+        />
       </div>
     </div>
   </div>

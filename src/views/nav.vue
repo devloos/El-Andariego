@@ -1,6 +1,5 @@
 <script>
 export default {
-  name: 'Nav-V',
   data() {
     return {
       isActive: false,
@@ -41,9 +40,15 @@ export default {
     </button>
     <div class="nav-expanded">
       <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/')">Home</a>
-      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/menu')"> Menu </a>
-      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/blog')">Blog</a>
-      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/contact')">Contact</a>
+      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/menu')">
+        Menu
+      </a>
+      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/blog')"
+        >Blog</a
+      >
+      <a class="nav-expanded-item" href="#" @click.prevent="$router.push('/contact')"
+        >Contact</a
+      >
       <a
         href="https://www.facebook.com/profile.php?id=100082710796984"
         class="nav-expanded-item"
@@ -51,10 +56,18 @@ export default {
       >
         <i class="fa-brands fa-facebook fa-lg"></i>
       </a>
-      <a href="https://instagram.com/el_andariegotruck" class="nav-expanded-item" target="_blank">
+      <a
+        href="https://instagram.com/el_andariegotruck"
+        class="nav-expanded-item"
+        target="_blank"
+      >
         <i class="fa-brands fa-instagram fa-lg"></i>
       </a>
-      <a href="https://g.page/r/CY53oo_JlDb8EAI/review" class="nav-expanded-item" target="_blank">
+      <a
+        href="https://g.page/r/CY53oo_JlDb8EAI/review"
+        class="nav-expanded-item"
+        target="_blank"
+      >
         <i class="fa-brands fa-google fa-md"></i>
       </a>
       <button

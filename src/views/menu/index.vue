@@ -1,9 +1,8 @@
 <script>
-import itemList from '@/components/menu/item-list.vue';
+import itemList from '@/views/menu/item-list.vue';
 import { useHead } from '@vueuse/head';
 
 export default {
-  name: 'Menu-V',
   setup() {
     useHead({
       title: 'Menu | El Andariego',
@@ -34,7 +33,9 @@ export default {
         });
 
         this.categories = response.data;
-        this.categories.sort((category, category2) => category.priority - category2.priority);
+        this.categories.sort(
+          (category, category2) => category.priority - category2.priority
+        );
       } catch (e) {
         this.$_andariego_toast('Failed to fetch categories.', {
           type: 'error',
@@ -56,7 +57,10 @@ export default {
           :key="category.name"
           @click="$router.push(`/menu/${category.name}`)"
         >
-          <span class="router-link" :class="{ active: category.name === $route.params.category }">
+          <span
+            class="router-link"
+            :class="{ active: category.name === $route.params.category }"
+          >
             {{ category.name }}
           </span>
           <span class="mx-2">|</span>
