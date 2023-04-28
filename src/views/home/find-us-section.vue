@@ -1,7 +1,3 @@
-<script>
-export default {};
-</script>
-
 <template>
   <div class="row gap-1 px-2 justify-content-evenly text-lg-center">
     <div class="col-12 col-sm-5">

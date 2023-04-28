@@ -59,8 +59,6 @@ export default {
         <div>
           <p class="mb-1">Monday &middot; Tuesday: Closed</p>
           <p>Wednesday &middot; Sunday: Open</p>
-          <!-- <p class="mb-1 text-uppercase">Temporalmente cerrado</p> -->
-          <!-- <p>TEMPORARILY CLOSED</p> -->
         </div>
         <div class="d-flex justify-content-start">
           <a

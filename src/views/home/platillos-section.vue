@@ -40,7 +40,7 @@ export default {
 </script>
 
 <template>
-  <div class="px-2 px-lg-5 mx-lg-3">
+  <div class="px-2">
     <div class="d-flex gap-3 overflow-auto">
       <div
         v-for="platillo in platillos"

@@ -1,5 +1,4 @@
 <script>
-import findUsSection from '@/views/home/find-us-section.vue';
 import platillosSection from '@/views/home/platillos-section.vue';
 import categorySection from '@/views/home/category-section.vue';
 import smartDivider from '@/components/smart-divider.vue';
@@ -8,7 +7,6 @@ import DAY from '@/utility/constants/weekdays';
 
 export default {
   components: {
-    findUsSection,
     platillosSection,
     categorySection,
     smartDivider,
@@ -67,7 +65,7 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid px-lg-5">
     <div class="row justify-content-center gap-4 gap-md-3 py-4 px-2">
       <div class="col">
         <div class="row gap-4 gap-md-0" style="height: 100%">
@@ -121,8 +119,8 @@ export default {
     <smart-divider :divider_name="'Top Categories'" />
     <category-section />
 
-    <smart-divider :divider_name="'Find El Andariego'" />
-    <find-us-section />
+    <!-- <smart-divider :divider_name="'Find El Andariego'" /> -->
+    <!-- <find-us-section /> -->
   </div>
 </template>
 

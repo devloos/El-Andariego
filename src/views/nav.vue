@@ -71,7 +71,7 @@ export default {
         <i class="fa-brands fa-google fa-md"></i>
       </a>
       <button
-        class="btn rounded-pill btn-dark ms-3 px-5 py-3"
+        class="btn rounded-4 btn-dark ms-3 px-5 py-3"
         @click="$_andariego_copyPhone"
         type="button"
       >
