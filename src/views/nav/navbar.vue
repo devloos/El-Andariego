@@ -1,25 +1,11 @@
 <script>
 export default {
-  data() {
-    return {
-      isActive: false,
-    };
-  },
-  created() {
-    window.addEventListener('resize', this.toggleNavBurger);
-  },
-  watch: {
-    $route() {
-      this.isActive = false;
+  props: {
+    activeBurger: {
+      type: Boolean,
     },
   },
-  methods: {
-    toggleNavBurger() {
-      if (window.innerWidth > 800) {
-        this.isActive = false;
-      }
-    },
-  },
+  emits: ['toggle-offcanvas'],
 };
 </script>
 
@@ -30,8 +16,8 @@ export default {
     </a>
     <button
       class="hamburger hamburger--squeeze"
-      :class="{ 'is-active': isActive }"
-      @click="$emit('toggle-nav'), (isActive = !isActive)"
+      :class="{ 'is-active': activeBurger }"
+      @click="$emit('toggle-offcanvas')"
       type="button"
     >
       <span class="hamburger-box">
