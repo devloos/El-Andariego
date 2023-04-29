@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <div class="nav-header container-fluid">
+  <div class="nav-header container-fluid px-4 px-lg-5">
     <a class="nav-title fs-4 fw-bold mt-2" href="#" @click.prevent="$router.push('/')">
       El Andariego
     </a>
@@ -71,7 +71,8 @@ export default {
 @import '@/assets/hamburgers.css';
 
 .nav-header {
-  padding: 28px 35px 28px 35px;
+  padding-top: 28px;
+  padding-bottom: 28px;
   display: flex;
   justify-content: space-between;
   background-color: white;
