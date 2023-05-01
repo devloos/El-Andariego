@@ -1,8 +1,4 @@
-<script>
-export default {
-  setup() {},
-};
-</script>
+<script setup></script>
 
 <template>
   <div class="nav-offcanvas pt-2">

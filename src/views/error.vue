@@ -1,19 +1,15 @@
-<script>
+<script setup>
 import { useHead } from '@vueuse/head';
 
-export default {
-  setup() {
-    useHead({
-      title: 'Page Not Found | El Andariego',
-      meta: [
-        {
-          name: 'description',
-          content: 'Page Not Found El Andariego',
-        },
-      ],
-    });
-  },
-};
+useHead({
+  title: 'Page Not Found | El Andariego',
+  meta: [
+    {
+      name: 'description',
+      content: 'Page Not Found El Andariego',
+    },
+  ],
+});
 </script>
 
 <template>

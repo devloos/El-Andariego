@@ -27,7 +27,7 @@ export default {
       this.top_categories.includes(category.name)
     );
 
-    this.categories.sort((category, category2) => category.priority - category2.priority);
+    this.categories.sort((a, b) => a.priority - b.priority);
   },
 };
 </script>

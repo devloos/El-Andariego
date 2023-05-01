@@ -33,9 +33,7 @@ export default {
         });
 
         this.categories = response.data;
-        this.categories.sort(
-          (category, category2) => category.priority - category2.priority
-        );
+        this.categories.sort((a, b) => a.priority - b.priority);
       } catch (e) {
         this.$_andariego_toast('Failed to fetch categories.', {
           type: 'error',
