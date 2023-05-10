@@ -12,54 +12,37 @@ export default {
     smartDivider,
     smartImg,
   },
-  data() {
+  setup() {
+    function inWorkSchedule() {
+      const now = new Date().getHours() * 60 + new Date().getMinutes();
+      const start = 16 * 60 + 30;
+      const end = 23 * 60 + 30;
+      return start <= now && now <= end;
+    }
+
+    function getSchedule(day) {
+      if (day == DAY.Monday) {
+        return 'Closed, Opening Wednesday at 4:30 PM';
+      }
+
+      if (inWorkSchedule()) {
+        return 'Open in San Juan Capistrano until 11:30 PM';
+      } else {
+        return `Opening in San Juan Capistrano at 4:30 PM`;
+      }
+    }
+
+    const day = new Date().getDay();
+    const schedule = getSchedule(day);
+
     return {
-      schedule: null,
-      location: null,
+      schedule,
       sliderImages: [
         '/home/carousel/card.jpg',
         '/home/carousel/sopes.jpg',
         '/home/carousel/truck.jpg',
       ],
     };
-  },
-  mounted() {
-    const day = new Date().getDay();
-    this.setLocation(day);
-    this.setSchedule(day);
-  },
-  methods: {
-    setSchedule(day) {
-      if (day == DAY.Monday || day == DAY.Tuesday) {
-        this.schedule = 'Closed, Opening Wednesday at 4:30 PM';
-        return;
-      }
-
-      if (!this.inWorkSchedule()) {
-        this.schedule = `Opening in ${this.location} at 4:30 PM`;
-      } else if (day == DAY.Friday || day == DAY.Sunday) {
-        this.schedule = `Open in ${this.location} until 11:30 PM`;
-      } else {
-        this.schedule = `Open in ${this.location} until 10:30 PM`;
-      }
-    },
-    inWorkSchedule() {
-      const now = new Date().getHours() * 60 + new Date().getMinutes();
-      const start = 16 * 60 + 30;
-      const end = 23 * 60 + 30;
-      return start <= now && now <= end;
-    },
-    setLocation(day) {
-      if (day == DAY.Wednesday) {
-        this.location = 'Laguna Hills';
-      } else if (day == DAY.Thursday) {
-        this.location = 'Lake Forest';
-      } else if (day == DAY.Saturday) {
-        this.location = 'San Juan Village';
-      } else {
-        this.location = 'San Juan Capistrano';
-      }
-    },
   },
 };
 </script>
