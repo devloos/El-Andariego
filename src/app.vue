@@ -59,7 +59,7 @@ export default {
 
 <style>
 #app {
-  font-family: Helvetica;
+  font-family: 'Roboto', sans-serif;
   padding-top: 116.5px;
   /* Needed for white space on the right */
   /* Messes with sticky-top */
