@@ -74,22 +74,12 @@ export default {
 </template>
 
 <style scoped>
-#horizontal-scroll {
-  overflow: auto;
-  white-space: nowrap;
-}
-
 h4 {
   color: #76070a;
 }
 
 .success {
   color: #1a532e;
-}
-
-.border-danger {
-  background-color: #76070a;
-  opacity: 0.2;
 }
 
 .item {

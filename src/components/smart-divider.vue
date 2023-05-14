@@ -16,7 +16,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 .divider-text {
   text-transform: uppercase;
   font-size: 14px;

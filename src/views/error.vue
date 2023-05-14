@@ -38,6 +38,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
 a:hover {
   color: #1a532e;
   text-decoration: none;

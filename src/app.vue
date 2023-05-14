@@ -57,16 +57,6 @@ export default {
   </transition>
 </template>
 
-<style>
-#app {
-  font-family: 'Roboto', sans-serif;
-  padding-top: 116.5px;
-  /* Needed for white space on the right */
-  /* Messes with sticky-top */
-  overflow-x: hidden;
-}
-</style>
-
 <style scoped>
 main {
   min-height: 100vh;
