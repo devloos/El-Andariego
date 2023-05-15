@@ -53,7 +53,7 @@ export default {
       <div
         class="clickable col-lg-6"
         :class="{ 'order-lg-2': i % 2 === 0 }"
-        @click="$router.push(`/post/${post._id}`)"
+        @click="$router.push(`/blog/${post._id}`)"
       >
         <!-- Change Image -->
         <smart-img :src="post.image" />
