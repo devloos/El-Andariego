@@ -29,6 +29,15 @@ export default {
     };
   },
   methods: {
+    resetForm() {
+      this.firstName = '';
+      this.lastName = '';
+      this.email = '';
+      this.phone = '';
+      this.description = '';
+      this.eventType = '';
+      this.date = '';
+    },
     async emailForm() {
       try {
         await this.$_andariego_axios({
@@ -44,14 +53,15 @@ export default {
             date: this.date,
           },
         });
+
+        this.$_andariego_toast('You will be contacted shortly thank you.');
       } catch (e) {
         this.$_andariego_toast('Failed to send information try again.', {
           type: 'error',
         });
+      } finally {
+        this.resetForm();
       }
-
-      // TODO show that save was complete
-      window.location.reload();
     },
     setDate(e) {
       this.date = e.target.value;
@@ -68,7 +78,7 @@ export default {
         <div class="row justify-content-start">
           <div class="my-3">
             <!-- Change Image -->
-            <smart-img :src="'/contact/contact.jpg'" />
+            <smart-img :src="'/andariego/contact/contact.jpg'" />
           </div>
           <div class="my-3">
             <div class="row justify-content-between">
