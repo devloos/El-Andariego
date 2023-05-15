@@ -27,7 +27,7 @@ export default {
   computed: {
     smartSrc() {
       if (this.src) {
-        return new URL('/andariego' + this.src, 'https://ik.imagekit.io').href;
+        return new URL(this.src, 'https://ik.imagekit.io').href;
       }
       return blankPixel;
     },

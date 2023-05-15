@@ -38,9 +38,9 @@ export default {
     return {
       schedule,
       sliderImages: [
-        '/home/carousel/card.jpg',
-        '/home/carousel/sopes.jpg',
-        '/home/carousel/truck.jpg',
+        '/andariego/home/carousel/card.jpg',
+        '/andariego/home/carousel/sopes.jpg',
+        '/andariego/home/carousel/truck.jpg',
       ],
     };
   },
