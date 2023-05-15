@@ -53,7 +53,7 @@ export default {
       <div class="col">
         <div class="row gap-4 gap-md-0" style="height: 100%">
           <div class="mb-3">
-            <smart-img :src="'/home/familia.jpg'" />
+            <smart-img :src="'/andariego/home/familia.jpg'" />
           </div>
           <div class="text-center">
             <div>
@@ -75,7 +75,7 @@ export default {
         </div>
       </div>
       <div class="col-md-5 text-center align-items-center">
-        <smart-img :src="'/home/pastor.jpg'" />
+        <smart-img :src="'/andariego/home/pastor.jpg'" />
       </div>
     </div>
 
@@ -91,7 +91,7 @@ export default {
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <smart-img src="/home/carousel/logo.jpg" />
+          <smart-img src="/andriego/home/carousel/logo.jpg" />
         </div>
         <div v-for="(image, i) in sliderImages" :key="i" class="carousel-item">
           <smart-img :src="image" />
