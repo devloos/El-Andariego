@@ -3,7 +3,7 @@ import home from '@/views/home/index.vue';
 import menu from '@/views/menu/index.vue';
 import contact from '@/views/contact/index.vue';
 import blog from '@/views/blog.vue';
-import blogDetails from '@/components/blog-details.vue';
+import post from '@/components/post.vue';
 import platilloDetails from '@/components/platillo-details.vue';
 import error from '@/views/error.vue';
 
@@ -34,8 +34,8 @@ const routes = [
   },
   {
     path: '/blog/:id',
-    name: 'blog-details',
-    component: blogDetails,
+    name: 'post',
+    component: post,
     props: true,
   },
   {

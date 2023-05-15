@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      blog: null,
+      post: null,
     };
   },
   mounted() {
@@ -26,15 +26,15 @@ export default {
           url: `/api/blog/${this.id}`,
         });
 
-        this.blog = response.data[0];
-        this.blog.date = new Date(this.blog.date).toLocaleString('en-us', {
+        this.post = response.data[0];
+        this.post.date = new Date(this.post.date).toLocaleString('en-us', {
           weekday: 'long',
           year: 'numeric',
           month: 'short',
           day: 'numeric',
         });
       } catch (e) {
-        this.$_andariego_toast('Failed to fetch blog details.', { type: 'error' });
+        this.$_andariego_toast('Failed to fetch post details.', { type: 'error' });
       }
     },
   },
@@ -42,21 +42,21 @@ export default {
 </script>
 
 <template>
-  <div v-if="blog" class="container">
-    <h2 class="success text-center my-3 mb-5 fw-bold">{{ blog.title }}</h2>
+  <div v-if="post" class="container">
+    <h2 class="success text-center my-3 mb-5 fw-bold">{{ post.title }}</h2>
     <div class="row justify-content-center">
       <div class="small d-flex gap-2 text-muted col-xl-8">
-        <p>{{ blog.type }}</p>
+        <p>{{ post.type }}</p>
         &middot;
-        <p>{{ blog.date }}</p>
+        <p>{{ post.date }}</p>
       </div>
     </div>
     <div class="row justify-content-center">
       <!-- Change Image -->
-      <smart-img :src="blog.image" :classes="'col-xl-8 img-fluid'" />
+      <smart-img :src="post.image" :classes="'col-xl-8 img-fluid'" />
     </div>
     <p class="text-center mx-auto my-4" style="max-width: 40rem">
-      {{ blog.description }}
+      {{ post.description }}
     </p>
   </div>
 </template>

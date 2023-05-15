@@ -19,7 +19,7 @@ export default {
   },
   data() {
     return {
-      blogs: [],
+      posts: [],
     };
   },
   mounted() {
@@ -32,11 +32,11 @@ export default {
           url: '/api/blog',
         });
 
-        this.blogs = response.data;
-        this.blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
-        this.$_mongo_dateToString(this.blogs);
+        this.posts = response.data;
+        this.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        this.$_mongo_dateToString(this.posts);
       } catch (e) {
-        this.$_andariego_toast('Failed to fetch blogs.', { type: 'error' });
+        this.$_andariego_toast('Failed to fetch posts.', { type: 'error' });
       }
     },
   },
@@ -46,32 +46,32 @@ export default {
 <template>
   <div class="container-fluid py-3 px-sm-5">
     <div
-      v-for="(blog, i) in blogs"
-      :key="blog._id"
+      v-for="(post, i) in posts"
+      :key="post._id"
       class="row justify-content-between gap-3 gap-lg-0 my-4"
     >
       <div
         class="clickable col-lg-6"
         :class="{ 'order-lg-2': i % 2 === 0 }"
-        @click="$router.push(`/blog/${blog._id}`)"
+        @click="$router.push(`/post/${post._id}`)"
       >
         <!-- Change Image -->
-        <smart-img :src="blog.image" />
+        <smart-img :src="post.image" />
       </div>
       <div
         class="d-flex flex-column justify-content-center gap-4 col-lg-6 px-4 order-1"
         :class="{ 'order-lg-1': i % 2 === 0 }"
       >
-        <div class="clickable d-flex gap-2" @click="$router.push(`/blog/${blog._id}`)">
-          <p>{{ blog.type }}</p>
+        <div class="clickable d-flex gap-2" @click="$router.push(`/blog/${post._id}`)">
+          <p>{{ post.type }}</p>
           &middot;
-          <p>{{ blog.date }}</p>
+          <p>{{ post.date }}</p>
         </div>
-        <div class="clickable" @click="$router.push(`/blog/${blog._id}`)">
-          <h1>{{ blog.title }}</h1>
+        <div class="clickable" @click="$router.push(`/blog/${post._id}`)">
+          <h1>{{ post.title }}</h1>
         </div>
         <div>
-          <a href="#" @click.prevent="$router.push(`/blog/${blog._id}`)">Read More</a>
+          <a href="#" @click.prevent="$router.push(`/blog/${post._id}`)">Read More</a>
         </div>
       </div>
     </div>
