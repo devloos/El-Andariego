@@ -80,7 +80,7 @@ export default {
     <div>
       <div v-if="submitted" class="d-flex gap-3">
         <div>
-          <smart-img :src="'/andariego/icons/email.png'" :width="'70'" />
+          <smart-img src="/andariego/icons/email.png" width="70" />
         </div>
         <div class="d-flex flex-column align-items-center py-2">
           <p class="fw-bold my-0">Check Your Inbox!</p>

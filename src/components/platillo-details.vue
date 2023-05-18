@@ -97,7 +97,7 @@ export default {
     <div class="row justify-content-center">
       <div class="platillo-img col-12 col-lg-10 col-xl-8">
         <!-- Change Image -->
-        <smart-img :src="'/andariego/platillos/heros/platillo.jpg'" />
+        <smart-img src="/andariego/platillos/heros/platillo.jpg" />
         <div class="like-platillo input-group">
           <button class="btn border-end" :class="checkLiked" @click="setUserLiked">
             <i class="fa-solid fa-heart"></i>

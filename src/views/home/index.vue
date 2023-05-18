@@ -53,7 +53,7 @@ export default {
       <div class="col">
         <div class="row gap-4 gap-md-0" style="height: 100%">
           <div class="mb-3">
-            <smart-img :src="'/andariego/home/familia.jpg'" />
+            <smart-img src="/andariego/home/familia.jpg" />
           </div>
           <div class="text-center">
             <div>
@@ -75,11 +75,11 @@ export default {
         </div>
       </div>
       <div class="col-md-5 text-center align-items-center">
-        <smart-img :src="'/andariego/home/pastor.jpg'" />
+        <smart-img src="/andariego/home/pastor.jpg" />
       </div>
     </div>
 
-    <smart-divider :divider-name="'Our Specialty Platillos'" />
+    <smart-divider divider-name="Our Specialty Platillos" />
     <platillos-section />
 
     <div id="img-slider" class="carousel slide px-2 my-5" data-bs-ride="carousel">
@@ -91,7 +91,7 @@ export default {
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <smart-img :src="'/andariego/home/carousel/logo.jpg'" />
+          <smart-img src="/andariego/home/carousel/logo.jpg" />
         </div>
         <div v-for="(image, i) in sliderImages" :key="i" class="carousel-item">
           <smart-img :src="image" />
@@ -99,7 +99,7 @@ export default {
       </div>
     </div>
 
-    <smart-divider :divider-name="'Top Categories'" />
+    <smart-divider divider-name="Top Categories" />
     <category-section />
 
     <!-- <smart-divider :divider_name="'Find El Andariego'" /> -->

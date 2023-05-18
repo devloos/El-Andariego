@@ -78,7 +78,7 @@ export default {
         <div class="row justify-content-start">
           <div class="my-3">
             <!-- Change Image -->
-            <smart-img :src="'/andariego/contact/contact.jpg'" />
+            <smart-img src="/andariego/contact/contact.jpg" />
           </div>
           <div class="my-3">
             <div class="row justify-content-between">

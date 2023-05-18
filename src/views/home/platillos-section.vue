@@ -52,9 +52,9 @@ export default {
           <!-- Change Image -->
           <smart-img
             :src="platillo.thumbnail_image"
-            :classes="'none'"
+            classes="none"
             :style="platilloImgStyle"
-            :width="'220'"
+            width="220"
           />
         </div>
         <div class="platillo-info px-2 border bg-light">
