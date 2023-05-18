@@ -79,7 +79,7 @@ export default {
       </div>
     </div>
 
-    <smart-divider :divider_name="'Our Specialty Platillos'" />
+    <smart-divider :divider-name="'Our Specialty Platillos'" />
     <platillos-section />
 
     <div id="img-slider" class="carousel slide px-2 my-5" data-bs-ride="carousel">
@@ -91,7 +91,7 @@ export default {
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <smart-img src="/andriego/home/carousel/logo.jpg" />
+          <smart-img :src="'/andariego/home/carousel/logo.jpg'" />
         </div>
         <div v-for="(image, i) in sliderImages" :key="i" class="carousel-item">
           <smart-img :src="image" />
@@ -99,7 +99,7 @@ export default {
       </div>
     </div>
 
-    <smart-divider :divider_name="'Top Categories'" />
+    <smart-divider :divider-name="'Top Categories'" />
     <category-section />
 
     <!-- <smart-divider :divider_name="'Find El Andariego'" /> -->

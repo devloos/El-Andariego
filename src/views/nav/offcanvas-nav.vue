@@ -34,8 +34,8 @@
           <div class="d-flex justify-content-center my-5">
             <button
               class="btn rounded-pill btn-success fs-4 px-5 py-3"
-              @click="$_andariego_copyPhone"
               type="button"
+              @click="$_andariego_copyPhone"
             >
               Call Us
             </button>

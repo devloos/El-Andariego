@@ -17,8 +17,8 @@ export default {
     <button
       class="hamburger hamburger--squeeze"
       :class="{ 'is-active': activeBurger }"
-      @click="$emit('toggle-offcanvas')"
       type="button"
+      @click="$emit('toggle-offcanvas')"
     >
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
@@ -58,8 +58,8 @@ export default {
       </a>
       <button
         class="btn rounded-4 btn-dark ms-3 px-5 py-3"
-        @click="$_andariego_copyPhone"
         type="button"
+        @click="$_andariego_copyPhone"
       >
         Call Us
       </button>

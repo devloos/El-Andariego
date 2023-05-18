@@ -14,14 +14,14 @@ export default {
       likes: 0,
     };
   },
-  async mounted() {
-    await this.getPlatillo();
-    this.getPlatillosLiked();
-  },
   computed: {
     checkLiked() {
       return this.userLiked ? 'btn-success' : 'btn-light';
     },
+  },
+  async mounted() {
+    await this.getPlatillo();
+    this.getPlatillosLiked();
   },
   methods: {
     async getPlatillo() {

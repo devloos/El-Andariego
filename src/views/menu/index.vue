@@ -3,6 +3,9 @@ import itemList from '@/views/menu/item-list.vue';
 import { useHead } from '@vueuse/head';
 
 export default {
+  components: {
+    itemList,
+  },
   setup() {
     useHead({
       title: 'Menu | El Andariego',
@@ -13,9 +16,6 @@ export default {
         },
       ],
     });
-  },
-  components: {
-    itemList,
   },
   data() {
     return {

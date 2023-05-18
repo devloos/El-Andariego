@@ -10,9 +10,6 @@ export default {
       platillos: [],
     };
   },
-  mounted() {
-    this.getPlatillos();
-  },
   computed: {
     platilloImgStyle() {
       return {
@@ -20,6 +17,9 @@ export default {
         'border-top-right-radius': '5px',
       };
     },
+  },
+  mounted() {
+    this.getPlatillos();
   },
   methods: {
     async getPlatillos() {

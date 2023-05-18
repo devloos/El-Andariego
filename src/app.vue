@@ -5,6 +5,11 @@ import offcanvasNav from '@/views/nav/offcanvas-nav.vue';
 import footerIndex from '@/views/footer.vue';
 
 export default {
+  components: {
+    navbar,
+    offcanvasNav,
+    footerIndex,
+  },
   setup() {
     useHead({
       title: 'El Andariego',
@@ -16,23 +21,18 @@ export default {
       ],
     });
   },
-  components: {
-    navbar,
-    offcanvasNav,
-    footerIndex,
-  },
   data() {
     return {
       active: true,
     };
   },
-  created() {
-    window.addEventListener('resize', this.handleScreenResize);
-  },
   watch: {
     $route() {
       this.active = true;
     },
+  },
+  created() {
+    window.addEventListener('resize', this.handleScreenResize);
   },
   methods: {
     handleScreenResize() {
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <template>
-  <navbar @toggle-offcanvas="active = !active" :activeBurger="!active" />
+  <navbar :active-burger="!active" @toggle-offcanvas="active = !active" />
   <main v-show="active">
     <router-view />
     <div class="footer">

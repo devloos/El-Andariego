@@ -49,7 +49,7 @@ export default {
         </div>
         <p class="ms-1">
           <i class="fa-solid fa-phone fa-shake fa-lg me-1"></i>
-          <span @click="$_andariego_copyPhone" class="phone-number">
+          <span class="phone-number" @click="$_andariego_copyPhone">
             (949) 806 - 0123
           </span>
         </p>
@@ -91,8 +91,8 @@ export default {
         <p>Sign up with your email address to receive news and updates.</p>
         <form class="d-flex justify-content-center gap-1" @submit.prevent="signup">
           <input
-            type="email"
             v-model="email"
+            type="email"
             class="form-control form-control-lg fs-6 w-75"
             placeholder="Email Address"
             required

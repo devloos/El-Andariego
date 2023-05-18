@@ -86,7 +86,7 @@ export default {
                 <h5>El Andariego</h5>
                 <p class="my-2">31345 Los Rios St, San Juan Capistrano, CA 92675</p>
                 <p>
-                  <span @click="$_andariego_copyPhone" class="phone-number">
+                  <span class="phone-number" @click="$_andariego_copyPhone">
                     (949) 806 - 0123
                   </span>
                 </p>
@@ -129,10 +129,10 @@ export default {
             <div class="col-6 pe-1">
               <div class="form-floating">
                 <input
-                  type="text"
-                  v-model="firstName"
-                  class="form-control"
                   id="firstName"
+                  v-model="firstName"
+                  type="text"
+                  class="form-control"
                   placeholder="First Name"
                   required
                 />
@@ -142,10 +142,10 @@ export default {
             <div class="col-6 ps-1">
               <div class="form-floating">
                 <input
-                  type="text"
-                  v-model="lastName"
-                  class="form-control"
                   id="lastName"
+                  v-model="lastName"
+                  type="text"
+                  class="form-control"
                   placeholder="Last Name"
                   required
                 />
@@ -157,10 +157,10 @@ export default {
             <div class="col-6 pe-1">
               <div class="form-floating">
                 <input
-                  type="email"
-                  v-model="email"
-                  class="form-control"
                   id="email"
+                  v-model="email"
+                  type="email"
+                  class="form-control"
                   placeholder="Email"
                   required
                 />
@@ -170,10 +170,10 @@ export default {
             <div class="col-6 ps-1">
               <div class="form-floating">
                 <input
-                  type="tel"
-                  v-model="phone"
-                  class="form-control"
                   id="phone"
+                  v-model="phone"
+                  type="tel"
+                  class="form-control"
                   placeholder="Phone"
                   required
                 />
@@ -184,10 +184,10 @@ export default {
           <div>
             <div class="form-floating">
               <textarea
-                type="text"
-                class="form-control"
                 id="description"
                 v-model="description"
+                type="text"
+                class="form-control"
                 placeholder="Descriptive Message"
                 style="height: 100px"
                 required
@@ -198,7 +198,7 @@ export default {
           <div class="row my-2">
             <div class="col-6">
               <label for="type" class="form-label">Interested In</label>
-              <select v-model="eventType" class="form-select" id="type" required>
+              <select id="type" v-model="eventType" class="form-select" required>
                 <option disabled value="">Please Select</option>
                 <option>Order</option>
                 <option>Catering</option>
@@ -209,12 +209,12 @@ export default {
             <div class="col-6">
               <label for="date" class="form-label">Date</label>
               <input
+                id="date"
                 type="date"
                 :value="new Date().toISOString().substr(0, 10)"
                 class="form-control"
-                id="date"
-                @input="setDate"
                 required
+                @input="setDate"
               />
             </div>
           </div>
