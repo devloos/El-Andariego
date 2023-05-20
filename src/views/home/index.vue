@@ -48,10 +48,10 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid px-lg-5">
-    <div class="row justify-content-center gap-4 gap-md-3 py-4 px-2">
+  <div class="mx-auto lg:container">
+    <div class="row justify-content-center gap-md-3 gap-4 px-2 py-4">
       <div class="col">
-        <div class="row gap-4 gap-md-0" style="height: 100%">
+        <div class="row gap-md-0 gap-4" style="height: 100%">
           <div class="mb-3">
             <smart-img src="/andariego/home/familia.jpg" />
           </div>
@@ -72,15 +72,16 @@ export default {
           </div>
         </div>
       </div>
-      <div class="col-md-5 text-center align-items-center">
+      <div class="col-md-5 align-items-center text-center">
         <smart-img src="/andariego/home/pastor.jpg" />
       </div>
     </div>
+  </div>
 
-    <smart-divider divider-name="Our Specialty Platillos" />
-    <platillos-section />
+  <smart-divider divider-name="Our Specialty Platillos" />
+  <platillos-section />
 
-    <div id="img-slider" class="carousel slide px-2 my-5" data-bs-ride="carousel">
+  <!-- <div id="img-slider" class="carousel slide px-2 my-5" data-bs-ride="carousel">
       <ol class="carousel-indicators">
         <li data-bs-target="#img-slider" data-bs-slide-to="0" class="active"></li>
         <li data-bs-target="#img-slider" data-bs-slide-to="1"></li>
@@ -95,14 +96,13 @@ export default {
           <smart-img :src="image" />
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <smart-divider divider-name="Top Categories" />
-    <category-section />
+  <smart-divider divider-name="Top Categories" />
+  <category-section />
 
-    <!-- <smart-divider :divider_name="'Find El Andariego'" /> -->
-    <!-- <find-us-section /> -->
-  </div>
+  <!-- <smart-divider :divider_name="'Find El Andariego'" /> -->
+  <!-- <find-us-section /> -->
 </template>
 
 <style lang="scss" scoped>

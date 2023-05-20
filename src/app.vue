@@ -24,8 +24,8 @@ export default {
 
 <template>
   <andariego-nav />
-  <main class="d-flex flex-column">
-    <router-view class="flex-grow-1" />
+  <main class="flex flex-col">
+    <router-view class="grow" />
     <andariego-footer />
   </main>
 </template>
