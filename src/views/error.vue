@@ -33,14 +33,14 @@ useHead({
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 a {
   color: inherit;
   text-decoration: none;
-}
 
-a:hover {
-  color: #1a532e;
-  text-decoration: none;
+  &:hover {
+    color: #1a532e;
+    text-decoration: none;
+  }
 }
 </style>

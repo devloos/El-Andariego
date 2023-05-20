@@ -78,23 +78,23 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 a {
   color: #1a532e;
   transition: opacity 0.15s;
-}
 
-a:hover {
-  color: #1a532e;
-  opacity: 0.6;
+  &:hover {
+    color: #1a532e;
+    opacity: 0.6;
+  }
 }
 
 .clickable {
   cursor: pointer;
   transition: opacity 0.15s;
-}
 
-.clickable:hover {
-  opacity: 0.7;
+  &:hover {
+    opacity: 0.7;
+  }
 }
 </style>

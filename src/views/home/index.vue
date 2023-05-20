@@ -61,12 +61,10 @@ export default {
               <p class="text-muted my-2" v-text="schedule"></p>
             </div>
             <p class="home-text mx-auto">
-              El Andariego is a new gastronomic proposal in the area of San Juan
-              Capistrano, California. Sharing the Mexican flavors with an authentic
-              tastings. Through tortas, tacos, burritos and quesadillas, El Andariego
-              offers a variety of products that, together with dishes such as Alambre,
-              Fortachon or Que Me Notas, seeks to satisfy the palates of southern
-              California and position itself as one of the favorite options in the area.
+              El Andariego is a Mexican food truck in San Juan Capistrano, California. We
+              serve authentic tortas, tacos, burritos, and quesadillas, along with special
+              dishes like Alambre, Fortachon, and Que Me Notas. Our goal is to become a
+              favorite dining option in the area.
             </p>
             <button class="btn btn-success px-4" @click="$router.push('/menu')">
               View Menu
@@ -107,18 +105,18 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .btn {
   transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 .btn-success {
   background-color: #1a532e;
   border-color: #1a532e;
-}
-
-.btn:hover {
-  opacity: 0.6;
 }
 
 .home-text {

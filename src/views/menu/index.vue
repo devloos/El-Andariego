@@ -69,7 +69,7 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 h1 {
   color: #1a532e;
 }
@@ -91,10 +91,10 @@ h1 {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
-}
 
-.router-link:hover {
-  color: #1a532e;
+  &:hover {
+    color: #1a532e;
+  }
 }
 
 .active {

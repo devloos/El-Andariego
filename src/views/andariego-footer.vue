@@ -105,7 +105,11 @@ export default {
   <p class="text-center py-4 my-0">© 2023 El Andariego</p>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+footer {
+  background-color: white;
+}
+
 .info p {
   font-size: 13px;
 }
@@ -117,25 +121,25 @@ p {
 a {
   color: inherit;
   text-decoration: none;
-}
 
-a:hover {
-  color: inherit;
-  text-decoration: none;
-  opacity: 0.8;
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+  }
 }
 
 .btn {
   transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 .btn-success {
   background-color: #1a532e;
   border-color: #1a532e;
-}
-
-.btn:hover {
-  opacity: 0.6;
 }
 
 i {
@@ -146,9 +150,9 @@ i {
 .phone-number {
   transition: font-weight 0.15s;
   cursor: pointer;
-}
 
-.phone-number:hover {
-  font-weight: bold;
+  &:hover {
+    font-weight: bold;
+  }
 }
 </style>

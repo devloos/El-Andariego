@@ -46,15 +46,15 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .nav-offcanvas {
   background-color: white;
   position: absolute;
   left: 0px;
-  right: 0px;
   top: 116.5px;
   bottom: 0px;
-  z-index: 2;
+  z-index: 1000;
+  width: 100vw;
   overflow: scroll;
 }
 
@@ -66,6 +66,10 @@ ul {
 
 .btn {
   transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 .btn-success {
@@ -73,17 +77,13 @@ ul {
   border-color: #1a532e;
 }
 
-.btn:hover {
-  opacity: 0.6;
-}
-
 a {
   color: black;
   text-decoration: none;
-}
 
-a:hover {
-  color: black;
-  opacity: 0.6;
+  &:hover {
+    color: black;
+    opacity: 0.6;
+  }
 }
 </style>

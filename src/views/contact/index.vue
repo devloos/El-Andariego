@@ -227,7 +227,7 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .info p {
   font-size: 14px;
 }
@@ -235,12 +235,12 @@ export default {
 a {
   color: inherit;
   text-decoration: none;
-}
 
-a:hover {
-  color: inherit;
-  text-decoration: none;
-  opacity: 0.8;
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+  }
 }
 
 .success {
@@ -249,6 +249,10 @@ a:hover {
 
 .btn {
   transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 .btn-success {
@@ -256,16 +260,12 @@ a:hover {
   border-color: #1a532e;
 }
 
-.btn:hover {
-  opacity: 0.6;
-}
-
 .phone-number {
   transition: font-weight 0.15s;
   cursor: pointer;
-}
 
-.phone-number:hover {
-  font-weight: bold;
+  &:hover {
+    font-weight: bold;
+  }
 }
 </style>

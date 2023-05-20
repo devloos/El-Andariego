@@ -1,9 +1,7 @@
 <script>
 export default {
   props: {
-    activeBurger: {
-      type: Boolean,
-    },
+    showOffCanvas: Boolean,
   },
   emits: ['toggle-offcanvas'],
 };
@@ -16,7 +14,7 @@ export default {
     </a>
     <button
       class="hamburger hamburger--squeeze"
-      :class="{ 'is-active': activeBurger }"
+      :class="{ 'is-active': showOffCanvas }"
       type="button"
       @click="$emit('toggle-offcanvas')"
     >
@@ -67,7 +65,7 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 @import '@/assets/hamburgers.css';
 
 .nav-header {
@@ -80,17 +78,17 @@ export default {
   top: 0px;
   left: 0px;
   right: 0px;
-  z-index: 1;
+  z-index: 1000;
 }
 
 .nav-title {
   font-family: 'Merriweather', serif;
   color: #1a532e;
-}
 
-.nav-title:hover {
-  color: #1a532e;
-  opacity: 0.6;
+  &:hover {
+    color: #1a532e;
+    opacity: 0.6;
+  }
 }
 
 @media (max-width: 999px) {
@@ -131,21 +129,21 @@ ul {
 .btn {
   background-color: #1a532e;
   border-color: #1a532e;
-}
 
-.btn:hover {
-  background-color: #1a532e;
-  border-color: #1a532e;
-  opacity: 0.6;
+  &:hover {
+    background-color: #1a532e;
+    border-color: #1a532e;
+    opacity: 0.6;
+  }
 }
 
 a {
   color: black;
   text-decoration: none;
-}
 
-a:hover {
-  color: black;
-  opacity: 0.6;
+  &:hover {
+    color: black;
+    opacity: 0.6;
+  }
 }
 </style>

@@ -10,14 +10,6 @@ export default {
       platillos: [],
     };
   },
-  computed: {
-    platilloImgStyle() {
-      return {
-        'border-top-left-radius': '5px',
-        'border-top-right-radius': '5px',
-      };
-    },
-  },
   mounted() {
     this.getPlatillos();
   },
@@ -34,6 +26,12 @@ export default {
           type: 'error',
         });
       }
+    },
+    platilloImgStyle() {
+      return {
+        'border-top-left-radius': '5px',
+        'border-top-right-radius': '5px',
+      };
     },
   },
 };
@@ -53,7 +51,7 @@ export default {
           <smart-img
             :src="platillo.thumbnail_image"
             classes="none"
-            :style="platilloImgStyle"
+            :style="platilloImgStyle()"
             width="220"
           />
         </div>
@@ -78,14 +76,5 @@ export default {
 
 .platillo-price {
   font-size: 14px;
-}
-
-div::-webkit-scrollbar {
-  display: none;
-}
-
-div {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 </style>
