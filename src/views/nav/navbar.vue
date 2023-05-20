@@ -66,7 +66,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/hamburgers.css';
+@import '@/assets/scss/hamburgers.scss';
 
 .nav-header {
   padding-top: 28px;

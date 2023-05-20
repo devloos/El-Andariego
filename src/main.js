@@ -4,10 +4,9 @@ import App from './app.vue';
 import router from './router';
 import mixins from '@/mixins/index';
 import Toast from 'vue-toastification';
-import '@/assets/scss/styles.scss';
-import 'bootstrap';
+import '@/assets/css/styles.css';
 import 'vue-toastification/dist/index.css';
-import '@/assets/vue-toast-override.css';
+import '@/assets/css/vue-toast-override.css';
 
 const app = createApp(App);
 const head = createHead();
