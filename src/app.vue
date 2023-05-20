@@ -1,11 +1,11 @@
 <script>
 import { useHead } from '@vueuse/head';
-import andariegoNav from '@/views/nav/andariego-nav.vue';
+import AndariegoNav from '@/views/nav/andariego-nav.vue';
 import AndariegoFooter from '@/views/andariego-footer.vue';
 
 export default {
   components: {
-    andariegoNav,
+    AndariegoNav,
     AndariegoFooter,
   },
   setup() {

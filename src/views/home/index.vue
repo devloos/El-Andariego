@@ -1,16 +1,16 @@
 <script>
-import platillosSection from '@/views/home/platillos-section.vue';
-import categorySection from '@/views/home/category-section.vue';
-import smartDivider from '@/components/smart-divider.vue';
-import smartImg from '@/components/smart-img.vue';
+import PlatillosSection from '@/views/home/platillos-section.vue';
+import CategorySection from '@/views/home/category-section.vue';
+import SmartDivider from '@/components/smart-divider.vue';
+import SmartImg from '@/components/smart-img.vue';
 import DAY from '@/utility/constants/weekdays';
 
 export default {
   components: {
-    platillosSection,
-    categorySection,
-    smartDivider,
-    smartImg,
+    PlatillosSection,
+    CategorySection,
+    SmartDivider,
+    SmartImg,
   },
   setup() {
     function inWorkSchedule() {

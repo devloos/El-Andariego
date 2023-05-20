@@ -1,10 +1,10 @@
 <script>
-import itemList from '@/views/menu/item-list.vue';
+import ItemList from '@/views/menu/item-list.vue';
 import { useHead } from '@vueuse/head';
 
 export default {
   components: {
-    itemList,
+    ItemList,
   },
   setup() {
     useHead({
