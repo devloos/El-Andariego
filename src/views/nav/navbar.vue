@@ -9,26 +9,18 @@ export default {
 
 <template>
   <div
-    class="absolute inset-x-0 top-0 z-50 mx-auto flex h-20 content-center items-center justify-between bg-white px-3 pb-4 pt-7 lg:px-8 xl:px-12"
+    class="absolute inset-x-0 top-0 z-50 mx-auto flex h-20 content-center items-center justify-between bg-white px-4 pb-4 pt-7 lg:px-8 xl:px-12"
   >
     <router-link class="text-2xl font-bold text-main" to="/">El Andariego</router-link>
     <div
-      class="invisible hidden lg:visible lg:flex lg:content-center lg:items-center lg:gap-11"
+      class="invisible hidden text-lg font-semibold lg:visible lg:flex lg:content-center lg:items-center lg:gap-11"
     >
-      <router-link class="text-lg font-semibold hover:text-accent-dark" to="/">
-        Home
-      </router-link>
-      <router-link class="text-lg font-semibold hover:text-accent-dark" to="/menu">
-        Menu
-      </router-link>
-      <router-link class="text-lg font-semibold hover:text-accent-dark" to="/blog">
-        Blog
-      </router-link>
-      <router-link class="text-lg font-semibold hover:text-accent-dark" to="/contact">
-        Contact
-      </router-link>
+      <router-link class="hover:text-accent-dark" to="/"> Home </router-link>
+      <router-link class="hover:text-accent-dark" to="/menu"> Menu </router-link>
+      <router-link class="hover:text-accent-dark" to="/blog"> Blog </router-link>
+      <router-link class="hover:text-accent-dark" to="/contact"> Contact </router-link>
       <button
-        class="rounded-md bg-main px-6 py-2 font-semibold text-white hover:bg-main-light"
+        class="rounded-md bg-main px-6 py-2 text-base text-white hover:bg-main-light"
         type="button"
         @click="$_andariego_copyPhone"
       >
