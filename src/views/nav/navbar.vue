@@ -20,7 +20,7 @@ export default {
       <router-link class="hover:text-accent-dark" to="/blog"> Blog </router-link>
       <router-link class="hover:text-accent-dark" to="/contact"> Contact </router-link>
       <button
-        class="rounded-md bg-main px-6 py-2 text-base text-white hover:bg-main-light"
+        class="rounded-md bg-main px-6 py-2 text-base text-gray-50 hover:bg-main-light"
         type="button"
         @click="$_andariego_copyPhone"
       >

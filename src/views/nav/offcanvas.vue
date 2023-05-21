@@ -1,7 +1,9 @@
 <script setup></script>
 
 <template>
-  <div class="absolute bottom-0 left-0 top-20 z-50 w-full overflow-scroll bg-white">
+  <div
+    class="absolute bottom-0 left-0 top-20 z-50 h-full w-full overflow-scroll bg-white"
+  >
     <div
       class="mt-14 flex flex-col items-center gap-9 text-center text-3xl font-semibold"
     >
@@ -21,7 +23,7 @@
         </a>
       </div>
       <button
-        class="rounded-md bg-main px-6 py-3 text-xl text-white hover:bg-main-light"
+        class="rounded-md bg-main px-6 py-3 text-xl text-gray-50 hover:bg-main-light"
         type="button"
         @click="$_andariego_copyPhone"
       >

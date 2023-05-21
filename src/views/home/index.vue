@@ -49,32 +49,40 @@ export default {
 
 <template>
   <div class="mx-auto lg:container">
-    <div class="row justify-content-center gap-md-3 gap-4 px-2 py-4">
-      <div class="col">
-        <div class="row gap-md-0 gap-4" style="height: 100%">
-          <div class="mb-3">
-            <smart-img src="/andariego/home/familia.jpg" />
-          </div>
-          <div class="text-center">
-            <div>
-              <h4>Authentic Mexican Food</h4>
-              <p class="text-muted my-2" v-text="schedule"></p>
-            </div>
-            <p class="home-text mx-auto">
-              El Andariego is a Mexican food truck in San Juan Capistrano, California. We
-              serve authentic tortas, tacos, burritos, and quesadillas, along with special
-              dishes like Alambre, Fortachon, and Que Me Notas. Our goal is to become a
-              favorite dining option in the area.
-            </p>
-            <button class="btn btn-success px-4" @click="$router.push('/menu')">
-              View Menu
-            </button>
-          </div>
+    <div class="grid grid-cols-1 gap-2">
+      <div class="px-4 pt-6 text-center">
+        <h4 class="text-4xl font-bold">
+          Delight in authentic Mexican flavors that satisfy your taste buds.
+        </h4>
+        <p class="my-2 font-semibold" v-text="schedule"></p>
+        <p class="mb-8">
+          El Andariego is a Mexican food truck in San Juan Capistrano, California. We
+          serve authentic tortas, tacos, burritos, and quesadillas, along with special
+          dishes like Alambre, Fortachon, and Que Me Notas. Our goal is to become a
+          favorite dining option in the area.
+        </p>
+        <button
+          class="rounded-md bg-main px-7 py-3 font-semibold text-gray-50 hover:bg-main-light"
+          @click="$router.push('/menu')"
+        >
+          View Menu
+        </button>
+        <div class="my-2 flex justify-center gap-4 text-2xl">
+          <a
+            href="https://www.facebook.com/profile.php?id=100082710796984"
+            target="_blank"
+          >
+            <i class="fa-brands fa-facebook fa-sm"></i>
+          </a>
+          <a href="https://instagram.com/el_andariegotruck" target="_blank">
+            <i class="fa-brands fa-instagram fa-sm"></i>
+          </a>
+          <a href="https://g.page/r/CY53oo_JlDb8EAI/review" target="_blank">
+            <i class="fa-brands fa-google fa-xs"></i>
+          </a>
         </div>
       </div>
-      <div class="col-md-5 align-items-center text-center">
-        <smart-img src="/andariego/home/pastor.jpg" />
-      </div>
+      <smart-img src="/andariego/home/hero.webp" />
     </div>
   </div>
 
@@ -104,22 +112,3 @@ export default {
   <!-- <smart-divider :divider_name="'Find El Andariego'" /> -->
   <!-- <find-us-section /> -->
 </template>
-
-<style lang="scss" scoped>
-.btn {
-  transition: opacity 0.15s;
-
-  &:hover {
-    opacity: 0.6;
-  }
-}
-
-.btn-success {
-  background-color: #1a532e;
-  border-color: #1a532e;
-}
-
-.home-text {
-  max-width: 600px;
-}
-</style>
