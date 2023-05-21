@@ -13,6 +13,7 @@ export default {
         accent: '#bdbbb0',
         'accent-dark': '#71706a',
         'accent-light': '#cac9c0',
+        coal: '#333',
       },
     },
   },

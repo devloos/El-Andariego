@@ -90,7 +90,7 @@ export default {
     </div>
   </div>
 
-  <smart-divider divider-name="Our Specialty Platillos" />
+  <smart-divider name="Our Specialty Platillos" />
   <platillos-section />
 
   <!-- <div id="img-slider" class="carousel slide px-2 my-5" data-bs-ride="carousel">
@@ -110,7 +110,7 @@ export default {
       </div>
     </div> -->
 
-  <smart-divider divider-name="Top Categories" />
+  <smart-divider name="Top Categories" />
   <category-section />
 
   <!-- <smart-divider :divider_name="'Find El Andariego'" /> -->

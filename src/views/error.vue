@@ -15,7 +15,7 @@ useHead({
 <template>
   <div class="container">
     <div class="row justify-content-center mt-3">
-      <h5 class="text-center fw-bold">SORRY, Page Not Found!</h5>
+      <h5 class="fw-bold text-center">SORRY, Page Not Found!</h5>
       <p class="text-muted text-center">
         If you typed the URL directly, please make sure the spelling is correct.
       </p>

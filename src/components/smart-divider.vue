@@ -1,7 +1,7 @@
 <script>
 export default {
   props: {
-    dividerName: {
+    name: {
       type: String,
       default: null,
     },
@@ -10,15 +10,8 @@ export default {
 </script>
 
 <template>
-  <div class="text-center text-muted mt-5 mb-4">
-    <hr class="mx-auto m-2 border border-dark border-1" style="width: 5rem" />
-    <p v-text="dividerName" />
+  <div class="my-5 text-center">
+    <hr class="m-2 mx-auto w-20 border border-neutral-400" />
+    <p class="text-sm font-semibold uppercase" v-text="name" />
   </div>
 </template>
-
-<style scoped>
-p {
-  text-transform: uppercase;
-  font-size: 14px;
-}
-</style>

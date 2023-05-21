@@ -102,12 +102,12 @@ export default {
           <button class="btn border-end" :class="checkLiked" @click="setUserLiked">
             <i class="fa-solid fa-heart"></i>
           </button>
-          <div class="input-group-text border border-0 px-3">{{ likes }}</div>
+          <div class="input-group-text border-0 px-3">{{ likes }}</div>
         </div>
       </div>
     </div>
     <div
-      class="d-flex flex-column flex-sm-row my-5 gap-4 px-3 align-items-center justify-content-center"
+      class="d-flex flex-column flex-sm-row align-items-center justify-content-center my-5 gap-4 px-3"
     >
       <div class="d-flex flex-column text-center">
         <h3 class="fw-bold">{{ platillo.name }}</h3>
