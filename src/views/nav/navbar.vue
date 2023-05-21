@@ -11,16 +11,20 @@ export default {
   <div
     class="absolute inset-x-0 top-0 z-50 mx-auto flex h-20 content-center items-center justify-between bg-light px-8 pb-4 pt-7 lg:px-8 xl:px-12"
   >
-    <router-link class="text-2xl font-bold text-main" to="/">El Andariego</router-link>
+    <router-link
+      class="text-2xl font-bold text-main transition-all duration-300 hover:text-main-light"
+      to="/"
+      >El Andariego</router-link
+    >
     <div
       class="invisible hidden text-lg font-semibold lg:visible lg:flex lg:content-center lg:items-center lg:gap-8"
     >
-      <router-link class="hover:text-accent-dark" to="/"> Home </router-link>
-      <router-link class="hover:text-accent-dark" to="/menu"> Menu </router-link>
-      <router-link class="hover:text-accent-dark" to="/blog"> Blog </router-link>
-      <router-link class="hover:text-accent-dark" to="/contact"> Contact </router-link>
+      <router-link to="/"> Home </router-link>
+      <router-link to="/menu"> Menu </router-link>
+      <router-link to="/blog"> Blog </router-link>
+      <router-link to="/contact"> Contact </router-link>
       <button
-        class="rounded-md bg-main px-6 py-3 text-base text-gray-50 hover:bg-main-light"
+        class="rounded-md bg-main px-6 py-3 text-base text-gray-50 transition-all duration-300 hover:bg-main-light"
         type="button"
         @click="$_andariego_copyPhone"
       >
@@ -48,5 +52,13 @@ export default {
     display: none;
     visibility: hidden;
   }
+}
+
+a {
+  transition: all 150ms linear;
+}
+
+a:hover {
+  color: #71706a;
 }
 </style>

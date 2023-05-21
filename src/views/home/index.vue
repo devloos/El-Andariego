@@ -66,7 +66,7 @@ export default {
           </p>
         </div>
         <button
-          class="rounded-md bg-main px-7 py-3 font-semibold text-gray-50 hover:bg-main-light lg:text-lg"
+          class="rounded-md bg-main px-7 py-3 font-semibold text-gray-50 transition-all duration-300 hover:bg-main-light lg:text-lg"
           @click="$router.push('/menu')"
         >
           View Menu
@@ -118,6 +118,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+a {
+  transition: all 150ms linear;
+}
+
 a:hover {
   color: #71706a;
 }

@@ -23,7 +23,7 @@
         </a>
       </div>
       <button
-        class="rounded-md bg-main px-6 py-3 text-xl text-gray-50 hover:bg-main-light"
+        class="rounded-md bg-main px-6 py-3 text-xl text-gray-50 transition-all duration-300 hover:bg-main-light"
         type="button"
         @click="$_andariego_copyPhone"
       >
@@ -34,6 +34,10 @@
 </template>
 
 <style lang="scss" scoped>
+a {
+  transition: all 150ms linear;
+}
+
 a:hover {
   color: #71706a;
 }
