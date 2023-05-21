@@ -14,6 +14,7 @@ export default {
         'accent-dark': '#71706a',
         'accent-light': '#cac9c0',
         coal: '#333',
+        light: '#f8f8f7',
       },
     },
   },

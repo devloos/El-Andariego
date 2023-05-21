@@ -48,7 +48,7 @@ export default {
 </script>
 
 <template>
-  <div class="mx-auto mt-10 lg:container">
+  <div class="bg-light pt-10 xl:px-10">
     <div class="grid grid-cols-1 items-center gap-2 lg:grid-cols-2">
       <div class="px-4 pt-6 text-center">
         <div class="flex flex-col items-center gap-2">
@@ -71,7 +71,7 @@ export default {
         >
           View Menu
         </button>
-        <div class="my-2 flex justify-center gap-4 text-2xl">
+        <div class="my-2 flex justify-center gap-4 text-2xl lg:my-4">
           <a
             href="https://www.facebook.com/profile.php?id=100082710796984"
             target="_blank"
