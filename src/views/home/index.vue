@@ -48,21 +48,25 @@ export default {
 </script>
 
 <template>
-  <div class="mx-auto lg:container">
-    <div class="grid grid-cols-1 gap-2">
+  <div class="mx-auto mt-10 lg:container">
+    <div class="grid grid-cols-1 items-center gap-2 lg:grid-cols-2">
       <div class="px-4 pt-6 text-center">
-        <h4 class="text-4xl font-bold">
-          Delight in authentic Mexican flavors that satisfy your taste buds.
-        </h4>
-        <p class="my-2 font-semibold" v-text="schedule"></p>
-        <p class="mb-8">
-          El Andariego is a Mexican food truck in San Juan Capistrano, California. We
-          serve authentic tortas, tacos, burritos, and quesadillas, along with special
-          dishes like Alambre, Fortachon, and Que Me Notas. Our goal is to become a
-          favorite dining option in the area.
-        </p>
+        <div class="flex flex-col items-center gap-2">
+          <h4
+            class="text-4xl font-bold sm:w-10/12 md:w-2/3 lg:w-11/12 lg:text-5xl xl:w-4/5"
+          >
+            Delight in authentic Mexican flavors that satisfy your taste buds.
+          </h4>
+          <p class="my-2 font-semibold xl:text-lg" v-text="schedule" />
+          <p class="mb-8 w-auto sm:w-10/12 md:w-3/4 lg:w-11/12 xl:w-4/5 xl:text-lg">
+            El Andariego is a Mexican food truck in San Juan Capistrano, California. We
+            serve authentic tortas, tacos, burritos, and quesadillas, along with special
+            dishes like Alambre, Fortachon, and Que Me Notas. Our goal is to become a
+            favorite dining option in the area.
+          </p>
+        </div>
         <button
-          class="rounded-md bg-main px-7 py-3 font-semibold text-gray-50 hover:bg-main-light"
+          class="rounded-md bg-main px-7 py-3 font-semibold text-gray-50 hover:bg-main-light lg:text-lg"
           @click="$router.push('/menu')"
         >
           View Menu
@@ -112,3 +116,9 @@ export default {
   <!-- <smart-divider :divider_name="'Find El Andariego'" /> -->
   <!-- <find-us-section /> -->
 </template>
+
+<style lang="scss" scoped>
+a:hover {
+  color: #71706a;
+}
+</style>

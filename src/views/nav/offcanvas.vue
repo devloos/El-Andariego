@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="absolute bottom-0 left-0 top-20 z-50 h-full w-full overflow-scroll bg-white"
+    class="absolute bottom-0 left-0 top-20 z-50 h-screen w-screen overflow-scroll bg-white"
   >
     <div
       class="mt-14 flex flex-col items-center gap-9 text-center text-3xl font-semibold"
