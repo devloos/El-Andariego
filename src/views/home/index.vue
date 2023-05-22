@@ -1,50 +1,37 @@
-<script>
+<script setup>
 import PlatillosSection from '@/views/home/platillos-section.vue';
 import CategorySection from '@/views/home/category-section.vue';
 import SmartDivider from '@/components/smart-divider.vue';
 import SmartImg from '@/components/smart-img.vue';
 import DAY from '@/utility/constants/weekdays';
 
-export default {
-  components: {
-    PlatillosSection,
-    CategorySection,
-    SmartDivider,
-    SmartImg,
-  },
-  setup() {
-    function inWorkSchedule() {
-      const now = new Date().getHours() * 60 + new Date().getMinutes();
-      const start = 16 * 60 + 30;
-      const end = 23 * 60 + 30;
-      return start <= now && now <= end;
-    }
+function inWorkSchedule() {
+  const now = new Date().getHours() * 60 + new Date().getMinutes();
+  const start = 16 * 60 + 30;
+  const end = 23 * 60 + 30;
+  return start <= now && now <= end;
+}
 
-    function getSchedule(day) {
-      if (day == DAY.Monday) {
-        return 'Closed, Opening Wednesday at 4:30 PM';
-      }
+function getSchedule(day) {
+  if (day == DAY.Monday) {
+    return 'Closed, Opening Tuesday at 4:30 PM';
+  }
 
-      if (inWorkSchedule()) {
-        return 'Open in San Juan Capistrano until 11:30 PM';
-      } else {
-        return `Opening in San Juan Capistrano at 4:30 PM`;
-      }
-    }
+  if (inWorkSchedule()) {
+    return 'Open in San Juan Capistrano until 11:30 PM';
+  } else {
+    return `Opening in San Juan Capistrano at 4:30 PM`;
+  }
+}
 
-    const day = new Date().getDay();
-    const schedule = getSchedule(day);
+const day = new Date().getDay();
+const schedule = getSchedule(day);
 
-    return {
-      schedule,
-      sliderImages: [
-        '/andariego/home/carousel/card.jpg',
-        '/andariego/home/carousel/sopes.jpg',
-        '/andariego/home/carousel/truck.jpg',
-      ],
-    };
-  },
-};
+// const sliderImages = [
+//   '/andariego/home/carousel/card.jpg',
+//   '/andariego/home/carousel/sopes.jpg',
+//   '/andariego/home/carousel/truck.jpg',
+// ];
 </script>
 
 <template>
@@ -86,7 +73,7 @@ export default {
           </a>
         </div>
       </div>
-      <smart-img src="/andariego/home/hero.webp" />
+      <smart-img src="/andariego/home/hero.webp" alt="hero" />
     </div>
   </div>
 
@@ -112,9 +99,6 @@ export default {
 
   <smart-divider name="Top Categories" />
   <category-section />
-
-  <!-- <smart-divider :divider_name="'Find El Andariego'" /> -->
-  <!-- <find-us-section /> -->
 </template>
 
 <style lang="scss" scoped>

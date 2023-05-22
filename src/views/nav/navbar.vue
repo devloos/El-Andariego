@@ -1,10 +1,11 @@
-<script>
-export default {
-  props: {
-    showOffCanvas: Boolean,
-  },
-  emits: ['toggle-offcanvas'],
-};
+<script setup>
+import { defineEmits, defineProps } from 'vue';
+
+defineProps({
+  showOffCanvas: Boolean,
+});
+
+defineEmits(['toggle-offcanvas']);
 </script>
 
 <template>

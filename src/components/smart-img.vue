@@ -1,40 +1,26 @@
-<script>
-import blankPixel from '@/utility/place-holder';
+<script setup>
+import { computed, defineProps } from 'vue';
 
-export default {
-  props: {
-    src: {
-      type: String,
-      default: blankPixel,
-    },
-    classes: {
-      type: String,
-      default: 'img-fluid',
-    },
-    style: {
-      type: Object,
-      default: new Object(),
-    },
-    alt: {
-      type: String,
-      default: '',
-    },
-    width: {
-      type: String,
-      default: '',
-    },
+const props = defineProps({
+  src: {
+    type: String,
+    required: true,
   },
-  computed: {
-    smartSrc() {
-      if (this.src) {
-        return new URL(this.src, 'https://ik.imagekit.io').href;
-      }
-      return blankPixel;
-    },
+  alt: {
+    type: String,
+    required: true,
   },
-};
+});
+
+const srcset = computed(() => {
+  return new URL(props.src, 'https://ik.imagekit.io').href;
+});
+
+function placeHolder() {
+  return new URL(`https://placehold.co/300x300`).href;
+}
 </script>
 
 <template>
-  <img :src="smartSrc" :class="classes" :style="style" :width="width" :alt="alt" />
+  <img :src="placeHolder" :srcset="srcset" :alt="alt" />
 </template>
