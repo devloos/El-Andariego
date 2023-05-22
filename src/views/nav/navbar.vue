@@ -14,15 +14,24 @@ export default {
     <router-link
       class="text-2xl font-bold text-main transition-all duration-300 hover:text-main-light"
       to="/"
-      >El Andariego</router-link
     >
+      El Andariego
+    </router-link>
     <div
       class="invisible hidden text-lg font-semibold lg:visible lg:flex lg:content-center lg:items-center lg:gap-8"
     >
-      <router-link to="/"> Home </router-link>
-      <router-link to="/menu"> Menu </router-link>
-      <router-link to="/blog"> Blog </router-link>
-      <router-link to="/contact"> Contact </router-link>
+      <router-link class="transition-all hover:text-accent-dark" to="/">
+        Home
+      </router-link>
+      <router-link class="transition-all hover:text-accent-dark" to="/menu">
+        Menu
+      </router-link>
+      <router-link class="transition-all hover:text-accent-dark" to="/blog">
+        Blog
+      </router-link>
+      <router-link class="transition-all hover:text-accent-dark" to="/contact">
+        Contact
+      </router-link>
       <button
         class="rounded-md bg-main px-6 py-3 text-base text-gray-50 transition-all duration-300 hover:bg-main-light"
         type="button"
@@ -52,13 +61,5 @@ export default {
     display: none;
     visibility: hidden;
   }
-}
-
-a {
-  transition: all 150ms linear;
-}
-
-a:hover {
-  color: #71706a;
 }
 </style>
