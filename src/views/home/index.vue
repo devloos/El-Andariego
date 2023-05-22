@@ -3,7 +3,6 @@ import PlatillosSection from '@/views/home/platillos-section.vue';
 import CategorySection from '@/views/home/category-section.vue';
 import SmartDivider from '@/components/smart-divider.vue';
 import SmartImg from '@/components/smart-img.vue';
-import DAY from '@/utility/constants/weekdays';
 
 function inWorkSchedule() {
   const now = new Date().getHours() * 60 + new Date().getMinutes();
@@ -13,7 +12,9 @@ function inWorkSchedule() {
 }
 
 function getSchedule(day) {
-  if (day == DAY.Monday) {
+  const MONDAY = 1;
+
+  if (day == MONDAY) {
     return 'Closed, Opening Tuesday at 4:30 PM';
   }
 
