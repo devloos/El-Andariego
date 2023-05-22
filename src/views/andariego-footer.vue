@@ -1,158 +1,73 @@
-<script>
-import SmartImg from '@/components/smart-img.vue';
-
-export default {
-  components: {
-    SmartImg,
-  },
-  data() {
-    return {
-      email: '',
-      submitted: false,
-    };
-  },
-  methods: {
-    signup() {
-      if (!this.email) {
-        return;
-      }
-
-      this.$_andariego_axios({
-        url: '/api/sendgrid/subscribe',
-        method: 'POST',
-        data: {
-          email: this.email,
-        },
-      });
-
-      this.submitted = true;
-    },
-  },
-};
+<script setup>
+const year = new Date().getFullYear();
 </script>
 
 <template>
+  <hr />
   <footer
-    class="container-fluid d-flex flex-wrap justify-content-center justify-content-lg-around gap-4 px-3 px-md-4 py-5 mt-4"
+    class="mx-auto mt-16 grid max-w-7xl grid-cols-2 gap-3 gap-y-10 px-6 text-sm sm:px-10 md:grid-cols-4 lg:justify-items-center lg:text-lg"
   >
-    <div
-      class="info flex-grow-1 flex-lg-grow-0 d-flex justify-content-evenly justify-content-lg-start gap-4"
-    >
-      <div>
-        <h5 class="mb-4">El Andariego</h5>
-        <div>
-          <p class="mb-1 ms-1">
-            <i class="fa-solid fa-truck fa-lg me-1"></i>
-            31345 Los Rios St,
-          </p>
-          <p class="ms-1">San Juan Capistrano, CA 92675</p>
-        </div>
-        <p class="ms-1">
-          <i class="fa-solid fa-phone fa-shake fa-lg me-1"></i>
-          <span class="phone-number" @click="$_andariego_copyPhone">
-            (949) 806 - 0123
-          </span>
-        </p>
-      </div>
-      <div>
-        <h5 class="mb-4">Business Hours</h5>
-        <div>
-          <p class="mb-1">Monday &middot; Tuesday: Closed</p>
-          <p>Wednesday &middot; Sunday: Open</p>
-        </div>
-        <div class="d-flex justify-content-start">
-          <a
-            href="https://www.facebook.com/profile.php?id=100082710796984"
-            class="me-2"
-            target="_blank"
-          >
-            <i class="fa-brands fa-facebook fa-md"></i>
-          </a>
-          <a href="https://instagram.com/el_andariegotruck" class="me-2" target="_blank">
-            <i class="fa-brands fa-instagram fa-md"></i>
-          </a>
-          <a href="https://g.page/r/CY53oo_JlDb8EAI/review" class="me-2" target="_blank">
-            <i class="fa-brands fa-google fa-sm"></i>
-          </a>
-        </div>
+    <div class="flex flex-col gap-3">
+      <h5 class="mb-3 font-semibold">Navigation</h5>
+      <div class="flex flex-col items-start gap-1 lg:text-base">
+        <router-link class="hover:text-accent-dark" to="/">Home</router-link>
+        <router-link class="hover:text-accent-dark" to="/menu">Menu</router-link>
+        <router-link class="hover:text-accent-dark" to="/blog">Blog</router-link>
+        <router-link class="hover:text-accent-dark" to="/contact">Contact</router-link>
       </div>
     </div>
-    <div>
-      <div v-if="submitted" class="d-flex gap-3">
-        <div>
-          <smart-img src="/andariego/icons/email.png" width="70" />
-        </div>
-        <div class="d-flex flex-column align-items-center py-2">
-          <p class="fw-bold my-0">Check Your Inbox!</p>
-          <p class="my-0">You've been subscribed to emails</p>
-        </div>
+    <div class="flex flex-col gap-3">
+      <h5 class="mb-3 font-semibold">Information</h5>
+      <div class="flex flex-col items-start gap-1 lg:text-base">
+        <p
+          class="cursor-pointer transition-all hover:font-semibold"
+          @click.prevent="$_andariego_copyPhone"
+        >
+          949-806-0123
+        </p>
+        <router-link class="hover:text-accent-dark" to="/contact">Careers</router-link>
+        <router-link class="hover:text-accent-dark" to="/contact">Catering</router-link>
       </div>
-      <div v-else>
-        <p>Sign up with your email address to receive news and updates.</p>
-        <form class="d-flex justify-content-center gap-1" @submit.prevent="signup">
-          <input
-            v-model="email"
-            type="email"
-            class="form-control form-control-lg fs-6 w-75"
-            placeholder="Email Address"
-            required
-          />
-          <button type="submit" class="btn btn-success btn-sm">Sign up</button>
-        </form>
+    </div>
+    <div class="flex flex-col gap-3 md:order-first">
+      <h5 class="mb-3 font-semibold">El Andariego</h5>
+      <div class="flex gap-4 text-base lg:text-lg">
+        <a href="https://www.facebook.com/profile.php?id=100082710796984" target="_blank">
+          <i class="fa-brands fa-facebook fa-md"></i>
+        </a>
+        <a href="https://instagram.com/el_andariegotruck" target="_blank">
+          <i class="fa-brands fa-instagram fa-md"></i>
+        </a>
+        <a href="https://g.page/r/CY53oo_JlDb8EAI/review" target="_blank">
+          <i class="fa-brands fa-google fa-sm"></i>
+        </a>
+      </div>
+      <!-- Had to do it this way not sure why -->
+      <div class="flex grow items-end text-xs sm:w-4/5">
+        <p>
+          Copyright © <span>{{ year }}</span> by El Andariego. All rights reserved.
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col gap-3 md:order-first">
+      <h5 class="mb-3 font-semibold">Business Hours</h5>
+      <p class="sm:w-4/5 lg:text-base">
+        31345 Los Rios St, San Juan Capistrano, CA 92675
+      </p>
+      <div class="lg:text-base">
+        <p>Monday: Closed</p>
+        <p>Tuesday &middot; Sunday: Open</p>
       </div>
     </div>
   </footer>
-  <p class="text-center py-4 my-0">© 2023 El Andariego</p>
 </template>
 
 <style lang="scss" scoped>
-footer {
-  background-color: white;
-}
-
-.info p {
-  font-size: 13px;
-}
-
-p {
-  font-size: 14px;
-}
-
 a {
-  color: inherit;
-  text-decoration: none;
-
-  &:hover {
-    color: inherit;
-    text-decoration: none;
-    opacity: 0.8;
-  }
+  transition: all 150ms linear;
 }
 
-.btn {
-  transition: opacity 0.15s;
-
-  &:hover {
-    opacity: 0.6;
-  }
-}
-
-.btn-success {
-  background-color: #1a532e;
-  border-color: #1a532e;
-}
-
-i {
-  --fa-animation-delay: 3s;
-  --fa-animation-iteration-count: 2;
-}
-
-.phone-number {
-  transition: font-weight 0.15s;
-  cursor: pointer;
-
-  &:hover {
-    font-weight: bold;
-  }
+a:hover {
+  color: #71706a;
 }
 </style>
