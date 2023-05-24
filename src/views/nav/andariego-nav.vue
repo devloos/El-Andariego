@@ -1,41 +1,33 @@
-<script>
+<script setup>
 import offcanvas from '@/views/nav/offcanvas.vue';
 import navbar from '@/views/nav/navbar.vue';
+import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { useRoute } from 'vue-router';
 
-export default {
-  components: {
-    offcanvas,
-    navbar,
-  },
-  data() {
-    return {
-      showOffCanvas: false,
-    };
-  },
-  watch: {
-    $route() {
-      this.showOffCanvas = false;
-    },
-    showOffCanvas: {
-      handler(value) {
-        document.body.style.overflow = value ? 'hidden' : 'visible';
-      },
-    },
-  },
-  mounted() {
-    window.addEventListener('resize', this.onResize);
-  },
-  unmounted() {
-    window.removeEventListener('resize', this.onResize);
-  },
-  methods: {
-    onResize() {
-      if (window.innerWidth > 800) {
-        this.showOffCanvas = false;
-      }
-    },
-  },
-};
+const showOffCanvas = ref(false);
+const route = useRoute();
+
+function onResize() {
+  if (window.innerWidth > 800) {
+    showOffCanvas.value = false;
+  }
+}
+
+watch(route, () => {
+  showOffCanvas.value = false;
+});
+
+watch(showOffCanvas, (value) => {
+  document.body.style.overflow = value ? 'hidden' : 'visible';
+});
+
+onMounted(() => {
+  window.addEventListener('resize', onResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', onResize);
+});
 </script>
 <template>
   <navbar

@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router';
 const year = new Date().getFullYear();
 </script>
 

@@ -72,7 +72,7 @@ export default {
 
 <template>
   <div class="container">
-    <h4 class="success text-center fw-bold my-4">Contact El Andariego</h4>
+    <h4 class="success fw-bold my-4 text-center">Contact El Andariego</h4>
     <div class="row">
       <div class="col-lg-6">
         <div class="row justify-content-start">
@@ -218,7 +218,7 @@ export default {
               />
             </div>
           </div>
-          <div class="text-center my-4">
+          <div class="my-4 text-center">
             <button type="submit" class="btn btn-success px-4">Submit</button>
           </div>
         </form>

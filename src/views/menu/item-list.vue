@@ -62,16 +62,16 @@ export default {
 
 <template>
   <div class="mt-2">
-    <h4 class="text-center fw-bold mt-5 mb-2" v-text="category"></h4>
-    <smart-img :src="category_image" classes="img-fluid mb-5 rounded-2" />
+    <h4 class="fw-bold mb-2 mt-5 text-center" v-text="category"></h4>
+    <smart-img :src="category_image" class="img-fluid rounded-2 mb-5" />
     <div class="row justify-content-evenly px-2">
       <div v-for="item in items" :key="item.name" class="item col-lg-4 col-md-6 mb-2">
         <div class="row justify-content-between text-center">
-          <p class="success col-auto fw-bold" v-text="item.name" />
+          <p class="success fw-bold col-auto" v-text="item.name" />
           <p class="col-auto" v-text="' ($' + item.price + ')'" />
         </div>
         <p class="mb-5" v-text="item.content" />
-        <hr class="border border-dark mx-auto" />
+        <hr class="border-dark mx-auto border" />
       </div>
     </div>
   </div>

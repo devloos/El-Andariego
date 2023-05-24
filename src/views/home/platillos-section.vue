@@ -27,54 +27,27 @@ export default {
         });
       }
     },
-    platilloImgStyle() {
-      return {
-        'border-top-left-radius': '5px',
-        'border-top-right-radius': '5px',
-      };
-    },
   },
 };
 </script>
 
 <template>
-  <div class="px-2">
-    <div class="d-flex gap-3 overflow-auto">
-      <div
-        v-for="platillo in platillos"
-        :key="platillo.name"
-        class="platillo-card"
-        @click="$router.push(`platillo/${platillo.name}`)"
-      >
-        <div>
-          <!-- Change Image -->
-          <smart-img
-            :src="platillo.thumbnail_image"
-            classes="none"
-            :style="platilloImgStyle()"
-            width="220"
-          />
-        </div>
-        <div class="platillo-info px-2 border bg-light">
-          <p class="my-1">{{ platillo.name }}</p>
-          <p class="platillo-price text-muted mb-2">{{ '$' + platillo.price }}</p>
-        </div>
+  <div class="container mx-auto flex gap-3 overflow-x-scroll p-3">
+    <router-link
+      v-for="platillo in platillos"
+      :key="platillo.name"
+      class="min-h-fit min-w-fit cursor-pointer shadow-sm"
+      :to="`platillo/${platillo.name}`"
+    >
+      <smart-img
+        src="/andariego/platillos/thumbnails/new-dimension_dsbkFuJy8"
+        class="h-auto max-w-[280px]"
+        alt="platillo"
+      />
+      <div class="flex flex-col gap-1 p-2">
+        <p class="font-bold">{{ platillo.name }}</p>
+        <p class="font-semibold">{{ '$' + platillo.price }}</p>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
-
-<style scoped>
-.platillo-card {
-  cursor: pointer;
-}
-
-.platillo-info {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.platillo-price {
-  font-size: 14px;
-}
-</style>
