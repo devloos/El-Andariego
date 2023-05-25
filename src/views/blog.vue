@@ -1,10 +1,12 @@
 <script>
 import { useHead } from '@vueuse/head';
 import SmartImg from '@/components/smart/smart-img.vue';
+import { RouterLink } from 'vue-router';
 
 export default {
   components: {
     SmartImg,
+    RouterLink,
   },
   setup() {
     useHead({
@@ -44,57 +46,18 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid px-sm-5 py-3">
-    <div
-      v-for="(post, i) in posts"
-      :key="post._id"
-      class="row justify-content-between gap-lg-0 my-4 gap-3"
-    >
-      <div
-        class="clickable col-lg-6"
-        :class="{ 'order-lg-2': i % 2 === 0 }"
-        @click="$router.push(`/blog/${post._id}`)"
-      >
-        <!-- Change Image -->
-        <smart-img :src="post.image" />
-      </div>
-      <div
-        class="d-flex flex-column justify-content-center col-lg-6 order-1 gap-4 px-4"
-        :class="{ 'order-lg-1': i % 2 === 0 }"
-      >
-        <div class="clickable d-flex gap-2" @click="$router.push(`/blog/${post._id}`)">
+  <div class="my-3 flex flex-col gap-10 px-3 lg:px-12">
+    <router-link v-for="(post, i) in posts" :key="post._id" :to="`/blog/${post._id}`">
+      <smart-img :src="post.image" alt="post" class="hover:opacity-75" />
+      <div class="flex flex-col items-start gap-3" :class="{ 'order-lg-1': i % 2 === 0 }">
+        <div class="mt-3 flex gap-2">
           <p>{{ post.type }}</p>
           &middot;
           <p>{{ post.date }}</p>
         </div>
-        <div class="clickable" @click="$router.push(`/blog/${post._id}`)">
-          <h1>{{ post.title }}</h1>
-        </div>
-        <div>
-          <a href="#" @click.prevent="$router.push(`/blog/${post._id}`)">Read More</a>
-        </div>
+        <h1 class="text-lg font-semibold hover:text-accent-dark">{{ post.title }}</h1>
+        <p class="cursor-pointer text-main underline hover:text-main-light">Read More</p>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
-
-<style lang="scss" scoped>
-a {
-  color: #1a532e;
-  transition: opacity 0.15s;
-
-  &:hover {
-    color: #1a532e;
-    opacity: 0.6;
-  }
-}
-
-.clickable {
-  cursor: pointer;
-  transition: opacity 0.15s;
-
-  &:hover {
-    opacity: 0.7;
-  }
-}
-</style>
