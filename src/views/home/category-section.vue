@@ -28,34 +28,24 @@ export default {
     );
 
     this.categories.sort((a, b) => a.priority - b.priority);
+
+    console.log(this.categories);
   },
 };
 </script>
 
 <template>
-  <div class="px-2 px-lg-5">
-    <div class="row justify-content-evenly">
-      <div
-        v-for="category in categories"
-        :key="category.name"
-        class="category-card col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2"
-        @click="$router.push(`/menu/${category.name}`)"
-      >
-        <div>
-          <smart-img :src="category.thumbnail_image" classes="img-fluid rounded-top-3" />
-        </div>
-        <div
-          class="py-2 mb-2 bg-light text-center rounded-bottom-3 border border-bottom-3"
-        >
-          <p class="mb-0">{{ category.name }}</p>
-        </div>
-      </div>
+  <div
+    class="container mx-auto flex snap-x snap-mandatory gap-3 overflow-x-scroll rounded-t p-3"
+  >
+    <div
+      v-for="category in categories"
+      :key="category.name"
+      class="min-h-fit min-w-fit cursor-pointer snap-center rounded-b rounded-t hover:scale-[1.01]"
+      @click="$router.push(`/menu/${category.name}`)"
+    >
+      <smart-img :src="category.thumbnail_image" />
+      <p class="rounded-b bg-light p-5 text-center font-bold">{{ category.name }}</p>
     </div>
   </div>
 </template>
-
-<style scoped>
-.category-card {
-  cursor: pointer;
-}
-</style>

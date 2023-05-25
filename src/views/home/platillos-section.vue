@@ -36,17 +36,26 @@ export default {
     <router-link
       v-for="platillo in platillos"
       :key="platillo.name"
-      class="min-h-fit min-w-fit cursor-pointer shadow-sm"
+      class="min-h-fit min-w-fit cursor-pointer rounded-b rounded-t shadow hover:scale-[1.01]"
       :to="`platillo/${platillo.name}`"
     >
       <smart-img
-        src="/andariego/platillos/thumbnails/new-dimension_dsbkFuJy8"
-        class="h-auto max-w-[280px]"
+        src="/andariego/platillos/thumbnails/final-dim_26Zwteo4L"
+        class="h-auto max-w-[300px] rounded-t"
         alt="platillo"
       />
-      <div class="flex flex-col gap-1 p-2">
-        <p class="font-bold">{{ platillo.name }}</p>
-        <p class="font-semibold">{{ '$' + platillo.price }}</p>
+      <div class="flex flex-col gap-1 rounded-b p-2">
+        <div class="flex items-center gap-3">
+          <p class="text-lg font-bold">{{ platillo.name }}</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-money-bill text-main"></i>
+          <p class="font-semibold">{{ '$' + platillo.price }}</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-heart text-minor"></i>
+          <p class="font-semibold">{{ platillo.likes }}</p>
+        </div>
       </div>
     </router-link>
   </div>
