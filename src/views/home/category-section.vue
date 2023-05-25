@@ -28,16 +28,12 @@ export default {
     );
 
     this.categories.sort((a, b) => a.priority - b.priority);
-
-    console.log(this.categories);
   },
 };
 </script>
 
 <template>
-  <div
-    class="container mx-auto flex snap-x snap-mandatory gap-3 overflow-x-scroll rounded-t p-3"
-  >
+  <div class="container flex snap-x snap-mandatory gap-3 overflow-x-scroll rounded-t p-3">
     <div
       v-for="category in categories"
       :key="category.name"

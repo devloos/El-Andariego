@@ -4,9 +4,9 @@ const year = new Date().getFullYear();
 </script>
 
 <template>
-  <hr />
+  <hr class="my-16" />
   <footer
-    class="mx-auto mt-16 grid max-w-7xl grid-cols-2 gap-3 gap-y-10 px-6 text-sm sm:px-10 md:grid-cols-4 lg:justify-items-center lg:text-lg"
+    class="mx-auto grid max-w-7xl grid-cols-2 gap-3 gap-y-10 px-6 text-sm sm:px-10 md:grid-cols-4 lg:justify-items-center lg:text-lg"
   >
     <div class="flex flex-col gap-3">
       <h5 class="mb-3 font-semibold">Navigation</h5>

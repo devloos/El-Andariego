@@ -32,7 +32,7 @@ export default {
 </script>
 
 <template>
-  <div class="container mx-auto flex gap-3 overflow-x-scroll p-3">
+  <div class="flex gap-3 overflow-x-scroll p-3 xl:container">
     <router-link
       v-for="platillo in platillos"
       :key="platillo.name"

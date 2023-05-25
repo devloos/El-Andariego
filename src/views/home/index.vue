@@ -3,6 +3,7 @@ import PlatillosSection from '@/views/home/platillos-section.vue';
 import CategorySection from '@/views/home/category-section.vue';
 import SmartDivider from '@/components/smart-divider.vue';
 import SmartImg from '@/components/smart-img.vue';
+import testimonials from '@/assets/constants/testimonials.js';
 
 function inWorkSchedule() {
   const now = new Date().getHours() * 60 + new Date().getMinutes();
@@ -28,11 +29,14 @@ function getSchedule(day) {
 const day = new Date().getDay();
 const schedule = getSchedule(day);
 
-// const sliderImages = [
-//   '/andariego/home/carousel/card.jpg',
-//   '/andariego/home/carousel/sopes.jpg',
-//   '/andariego/home/carousel/truck.jpg',
-// ];
+const gallery = [
+  '/andariego/home/gallery/gallery-img_T85MREDT-',
+  '/andariego/home/gallery/gallery-img_T85MREDT-',
+  '/andariego/home/gallery/gallery-img_T85MREDT-',
+  '/andariego/home/gallery/gallery-img_T85MREDT-',
+  '/andariego/home/gallery/gallery-img_T85MREDT-',
+  '/andariego/home/gallery/gallery-img_T85MREDT-',
+];
 </script>
 
 <template>
@@ -81,22 +85,35 @@ const schedule = getSchedule(day);
   <smart-divider name="Our Specialty Platillos" />
   <platillos-section />
 
-  <!-- <div id="img-slider" class="carousel slide px-2 my-5" data-bs-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-bs-target="#img-slider" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#img-slider" data-bs-slide-to="1"></li>
-        <li data-bs-target="#img-slider" data-bs-slide-to="2"></li>
-        <li data-bs-target="#img-slider" data-bs-slide-to="3"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <smart-img src="/andariego/home/carousel/logo.jpg" />
-        </div>
-        <div v-for="(image, i) in sliderImages" :key="i" class="carousel-item">
-          <smart-img :src="image" />
-        </div>
+  <div class="mt-5 bg-light pb-4 pt-2 xl:px-10">
+    <smart-divider name="Testimonials" />
+    <div class="flex flex-col justify-center lg:flex-row xl:gap-10">
+      <div
+        class="my-3 grid grid-cols-1 justify-items-center gap-8 px-5 sm:grid-cols-2 lg:items-center"
+      >
+        <figure
+          v-for="review in testimonials"
+          :key="review"
+          class="flex w-full max-w-sm flex-col gap-3"
+        >
+          <smart-img :src="review.image" class="max-w-[60px]" :alt="review.name" />
+          <blockquote class="font-medium">
+            {{ review.quote }}
+          </blockquote>
+          <p class="text-sm text-main-light">- {{ review.name }}</p>
+        </figure>
       </div>
-    </div> -->
+      <div class="my-5 grid grid-cols-3 gap-2 rounded px-3 lg:grid-cols-2 xl:grid-cols-3">
+        <smart-img
+          v-for="img in gallery"
+          :key="img"
+          class="w-full max-w-[350px] rounded"
+          :src="img"
+          alt="Gallery Image"
+        />
+      </div>
+    </div>
+  </div>
 
   <smart-divider name="Top Categories" />
   <category-section />
