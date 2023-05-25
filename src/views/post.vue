@@ -42,27 +42,20 @@ export default {
 </script>
 
 <template>
-  <div v-if="post" class="container">
-    <h2 class="success fw-bold my-3 mb-5 text-center">{{ post.title }}</h2>
-    <div class="row justify-content-center">
-      <div class="small d-flex text-muted col-xl-8 gap-2">
+  <div v-if="post" class="container flex flex-col items-center px-3">
+    <h2 class="my-5 text-center text-2xl font-bold text-main">
+      {{ post.title }}
+    </h2>
+    <div>
+      <div class="mb-3 flex gap-2 text-sm text-gray-500">
         <p>{{ post.type }}</p>
         &middot;
         <p>{{ post.date }}</p>
       </div>
+      <smart-img :src="post.image" />
     </div>
-    <div class="row justify-content-center">
-      <!-- Change Image -->
-      <smart-img :src="post.image" classes="col-xl-8 img-fluid" />
-    </div>
-    <p class="mx-auto my-4 text-center" style="max-width: 40rem">
+    <p class="my-5 max-w-2xl text-center lg:text-xl">
       {{ post.description }}
     </p>
   </div>
 </template>
-
-<style scoped>
-.success {
-  color: #1a532e;
-}
-</style>
