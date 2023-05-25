@@ -1,5 +1,6 @@
 <script setup>
 import { useHead } from '@vueuse/head';
+import { RouterLink } from 'vue-router';
 
 useHead({
   title: 'Page Not Found | El Andariego',
@@ -13,34 +14,14 @@ useHead({
 </script>
 
 <template>
-  <div class="container">
-    <div class="row justify-content-center mt-3">
-      <h5 class="fw-bold text-center">SORRY, Page Not Found!</h5>
-      <p class="text-muted text-center">
-        If you typed the URL directly, please make sure the spelling is correct.
-      </p>
-      <div class="text-center">
-        <span>
-          <a href="#">
-            <span class="fw-bold"> Back To Homepage </span>
-          </a>
-        </span>
-        <span>
-          <i class="fa-solid fa-arrow-left fa-beat ms-1"></i>
-        </span>
-      </div>
-    </div>
+  <div class="flex flex-col items-center gap-3 py-5 text-center text-xl">
+    <h1 class="text-2xl font-bold">SORRY, Page Not Found!</h1>
+    <p>If you typed the URL directly, please make sure the spelling is correct.</p>
+    <router-link
+      to="/"
+      class="mt-5 cursor-pointer rounded bg-main px-4 py-2 text-white hover:bg-main-light"
+    >
+      Back To Homepage
+    </router-link>
   </div>
 </template>
-
-<style lang="scss" scoped>
-a {
-  color: inherit;
-  text-decoration: none;
-
-  &:hover {
-    color: #1a532e;
-    text-decoration: none;
-  }
-}
-</style>
