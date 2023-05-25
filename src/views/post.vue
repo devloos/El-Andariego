@@ -1,5 +1,5 @@
 <script>
-import SmartImg from '@/components/smart-img.vue';
+import SmartImg from '@/components/smart/smart-img.vue';
 
 export default {
   components: {
@@ -43,9 +43,9 @@ export default {
 
 <template>
   <div v-if="post" class="container">
-    <h2 class="success text-center my-3 mb-5 fw-bold">{{ post.title }}</h2>
+    <h2 class="success fw-bold my-3 mb-5 text-center">{{ post.title }}</h2>
     <div class="row justify-content-center">
-      <div class="small d-flex gap-2 text-muted col-xl-8">
+      <div class="small d-flex text-muted col-xl-8 gap-2">
         <p>{{ post.type }}</p>
         &middot;
         <p>{{ post.date }}</p>
@@ -55,7 +55,7 @@ export default {
       <!-- Change Image -->
       <smart-img :src="post.image" classes="col-xl-8 img-fluid" />
     </div>
-    <p class="text-center mx-auto my-4" style="max-width: 40rem">
+    <p class="mx-auto my-4 text-center" style="max-width: 40rem">
       {{ post.description }}
     </p>
   </div>

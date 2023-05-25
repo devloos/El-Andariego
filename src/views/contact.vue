@@ -1,6 +1,6 @@
 <script>
 import { useHead } from '@vueuse/head';
-import SmartImg from '@/components/smart-img.vue';
+import SmartImg from '@/components/smart/smart-img.vue';
 
 export default {
   components: {

@@ -1,5 +1,5 @@
 <script>
-import SmartImg from '@/components/smart-img.vue';
+import SmartImg from '@/components/smart/smart-img.vue';
 
 export default {
   components: {

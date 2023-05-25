@@ -1,5 +1,5 @@
 <script>
-import ItemList from '@/views/menu/item-list.vue';
+import ItemList from '@/components/item-list.vue';
 import { useHead } from '@vueuse/head';
 
 export default {
@@ -47,7 +47,7 @@ export default {
 <template>
   <div class="container">
     <div class="my-2 mb-5 px-2">
-      <h1 class="text-center fw-bold mb-5">MENU</h1>
+      <h1 class="fw-bold mb-5 text-center">MENU</h1>
       <div class="d-flex justify-content-lg-center hidden-scroll">
         <span class="mx-2">|</span>
         <a

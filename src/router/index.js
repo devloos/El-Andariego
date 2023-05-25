@@ -1,17 +1,17 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import home from '@/views/home/index.vue';
-import menu from '@/views/menu/index.vue';
-import contact from '@/views/contact/index.vue';
-import blog from '@/views/blog.vue';
-import post from '@/components/post.vue';
-import PlatilloDetails from '@/components/platillo-details.vue';
-import error from '@/views/error.vue';
+import Home from '@/views/home.vue';
+import Menu from '@/views/menu.vue';
+import contact from '@/views/contact.vue';
+import Blog from '@/views/blog.vue';
+import Post from '@/views/post.vue';
+import PlatilloDetails from '@/views/platillo-details.vue';
+import Error from '@/views/error.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: home,
+    name: 'Home',
+    component: Home,
   },
   {
     path: '/menu',
@@ -19,8 +19,8 @@ const routes = [
   },
   {
     path: '/menu/:category',
-    name: 'menu',
-    component: menu,
+    name: 'Menu',
+    component: Menu,
   },
   {
     path: '/contact',
@@ -29,29 +29,29 @@ const routes = [
   },
   {
     path: '/blog',
-    name: 'blog',
-    component: blog,
+    name: 'Blog',
+    component: Blog,
   },
   {
     path: '/blog/:id',
-    name: 'post',
-    component: post,
+    name: 'Post',
+    component: Post,
     props: true,
   },
   {
     path: '/platillo/:name',
-    name: 'platillo-details',
+    name: 'PlatilloDetails',
     component: PlatilloDetails,
   },
   {
     path: '/:pathMatch(.*)*',
-    name: 'error',
-    component: error,
+    name: 'Error',
+    component: Error,
   },
   {
     path: '/items/undefined',
     name: 'undefined',
-    component: error,
+    component: Error,
   },
 ];
 

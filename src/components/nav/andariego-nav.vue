@@ -1,6 +1,6 @@
 <script setup>
-import offcanvas from '@/views/nav/offcanvas.vue';
-import navbar from '@/views/nav/navbar.vue';
+import offcanvas from '@/components/nav/offcanvas.vue';
+import navbar from '@/components/nav/navbar.vue';
 import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 

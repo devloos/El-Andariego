@@ -1,7 +1,7 @@
 <script setup>
 import { useHead } from '@vueuse/head';
-import AndariegoNav from '@/views/nav/andariego-nav.vue';
-import AndariegoFooter from '@/views/andariego-footer.vue';
+import AndariegoNav from '@/components/nav/andariego-nav.vue';
+import AndariegoFooter from '@/components/andariego-footer.vue';
 
 useHead({
   title: 'El Andariego',

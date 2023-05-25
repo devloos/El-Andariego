@@ -1,8 +1,8 @@
 <script setup>
-import PlatillosSection from '@/views/home/platillos-section.vue';
-import CategorySection from '@/views/home/category-section.vue';
-import SmartDivider from '@/components/smart-divider.vue';
-import SmartImg from '@/components/smart-img.vue';
+import PlatillosSection from '@/components/home/platillos-section.vue';
+import CategorySection from '@/components/home/category-section.vue';
+import SmartDivider from '@/components/smart/smart-divider.vue';
+import SmartImg from '@/components/smart/smart-img.vue';
 import testimonials from '@/assets/constants/testimonials.js';
 
 function inWorkSchedule() {

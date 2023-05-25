@@ -1,6 +1,6 @@
 <script>
 import { useHead } from '@vueuse/head';
-import SmartImg from '@/components/smart-img.vue';
+import SmartImg from '@/components/smart/smart-img.vue';
 
 export default {
   components: {
@@ -44,11 +44,11 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid py-3 px-sm-5">
+  <div class="container-fluid px-sm-5 py-3">
     <div
       v-for="(post, i) in posts"
       :key="post._id"
-      class="row justify-content-between gap-3 gap-lg-0 my-4"
+      class="row justify-content-between gap-lg-0 my-4 gap-3"
     >
       <div
         class="clickable col-lg-6"
@@ -59,7 +59,7 @@ export default {
         <smart-img :src="post.image" />
       </div>
       <div
-        class="d-flex flex-column justify-content-center gap-4 col-lg-6 px-4 order-1"
+        class="d-flex flex-column justify-content-center col-lg-6 order-1 gap-4 px-4"
         :class="{ 'order-lg-1': i % 2 === 0 }"
       >
         <div class="clickable d-flex gap-2" @click="$router.push(`/blog/${post._id}`)">
