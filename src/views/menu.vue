@@ -54,7 +54,7 @@ onMounted(async () => {
         </a>
       </div>
     </div>
-    <item-list :category="$route.params.category" />
+    <ItemList :category="$route.params.category" />
   </div>
 </template>
 

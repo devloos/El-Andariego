@@ -1,6 +1,6 @@
 <script>
 import { useHead } from '@vueuse/head';
-import SmartImg from '@/components/smart/smart-img.vue';
+import SmartImg from '@/components/smart/SmartImg.vue';
 
 export default {
   components: {
@@ -78,7 +78,7 @@ export default {
         <div class="row justify-content-start">
           <div class="my-3">
             <!-- Change Image -->
-            <smart-img src="/andariego/contact/contact.jpg" />
+            <SmartImg src="/andariego/contact/contact.jpg" />
           </div>
           <div class="my-3">
             <div class="row justify-content-between">

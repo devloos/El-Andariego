@@ -17,11 +17,11 @@ useHead({
   <div class="flex flex-col items-center gap-3 py-5 text-center text-xl">
     <h1 class="text-2xl font-bold">SORRY, Page Not Found!</h1>
     <p>If you typed the URL directly, please make sure the spelling is correct.</p>
-    <router-link
+    <RouterLink
       to="/"
       class="mt-5 cursor-pointer rounded bg-main px-4 py-2 text-white hover:bg-main-light"
     >
       Back To Homepage
-    </router-link>
+    </RouterLink>
   </div>
 </template>

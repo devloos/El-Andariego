@@ -13,7 +13,7 @@ const { copyPhone } = useUtility();
 
 <template>
   <div
-    class="absolute inset-x-0 top-0 z-50 mx-auto flex h-20 content-center items-center justify-between bg-white px-8 pb-4 pt-7 lg:px-8 xl:px-12"
+    class="absolute inset-x-0 top-0 z-50 mx-auto flex h-20 content-center items-center justify-between bg-white px-4 pb-4 pt-7 lg:px-8 xl:px-12"
   >
     <RouterLink
       class="text-2xl font-bold text-main transition-all duration-300 hover:text-main-light"

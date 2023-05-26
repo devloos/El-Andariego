@@ -1,5 +1,5 @@
 <script>
-import SmartImg from '@/components/smart/smart-img.vue';
+import SmartImg from '@/components/smart/SmartImg.vue';
 import { prettyContent } from '@/assets/js/mixins';
 
 export default {
@@ -63,7 +63,7 @@ export default {
 <template>
   <div class="mt-2">
     <h4 class="fw-bold mb-2 mt-5 text-center" v-text="category"></h4>
-    <smart-img :src="category_image" class="img-fluid rounded-2 mb-5" />
+    <SmartImg :src="category_image" class="img-fluid rounded-2 mb-5" />
     <div class="row justify-content-evenly px-2">
       <div v-for="item in items" :key="item.name" class="item col-lg-4 col-md-6 mb-2">
         <div class="row justify-content-between text-center">

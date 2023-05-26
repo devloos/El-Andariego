@@ -1,5 +1,5 @@
 <script setup>
-import SmartImg from '@/components/smart/smart-img.vue';
+import SmartImg from '@/components/smart/SmartImg.vue';
 import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
@@ -43,7 +43,7 @@ onMounted(async () => {
         &middot;
         <p>{{ post.date }}</p>
       </div>
-      <smart-img :src="post.image" />
+      <SmartImg :src="post.image" />
     </div>
     <p class="my-5 max-w-2xl text-center lg:text-xl">
       {{ post.description }}

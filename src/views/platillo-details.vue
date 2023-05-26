@@ -1,5 +1,5 @@
 <script>
-import SmartImg from '@/components/smart/smart-img.vue';
+import SmartImg from '@/components/smart/SmartImg.vue';
 import { prettyContent } from '@/assets/js/mixins';
 
 export default {
@@ -97,7 +97,7 @@ export default {
     <div class="row justify-content-center">
       <div class="platillo-img col-12 col-lg-10 col-xl-8">
         <!-- Change Image -->
-        <smart-img src="/andariego/platillos/heros/platillo.jpg" />
+        <SmartImg src="/andariego/platillos/heros/platillo.jpg" />
         <div class="like-platillo input-group">
           <button class="btn border-end" :class="checkLiked" @click="setUserLiked">
             <i class="fa-solid fa-heart"></i>
@@ -115,11 +115,7 @@ export default {
       </div>
       <div>
         <!-- Change Image -->
-        <smart-img
-          :src="platillo.thumbnail_image"
-          :classes="'rounded-3'"
-          :width="'220'"
-        />
+        <SmartImg :src="platillo.thumbnail_image" :classes="'rounded-3'" :width="'220'" />
       </div>
     </div>
   </div>

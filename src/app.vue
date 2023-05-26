@@ -2,6 +2,7 @@
 import { useHead } from '@vueuse/head';
 import AndariegoNav from '@/components/nav/andariego-nav.vue';
 import AndariegoFooter from '@/components/andariego-footer.vue';
+import { RouterLink } from 'vue-router';
 
 useHead({
   title: 'El Andariego',
@@ -15,10 +16,10 @@ useHead({
 </script>
 
 <template>
-  <andariego-nav />
+  <AndariegoNav />
   <main class="flex flex-col">
-    <router-view class="grow" />
-    <andariego-footer />
+    <RouterLink class="grow" />
+    <AndariegoFooter />
   </main>
 </template>
 

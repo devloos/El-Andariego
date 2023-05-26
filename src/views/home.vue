@@ -1,8 +1,9 @@
 <script setup>
-import PlatillosSection from '@/components/home/platillos-section.vue';
-import CategorySection from '@/components/home/category-section.vue';
-import SmartDivider from '@/components/smart/smart-divider.vue';
-import SmartImg from '@/components/smart/smart-img.vue';
+import PlatilloSection from '@/components/home/PlatilloSection.vue';
+import CategorySection from '@/components/home/CategorySection.vue';
+import CallToAction from '@/components/home/CallToAction.vue';
+import SmartDivider from '@/components/smart/SmartDivider.vue';
+import SmartImg from '@/components/smart/SmartImg.vue';
 import testimonials from '@/assets/constants/testimonials.js';
 
 function inWorkSchedule() {
@@ -78,15 +79,15 @@ const gallery = [
           </a>
         </div>
       </div>
-      <smart-img src="/andariego/home/hero.webp" alt="hero" />
+      <SmartImg src="/andariego/home/hero.webp" alt="hero" />
     </div>
   </div>
 
-  <smart-divider name="Our Specialty Platillos" />
-  <platillos-section />
+  <SmartDivider name="Our Specialty Platillos" />
+  <PlatilloSection />
 
   <div class="mt-5 bg-light pb-4 pt-2 xl:px-10">
-    <smart-divider name="Testimonials" />
+    <SmartDivider name="Testimonials" />
     <div class="flex flex-col justify-center lg:flex-row xl:gap-10">
       <div
         class="my-3 grid grid-cols-1 justify-items-center gap-8 px-5 sm:grid-cols-2 lg:items-center"
@@ -96,15 +97,15 @@ const gallery = [
           :key="review"
           class="flex w-full max-w-sm flex-col gap-3"
         >
-          <smart-img :src="review.image" class="max-w-[60px]" :alt="review.name" />
+          <SmartImg :src="review.image" class="max-w-[60px]" :alt="review.name" />
           <blockquote class="font-medium">
             {{ review.quote }}
           </blockquote>
-          <p class="text-sm text-main-light">- {{ review.name }}</p>
+          <p class="text-sm text-main">- {{ review.name }}</p>
         </figure>
       </div>
       <div class="my-5 grid grid-cols-3 gap-2 rounded px-3 lg:grid-cols-2 xl:grid-cols-3">
-        <smart-img
+        <SmartImg
           v-for="img in gallery"
           :key="img"
           class="w-full max-w-[350px] rounded"
@@ -115,8 +116,11 @@ const gallery = [
     </div>
   </div>
 
-  <smart-divider name="Top Categories" />
-  <category-section />
+  <SmartDivider name="Top Categories" />
+  <CategorySection />
+
+  <SmartDivider name="What are you waiting for?" />
+  <CallToAction />
 </template>
 
 <style lang="scss" scoped>
