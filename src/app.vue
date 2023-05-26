@@ -1,7 +1,7 @@
 <script setup>
 import { useHead } from '@vueuse/head';
-import AndariegoNav from '@/components/nav/andariego-nav.vue';
-import AndariegoFooter from '@/components/andariego-footer.vue';
+import AndariegoNav from '@/components/nav/AndariegoNav.vue';
+import AndariegoFooter from '@/components/AndariegoFooter.vue';
 import { RouterLink } from 'vue-router';
 
 useHead({
