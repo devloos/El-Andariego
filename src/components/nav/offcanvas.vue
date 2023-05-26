@@ -1,5 +1,8 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import { useUtility } from '@/composables/utility';
+
+const { copyPhone } = useUtility();
 </script>
 
 <template>
@@ -9,10 +12,10 @@ import { RouterLink } from 'vue-router';
     <div
       class="mt-14 flex flex-col items-center gap-9 text-center text-3xl font-semibold"
     >
-      <router-link class="hover:text-accent-dark" to="/">Home</router-link>
-      <router-link class="hover:text-accent-dark" to="/menu">Menu</router-link>
-      <router-link class="hover:text-accent-dark" to="/blog">Blog</router-link>
-      <router-link class="hover:text-accent-dark" to="/contact">Contact</router-link>
+      <RouterLink class="hover:text-accent-dark" to="/">Home</RouterLink>
+      <RouterLink class="hover:text-accent-dark" to="/menu">Menu</RouterLink>
+      <RouterLink class="hover:text-accent-dark" to="/blog">Blog</RouterLink>
+      <RouterLink class="hover:text-accent-dark" to="/contact">Contact</RouterLink>
       <div class="my-3 flex justify-center gap-4">
         <a href="https://www.facebook.com/profile.php?id=100082710796984" target="_blank">
           <i class="fa-brands fa-facebook fa-sm"></i>
@@ -27,7 +30,7 @@ import { RouterLink } from 'vue-router';
       <button
         class="rounded-md bg-main px-6 py-3 text-xl text-gray-50 transition-all duration-300 hover:bg-main-light"
         type="button"
-        @click="$_andariego_copyPhone"
+        @click="copyPhone"
       >
         GIVE US A CALL
       </button>

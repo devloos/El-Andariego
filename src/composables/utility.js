@@ -1,10 +1,12 @@
-export function useUtiliy() {
+import { useToast } from '@/composables/toast.js';
+
+export function useUtility() {
   async function copyPhone(toastOptions = {}) {
     try {
       await navigator.clipboard.writeText('949-806-0123');
-      this.$_andariego_toast('Phone number copied.', toastOptions);
+      useToast('Phone number copied.', toastOptions);
     } catch (err) {
-      this.$_andariego_toast('Error copying phone number.', { type: 'error' });
+      useToast('Error copying phone number.', { type: 'error' });
     }
   }
 

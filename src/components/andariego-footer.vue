@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import { useUtility } from '@/composables/utility';
 const year = new Date().getFullYear();
+const { copyPhone } = useUtility();
 </script>
 
 <template>
@@ -11,10 +13,10 @@ const year = new Date().getFullYear();
     <div class="flex flex-col gap-3">
       <h5 class="mb-3 font-semibold">Navigation</h5>
       <div class="flex flex-col items-start gap-1 lg:text-base">
-        <router-link class="hover:text-accent-dark" to="/">Home</router-link>
-        <router-link class="hover:text-accent-dark" to="/menu">Menu</router-link>
-        <router-link class="hover:text-accent-dark" to="/blog">Blog</router-link>
-        <router-link class="hover:text-accent-dark" to="/contact">Contact</router-link>
+        <RouterLink class="hover:text-accent-dark" to="/">Home</RouterLink>
+        <RouterLink class="hover:text-accent-dark" to="/menu">Menu</RouterLink>
+        <RouterLink class="hover:text-accent-dark" to="/blog">Blog</RouterLink>
+        <RouterLink class="hover:text-accent-dark" to="/contact">Contact</RouterLink>
       </div>
     </div>
     <div class="flex flex-col gap-3">
@@ -22,12 +24,12 @@ const year = new Date().getFullYear();
       <div class="flex flex-col items-start gap-1 lg:text-base">
         <p
           class="cursor-pointer transition-all hover:font-semibold"
-          @click.prevent="$_andariego_copyPhone"
+          @click.prevent="copyPhone"
         >
           949-806-0123
         </p>
-        <router-link class="hover:text-accent-dark" to="/contact">Careers</router-link>
-        <router-link class="hover:text-accent-dark" to="/contact">Catering</router-link>
+        <RouterLink class="hover:text-accent-dark" to="/contact">Careers</RouterLink>
+        <RouterLink class="hover:text-accent-dark" to="/contact">Catering</RouterLink>
       </div>
     </div>
     <div class="flex flex-col gap-3 md:order-first">

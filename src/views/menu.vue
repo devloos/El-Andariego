@@ -1,47 +1,36 @@
-<script>
+<script setup>
 import ItemList from '@/components/item-list.vue';
 import { useHead } from '@vueuse/head';
+import { ref, onMounted } from 'vue';
+import { useAxios } from '@/composables/axios.js';
+import { useToast } from '@/composables/toast.js';
 
-export default {
-  components: {
-    ItemList,
-  },
-  setup() {
-    useHead({
-      title: 'Menu | El Andariego',
-      meta: [
-        {
-          name: 'description',
-          content: 'El Andariego Menu',
-        },
-      ],
-    });
-  },
-  data() {
-    return {
-      categories: [],
-    };
-  },
-  mounted() {
-    this.getCategories();
-  },
-  methods: {
-    async getCategories() {
-      try {
-        const response = await this.$_andariego_axios({
-          url: '/api/menu/categories',
-        });
-
-        this.categories = response.data;
-        this.categories.sort((a, b) => a.priority - b.priority);
-      } catch (e) {
-        this.$_andariego_toast('Failed to fetch categories.', {
-          type: 'error',
-        });
-      }
+useHead({
+  title: 'Menu | El Andariego',
+  meta: [
+    {
+      name: 'description',
+      content: 'El Andariego Menu',
     },
-  },
-};
+  ],
+});
+
+const categories = ref([]);
+
+onMounted(async () => {
+  try {
+    const response = await useAxios({
+      url: '/api/menu/categories',
+    });
+
+    categories.value = response.data;
+    categories.value.sort((a, b) => a.priority - b.priority);
+  } catch (e) {
+    useToast('Failed to fetch categories.', {
+      type: 'error',
+    });
+  }
+});
 </script>
 
 <template>

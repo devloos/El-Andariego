@@ -1,35 +1,36 @@
-<script>
+<script setup>
 import SmartImg from '@/components/smart/smart-img.vue';
+import { useAxios } from '@/composables/axios.js';
+import { useToast } from '@/composables/toast.js';
+import { ref, onMounted } from 'vue';
 
-export default {
-  components: {
-    SmartImg,
-  },
-  data() {
-    return {
-      categories: [],
-      top_categories: [
-        'Platillos',
-        'Burritos',
-        'Tacos',
-        'Tortas',
-        'Sopes',
-        'Quesadillas',
-      ],
-    };
-  },
-  async mounted() {
-    const res = await this.$_andariego_axios({
+const categories = ref([]);
+const top_categories = [
+  'Platillos',
+  'Burritos',
+  'Tacos',
+  'Tortas',
+  'Sopes',
+  'Quesadillas',
+];
+
+onMounted(async () => {
+  try {
+    const res = await useAxios({
       url: '/api/menu/categories',
     });
 
-    this.categories = res.data.filter((category) =>
-      this.top_categories.includes(category.name)
+    categories.value = res.data.filter((category) =>
+      top_categories.includes(category.name)
     );
 
-    this.categories.sort((a, b) => a.priority - b.priority);
-  },
-};
+    categories.value.sort((a, b) => a.priority - b.priority);
+  } catch (err) {
+    useToast('Failed to fetch categories', {
+      type: 'error',
+    });
+  }
+});
 </script>
 
 <template>
@@ -40,7 +41,7 @@ export default {
       class="min-h-fit min-w-fit cursor-pointer snap-center rounded-b rounded-t hover:scale-[1.01]"
       @click="$router.push(`/menu/${category.name}`)"
     >
-      <smart-img :src="category.thumbnail_image" />
+      <SmartImg :src="category.thumbnail_image" />
       <p class="rounded-b bg-light p-5 text-center font-bold">{{ category.name }}</p>
     </div>
   </div>

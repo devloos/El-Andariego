@@ -1,45 +1,36 @@
-<script>
+<script setup>
 import SmartImg from '@/components/smart/smart-img.vue';
+import { RouterLink } from 'vue-router';
+import { useAxios } from '@/composables/axios.js';
+import { useToast } from '@/composables/toast.js';
+import { ref, onMounted } from 'vue';
 
-export default {
-  components: {
-    SmartImg,
-  },
-  data() {
-    return {
-      platillos: [],
-    };
-  },
-  mounted() {
-    this.getPlatillos();
-  },
-  methods: {
-    async getPlatillos() {
-      try {
-        const response = await this.$_andariego_axios({
-          url: '/api/menu/platillos',
-        });
+const platillos = ref([]);
 
-        this.platillos = response.data;
-      } catch (e) {
-        this.$_andariego_toast('Failed to fetch platillos.', {
-          type: 'error',
-        });
-      }
-    },
-  },
-};
+onMounted(async () => {
+  try {
+    const response = await useAxios({
+      url: '/api/menu/platillos',
+    });
+
+    platillos.value = response.data;
+  } catch (err) {
+    useToast('Failed to fetch platillos.', {
+      type: 'error',
+    });
+  }
+});
 </script>
 
 <template>
   <div class="flex gap-3 overflow-x-scroll p-3 xl:container">
-    <router-link
+    <RouterLink
       v-for="platillo in platillos"
       :key="platillo.name"
       class="min-h-fit min-w-fit cursor-pointer rounded-b rounded-t shadow hover:scale-[1.01]"
       :to="`platillo/${platillo.name}`"
     >
-      <smart-img
+      <SmartImg
         src="/andariego/platillos/thumbnails/final-dim_26Zwteo4L"
         class="h-auto max-w-[300px] rounded-t"
         alt="platillo"
@@ -57,6 +48,6 @@ export default {
           <p class="font-semibold">{{ platillo.likes }}</p>
         </div>
       </div>
-    </router-link>
+    </RouterLink>
   </div>
 </template>

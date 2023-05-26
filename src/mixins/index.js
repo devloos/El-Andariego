@@ -44,15 +44,5 @@ export default {
 
       toast(message, toastOptions);
     },
-    $_mongo_dateToString(data) {
-      data.forEach((d) => {
-        d.date = new Date(d.date).toLocaleString('en-us', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-        });
-      });
-    },
   },
 };

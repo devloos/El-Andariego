@@ -1,44 +1,35 @@
-<script>
+<script setup>
 import SmartImg from '@/components/smart/smart-img.vue';
+import { ref, onMounted } from 'vue';
+import { useAxios } from '@/composables/axios.js';
+import { useToast } from '@/composables/toast.js';
 
-export default {
-  components: {
-    SmartImg,
+const props = defineProps({
+  id: {
+    type: String,
+    required: true,
   },
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      post: null,
-    };
-  },
-  mounted() {
-    this.useSetup();
-  },
-  methods: {
-    async useSetup() {
-      try {
-        const response = await this.$_andariego_axios({
-          url: `/api/blog/${this.id}`,
-        });
+});
 
-        this.post = response.data[0];
-        this.post.date = new Date(this.post.date).toLocaleString('en-us', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-        });
-      } catch (e) {
-        this.$_andariego_toast('Failed to fetch post details.', { type: 'error' });
-      }
-    },
-  },
-};
+const post = ref(null);
+
+onMounted(async () => {
+  try {
+    const response = await useAxios({
+      url: `/api/blog/${props.id}`,
+    });
+
+    post.value = response.data[0];
+    post.value.date = new Date(post.value.date).toLocaleString('en-us', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  } catch (e) {
+    useToast('Failed to fetch post details.', { type: 'error' });
+  }
+});
 </script>
 
 <template>

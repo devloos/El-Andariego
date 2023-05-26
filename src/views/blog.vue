@@ -1,48 +1,39 @@
-<script>
+<script setup>
 import { useHead } from '@vueuse/head';
 import SmartImg from '@/components/smart/smart-img.vue';
 import { RouterLink } from 'vue-router';
+import { ref, onMounted } from 'vue';
+import { useAxios } from '@/composables/axios.js';
+import { useToast } from '@/composables/toast.js';
+import { useUtility } from '@/composables/utility.js';
 
-export default {
-  components: {
-    SmartImg,
-    RouterLink,
-  },
-  setup() {
-    useHead({
-      title: 'Blog | El Andariego',
-      meta: [
-        {
-          name: 'description',
-          content: 'Anything new in the life of El Andariego',
-        },
-      ],
-    });
-  },
-  data() {
-    return {
-      posts: [],
-    };
-  },
-  mounted() {
-    this.useSetup();
-  },
-  methods: {
-    async useSetup() {
-      try {
-        const response = await this.$_andariego_axios({
-          url: '/api/blog',
-        });
-
-        this.posts = response.data;
-        this.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        this.$_mongo_dateToString(this.posts);
-      } catch (e) {
-        this.$_andariego_toast('Failed to fetch posts.', { type: 'error' });
-      }
+useHead({
+  title: 'Blog | El Andariego',
+  meta: [
+    {
+      name: 'description',
+      content: 'Anything new in the life of El Andariego',
     },
-  },
-};
+  ],
+});
+
+const posts = ref([]);
+
+const { mongoDateToString } = useUtility();
+
+onMounted(async () => {
+  try {
+    const response = await useAxios({
+      url: '/api/blog',
+    });
+
+    posts.value = response.data;
+    posts.value.sort((a, b) => new Date(b.date) - new Date(a.date));
+    mongoDateToString(posts.value);
+  } catch (e) {
+    useToast('Failed to fetch posts.', { type: 'error' });
+  }
+});
 </script>
 
 <template>

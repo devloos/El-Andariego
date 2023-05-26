@@ -1,40 +1,43 @@
 <script setup>
+import { RouterLink } from 'vue-router';
+import { useUtility } from '@/composables/utility';
+
 defineProps({
   showOffCanvas: Boolean,
 });
 
 defineEmits(['toggle-offcanvas']);
+
+const { copyPhone } = useUtility();
 </script>
 
 <template>
   <div
     class="absolute inset-x-0 top-0 z-50 mx-auto flex h-20 content-center items-center justify-between bg-white px-8 pb-4 pt-7 lg:px-8 xl:px-12"
   >
-    <router-link
+    <RouterLink
       class="text-2xl font-bold text-main transition-all duration-300 hover:text-main-light"
       to="/"
     >
       El Andariego
-    </router-link>
+    </RouterLink>
     <div
       class="invisible hidden text-lg font-semibold lg:visible lg:flex lg:content-center lg:items-center lg:gap-8"
     >
-      <router-link class="transition-all hover:text-accent-dark" to="/">
-        Home
-      </router-link>
-      <router-link class="transition-all hover:text-accent-dark" to="/menu">
+      <RouterLink class="transition-all hover:text-accent-dark" to="/"> Home </RouterLink>
+      <RouterLink class="transition-all hover:text-accent-dark" to="/menu">
         Menu
-      </router-link>
-      <router-link class="transition-all hover:text-accent-dark" to="/blog">
+      </RouterLink>
+      <RouterLink class="transition-all hover:text-accent-dark" to="/blog">
         Blog
-      </router-link>
-      <router-link class="transition-all hover:text-accent-dark" to="/contact">
+      </RouterLink>
+      <RouterLink class="transition-all hover:text-accent-dark" to="/contact">
         Contact
-      </router-link>
+      </RouterLink>
       <button
         class="rounded-md bg-main px-6 py-3 text-base text-gray-50 transition-all duration-300 hover:bg-main-light"
         type="button"
-        @click="$_andariego_copyPhone"
+        @click="copyPhone"
       >
         GIVE US A CALL
       </button>
