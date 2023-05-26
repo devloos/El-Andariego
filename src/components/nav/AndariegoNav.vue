@@ -1,6 +1,6 @@
 <script setup>
-import offcanvas from '@/components/nav/offcanvas.vue';
-import navbar from '@/components/nav/navbar.vue';
+import Offcanvas from '@/components/nav/Offcanvas.vue';
+import Navbar from '@/components/nav/Navbar.vue';
 import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 
@@ -30,12 +30,12 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <navbar
+  <Navbar
     :show-off-canvas="showOffCanvas"
     @toggle-offcanvas="showOffCanvas = !showOffCanvas"
   />
   <transition name="fade">
-    <offcanvas v-if="showOffCanvas" />
+    <Offcanvas v-if="showOffCanvas" />
   </transition>
 </template>
 

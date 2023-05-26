@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '@/views/home.vue';
-import Menu from '@/views/menu.vue';
-import contact from '@/views/contact.vue';
-import Blog from '@/views/blog.vue';
-import Post from '@/views/post.vue';
-import PlatilloDetails from '@/views/platillo-details.vue';
-import Error from '@/views/error.vue';
+import Home from '@/views/Home.vue';
+import Menu from '@/views/Menu.vue';
+import Contact from '@/views/Contact.vue';
+import Blog from '@/views/Blog.vue';
+import Post from '@/views/Post.vue';
+import PlatilloDetails from '@/views/PlatilloDetails.vue';
+import Error from '@/views/Error.vue';
 
 const routes = [
   {
@@ -24,8 +24,8 @@ const routes = [
   },
   {
     path: '/contact',
-    name: 'contact',
-    component: contact,
+    name: 'Contact',
+    component: Contact,
   },
   {
     path: '/blog',
@@ -46,11 +46,6 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     name: 'Error',
-    component: Error,
-  },
-  {
-    path: '/items/undefined',
-    name: 'undefined',
     component: Error,
   },
 ];

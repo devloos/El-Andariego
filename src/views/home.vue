@@ -86,8 +86,8 @@ const gallery = [
   <SmartDivider name="Our Specialty Platillos" />
   <PlatilloSection />
 
-  <div class="mt-5 bg-light pb-4 pt-2 xl:px-10">
-    <SmartDivider name="Testimonials" />
+  <div class="mt-14 bg-light pb-4 pt-2 xl:px-10">
+    <SmartDivider name="Testimonials" class="mt-8" />
     <div class="flex flex-col justify-center lg:flex-row xl:gap-10">
       <div
         class="my-3 grid grid-cols-1 justify-items-center gap-8 px-5 sm:grid-cols-2 lg:items-center"

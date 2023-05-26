@@ -34,7 +34,7 @@ async function signup() {
 <template>
   <div class="flex justify-center px-2">
     <div
-      class="cta flex max-w-5xl grow flex-col items-center justify-between rounded px-4 pb-4 pt-10 text-center font-semibold shadow-lg md:flex-row md:px-6 lg:px-10 lg:py-14"
+      class="cta flex max-w-5xl grow flex-col items-center justify-between rounded pb-4 pt-10 text-center font-semibold shadow-lg md:flex-row md:px-6 lg:px-10 lg:py-14"
     >
       <div class="max-w-xs lg:max-w-sm">
         <h4 class="mb-4 text-2xl font-bold">Connect with Us and Stay Informed!</h4>
@@ -53,13 +53,13 @@ async function signup() {
             required
           />
           <button
-            class="rounded-r border border-minor bg-minor px-6 py-2 text-white hover:bg-minor-light"
+            class="rounded-r border border-minor bg-minor px-2 py-2 text-white hover:bg-minor-light"
           >
             Sign up
           </button>
         </form>
         <button
-          class="rounded bg-main px-12 py-4 text-white hover:bg-main-light"
+          class="rounded bg-main px-10 py-4 text-white hover:bg-main-light"
           type="submit"
           @click="copyPhone"
         >

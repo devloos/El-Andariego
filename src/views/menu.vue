@@ -1,5 +1,5 @@
 <script setup>
-import ItemList from '@/components/item-list.vue';
+import ItemList from '@/components/ItemList.vue';
 import { useHead } from '@vueuse/head';
 import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
