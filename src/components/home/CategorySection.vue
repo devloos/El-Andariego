@@ -34,14 +34,14 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container flex snap-x snap-mandatory gap-3 overflow-x-scroll rounded-t p-3">
+  <div class="container flex gap-3 overflow-x-scroll rounded-t p-3">
     <div
       v-for="category in categories"
       :key="category.name"
-      class="min-h-fit min-w-fit cursor-pointer snap-center rounded-b rounded-t hover:scale-[1.01]"
+      class="min-h-fit min-w-fit cursor-pointer snap-center rounded hover:scale-[1.01]"
       @click="$router.push(`/menu/${category.name}`)"
     >
-      <SmartImg :src="category.thumbnail_image" />
+      <SmartImg :src="category.thumbnail_image" class="rounded-t" />
       <p class="rounded-b bg-light p-5 text-center font-bold">{{ category.name }}</p>
     </div>
   </div>

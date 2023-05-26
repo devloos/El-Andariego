@@ -29,15 +29,6 @@ function getSchedule(day) {
 
 const day = new Date().getDay();
 const schedule = getSchedule(day);
-
-const gallery = [
-  '/andariego/home/gallery/gallery-img_T85MREDT-',
-  '/andariego/home/gallery/gallery-img_T85MREDT-',
-  '/andariego/home/gallery/gallery-img_T85MREDT-',
-  '/andariego/home/gallery/gallery-img_T85MREDT-',
-  '/andariego/home/gallery/gallery-img_T85MREDT-',
-  '/andariego/home/gallery/gallery-img_T85MREDT-',
-];
 </script>
 
 <template>
@@ -106,10 +97,10 @@ const gallery = [
       </div>
       <div class="my-5 grid grid-cols-3 gap-2 rounded px-3 lg:grid-cols-2 xl:grid-cols-3">
         <SmartImg
-          v-for="img in gallery"
-          :key="img"
+          v-for="index in [1, 2, 3, 4, 5, 6]"
+          :key="index"
           class="w-full max-w-[350px] rounded"
-          :src="img"
+          :src="`/andariego/home/gallery/gallery-${index}.jpg`"
           alt="Gallery Image"
         />
       </div>
