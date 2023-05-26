@@ -34,11 +34,13 @@ async function signup() {
 <template>
   <div class="flex justify-center px-2">
     <div
-      class="cta flex max-w-5xl grow flex-col items-center justify-between rounded pb-4 pt-10 text-center font-semibold shadow-lg md:flex-row md:px-6 lg:px-10 lg:py-14"
+      class="cta flex max-w-5xl grow flex-col items-center justify-between rounded pb-4 pt-10 text-center font-semibold shadow-lg md:flex-row md:px-6 lg:px-10 lg:py-14 xl:px-16 xl:py-20"
     >
       <div class="max-w-xs lg:max-w-sm">
-        <h4 class="mb-4 text-2xl font-bold">Connect with Us and Stay Informed!</h4>
-        <p class="mb-6">
+        <h4 class="mb-4 text-2xl font-bold xl:text-3xl">
+          Connect with Us and Stay Informed!
+        </h4>
+        <p class="mb-6 xl:text-lg">
           Skip the wait and give us a call during business hours. Want to get notified
           about promotions and events sign up today!
         </p>
