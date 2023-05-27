@@ -35,9 +35,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container mb-2 mt-5 px-2">
-    <h1 class="mb-8 text-center text-xl font-bold text-main lg:text-2xl">MENU</h1>
-    <div class="scroll-hidden flex gap-2 overflow-scroll px-1 lg:justify-center">
+  <div class="container mt-5 px-2">
+    <h1 class="mb-6 text-center text-xl font-bold text-main lg:text-2xl">MENU</h1>
+    <div class="scroll-hidden flex gap-2 overflow-scroll px-1 py-4 lg:justify-center">
       <p>|</p>
       <div v-for="category in categories" :key="category.name" class="flex gap-2">
         <RouterLink

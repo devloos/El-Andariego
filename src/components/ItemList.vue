@@ -58,7 +58,7 @@ export default {
 
 <template>
   <div
-    class="container mx-auto mt-6 grid grid-cols-1 gap-5 px-4 pt-4 sm:grid-cols-2 md:px-8 lg:grid-cols-3 xl:gap-8 xl:px-32"
+    class="container mx-auto mt-2 grid grid-cols-1 gap-5 px-4 pt-4 sm:grid-cols-2 md:px-8 lg:grid-cols-3 xl:gap-8 xl:px-32"
   >
     <div v-for="item in items" :key="item.name" class="relative">
       <div class="mb-4 flex justify-between">
