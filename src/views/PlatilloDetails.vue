@@ -15,7 +15,7 @@ export default {
     };
   },
   computed: {
-    checkLiked() {
+    isLiked() {
       return this.userLiked ? 'btn-success' : 'btn-light';
     },
   },
@@ -48,7 +48,7 @@ export default {
         this.userLiked = true;
       }
     },
-    async setUserLiked() {
+    async toggleLiked() {
       this.userLiked = !this.userLiked;
 
       this.userLiked ? await this.addLiked() : await this.removeLiked();
@@ -93,52 +93,34 @@ export default {
 </script>
 
 <template>
-  <div v-if="platillo">
-    <div class="row justify-content-center">
-      <div class="platillo-img col-12 col-lg-10 col-xl-8">
-        <!-- Change Image -->
-        <SmartImg src="/andariego/platillos/heros/platillo.jpg" />
-        <div class="like-platillo input-group">
-          <button class="btn border-end" :class="checkLiked" @click="setUserLiked">
-            <i class="fa-solid fa-heart"></i>
-          </button>
-          <div class="input-group-text border-0 px-3">{{ likes }}</div>
-        </div>
+  <div v-if="platillo" class="container mt-8 flex flex-col justify-center">
+    <div class="relative mx-auto max-w-5xl">
+      <SmartImg src="/andariego/platillos/heros/platillo.jpg" />
+      <div class="like-btn flex items-center justify-center rounded shadow-lg">
+        <button
+          class="rounded-l bg-white px-4 py-2 hover:bg-light"
+          type="button"
+          @click="toggleLiked"
+        >
+          <i
+            class="fa-solid fa-heart"
+            :class="userLiked ? 'text-minor' : 'text-black'"
+          ></i>
+        </button>
+        <div class="rounded-r bg-light px-6 py-2 font-semibold">{{ likes }}</div>
       </div>
     </div>
-    <div
-      class="d-flex flex-column flex-sm-row align-items-center justify-content-center my-5 gap-4 px-3"
-    >
-      <div class="d-flex flex-column text-center">
-        <h3 class="fw-bold">{{ platillo.name }}</h3>
-        <p style="max-width: 250px">{{ platillo.content }}</p>
-      </div>
-      <div>
-        <!-- Change Image -->
-        <SmartImg :src="platillo.thumbnail_image" :classes="'rounded-3'" :width="'220'" />
-      </div>
+    <div class="mt-6 text-center">
+      <h3 class="my-4 text-2xl font-bold text-main">{{ platillo.name }}</h3>
+      <p class="mx-auto max-w-sm text-xl font-semibold">{{ platillo.content }}</p>
     </div>
   </div>
 </template>
 
 <style scoped>
-.platillo-img {
-  position: relative;
-}
-
-.like-platillo {
+.like-btn {
   position: absolute;
   right: 30px;
   bottom: -15px;
-  width: auto;
-}
-
-.btn-success {
-  background-color: #1a532e;
-  border-color: #1a532e;
-}
-
-h3 {
-  color: #76070a;
 }
 </style>
