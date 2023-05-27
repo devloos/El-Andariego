@@ -6,6 +6,7 @@ import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { useUtility } from '@/composables/utility.js';
+import Loading from '@/components/Loading.vue';
 
 useHead({
   title: 'Blog | El Andariego',
@@ -18,6 +19,7 @@ useHead({
 });
 
 const posts = ref([]);
+const isLoading = ref(true);
 
 const { mongoDateToString } = useUtility();
 
@@ -32,12 +34,16 @@ onMounted(async () => {
     mongoDateToString(posts.value);
   } catch (e) {
     useToast('Failed to fetch posts.', { type: 'error' });
+  } finally {
+    isLoading.value = false;
   }
 });
 </script>
 
 <template>
+  <Loading v-if="isLoading" />
   <div
+    v-else
     class="container mt-6 grid grid-cols-1 items-center gap-10 px-3 lg:mt-10 lg:grid-cols-2 lg:gap-8 lg:px-12"
   >
     <div v-for="(post, i) in posts" :key="post._id">

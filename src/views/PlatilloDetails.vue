@@ -5,12 +5,14 @@ import { useAxios } from '@/composables/axios';
 import { useToast } from '@/composables/toast';
 import { useRoute } from 'vue-router';
 import { useUtility } from '@/composables/utility';
+import Loading from '@/components/Loading.vue';
 
 const route = useRoute();
 const { prettyContent } = useUtility();
 const platillo = ref(null);
 const userLiked = ref(false);
 const likes = ref(0);
+const isLoading = ref(true);
 
 onMounted(async () => {
   try {
@@ -23,6 +25,8 @@ onMounted(async () => {
     likes.value = platillo.value.likes;
   } catch (e) {
     useToast('Failed to fetch platillo.', { type: 'error' });
+  } finally {
+    isLoading.value = false;
   }
 
   const response = localStorage.getItem('platillos-liked');
@@ -68,7 +72,8 @@ async function toggleLiked() {
 </script>
 
 <template>
-  <div v-if="platillo" class="container mt-8 flex flex-col justify-center">
+  <Loading v-if="isLoading" />
+  <div v-else class="container mt-8 flex flex-col justify-center">
     <div class="relative mx-auto max-w-5xl">
       <SmartImg :src="platillo.hero_image" />
       <div class="like-btn flex items-center justify-center rounded shadow-lg">

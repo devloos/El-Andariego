@@ -51,7 +51,7 @@ async function signup() {
             v-model="email"
             type="email"
             placeholder="Email"
-            class="grow rounded-l border-0 px-3 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            class="grow rounded-l border border-gray-300 px-3 py-2 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
             required
           />
           <button

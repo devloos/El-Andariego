@@ -39,7 +39,7 @@ const schedule = getSchedule(day);
           <h4
             class="text-4xl font-bold sm:w-10/12 md:w-2/3 lg:w-11/12 lg:text-5xl xl:w-4/5"
           >
-            Delight in authentic Mexican flavors that satisfy your taste buds.
+            Real Mexican flavors on wheels. Tortas, tacos, burritos, and more.
           </h4>
           <p class="my-2 font-semibold xl:text-lg" v-text="schedule" />
           <p class="mb-8 w-auto sm:w-10/12 md:w-3/4 lg:w-11/12 xl:w-4/5 xl:text-lg">

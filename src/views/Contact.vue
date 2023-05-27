@@ -74,7 +74,7 @@ async function formSubmitted() {
           <label class="text-sm font-medium leading-6 text-gray-900">First Name</label>
           <input
             v-model="firstName"
-            class="rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
             type="text"
             required
           />
@@ -83,7 +83,7 @@ async function formSubmitted() {
           <label class="text-sm font-medium leading-6 text-gray-900">Last Name</label>
           <input
             v-model="lastName"
-            class="rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
             type="text"
             required
           />
@@ -92,7 +92,7 @@ async function formSubmitted() {
           <label class="text-sm font-medium leading-6 text-gray-900">Email</label>
           <input
             v-model="email"
-            class="rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
             type="email"
             required
           />
@@ -101,7 +101,7 @@ async function formSubmitted() {
           <label class="text-sm font-medium leading-6 text-gray-900">Phone #</label>
           <input
             v-model="phone"
-            class="rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
             type="tel"
             required
           />
@@ -110,7 +110,7 @@ async function formSubmitted() {
           <label class="text-sm font-medium leading-6 text-gray-900">Message</label>
           <textarea
             v-model="description"
-            class="h-20 rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            class="h-20 rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
             type="text"
             placeholder="Descriptive Message"
             required

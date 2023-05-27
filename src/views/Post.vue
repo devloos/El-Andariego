@@ -3,6 +3,7 @@ import SmartImg from '@/components/smart/SmartImg.vue';
 import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
+import Loading from '@/components/Loading.vue';
 
 const props = defineProps({
   id: {
@@ -12,6 +13,7 @@ const props = defineProps({
 });
 
 const post = ref(null);
+const isLoading = ref(true);
 
 onMounted(async () => {
   try {
@@ -28,12 +30,15 @@ onMounted(async () => {
     });
   } catch (e) {
     useToast('Failed to fetch post details.', { type: 'error' });
+  } finally {
+    isLoading.value = false;
   }
 });
 </script>
 
 <template>
-  <div v-if="post" class="container flex flex-col items-center px-3">
+  <Loading v-if="isLoading" />
+  <div v-else class="container flex flex-col items-center px-3">
     <h2 class="my-5 text-center text-2xl font-bold text-main">
       {{ post.title }}
     </h2>
