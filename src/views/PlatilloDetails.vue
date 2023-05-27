@@ -70,7 +70,7 @@ async function toggleLiked() {
 <template>
   <div v-if="platillo" class="container mt-8 flex flex-col justify-center">
     <div class="relative mx-auto max-w-5xl">
-      <SmartImg src="/andariego/platillos/heros/platillo.jpg" />
+      <SmartImg :src="platillo.hero_image" />
       <div class="like-btn flex items-center justify-center rounded shadow-lg">
         <button
           class="rounded-l bg-white px-4 py-2 hover:bg-light"

@@ -31,7 +31,7 @@ onMounted(async () => {
       :to="`platillo/${platillo.name}`"
     >
       <SmartImg
-        src="/andariego/platillos/thumbnails/final-dim_26Zwteo4L"
+        :src="platillo.thumbnail_image"
         class="h-auto max-w-[300px] rounded-t"
         alt="platillo"
       />
