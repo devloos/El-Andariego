@@ -1,11 +1,7 @@
 <script>
-import SmartImg from '@/components/smart/SmartImg.vue';
 import { prettyContent } from '@/assets/js/mixins';
 
 export default {
-  components: {
-    SmartImg,
-  },
   props: {
     category: {
       type: String,
@@ -61,39 +57,25 @@ export default {
 </script>
 
 <template>
-  <div class="mt-2">
-    <h4 class="fw-bold mb-2 mt-5 text-center" v-text="category"></h4>
-    <SmartImg :src="category_image" class="img-fluid rounded-2 mb-5" />
-    <div class="row justify-content-evenly px-2">
-      <div v-for="item in items" :key="item.name" class="item col-lg-4 col-md-6 mb-2">
-        <div class="row justify-content-between text-center">
-          <p class="success fw-bold col-auto" v-text="item.name" />
-          <p class="col-auto" v-text="' ($' + item.price + ')'" />
-        </div>
-        <p class="mb-5" v-text="item.content" />
-        <hr class="border-dark mx-auto border" />
+  <div
+    class="container mx-auto mt-6 grid grid-cols-1 gap-5 px-4 pt-4 sm:grid-cols-2 md:px-8 lg:grid-cols-3 xl:gap-8 xl:px-32"
+  >
+    <div v-for="item in items" :key="item.name" class="relative">
+      <div class="mb-4 flex justify-between">
+        <p class="font-bold text-main">{{ item.name }}</p>
+        <p>{{ `($${item.price})` }}</p>
       </div>
+      <p class="mb-5 font-semibold">{{ item.content }}</p>
+      <hr class="border-1 border-gray-700" />
     </div>
   </div>
 </template>
 
 <style scoped>
-h4 {
-  color: #76070a;
-}
-
-.success {
-  color: #1a532e;
-}
-
-.item {
-  position: relative;
-}
-
 hr {
   position: absolute;
   bottom: 0px;
-  left: 13px;
-  right: 13px;
+  left: 0px;
+  right: 0px;
 }
 </style>

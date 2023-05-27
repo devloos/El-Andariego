@@ -16,14 +16,14 @@ useHead({
 
 <template>
   <AndariegoNav />
-  <main class="flex flex-col">
-    <RouterView class="grow" />
-    <AndariegoFooter />
+  <main>
+    <RouterView />
   </main>
+  <AndariegoFooter />
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 main {
-  min-height: 100vh;
+  min-height: calc(100vh - 460px);
 }
 </style>

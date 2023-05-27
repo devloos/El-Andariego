@@ -4,6 +4,7 @@ import { useHead } from '@vueuse/head';
 import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
+import { RouterLink } from 'vue-router';
 
 useHead({
   title: 'Menu | El Andariego',
@@ -34,61 +35,37 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container">
-    <div class="my-2 mb-5 px-2">
-      <h1 class="fw-bold mb-5 text-center">MENU</h1>
-      <div class="d-flex justify-content-lg-center hidden-scroll">
-        <span class="mx-2">|</span>
-        <a
-          v-for="category in categories"
-          :key="category.name"
-          @click="$router.push(`/menu/${category.name}`)"
+  <div class="container mb-2 mt-5 px-2">
+    <h1 class="mb-8 text-center text-xl font-bold text-main lg:text-2xl">MENU</h1>
+    <div class="scroll-hidden flex gap-2 overflow-scroll px-1 lg:justify-center">
+      <p>|</p>
+      <div v-for="category in categories" :key="category.name" class="flex gap-2">
+        <RouterLink
+          class="cursor-pointer hover:text-minor"
+          :to="`/menu/${category.name}`"
         >
-          <span
-            class="router-link"
-            :class="{ active: category.name === $route.params.category }"
-          >
-            {{ category.name }}
-          </span>
-          <span class="mx-2">|</span>
-        </a>
+          {{ category.name }}
+        </RouterLink>
+        <p>|</p>
       </div>
     </div>
-    <ItemList :category="$route.params.category" />
   </div>
+  <ItemList :category="$route.params.category" />
 </template>
 
 <style lang="scss" scoped>
-h1 {
-  color: #1a532e;
-}
-
-.hidden-scroll {
-  overflow-x: scroll;
-}
-
-.hidden-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.hidden-scroll {
+.scroll-hidden {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-}
 
-.router-link {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    color: #1a532e;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
-.active {
+a.router-link-active {
   text-decoration: underline;
-  color: #1a532e;
+  color: #76070a;
   font-weight: bold;
 }
 </style>
