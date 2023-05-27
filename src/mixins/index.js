@@ -20,14 +20,6 @@ export default {
         data,
       });
     },
-    async $_andariego_copyPhone(toastOptions = {}) {
-      try {
-        await navigator.clipboard.writeText('949-806-0123');
-        this.$_andariego_toast('Phone number copied.', toastOptions);
-      } catch (err) {
-        this.$_andariego_toast('Error copying phone number.', { type: 'error' });
-      }
-    },
     $_andariego_toast(message, options = {}) {
       const toastOptions = {
         position: 'top-center',
@@ -43,16 +35,6 @@ export default {
       };
 
       toast(message, toastOptions);
-    },
-    $_mongo_dateToString(data) {
-      data.forEach((d) => {
-        d.date = new Date(d.date).toLocaleString('en-us', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-        });
-      });
     },
   },
 };
