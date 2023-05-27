@@ -50,7 +50,7 @@ onMounted(async () => {
       </div>
     </div>
   </div>
-  <ItemList :category="$route.params.category" />
+  <ItemList />
 </template>
 
 <style lang="scss" scoped>

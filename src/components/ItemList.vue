@@ -1,59 +1,43 @@
-<script>
-import { prettyContent } from '@/assets/js/mixins';
+<script setup>
+import { useUtility } from '@/composables/utility';
+import { useAxios } from '@/composables/axios';
+import { useToast } from '@/composables/toast';
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
-export default {
-  props: {
-    category: {
-      type: String,
-      default: null,
-    },
+const route = useRoute();
+const items = ref([]);
+const { prettyContent } = useUtility();
+
+watch(
+  route,
+  async (to) => {
+    if (!to.params?.category) {
+      return;
+    }
+
+    const url =
+      to.params.category === 'Platillos'
+        ? '/api/menu/platillos'
+        : `/api/menu/items/${to.params.category}`;
+
+    try {
+      const response = await useAxios({
+        url,
+      });
+
+      items.value = response.data.map((el) => ({
+        ...el,
+        content: prettyContent(el.content),
+      }));
+    } catch (e) {
+      useToast('Failed to fetch items.', { type: 'error' });
+    }
   },
-  data() {
-    return {
-      items: [],
-      category_image: null,
-    };
-  },
-  watch: {
-    $route: {
-      async handler(to) {
-        if (!to.params?.category) {
-          return;
-        }
-
-        if (to.params.category === 'Platillos') {
-          this.getItemsByCategory('/api/menu/platillos');
-        } else {
-          this.getItemsByCategory(`/api/menu/items/${to.params.category}`);
-        }
-
-        const res = await this.$_andariego_axios({
-          url: `/api/menu/category/${to.params.category}`,
-        });
-
-        this.category_image = res.data[0].hero_image;
-      },
-      immediate: true,
-    },
-  },
-  methods: {
-    async getItemsByCategory(url) {
-      try {
-        const response = await this.$_andariego_axios({
-          url,
-        });
-
-        this.items = response.data;
-
-        this.items.forEach((item) => {
-          item.content = prettyContent(item.content);
-        });
-      } catch (e) {
-        this.$_andariego_toast('Failed to fetch items.', { type: 'error' });
-      }
-    },
-  },
-};
+  {
+    immediate: true,
+  }
+);
 </script>
 
 <template>

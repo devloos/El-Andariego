@@ -1,95 +1,70 @@
-<script>
+<script setup>
 import SmartImg from '@/components/smart/SmartImg.vue';
-import { prettyContent } from '@/assets/js/mixins';
+import { ref, onMounted } from 'vue';
+import { useAxios } from '@/composables/axios';
+import { useToast } from '@/composables/toast';
+import { useRoute } from 'vue-router';
+import { useUtility } from '@/composables/utility';
 
-export default {
-  components: {
-    SmartImg,
-  },
-  data() {
-    return {
-      platillo: null,
-      likedPlatillos: [],
-      userLiked: false,
-      likes: 0,
-    };
-  },
-  computed: {
-    isLiked() {
-      return this.userLiked ? 'btn-success' : 'btn-light';
-    },
-  },
-  async mounted() {
-    await this.getPlatillo();
-    this.getPlatillosLiked();
-  },
-  methods: {
-    async getPlatillo() {
-      try {
-        const response = await this.$_andariego_axios({
-          url: `/api/menu/platillos/${this.$route.params.name}`,
-        });
+const route = useRoute();
+const { prettyContent } = useUtility();
+const platillo = ref(null);
+const userLiked = ref(false);
+const likes = ref(0);
 
-        this.platillo = response.data[0];
-        this.platillo.content = prettyContent(this.platillo.content);
-        this.likes = this.platillo.likes;
-      } catch (e) {
-        this.$_andariego_toast('Failed to fetch platillo.', { type: 'error' });
-      }
-    },
-    getPlatillosLiked() {
-      const response = localStorage.getItem('liked-platillos');
-      if (!response) {
-        return;
-      }
+onMounted(async () => {
+  try {
+    const response = await useAxios({
+      url: `/api/menu/platillos/${route.params.name}`,
+    });
 
-      this.likedPlatillos = JSON.parse(response);
-      if (this.likedPlatillos.includes(this.platillo.name)) {
-        this.userLiked = true;
-      }
-    },
-    async toggleLiked() {
-      this.userLiked = !this.userLiked;
+    platillo.value = response.data[0];
+    platillo.value.content = prettyContent(platillo.value.content);
+    likes.value = platillo.value.likes;
+  } catch (e) {
+    useToast('Failed to fetch platillo.', { type: 'error' });
+  }
 
-      this.userLiked ? await this.addLiked() : await this.removeLiked();
-    },
-    async removeLiked() {
-      this.likedPlatillos = this.likedPlatillos.filter(
-        (name) => name != this.platillo.name
-      );
+  const response = localStorage.getItem('platillos-liked');
+  if (response) {
+    if (JSON.parse(response).includes(platillo.value.name)) {
+      userLiked.value = true;
+    }
+  }
+});
 
-      localStorage.setItem('liked-platillos', JSON.stringify(this.likedPlatillos));
+async function toggleLiked() {
+  userLiked.value = !userLiked.value;
 
-      try {
-        await this.$_andariego_axios({
-          url: `/api/menu/platillos/${this.platillo.name}`,
-          method: 'POST',
-          data: {
-            likes: --this.likes,
-          },
-        });
-      } catch (e) {
-        this.$_andariego_toast('Failed to update platillo.', { type: 'error' });
-      }
-    },
-    async addLiked() {
-      this.likedPlatillos.push(this.platillo.name);
-      localStorage.setItem('liked-platillos', JSON.stringify(this.likedPlatillos));
+  const response = localStorage.getItem('liked-platillos');
 
-      try {
-        await this.$_andariego_axios({
-          url: `/api/menu/platillos/${this.platillo.name}`,
-          method: 'POST',
-          data: {
-            likes: ++this.likes,
-          },
-        });
-      } catch (e) {
-        this.$_andariego_toast('Failed to update platillo.', { type: 'error' });
-      }
-    },
-  },
-};
+  let platillosLiked = [];
+  if (response) {
+    platillosLiked = JSON.parse(response);
+    if (userLiked.value) {
+      platillosLiked.push(platillo.value.name);
+    } else {
+      platillosLiked = platillosLiked.filter((name) => name !== platillo.value.name);
+    }
+  } else if (userLiked.value) {
+    platillosLiked.push(platillo.value.name);
+  }
+
+  localStorage.setItem('liked-platillos', JSON.stringify(platillosLiked));
+
+  likes.value += userLiked.value ? 1 : -1;
+  try {
+    await useAxios({
+      url: `/api/menu/platillos/${platillo.value.name}`,
+      method: 'POST',
+      data: {
+        likes: likes.value,
+      },
+    });
+  } catch (e) {
+    useToast('Failed to update platillo.', { type: 'error' });
+  }
+}
 </script>
 
 <template>

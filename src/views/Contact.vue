@@ -1,271 +1,144 @@
-<script>
+<script setup>
 import { useHead } from '@vueuse/head';
 import SmartImg from '@/components/smart/SmartImg.vue';
+import { ref } from 'vue';
+import { useAxios } from '@/composables/axios';
+import { useToast } from '@/composables/toast';
 
-export default {
-  components: {
-    SmartImg,
-  },
-  setup() {
-    useHead({
-      title: 'Contact | El Andariego',
-      meta: [
-        {
-          name: 'description',
-          content: 'Contact El Andariego',
-        },
-      ],
+useHead({
+  title: 'Contact | El Andariego',
+  meta: [
+    {
+      name: 'description',
+      content: 'Contact El Andariego',
+    },
+  ],
+});
+
+const firstName = ref('');
+const lastName = ref('');
+const email = ref('');
+const phone = ref('');
+const description = ref('');
+const eventType = ref('');
+
+function resetForm() {
+  firstName.value = '';
+  lastName.value = '';
+  email.value = '';
+  phone.value = '';
+  description.value = '';
+  eventType.value = '';
+}
+
+async function formSubmitted() {
+  try {
+    await useAxios({
+      url: '/api/sendgrid/save',
+      method: 'POST',
+      data: {
+        first_name: firstName.value,
+        last_name: lastName.value,
+        email: email.value,
+        phone: phone.value,
+        description: description.value,
+        event_type: eventType.value,
+      },
     });
-  },
-  data() {
-    return {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      description: '',
-      eventType: '',
-      date: '',
-    };
-  },
-  methods: {
-    resetForm() {
-      this.firstName = '';
-      this.lastName = '';
-      this.email = '';
-      this.phone = '';
-      this.description = '';
-      this.eventType = '';
-      this.date = '';
-    },
-    async emailForm() {
-      try {
-        await this.$_andariego_axios({
-          url: '/api/sendgrid/save',
-          method: 'POST',
-          data: {
-            first_name: this.firstName,
-            last_name: this.lastName,
-            email: this.email,
-            phone: this.phone,
-            description: this.description,
-            event_type: this.eventType,
-            date: this.date,
-          },
-        });
 
-        this.$_andariego_toast('You will be contacted shortly thank you.');
-      } catch (e) {
-        this.$_andariego_toast('Failed to send information try again.', {
-          type: 'error',
-        });
-      } finally {
-        this.resetForm();
-      }
-    },
-    setDate(e) {
-      this.date = e.target.value;
-    },
-  },
-};
+    useToast('You will be contacted shortly thank you.');
+  } catch (err) {
+    useToast('Failed to send information try again.', {
+      type: 'error',
+    });
+  } finally {
+    resetForm();
+  }
+}
 </script>
 
 <template>
   <div class="container">
-    <h4 class="success fw-bold my-4 text-center">Contact El Andariego</h4>
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="row justify-content-start">
-          <div class="my-3">
-            <!-- Change Image -->
-            <SmartImg src="/andariego/contact/contact.jpg" />
-          </div>
-          <div class="my-3">
-            <div class="row justify-content-between">
-              <div class="col-6 info">
-                <h5>El Andariego</h5>
-                <p class="my-2">31345 Los Rios St, San Juan Capistrano, CA 92675</p>
-                <p>
-                  <span class="phone-number" @click="$_andariego_copyPhone">
-                    (949) 806 - 0123
-                  </span>
-                </p>
-              </div>
-              <div class="col-6 info">
-                <h5>Business Hours</h5>
-                <p class="my-0">Mon · Tue: Closed</p>
-                <p class="mb-1">Wed · Sun: 4:00 - 11:30 PM</p>
-                <div class="d-flex justify-content-start">
-                  <a
-                    href="https://www.facebook.com/profile.php?id=100082710796984"
-                    class="me-2"
-                    target="_blank"
-                  >
-                    <i class="fa-brands fa-facebook fa-md"></i>
-                  </a>
-                  <a
-                    href="https://instagram.com/el_andariegotruck"
-                    class="me-2"
-                    target="_blank"
-                  >
-                    <i class="fa-brands fa-instagram fa-md"></i>
-                  </a>
-                  <a
-                    href="https://g.page/r/CY53oo_JlDb8EAI/review"
-                    class="me-2"
-                    target="_blank"
-                  >
-                    <i class="fa-brands fa-google fa-sm"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+    <h4 class="mb-8 mt-4 text-center text-xl font-bold text-main">
+      Contact El Andariego
+    </h4>
+    <div
+      class="flex flex-col items-center justify-center gap-4 px-2 xl:flex-row xl:gap-8"
+    >
+      <SmartImg src="/andariego/contact/card.jpg" class="h-full w-full max-w-3xl" />
+      <form
+        class="grid w-full max-w-lg grow grid-cols-1 gap-4 px-2"
+        @submit.prevent="formSubmitted"
+      >
+        <div class="flex flex-col">
+          <label class="text-sm font-medium leading-6 text-gray-900">First Name</label>
+          <input
+            v-model="firstName"
+            class="rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            type="text"
+            required
+          />
         </div>
-      </div>
-      <div class="col-lg-6 pt-2">
-        <form @submit.prevent="emailForm">
-          <div class="row my-2">
-            <div class="col-6 pe-1">
-              <div class="form-floating">
-                <input
-                  id="firstName"
-                  v-model="firstName"
-                  type="text"
-                  class="form-control"
-                  placeholder="First Name"
-                  required
-                />
-                <label for="firstName" class="form-label">First Name</label>
-              </div>
-            </div>
-            <div class="col-6 ps-1">
-              <div class="form-floating">
-                <input
-                  id="lastName"
-                  v-model="lastName"
-                  type="text"
-                  class="form-control"
-                  placeholder="Last Name"
-                  required
-                />
-                <label for="lastName" class="form-label">Last Name</label>
-              </div>
-            </div>
-          </div>
-          <div class="row my-2">
-            <div class="col-6 pe-1">
-              <div class="form-floating">
-                <input
-                  id="email"
-                  v-model="email"
-                  type="email"
-                  class="form-control"
-                  placeholder="Email"
-                  required
-                />
-                <label for="email" class="form-label">Email</label>
-              </div>
-            </div>
-            <div class="col-6 ps-1">
-              <div class="form-floating">
-                <input
-                  id="phone"
-                  v-model="phone"
-                  type="tel"
-                  class="form-control"
-                  placeholder="Phone"
-                  required
-                />
-                <label for="phone" class="form-label">Phone #</label>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="form-floating">
-              <textarea
-                id="description"
-                v-model="description"
-                type="text"
-                class="form-control"
-                placeholder="Descriptive Message"
-                style="height: 100px"
-                required
-              />
-              <label for="description" class="form-label">Message</label>
-            </div>
-          </div>
-          <div class="row my-2">
-            <div class="col-6">
-              <label for="type" class="form-label">Interested In</label>
-              <select id="type" v-model="eventType" class="form-select" required>
-                <option disabled value="">Please Select</option>
-                <option>Order</option>
-                <option>Catering</option>
-                <option>Job Opportunity</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="col-6">
-              <label for="date" class="form-label">Date</label>
-              <input
-                id="date"
-                type="date"
-                :value="new Date().toISOString().substr(0, 10)"
-                class="form-control"
-                required
-                @input="setDate"
-              />
-            </div>
-          </div>
-          <div class="my-4 text-center">
-            <button type="submit" class="btn btn-success px-4">Submit</button>
-          </div>
-        </form>
-      </div>
+        <div class="flex flex-col">
+          <label class="text-sm font-medium leading-6 text-gray-900">Last Name</label>
+          <input
+            v-model="lastName"
+            class="rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            type="text"
+            required
+          />
+        </div>
+        <div class="flex flex-col">
+          <label class="text-sm font-medium leading-6 text-gray-900">Email</label>
+          <input
+            v-model="email"
+            class="rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            type="email"
+            required
+          />
+        </div>
+        <div class="flex flex-col">
+          <label class="text-sm font-medium leading-6 text-gray-900">Phone #</label>
+          <input
+            v-model="phone"
+            class="rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            type="tel"
+            required
+          />
+        </div>
+        <div class="flex flex-col">
+          <label class="text-sm font-medium leading-6 text-gray-900">Message</label>
+          <textarea
+            v-model="description"
+            class="h-20 rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            type="text"
+            placeholder="Descriptive Message"
+            required
+          />
+        </div>
+        <div class="flex flex-col">
+          <label class="text-sm font-medium leading-6 text-gray-900">
+            Interested In
+          </label>
+          <select
+            v-model="eventType"
+            class="rounded-md border border-gray-300 bg-gray-50 px-2 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+            required
+          >
+            <option disabled value="">Please Select</option>
+            <option>Order</option>
+            <option>Catering</option>
+            <option>Job Opportunity</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          class="rounded bg-main px-4 py-2 text-white hover:bg-main-light"
+        >
+          Submit
+        </button>
+      </form>
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.info p {
-  font-size: 14px;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-
-  &:hover {
-    color: inherit;
-    text-decoration: none;
-    opacity: 0.8;
-  }
-}
-
-.success {
-  color: #1a532e;
-}
-
-.btn {
-  transition: opacity 0.15s;
-
-  &:hover {
-    opacity: 0.6;
-  }
-}
-
-.btn-success {
-  background-color: #1a532e;
-  border-color: #1a532e;
-}
-
-.phone-number {
-  transition: font-weight 0.15s;
-  cursor: pointer;
-
-  &:hover {
-    font-weight: bold;
-  }
-}
-</style>

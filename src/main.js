@@ -2,7 +2,6 @@ import { createApp } from 'vue';
 import { createHead } from '@vueuse/head';
 import App from './App.vue';
 import router from './router';
-import mixins from '@/mixins/index';
 import Toast from 'vue-toastification';
 import '@/assets/css/styles.css';
 import 'vue-toastification/dist/index.css';
@@ -26,6 +25,5 @@ app.use(Toast, toastOptions);
 
 app.use(router);
 app.use(head);
-app.mixin(mixins);
 
 app.mount('#app');
