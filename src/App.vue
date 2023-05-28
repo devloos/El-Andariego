@@ -27,18 +27,20 @@ const route = useRoute();
   <AndariegoFooter />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .router-link {
   min-height: calc(100vh - 460px);
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.2s ease;
+  }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
 }
 </style>
