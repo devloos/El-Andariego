@@ -2,7 +2,6 @@
 import { useHead } from '@vueuse/head';
 import AndariegoNav from '@/components/nav/AndariegoNav.vue';
 import AndariegoFooter from '@/components/AndariegoFooter.vue';
-import { useRoute } from 'vue-router';
 
 useHead({
   title: 'El Andariego',
@@ -13,34 +12,16 @@ useHead({
     },
   ],
 });
-
-const route = useRoute();
 </script>
 
 <template>
   <AndariegoNav />
-  <RouterView v-slot="{ Component }" :key="route.path" class="router-link">
-    <Transition name="fade" mode="out-in">
-      <component :is="Component" />
-    </Transition>
-  </RouterView>
+  <RouterView class="router-link" />
   <AndariegoFooter />
 </template>
 
 <style lang="scss" scoped>
 .router-link {
   min-height: calc(100vh - 460px);
-}
-
-.fade {
-  &-enter-active,
-  &-leave-active {
-    transition: opacity 0.2s ease;
-  }
-
-  &-enter-from,
-  &-leave-to {
-    opacity: 0;
-  }
 }
 </style>

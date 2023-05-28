@@ -1,10 +1,8 @@
 <script setup>
-import { useUtility } from '@/composables/utility.js';
 import { useToast } from '@/composables/toast.js';
 import { useAxios } from '@/composables/axios.js';
 import { ref } from 'vue';
 
-const { copyPhone } = useUtility();
 const email = ref('');
 
 async function signup() {
@@ -34,7 +32,7 @@ async function signup() {
 <template>
   <div class="flex justify-center px-2">
     <div
-      class="cta flex max-w-5xl grow flex-col items-center justify-between rounded pb-4 pt-10 text-center font-semibold shadow-lg md:flex-row md:px-6 lg:px-10 lg:py-14 xl:px-16 xl:py-20"
+      class="cta flex w-full flex-col items-center justify-between rounded px-3 pb-8 pt-10 text-center font-semibold shadow-lg sm:flex-row md:max-w-3xl md:px-6 lg:px-10 lg:py-14 xl:max-w-4xl xl:px-16 xl:py-16"
     >
       <div class="max-w-xs lg:max-w-sm">
         <h4 class="mb-4 text-2xl font-bold xl:text-3xl">
@@ -45,29 +43,21 @@ async function signup() {
           about promotions and events sign up today!
         </p>
       </div>
-      <div class="max-w-xs grow">
-        <form class="mb-12 flex items-center justify-center" @submit.prevent="signup">
-          <input
-            v-model="email"
-            type="email"
-            placeholder="Email"
-            class="grow rounded-l border border-gray-300 px-3 py-2 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-            required
-          />
-          <button
-            class="rounded-r border border-minor bg-minor px-2 py-2 text-white hover:bg-minor-light"
-          >
-            Sign up
-          </button>
-        </form>
-        <button
-          class="rounded bg-main px-10 py-4 text-white hover:bg-main-light"
-          type="submit"
-          @click="copyPhone"
-        >
-          Call Now
+      <form
+        class="flex flex-col items-center justify-center gap-2"
+        @submit.prevent="signup"
+      >
+        <input
+          v-model="email"
+          type="email"
+          placeholder="Email"
+          class="rounded border border-gray-300 px-3 py-2 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+          required
+        />
+        <button class="rounded bg-minor px-4 py-2 text-white hover:bg-minor-light">
+          Sign up
         </button>
-      </div>
+      </form>
     </div>
   </div>
 </template>
