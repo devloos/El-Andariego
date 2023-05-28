@@ -7,6 +7,8 @@ import { useRoute } from 'vue-router';
 import { useUtility } from '@/composables/utility';
 import Loading from '@/components/Loading.vue';
 
+const PLATILLOS_KEY = 'platillos-liked';
+
 const route = useRoute();
 const { prettyContent } = useUtility();
 const platillo = ref(null);
@@ -29,7 +31,7 @@ onMounted(async () => {
     isLoading.value = false;
   }
 
-  const response = localStorage.getItem('platillos-liked');
+  const response = localStorage.getItem(PLATILLOS_KEY);
   if (response) {
     if (JSON.parse(response).includes(platillo.value.name)) {
       userLiked.value = true;
@@ -40,7 +42,7 @@ onMounted(async () => {
 async function toggleLiked() {
   userLiked.value = !userLiked.value;
 
-  const response = localStorage.getItem('liked-platillos');
+  const response = localStorage.getItem(PLATILLOS_KEY);
 
   let platillosLiked = [];
   if (response) {
@@ -54,7 +56,7 @@ async function toggleLiked() {
     platillosLiked.push(platillo.value.name);
   }
 
-  localStorage.setItem('liked-platillos', JSON.stringify(platillosLiked));
+  localStorage.setItem(PLATILLOS_KEY, JSON.stringify(platillosLiked));
 
   likes.value += userLiked.value ? 1 : -1;
   try {
