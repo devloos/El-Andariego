@@ -10,7 +10,6 @@ import Error from '@/views/Error.vue';
 const routes = [
   {
     path: '/',
-    name: 'Home',
     component: Home,
   },
   {
@@ -19,33 +18,27 @@ const routes = [
   },
   {
     path: '/menu/:category',
-    name: 'Menu',
     component: Menu,
   },
   {
     path: '/contact',
-    name: 'Contact',
     component: Contact,
   },
   {
     path: '/blog',
-    name: 'Blog',
     component: Blog,
   },
   {
     path: '/blog/:id',
-    name: 'Post',
     component: Post,
     props: true,
   },
   {
     path: '/platillo/:name',
-    name: 'PlatilloDetails',
     component: PlatilloDetails,
   },
   {
     path: '/:pathMatch(.*)*',
-    name: 'Error',
     component: Error,
   },
 ];
