@@ -1,6 +1,5 @@
 <script setup>
 import SmartImg from '@/components/smart/SmartImg.vue';
-import { RouterLink } from 'vue-router';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { ref, onMounted } from 'vue';

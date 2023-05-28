@@ -1,11 +1,17 @@
 <script setup>
 import ItemList from '@/components/ItemList.vue';
 import { useHead } from '@vueuse/head';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { RouterLink } from 'vue-router';
 import Loading from '@/components/Loading.vue';
+import { useUtility } from '@/composables/utility';
+import { useRoute, useRouter } from 'vue-router';
+
+const route = useRoute();
+const router = useRouter();
+const { prettyContent } = useUtility();
 
 useHead({
   title: 'Menu | El Andariego',
@@ -18,6 +24,7 @@ useHead({
 });
 
 const categories = ref([]);
+const items = ref([]);
 const isLoading = ref(true);
 
 onMounted(async () => {
@@ -36,6 +43,40 @@ onMounted(async () => {
     isLoading.value = false;
   }
 });
+
+watch(
+  route,
+  async (to) => {
+    if (!to.hash) {
+      router.push('/menu/#Platillos');
+      return;
+    }
+
+    let url = null;
+    if (to.hash === '#Platillos') {
+      url = '/api/menu/platillos';
+    } else {
+      url = `/api/menu/items/${to.hash.slice(1)}`;
+    }
+
+    try {
+      isLoading.value = true;
+      const response = await useAxios({
+        url,
+      });
+
+      items.value = response.data.map((el) => ({
+        ...el,
+        content: prettyContent(el.content),
+      }));
+    } catch (e) {
+      useToast('Failed to fetch items.', { type: 'error' });
+    } finally {
+      isLoading.value = false;
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
@@ -48,7 +89,10 @@ onMounted(async () => {
         <div v-for="category in categories" :key="category.name" class="flex gap-2">
           <RouterLink
             class="cursor-pointer hover:text-minor"
-            :to="`/menu/${category.name}`"
+            :class="{
+              'font-bold text-minor underline': `#${category.name}` === route.hash,
+            }"
+            :to="`/menu/#${category.name}`"
           >
             {{ category.name }}
           </RouterLink>
@@ -56,7 +100,7 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-    <ItemList />
+    <ItemList :items="items" />
   </div>
 </template>
 
@@ -68,11 +112,5 @@ onMounted(async () => {
   &::-webkit-scrollbar {
     display: none;
   }
-}
-
-a.router-link-active {
-  text-decoration: underline;
-  color: #76070a;
-  font-weight: bold;
 }
 </style>

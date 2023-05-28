@@ -1,43 +1,10 @@
 <script setup>
-import { useUtility } from '@/composables/utility';
-import { useAxios } from '@/composables/axios';
-import { useToast } from '@/composables/toast';
-import { ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
-
-const route = useRoute();
-const items = ref([]);
-const { prettyContent } = useUtility();
-
-watch(
-  route,
-  async (to) => {
-    if (!to.params?.category) {
-      return;
-    }
-
-    const url =
-      to.params.category === 'Platillos'
-        ? '/api/menu/platillos'
-        : `/api/menu/items/${to.params.category}`;
-
-    try {
-      const response = await useAxios({
-        url,
-      });
-
-      items.value = response.data.map((el) => ({
-        ...el,
-        content: prettyContent(el.content),
-      }));
-    } catch (e) {
-      useToast('Failed to fetch items.', { type: 'error' });
-    }
+defineProps({
+  items: {
+    type: Array,
+    required: true,
   },
-  {
-    immediate: true,
-  }
-);
+});
 </script>
 
 <template>
