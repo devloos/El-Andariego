@@ -14,6 +14,10 @@ const routes = [
   },
   {
     path: '/menu',
+    redirect: '/menu/Platillos',
+  },
+  {
+    path: '/menu/:category',
     component: Menu,
   },
   {

@@ -7,10 +7,9 @@ import { useToast } from '@/composables/toast.js';
 import { RouterLink } from 'vue-router';
 import Loading from '@/components/Loading.vue';
 import { useUtility } from '@/composables/utility';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const router = useRouter();
 const { prettyContent } = useUtility();
 
 useHead({
@@ -47,16 +46,11 @@ onMounted(async () => {
 watch(
   route,
   async (to) => {
-    if (!to.hash) {
-      router.push('/menu/#Platillos');
-      return;
-    }
-
     let url = null;
-    if (to.hash === '#Platillos') {
+    if (to.params?.category === 'Platillos') {
       url = '/api/menu/platillos';
     } else {
-      url = `/api/menu/items/${to.hash.slice(1)}`;
+      url = `/api/menu/items/${to.params?.category}`;
     }
 
     try {
@@ -90,9 +84,10 @@ watch(
           <RouterLink
             class="cursor-pointer hover:text-minor"
             :class="{
-              'font-bold text-minor underline': `#${category.name}` === route.hash,
+              'font-bold text-minor underline':
+                `${category.name}` === route.params.category,
             }"
-            :to="`/menu/#${category.name}`"
+            :to="`/menu/${category.name}`"
           >
             {{ category.name }}
           </RouterLink>

@@ -23,7 +23,7 @@ const { copyPhone } = useUtility();
     <div
       class="invisible hidden text-lg font-semibold lg:visible lg:flex lg:content-center lg:items-center lg:gap-8"
     >
-      <RouterLink class="transition-all hover:text-accent-dark" to="/"> Home </RouterLink>
+      <RouterLink class="transition-all hover:text-accent-dark" to="/">Home</RouterLink>
       <RouterLink class="transition-all hover:text-accent-dark" to="/menu">
         Menu
       </RouterLink>
