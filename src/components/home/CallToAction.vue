@@ -36,7 +36,7 @@ async function signup() {
     >
       <div class="max-w-xs lg:max-w-sm">
         <h4 class="mb-4 text-2xl font-bold xl:text-3xl">
-          Connect with Us and Stay Informed!
+          Connect with us and stay informed!
         </h4>
         <p class="mb-6 xl:text-lg">
           Skip the wait and give us a call during business hours. Want to get notified

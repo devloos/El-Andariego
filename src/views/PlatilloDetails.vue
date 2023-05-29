@@ -78,21 +78,16 @@ async function toggleLiked() {
   <div v-else class="container mt-8 flex flex-col justify-center">
     <div class="relative mx-auto max-w-5xl">
       <SmartImg :src="platillo.hero_image" />
-      <div class="like-btn flex items-center justify-center rounded shadow-lg">
-        <button
-          class="rounded-l bg-white px-4 py-2 hover:bg-light"
-          type="button"
-          @click="toggleLiked"
-        >
-          <i
-            class="fa-solid fa-heart"
-            :class="userLiked ? 'text-minor' : 'text-black'"
-          ></i>
-        </button>
-        <div class="rounded-r bg-light px-6 py-2 font-semibold">{{ likes }}</div>
-      </div>
+      <button
+        class="position absolute flex items-center justify-around gap-6 rounded-full bg-white px-4 py-2 shadow-lg hover:bg-light"
+        type="button"
+        @click="toggleLiked"
+      >
+        <i class="fa-solid fa-heart" :class="userLiked ? 'text-minor' : 'text-black'"></i>
+        <p class="font-semibold">{{ likes }}</p>
+      </button>
     </div>
-    <div class="mt-6 text-center">
+    <div class="mt-6 px-3 text-center">
       <h3 class="my-4 text-2xl font-bold text-main">{{ platillo.name }}</h3>
       <p class="mx-auto max-w-sm text-xl font-semibold">{{ platillo.content }}</p>
     </div>
@@ -100,8 +95,7 @@ async function toggleLiked() {
 </template>
 
 <style scoped>
-.like-btn {
-  position: absolute;
+.position {
   right: 30px;
   bottom: -15px;
 }
