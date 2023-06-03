@@ -65,7 +65,11 @@ async function formSubmitted() {
     <div
       class="flex flex-col items-center justify-center gap-4 px-2 xl:flex-row xl:gap-8"
     >
-      <SmartImg src="/andariego/contact/card.jpg" class="h-full w-full max-w-3xl" />
+      <SmartImg
+        src="/andariego/contact/card.jpg"
+        class="h-full w-full max-w-3xl"
+        alt="Contact Card"
+      />
       <form
         class="grid w-full max-w-lg grow grid-cols-1 gap-4 px-2"
         @submit.prevent="formSubmitted"
@@ -117,9 +121,7 @@ async function formSubmitted() {
           />
         </div>
         <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">
-            Interested In
-          </label>
+          <label class="text-sm font-medium leading-6 text-gray-900">Interested In</label>
           <select
             v-model="eventType"
             class="rounded-md border border-gray-300 bg-gray-50 px-2 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"

@@ -21,7 +21,7 @@ onMounted(async () => {
       url: `/api/blog/${props.id}`,
     });
 
-    post.value = response.data[0];
+    post.value = response.data;
     post.value.date = new Date(post.value.date).toLocaleString('en-us', {
       weekday: 'long',
       year: 'numeric',
@@ -48,7 +48,7 @@ onMounted(async () => {
         &middot;
         <p>{{ post.date }}</p>
       </div>
-      <SmartImg :src="post.image" />
+      <SmartImg :src="post.images[0].url" :alt="post.images[0].title" />
     </div>
     <p class="my-5 max-w-2xl text-center lg:text-xl">
       {{ post.description }}

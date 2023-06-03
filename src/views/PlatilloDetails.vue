@@ -22,7 +22,7 @@ onMounted(async () => {
       url: `/api/menu/platillos/${route.params.name}`,
     });
 
-    platillo.value = response.data[0];
+    platillo.value = response.data;
     platillo.value.content = prettyContent(platillo.value.content);
     likes.value = platillo.value.likes;
   } catch (e) {
@@ -77,7 +77,7 @@ async function toggleLiked() {
   <Loading v-if="isLoading" />
   <div v-else class="container mt-8 flex flex-col justify-center">
     <div class="relative mx-auto max-w-5xl">
-      <SmartImg :src="platillo.hero_image" />
+      <SmartImg :src="platillo.images[1].url" :alt="platillo.images[1].title" />
       <button
         class="position absolute flex items-center justify-around gap-6 rounded-full bg-white px-4 py-2 shadow-lg hover:bg-light"
         type="button"

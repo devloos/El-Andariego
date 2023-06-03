@@ -41,7 +41,11 @@ onMounted(async () => {
       class="min-h-fit min-w-fit cursor-pointer snap-center rounded hover:scale-[1.01]"
       @click="$router.push(`/menu/${category.name}`)"
     >
-      <SmartImg :src="category.thumbnail_image" class="rounded-t" />
+      <SmartImg
+        :src="category.images[0].url"
+        class="rounded-t"
+        :alt="category.images[0].title"
+      />
       <p class="rounded-b bg-light p-5 text-center font-bold">{{ category.name }}</p>
     </div>
   </div>

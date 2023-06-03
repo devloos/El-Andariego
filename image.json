@@ -1,8 +1,0 @@
-image: {
-  title,
-  url,
-  type,
-  device,
-  width,
-  height
-}
