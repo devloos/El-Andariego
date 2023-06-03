@@ -33,6 +33,8 @@ onMounted(async () => {
         :src="platillo.images[0].url"
         class="h-auto max-w-[300px] rounded-t"
         :alt="platillo.images[0].title"
+        :width="platillo.images[0].width"
+        :height="platillo.images[0].height"
       />
       <div class="flex flex-col gap-1 rounded-b p-2">
         <div class="flex items-center gap-3">

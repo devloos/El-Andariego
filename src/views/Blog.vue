@@ -56,7 +56,12 @@ onMounted(async () => {
         </h1>
       </RouterLink>
       <RouterLink :to="`/blog/${post._id}`" class="cursor-pointer hover:opacity-75">
-        <SmartImg :src="post.images[0].url" :alt="post.images[0].title" />
+        <SmartImg
+          :src="post.images[0].url"
+          :alt="post.images[0].title"
+          :width="post.images[0].width"
+          :height="post.images[0].height"
+        />
       </RouterLink>
       <div class="flex flex-col items-start" :class="{ 'order-lg-1': i % 2 === 0 }">
         <div class="mt-3 flex gap-2">

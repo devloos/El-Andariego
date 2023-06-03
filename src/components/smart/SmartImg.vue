@@ -10,7 +10,21 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  width: {
+    type: [Number, String],
+    required: true,
+  },
+  height: {
+    type: [Number, String],
+    required: true,
+  },
+  isTransparent: {
+    type: Boolean,
+    default: false,
+  },
 });
+const placeholder =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
 
 const srcset = computed(() => {
   return new URL(props.src, 'https://ik.imagekit.io').href;
@@ -18,5 +32,13 @@ const srcset = computed(() => {
 </script>
 
 <template>
-  <img :src="srcset" :alt="alt" />
+  <img
+    loading="lazy"
+    :src="placeholder"
+    :srcset="srcset"
+    :alt="alt"
+    :width="width"
+    :height="height"
+    :style="{ backgroundColor: isTransparent ? 'transparent' : 'lightgray' }"
+  />
 </template>

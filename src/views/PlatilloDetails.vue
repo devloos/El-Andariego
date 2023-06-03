@@ -77,7 +77,12 @@ async function toggleLiked() {
   <Loading v-if="isLoading" />
   <div v-else class="container mt-8 flex flex-col justify-center">
     <div class="relative mx-auto max-w-5xl">
-      <SmartImg :src="platillo.images[1].url" :alt="platillo.images[1].title" />
+      <SmartImg
+        :src="platillo.images[1].url"
+        :alt="platillo.images[1].title"
+        :width="platillo.images[1].width"
+        :height="platillo.images[1].height"
+      />
       <button
         class="position absolute flex items-center justify-around gap-6 rounded-full bg-white px-4 py-2 shadow-lg hover:bg-light"
         type="button"

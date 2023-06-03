@@ -69,6 +69,8 @@ async function formSubmitted() {
         src="/andariego/contact/card.jpg"
         class="h-full w-full max-w-3xl"
         alt="Contact Card"
+        width="1900"
+        height="1080"
       />
       <form
         class="grid w-full max-w-lg grow grid-cols-1 gap-4 px-2"

@@ -48,7 +48,12 @@ onMounted(async () => {
         &middot;
         <p>{{ post.date }}</p>
       </div>
-      <SmartImg :src="post.images[0].url" :alt="post.images[0].title" />
+      <SmartImg
+        :src="post.images[0].url"
+        :alt="post.images[0].title"
+        :width="post.images[0].width"
+        :height="post.images[0].height"
+      />
     </div>
     <p class="my-5 max-w-2xl text-center lg:text-xl">
       {{ post.description }}

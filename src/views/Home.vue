@@ -71,7 +71,13 @@ const schedule = getSchedule(day);
             </a>
           </div>
         </div>
-        <SmartImg src="/andariego/home/hero.webp" alt="hero" />
+        <SmartImg
+          src="/andariego/home/hero.webp"
+          alt="hero"
+          width="1200"
+          height="1200"
+          :is-transparent="true"
+        />
       </div>
     </div>
 
@@ -89,7 +95,14 @@ const schedule = getSchedule(day);
             :key="review"
             class="flex w-full max-w-sm flex-col gap-3"
           >
-            <SmartImg :src="review.image" class="max-w-[60px]" :alt="review.name" />
+            <SmartImg
+              :src="review.image"
+              class="max-w-[60px]"
+              :alt="review.name"
+              :is-transparent="true"
+              width="120"
+              height="120"
+            />
             <blockquote class="font-medium">
               {{ review.quote }}
             </blockquote>
@@ -100,11 +113,13 @@ const schedule = getSchedule(day);
           class="my-5 grid grid-cols-3 gap-2 rounded px-3 lg:grid-cols-2 xl:grid-cols-3"
         >
           <SmartImg
-            v-for="index in [1, 2, 3, 4, 5, 6]"
+            v-for="index in 6"
             :key="index"
             class="w-full max-w-[350px] rounded"
             :src="`/andariego/home/gallery/gallery-${index}.jpg`"
             alt="Gallery Image"
+            width="800"
+            height="800"
           />
         </div>
       </div>
