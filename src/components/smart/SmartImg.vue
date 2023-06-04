@@ -38,6 +38,6 @@ const srcset = computed(() => {
     :srcset="srcset"
     :width="width"
     :height="height"
-    :style="{ backgroundColor: isTransparent ? 'transparent' : 'lightgray' }"
+    :style="{ 'background-color': isTransparent ? 'transparent' : 'lightgray' }"
   />
 </template>
