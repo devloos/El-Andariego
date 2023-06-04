@@ -36,7 +36,6 @@ const srcset = computed(() => {
     loading="lazy"
     :src="placeholder"
     :srcset="srcset"
-    :alt="alt"
     :width="width"
     :height="height"
     :style="{ backgroundColor: isTransparent ? 'transparent' : 'lightgray' }"
