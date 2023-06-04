@@ -18,10 +18,10 @@ useHead({
   ],
 });
 
+const { formatMongoDate } = useUtility();
+
 const posts = ref([]);
 const isLoading = ref(true);
-
-const { mongoDateToString } = useUtility();
 
 onMounted(async () => {
   try {
@@ -31,7 +31,9 @@ onMounted(async () => {
 
     posts.value = response.data;
     posts.value.sort((a, b) => new Date(b.date) - new Date(a.date));
-    mongoDateToString(posts.value);
+    posts.value.forEach((post) => {
+      post.date = formatMongoDate(post.date);
+    });
   } catch (e) {
     useToast('Failed to fetch posts.', { type: 'error' });
   } finally {

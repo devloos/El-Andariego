@@ -4,8 +4,7 @@ import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { ref, onMounted } from 'vue';
 
-const categories = ref([]);
-const top_categories = [
+const TOP_CATEGORIES = [
   'Platillos',
   'Burritos',
   'Tacos',
@@ -14,6 +13,8 @@ const top_categories = [
   'Quesadillas',
 ];
 
+const categories = ref([]);
+
 onMounted(async () => {
   try {
     const res = await useAxios({
@@ -21,7 +22,7 @@ onMounted(async () => {
     });
 
     categories.value = res.data.filter((category) =>
-      top_categories.includes(category.name)
+      TOP_CATEGORIES.includes(category.name)
     );
 
     categories.value.sort((a, b) => a.priority - b.priority);

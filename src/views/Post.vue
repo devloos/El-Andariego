@@ -3,6 +3,7 @@ import SmartImg from '@/components/smart/SmartImg.vue';
 import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
+import { useUtility } from '@/composables/utility';
 import Loading from '@/components/Loading.vue';
 
 const props = defineProps({
@@ -11,6 +12,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+const { formatMongoDate } = useUtility();
 
 const post = ref(null);
 const isLoading = ref(true);
@@ -22,12 +25,7 @@ onMounted(async () => {
     });
 
     post.value = response.data;
-    post.value.date = new Date(post.value.date).toLocaleString('en-us', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    });
+    post.value.date = formatMongoDate(post.value.date);
   } catch (e) {
     useToast('Failed to fetch post details.', { type: 'error' });
   } finally {

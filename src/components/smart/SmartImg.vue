@@ -1,6 +1,9 @@
 <script setup>
 import { computed } from 'vue';
 
+const placeholder =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+
 const props = defineProps({
   src: {
     type: String,
@@ -23,8 +26,6 @@ const props = defineProps({
     default: false,
   },
 });
-const placeholder =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
 
 const srcset = computed(() => {
   return new URL(props.src, 'https://ik.imagekit.io').href;

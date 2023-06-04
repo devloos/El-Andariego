@@ -10,14 +10,12 @@ export function useUtility() {
     }
   }
 
-  function mongoDateToString(data) {
-    data.forEach((d) => {
-      d.date = new Date(d.date).toLocaleString('en-us', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-      });
+  function formatMongoDate(date) {
+    return new Date(date).toLocaleString('en-us', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
     });
   }
 
@@ -29,7 +27,7 @@ export function useUtility() {
 
   return {
     copyPhone,
-    mongoDateToString,
+    formatMongoDate,
     prettyContent,
   };
 }

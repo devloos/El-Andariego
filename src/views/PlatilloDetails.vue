@@ -13,6 +13,7 @@ const PLATILLOS_KEY = 'platillos-liked';
 const route = useRoute();
 const { prettyContent } = useUtility();
 const platillosLiked = useStorage(PLATILLOS_KEY, []);
+
 const platillo = ref(null);
 const isLoading = ref(true);
 
