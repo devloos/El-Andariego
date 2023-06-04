@@ -1,9 +1,8 @@
 <script setup>
-import { useUtility } from '@/composables/utility';
+import { copyPhone } from '@/assets/utility';
 import { useI18n } from 'vue-i18n';
 
 const year = new Date().getFullYear();
-const { copyPhone } = useUtility();
 const { t } = useI18n({ useScope: 'global' });
 </script>
 

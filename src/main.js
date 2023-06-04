@@ -1,11 +1,13 @@
 import { createApp } from 'vue';
 import { createHead } from '@vueuse/head';
 import { createI18n } from 'vue-i18n';
+
 import App from './App.vue';
 import router from './router';
 import Toast from 'vue-toastification';
 import en from '@/locales/en.js';
 import es from '@/locales/es.js';
+
 import '@/assets/css/styles.css';
 import 'vue-toastification/dist/index.css';
 import '@/assets/css/vue-toast-override.css';

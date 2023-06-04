@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router';
 import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
-import { useUtility } from '@/composables/utility.js';
+import { formatMongoDate } from '@/assets/utility.js';
 import { useI18n } from 'vue-i18n';
 import Loading from '@/components/Loading.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
@@ -20,8 +20,6 @@ useHead({
     },
   ],
 });
-
-const { formatMongoDate } = useUtility();
 
 const posts = ref([]);
 const isLoading = ref(true);

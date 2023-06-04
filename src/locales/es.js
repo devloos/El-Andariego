@@ -24,7 +24,7 @@ export default {
     email: 'Correo Electrónico',
     name: 'Nombre',
     phone_number: 'Número de Teléfono',
-    message: 'Message',
+    message: 'Mensaje',
     descriptive_message: 'Mensaje descriptivo',
     interested_in: 'Interesado en',
     select: {

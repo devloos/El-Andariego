@@ -4,14 +4,13 @@ import { ref, onMounted, watch } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { RouterLink } from 'vue-router';
-import { useUtility } from '@/composables/utility';
+import { prettyContent } from '@/assets/utility';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import Loading from '@/components/Loading.vue';
 import ItemList from '@/components/ItemList.vue';
 
 const route = useRoute();
-const { prettyContent } = useUtility();
 const { t } = useI18n({ useScope: 'global' });
 
 useHead({

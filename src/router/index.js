@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '@/views/Home.vue';
-import Menu from '@/views/Menu.vue';
-import Contact from '@/views/Contact.vue';
-import Blog from '@/views/Blog.vue';
-import Post from '@/views/Post.vue';
-import PlatilloDetails from '@/views/PlatilloDetails.vue';
-import Error from '@/views/Error.vue';
+
+const Home = () => import('@/views/Home.vue');
+const Menu = () => import('@/views/Menu.vue');
+const Contact = () => import('@/views/Contact.vue');
+const Blog = () => import('@/views/Blog.vue');
+const Post = () => import('@/views/Post.vue');
+const PlatilloDetails = () => import('@/views/PlatilloDetails.vue');
+const Error = () => import('@/views/Error.vue');
 
 const routes = [
   {

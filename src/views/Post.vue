@@ -3,7 +3,7 @@ import SmartImg from '@/components/smart/SmartImg.vue';
 import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
-import { useUtility } from '@/composables/utility';
+import { formatMongoDate } from '@/assets/utility';
 import Loading from '@/components/Loading.vue';
 
 const props = defineProps({
@@ -12,8 +12,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-const { formatMongoDate } = useUtility();
 
 const post = ref(null);
 const isLoading = ref(true);

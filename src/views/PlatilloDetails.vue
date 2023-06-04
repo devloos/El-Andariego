@@ -4,14 +4,13 @@ import { ref, onMounted, computed } from 'vue';
 import { useAxios } from '@/composables/axios';
 import { useToast } from '@/composables/toast';
 import { useRoute } from 'vue-router';
-import { useUtility } from '@/composables/utility';
+import { prettyContent } from '@/assets/utility';
 import Loading from '@/components/Loading.vue';
 import { useStorage } from '@vueuse/core';
 
 const PLATILLOS_KEY = 'platillos-liked';
 
 const route = useRoute();
-const { prettyContent } = useUtility();
 const platillosLiked = useStorage(PLATILLOS_KEY, []);
 
 const platillo = ref(null);
