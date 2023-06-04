@@ -1,16 +1,18 @@
 <script setup>
-import ItemList from '@/components/ItemList.vue';
 import { useHead } from '@vueuse/head';
 import { ref, onMounted, watch } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { RouterLink } from 'vue-router';
-import Loading from '@/components/Loading.vue';
 import { useUtility } from '@/composables/utility';
 import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+import Loading from '@/components/Loading.vue';
+import ItemList from '@/components/ItemList.vue';
 
 const route = useRoute();
 const { prettyContent } = useUtility();
+const { t } = useI18n({ useScope: 'global' });
 
 useHead({
   title: 'Menu | El Andariego',
@@ -77,7 +79,9 @@ watch(
   <Loading v-if="isLoading" />
   <div v-else>
     <div class="container mt-5 px-2">
-      <h1 class="mb-6 text-center text-xl font-bold text-main lg:text-2xl">MENU</h1>
+      <h1 class="mb-6 text-center text-xl font-bold text-main lg:text-2xl">
+        {{ t('link.menu') }}
+      </h1>
       <div class="scroll-hidden flex gap-2 overflow-scroll px-1 py-4 lg:justify-center">
         <p>|</p>
         <div v-for="category in categories" :key="category.name" class="flex gap-2">

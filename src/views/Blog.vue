@@ -1,12 +1,15 @@
 <script setup>
 import { useHead } from '@vueuse/head';
-import SmartImg from '@/components/smart/SmartImg.vue';
 import { RouterLink } from 'vue-router';
 import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { useUtility } from '@/composables/utility.js';
+import { useI18n } from 'vue-i18n';
 import Loading from '@/components/Loading.vue';
+import SmartImg from '@/components/smart/SmartImg.vue';
+
+const { t } = useI18n({ useScope: 'global' });
 
 useHead({
   title: 'Blog | El Andariego',
@@ -72,7 +75,9 @@ onMounted(async () => {
           <p>{{ post.date }}</p>
         </div>
         <RouterLink :to="`/blog/${post._id}`" class="cursor-pointer hover:opacity-75">
-          <p class="text-main underline hover:text-main-light">Read More</p>
+          <p class="text-main underline hover:text-main-light">
+            {{ t('blog.read_more') }}
+          </p>
         </RouterLink>
       </div>
     </div>

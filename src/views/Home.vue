@@ -1,10 +1,17 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
+import { computed, ref } from 'vue';
+import { useStorage } from '@vueuse/core';
 import PlatilloSection from '@/components/home/PlatilloSection.vue';
 import CategorySection from '@/components/home/CategorySection.vue';
 import CallToAction from '@/components/home/CallToAction.vue';
 import SmartDivider from '@/components/smart/SmartDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import testimonials from '@/assets/constants/testimonials.js';
+
+const { t, locale } = useI18n({ useScope: 'global' });
+const localePreference = useStorage('locale', 'en');
+const active = ref(localePreference.value === 'es');
 
 function inWorkSchedule() {
   const now = new Date().getHours() * 60 + new Date().getMinutes();
@@ -13,48 +20,50 @@ function inWorkSchedule() {
   return start <= now && now <= end;
 }
 
-function getSchedule(day) {
+const schedule = computed(() => {
+  const day = new Date().getDay();
   const MONDAY = 1;
 
-  if (day == MONDAY) {
-    return 'Closed, Opening Tuesday at 4:30 PM';
+  if (day === MONDAY) {
+    return t('hours.closed');
   }
 
   if (inWorkSchedule()) {
-    return 'Open in San Juan Capistrano until 11:30 PM';
+    return t('hours.open');
   } else {
-    return `Opening in San Juan Capistrano at 4:30 PM`;
+    return t('hours.opening');
   }
-}
+});
 
-const day = new Date().getDay();
-const schedule = getSchedule(day);
+function switchLocale() {
+  active.value = !active.value;
+  const preference = active.value ? 'es' : 'en';
+  locale.value = preference;
+  localePreference.value = preference;
+}
 </script>
 
 <template>
   <div>
     <div class="pt-10 xl:px-10">
       <div class="grid grid-cols-1 items-center gap-2 lg:grid-cols-2">
-        <div class="px-4 pt-6 text-center">
+        <div class="mb-2 px-4 pt-6 text-center">
           <div class="flex flex-col items-center gap-2">
             <h4
               class="text-4xl font-bold sm:w-10/12 md:w-2/3 lg:w-11/12 lg:text-5xl xl:w-4/5"
             >
-              Real Mexican flavors on wheels. Tortas, tacos, burritos, and more.
+              {{ t('home.hook') }}
             </h4>
-            <p class="my-2 font-semibold xl:text-lg" v-text="schedule" />
+            <p class="my-2 font-semibold xl:text-lg">{{ schedule }}</p>
             <p class="mb-8 w-auto sm:w-10/12 md:w-3/4 lg:w-11/12 xl:w-4/5 xl:text-lg">
-              El Andariego is a Mexican food truck in San Juan Capistrano, California. We
-              serve authentic tortas, tacos, burritos, and quesadillas, along with special
-              dishes like Alambre, Fortachon, and Que Me Notas. Our goal is to become a
-              favorite dining option in the area.
+              {{ t('home.intro') }}
             </p>
           </div>
           <button
             class="rounded-md bg-main px-7 py-3 font-semibold text-gray-50 transition-all duration-300 hover:bg-main-light lg:text-lg"
             @click="$router.push('/menu')"
           >
-            View Menu
+            {{ t('home.view_menu') }}
           </button>
           <div class="my-2 flex justify-center gap-4 text-2xl lg:my-4">
             <a
@@ -70,6 +79,20 @@ const schedule = getSchedule(day);
               <i class="fa-brands fa-google fa-xs"></i>
             </a>
           </div>
+          <div class="flex flex-col items-center justify-center">
+            <button
+              class="mx-3 flex h-8 w-16 items-center rounded-full px-1"
+              :class="active ? 'bg-main' : 'bg-accent'"
+              @click="switchLocale"
+            >
+              <div
+                class="h-6 w-8 transform rounded-full bg-white font-bold uppercase shadow-md transition-all"
+                :class="{ 'translate-x-6': active }"
+              >
+                {{ locale }}
+              </div>
+            </button>
+          </div>
         </div>
         <SmartImg
           src="/andariego/home/hero.webp"
@@ -81,11 +104,11 @@ const schedule = getSchedule(day);
       </div>
     </div>
 
-    <SmartDivider name="Our Specialty Platillos" />
+    <SmartDivider :name="t('dividers.platillo')" />
     <PlatilloSection />
 
     <div class="mt-14 bg-light pb-4 pt-2 xl:px-10">
-      <SmartDivider name="Testimonials" class="mt-8" />
+      <SmartDivider :name="t('dividers.testimonial')" class="mt-8" />
       <div class="flex flex-col justify-center lg:flex-row xl:gap-10">
         <div
           class="my-3 grid grid-cols-1 justify-items-center gap-8 px-5 sm:grid-cols-2 lg:items-center"
@@ -125,10 +148,10 @@ const schedule = getSchedule(day);
       </div>
     </div>
 
-    <SmartDivider name="Top Categories" />
+    <SmartDivider :name="t('dividers.categories')" />
     <CategorySection />
 
-    <SmartDivider name="What are you waiting for?" />
+    <SmartDivider :name="t('dividers.cta')" />
     <CallToAction />
   </div>
 </template>

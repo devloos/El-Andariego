@@ -1,8 +1,10 @@
 <script setup>
 import { useToast } from '@/composables/toast.js';
 import { useAxios } from '@/composables/axios.js';
+import { useI18n } from 'vue-i18n';
 import { ref } from 'vue';
 
+const { t } = useI18n({ useScope: 'global' });
 const email = ref('');
 
 async function signup() {
@@ -36,11 +38,10 @@ async function signup() {
     >
       <div class="max-w-xs lg:max-w-sm">
         <h4 class="mb-4 text-2xl font-bold xl:text-3xl">
-          Connect with us and stay informed!
+          {{ t('cta.hook') }}
         </h4>
         <p class="mb-6 xl:text-lg">
-          Skip the wait and give us a call during business hours. Want to get notified
-          about promotions and events sign up today!
+          {{ t('cta.info') }}
         </p>
       </div>
       <form
@@ -50,12 +51,12 @@ async function signup() {
         <input
           v-model="email"
           type="email"
-          placeholder="Email"
+          :placeholder="t('form.email')"
           class="rounded border border-gray-300 px-3 py-2 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
           required
         />
         <button class="rounded bg-minor px-4 py-2 text-white hover:bg-minor-light">
-          Sign up
+          {{ t('form.sign_up') }}
         </button>
       </form>
     </div>

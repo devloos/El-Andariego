@@ -1,7 +1,9 @@
 <script setup>
 import { useUtility } from '@/composables/utility';
+import { useI18n } from 'vue-i18n';
 
 const { copyPhone } = useUtility();
+const { t } = useI18n({ useScope: 'global' });
 </script>
 
 <template>
@@ -11,10 +13,14 @@ const { copyPhone } = useUtility();
     <div
       class="mt-14 flex flex-col items-center gap-9 text-center text-3xl font-semibold"
     >
-      <RouterLink class="hover:text-accent-dark" to="/">Home</RouterLink>
-      <RouterLink class="hover:text-accent-dark" to="/menu">Menu</RouterLink>
+      <RouterLink class="hover:text-accent-dark" to="/">{{ t('link.home') }}</RouterLink>
+      <RouterLink class="hover:text-accent-dark" to="/menu">
+        {{ t('link.menu') }}
+      </RouterLink>
       <RouterLink class="hover:text-accent-dark" to="/blog">Blog</RouterLink>
-      <RouterLink class="hover:text-accent-dark" to="/contact">Contact</RouterLink>
+      <RouterLink class="hover:text-accent-dark" to="/contact">
+        {{ t('link.contact') }}
+      </RouterLink>
       <div class="my-3 flex justify-center gap-4">
         <a href="https://www.facebook.com/profile.php?id=100082710796984" target="_blank">
           <i class="fa-brands fa-facebook fa-sm"></i>
@@ -31,7 +37,7 @@ const { copyPhone } = useUtility();
         type="button"
         @click="copyPhone"
       >
-        GIVE US A CALL
+        {{ t('link.call') }}
       </button>
     </div>
   </div>

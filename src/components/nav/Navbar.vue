@@ -1,5 +1,6 @@
 <script setup>
 import { useUtility } from '@/composables/utility';
+import { useI18n } from 'vue-i18n';
 
 defineProps({
   showOffCanvas: Boolean,
@@ -8,6 +9,7 @@ defineProps({
 defineEmits(['toggle-offcanvas']);
 
 const { copyPhone } = useUtility();
+const { t } = useI18n({ useScope: 'global' });
 </script>
 
 <template>
@@ -23,22 +25,24 @@ const { copyPhone } = useUtility();
     <div
       class="invisible hidden text-lg font-semibold lg:visible lg:flex lg:content-center lg:items-center lg:gap-8"
     >
-      <RouterLink class="transition-all hover:text-accent-dark" to="/">Home</RouterLink>
+      <RouterLink class="transition-all hover:text-accent-dark" to="/">
+        {{ t('link.home') }}
+      </RouterLink>
       <RouterLink class="transition-all hover:text-accent-dark" to="/menu">
-        Menu
+        {{ t('link.menu') }}
       </RouterLink>
       <RouterLink class="transition-all hover:text-accent-dark" to="/blog">
         Blog
       </RouterLink>
       <RouterLink class="transition-all hover:text-accent-dark" to="/contact">
-        Contact
+        {{ t('link.contact') }}
       </RouterLink>
       <button
         class="rounded-md bg-main px-6 py-3 text-base text-gray-50 transition-all duration-300 hover:bg-main-light"
         type="button"
         @click="copyPhone"
       >
-        GIVE US A CALL
+        {{ t('link.call') }}
       </button>
     </div>
     <button

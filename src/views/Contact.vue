@@ -1,9 +1,12 @@
 <script setup>
 import { useHead } from '@vueuse/head';
-import SmartImg from '@/components/smart/SmartImg.vue';
 import { ref } from 'vue';
 import { useAxios } from '@/composables/axios';
 import { useToast } from '@/composables/toast';
+import { useI18n } from 'vue-i18n';
+import SmartImg from '@/components/smart/SmartImg.vue';
+
+const { t } = useI18n({ useScope: 'global' });
 
 useHead({
   title: 'Contact | El Andariego',
@@ -15,16 +18,14 @@ useHead({
   ],
 });
 
-const firstName = ref('');
-const lastName = ref('');
+const name = ref('');
 const email = ref('');
 const phone = ref('');
 const description = ref('');
 const eventType = ref('');
 
 function resetForm() {
-  firstName.value = '';
-  lastName.value = '';
+  name.value = '';
   email.value = '';
   phone.value = '';
   description.value = '';
@@ -37,8 +38,7 @@ async function formSubmitted() {
       url: '/api/sendgrid/save',
       method: 'POST',
       data: {
-        first_name: firstName.value,
-        last_name: lastName.value,
+        name: name.value,
         email: email.value,
         phone: phone.value,
         description: description.value,
@@ -77,25 +77,20 @@ async function formSubmitted() {
         @submit.prevent="formSubmitted"
       >
         <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">First Name</label>
+          <label class="text-sm font-medium leading-6 text-gray-900">
+            {{ t('form.name') }}
+          </label>
           <input
-            v-model="firstName"
+            v-model="name"
             class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
             type="text"
             required
           />
         </div>
         <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">Last Name</label>
-          <input
-            v-model="lastName"
-            class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-            type="text"
-            required
-          />
-        </div>
-        <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">Email</label>
+          <label class="text-sm font-medium leading-6 text-gray-900">
+            {{ t('form.email') }}
+          </label>
           <input
             v-model="email"
             class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
@@ -104,7 +99,9 @@ async function formSubmitted() {
           />
         </div>
         <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">Phone #</label>
+          <label class="text-sm font-medium leading-6 text-gray-900">
+            {{ t('form.phone_number') }}
+          </label>
           <input
             v-model="phone"
             class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
@@ -113,34 +110,38 @@ async function formSubmitted() {
           />
         </div>
         <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">Message</label>
+          <label class="text-sm font-medium leading-6 text-gray-900">
+            {{ t('form.message') }}
+          </label>
           <textarea
             v-model="description"
             class="h-20 rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
             type="text"
-            placeholder="Descriptive Message"
+            :placeholder="t('form.descriptive_message')"
             required
           />
         </div>
         <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">Interested In</label>
+          <label class="text-sm font-medium leading-6 text-gray-900">
+            {{ t('form.interested_in') }}
+          </label>
           <select
             v-model="eventType"
             class="rounded-md border border-gray-300 bg-gray-50 px-2 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
             required
           >
-            <option disabled value="">Please Select</option>
-            <option>Order</option>
+            <option disabled value="">{{ t('form.select.selection') }}</option>
+            <option>{{ t('form.select.order') }}</option>
             <option>Catering</option>
-            <option>Job Opportunity</option>
-            <option>Other</option>
+            <option>{{ t('form.select.job') }}</option>
+            <option>{{ t('form.select.other') }}</option>
           </select>
         </div>
         <button
           type="submit"
           class="rounded bg-main px-4 py-2 text-white hover:bg-main-light"
         >
-          Submit
+          {{ t('form.submit') }}
         </button>
       </form>
     </div>

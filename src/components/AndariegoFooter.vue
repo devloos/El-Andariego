@@ -1,7 +1,10 @@
 <script setup>
 import { useUtility } from '@/composables/utility';
+import { useI18n } from 'vue-i18n';
+
 const year = new Date().getFullYear();
 const { copyPhone } = useUtility();
+const { t } = useI18n({ useScope: 'global' });
 </script>
 
 <template>
@@ -10,16 +13,22 @@ const { copyPhone } = useUtility();
     class="mx-auto grid max-w-7xl grid-cols-2 gap-3 gap-y-10 px-6 text-sm sm:px-10 md:grid-cols-4 lg:justify-items-center lg:text-lg"
   >
     <div class="flex flex-col gap-3">
-      <h5 class="mb-3 font-semibold">Navigation</h5>
+      <h5 class="mb-3 font-semibold">{{ t('footer.navigation') }}</h5>
       <div class="flex flex-col items-start gap-1 lg:text-base">
-        <RouterLink class="hover:text-accent-dark" to="/">Home</RouterLink>
-        <RouterLink class="hover:text-accent-dark" to="/menu">Menu</RouterLink>
+        <RouterLink class="hover:text-accent-dark" to="/">
+          {{ t('link.home') }}
+        </RouterLink>
+        <RouterLink class="hover:text-accent-dark" to="/menu">
+          {{ t('link.menu') }}
+        </RouterLink>
         <RouterLink class="hover:text-accent-dark" to="/blog">Blog</RouterLink>
-        <RouterLink class="hover:text-accent-dark" to="/contact">Contact</RouterLink>
+        <RouterLink class="hover:text-accent-dark" to="/contact">
+          {{ t('link.contact') }}
+        </RouterLink>
       </div>
     </div>
     <div class="flex flex-col gap-3">
-      <h5 class="mb-3 font-semibold">Information</h5>
+      <h5 class="mb-3 font-semibold">{{ t('footer.information') }}</h5>
       <div class="flex flex-col items-start gap-1 lg:text-base">
         <p
           class="cursor-pointer transition-all hover:font-semibold"
@@ -27,7 +36,9 @@ const { copyPhone } = useUtility();
         >
           949-806-0123
         </p>
-        <RouterLink class="hover:text-accent-dark" to="/contact">Careers</RouterLink>
+        <RouterLink class="hover:text-accent-dark" to="/contact">
+          {{ t('footer.careers') }}
+        </RouterLink>
         <RouterLink class="hover:text-accent-dark" to="/contact">Catering</RouterLink>
       </div>
     </div>
@@ -47,18 +58,20 @@ const { copyPhone } = useUtility();
       <!-- Had to do it this way not sure why -->
       <div class="flex grow items-end text-xs sm:w-4/5">
         <p>
-          Copyright © <span>{{ year }}</span> by El Andariego. All rights reserved.
+          Copyright ©
+          <span>{{ year }}</span>
+          by El Andariego. All rights reserved.
         </p>
       </div>
     </div>
     <div class="flex flex-col gap-3 md:order-first">
-      <h5 class="mb-3 font-semibold">Business Hours</h5>
+      <h5 class="mb-3 font-semibold">{{ t('footer.business_hours') }}</h5>
       <p class="sm:w-4/5 lg:text-base">
         31345 Los Rios St, San Juan Capistrano, CA 92675
       </p>
       <div class="lg:text-base">
-        <p>Monday: Closed</p>
-        <p>Tuesday &middot; Sunday: Open</p>
+        <p>{{ t('footer.schedule.closed') }}</p>
+        <p>{{ t('footer.schedule.open') }}</p>
       </div>
     </div>
   </footer>
