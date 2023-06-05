@@ -1,9 +1,9 @@
 import { useToast } from '@/composables/toast';
 
-export async function copyPhone(toastOptions = {}) {
+export async function copyPhone() {
   try {
     await navigator.clipboard.writeText('949-806-0123');
-    useToast('Phone number copied.', toastOptions);
+    useToast('Phone number copied.');
   } catch (err) {
     useToast('Error copying phone number.', { type: 'error' });
   }

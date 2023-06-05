@@ -5,8 +5,7 @@ import { useAxios } from '@/composables/axios';
 import { useToast } from '@/composables/toast';
 import { useI18n } from 'vue-i18n';
 import SmartImg from '@/components/smart/SmartImg.vue';
-
-const { t } = useI18n({ useScope: 'global' });
+import SmartInput from '@/components/smart/SmartInput.vue';
 
 useHead({
   title: 'Contact | El Andariego',
@@ -17,6 +16,8 @@ useHead({
     },
   ],
 });
+
+const { t } = useI18n({ useScope: 'global' });
 
 const name = ref('');
 const email = ref('');
@@ -76,39 +77,10 @@ async function formSubmitted() {
         class="grid w-full max-w-lg grow grid-cols-1 gap-4 px-2"
         @submit.prevent="formSubmitted"
       >
-        <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">
-            {{ t('form.name') }}
-          </label>
-          <input
-            v-model="name"
-            class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-            type="text"
-            required
-          />
-        </div>
-        <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">
-            {{ t('form.email') }}
-          </label>
-          <input
-            v-model="email"
-            class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-            type="email"
-            required
-          />
-        </div>
-        <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">
-            {{ t('form.phone_number') }}
-          </label>
-          <input
-            v-model="phone"
-            class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-            type="tel"
-            required
-          />
-        </div>
+        <SmartInput v-model="name" :label="t('form.name')" type="text" />
+        <SmartInput v-model="email" :label="t('form.email')" type="email" />
+        <SmartInput v-model="phone" :label="t('form.phone_number')" type="tel" />
+
         <div class="flex flex-col">
           <label class="text-sm font-medium leading-6 text-gray-900">
             {{ t('form.message') }}

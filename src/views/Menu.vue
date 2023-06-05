@@ -10,9 +10,6 @@ import { useI18n } from 'vue-i18n';
 import Loading from '@/components/Loading.vue';
 import ItemList from '@/components/ItemList.vue';
 
-const route = useRoute();
-const { t } = useI18n({ useScope: 'global' });
-
 useHead({
   title: 'Menu | El Andariego',
   meta: [
@@ -22,6 +19,9 @@ useHead({
     },
   ],
 });
+
+const route = useRoute();
+const { t } = useI18n({ useScope: 'global' });
 
 const categories = ref([]);
 const items = ref([]);

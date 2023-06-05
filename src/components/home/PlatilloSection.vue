@@ -1,8 +1,8 @@
 <script setup>
-import SmartImg from '@/components/smart/SmartImg.vue';
+import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
-import { ref, onMounted } from 'vue';
+import SmartImg from '@/components/smart/SmartImg.vue';
 
 const platillos = ref([]);
 

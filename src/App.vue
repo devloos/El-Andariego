@@ -5,10 +5,6 @@ import { useStorage } from '@vueuse/core';
 import AndariegoNav from '@/components/nav/AndariegoNav.vue';
 import AndariegoFooter from '@/components/AndariegoFooter.vue';
 
-const { locale } = useI18n({ useScope: 'global' });
-const localePreference = useStorage('locale', 'en');
-locale.value = localePreference.value;
-
 useHead({
   title: 'El Andariego',
   meta: [
@@ -18,6 +14,10 @@ useHead({
     },
   ],
 });
+
+const { locale } = useI18n({ useScope: 'global' });
+const localePreference = useStorage('locale', 'en');
+locale.value = localePreference.value;
 </script>
 
 <template>

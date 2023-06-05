@@ -9,8 +9,6 @@ import { useI18n } from 'vue-i18n';
 import Loading from '@/components/Loading.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 
-const { t } = useI18n({ useScope: 'global' });
-
 useHead({
   title: 'Blog | El Andariego',
   meta: [
@@ -20,6 +18,8 @@ useHead({
     },
   ],
 });
+
+const { t } = useI18n({ useScope: 'global' });
 
 const posts = ref([]);
 const isLoading = ref(true);
