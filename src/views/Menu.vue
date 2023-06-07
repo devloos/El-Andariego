@@ -7,8 +7,8 @@ import { RouterLink } from 'vue-router';
 import { prettyContent } from '@/assets/utility';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import Loading from '@/components/Loading.vue';
 import ItemList from '@/components/ItemList.vue';
+import MenuSkeleton from '@/components/skeletons/MenuSkeleton.vue';
 
 useHead({
   title: 'Menu | El Andariego',
@@ -75,7 +75,7 @@ watch(
 </script>
 
 <template>
-  <Loading v-if="isLoading" />
+  <MenuSkeleton v-if="isLoading" />
   <div v-else>
     <div class="container mt-5 px-2">
       <h1 class="mb-6 text-center text-xl font-bold text-main lg:text-2xl">

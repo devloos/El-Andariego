@@ -5,8 +5,8 @@ import { useAxios } from '@/composables/axios';
 import { useToast } from '@/composables/toast';
 import { useRoute } from 'vue-router';
 import { prettyContent } from '@/assets/utility';
-import Loading from '@/components/Loading.vue';
 import { useStorage } from '@vueuse/core';
+import DetailSkeleton from '@/components/skeletons/DetailSkeleton.vue';
 
 const PLATILLOS_KEY = 'platillos-liked';
 
@@ -58,9 +58,10 @@ async function toggleLiked() {
 </script>
 
 <template>
-  <Loading v-if="isLoading" />
-  <div v-else class="container mt-8 flex flex-col justify-center">
-    <div class="relative mx-auto max-w-5xl">
+  <DetailSkeleton v-if="isLoading" />
+  <div v-else class="container mt-2 flex flex-col justify-center">
+    <h3 class="mb-5 text-center text-2xl font-bold text-main">{{ platillo.name }}</h3>
+    <div class="relative mx-auto mb-8 max-w-5xl">
       <SmartImg
         :src="platillo.images[1].url"
         :alt="platillo.images[1].title"
@@ -76,10 +77,9 @@ async function toggleLiked() {
         <p class="font-semibold">{{ platillo.likes }}</p>
       </button>
     </div>
-    <div class="mt-6 px-3 text-center">
-      <h3 class="my-4 text-2xl font-bold text-main">{{ platillo.name }}</h3>
-      <p class="mx-auto max-w-sm text-xl font-semibold">{{ platillo.content }}</p>
-    </div>
+    <p class="mx-auto max-w-sm text-center text-xl font-semibold">
+      {{ platillo.content }}
+    </p>
   </div>
 </template>
 

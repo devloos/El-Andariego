@@ -6,8 +6,8 @@ import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { formatMongoDate } from '@/assets/utility.js';
 import { useI18n } from 'vue-i18n';
-import Loading from '@/components/Loading.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
+import BlogSkeleton from '@/components/skeletons/BlogSkeleton.vue';
 
 useHead({
   title: 'Blog | El Andariego',
@@ -44,7 +44,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Loading v-if="isLoading" />
+  <BlogSkeleton v-if="isLoading" />
   <div
     v-else
     class="container mt-6 grid grid-cols-1 items-center gap-10 px-3 lg:mt-10 lg:grid-cols-2 lg:gap-8 lg:px-12"

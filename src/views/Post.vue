@@ -3,8 +3,8 @@ import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { formatMongoDate } from '@/assets/utility';
-import Loading from '@/components/Loading.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
+import DetailSkeleton from '@/components/skeletons/DetailSkeleton.vue';
 
 const props = defineProps({
   id: {
@@ -33,7 +33,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Loading v-if="isLoading" />
+  <DetailSkeleton v-if="isLoading" />
   <div v-else class="container flex flex-col items-center px-3">
     <h2 class="my-5 text-center text-2xl font-bold text-main">
       {{ post.title }}
