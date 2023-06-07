@@ -19,6 +19,10 @@ export function formatMongoDate(date) {
 }
 
 export function prettyContent(content = []) {
+  if (content.length === 1) {
+    return content[0];
+  }
+
   const res = content.join(', ');
   const index = res.lastIndexOf(',');
   return res.slice(0, index + 1) + ' y' + res.slice(index + 1);
