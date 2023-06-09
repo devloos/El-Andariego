@@ -45,7 +45,7 @@ function switchLocale() {
 
 <template>
   <div>
-    <div class="pt-10 xl:px-10">
+    <div class="pt-6 xl:px-10">
       <div class="grid grid-cols-1 items-center gap-2 lg:grid-cols-2">
         <div class="mb-2 px-4 pt-6 text-center">
           <div class="flex flex-col items-center gap-2">

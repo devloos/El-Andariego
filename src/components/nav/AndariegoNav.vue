@@ -1,8 +1,12 @@
 <script setup>
-import Offcanvas from '@/components/nav/Offcanvas.vue';
-import Navbar from '@/components/nav/Navbar.vue';
 import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
+import { copyPhone } from '@/assets/utility';
+import { useI18n } from 'vue-i18n';
+import SmartLinks from '@/components/smart/SmartLinks.vue';
+import Offcanvas from '@/components/nav/Offcanvas.vue';
+
+const { t } = useI18n({ useScope: 'global' });
 
 const showOffCanvas = ref(false);
 const route = useRoute();
@@ -30,16 +34,52 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <Navbar
-    :show-off-canvas="showOffCanvas"
-    @toggle-offcanvas="showOffCanvas = !showOffCanvas"
-  />
-  <transition name="fade">
-    <Offcanvas v-if="showOffCanvas" />
-  </transition>
+  <div
+    class="sticky inset-x-0 top-0 z-50 mx-auto flex h-[72px] content-center items-center justify-between bg-white/[.9] px-4 lg:h-20 lg:px-8 xl:px-12"
+  >
+    <RouterLink
+      class="text-2xl font-bold text-main transition-all duration-300 hover:text-main-light"
+      to="/"
+    >
+      El Andariego
+    </RouterLink>
+    <div
+      class="invisible hidden text-lg font-semibold lg:visible lg:flex lg:content-center lg:items-center lg:gap-8"
+    >
+      <SmartLinks />
+      <button
+        class="rounded-md bg-main px-6 py-3 text-base text-gray-50 transition-all duration-300 hover:bg-main-light"
+        type="button"
+        @click="copyPhone"
+      >
+        {{ t('link.call') }}
+      </button>
+    </div>
+    <button
+      class="hamburger hamburger--squeeze"
+      :class="{ 'is-active': showOffCanvas }"
+      type="button"
+      @click="showOffCanvas = !showOffCanvas"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <transition name="fade">
+      <Offcanvas v-if="showOffCanvas" />
+    </transition>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/hamburgers.scss';
+
+@media (min-width: 1024px) {
+  .hamburger {
+    display: none;
+    visibility: hidden;
+  }
+}
 .fade {
   &-enter-from {
     opacity: 0;

@@ -1,25 +1,19 @@
 <script setup>
 import { copyPhone } from '@/assets/utility';
 import { useI18n } from 'vue-i18n';
+import SmartLinks from '@/components/smart/SmartLinks.vue';
 
 const { t } = useI18n({ useScope: 'global' });
 </script>
 
 <template>
   <div
-    class="absolute bottom-0 left-0 top-20 z-50 h-screen w-screen overflow-scroll bg-white"
+    class="absolute bottom-0 left-0 top-[72px] z-50 h-screen w-screen overflow-scroll bg-white/[.9]"
   >
     <div
-      class="mt-14 flex flex-col items-center gap-9 text-center text-3xl font-semibold"
+      class="mt-12 flex flex-col items-center gap-9 text-center text-3xl font-semibold"
     >
-      <RouterLink class="hover:text-accent-dark" to="/">{{ t('link.home') }}</RouterLink>
-      <RouterLink class="hover:text-accent-dark" to="/menu">
-        {{ t('link.menu') }}
-      </RouterLink>
-      <RouterLink class="hover:text-accent-dark" to="/blog">Blog</RouterLink>
-      <RouterLink class="hover:text-accent-dark" to="/contact">
-        {{ t('link.contact') }}
-      </RouterLink>
+      <SmartLinks />
       <div class="my-3 flex justify-center gap-4">
         <a href="https://www.facebook.com/profile.php?id=100082710796984" target="_blank">
           <i class="fa-brands fa-facebook fa-sm"></i>

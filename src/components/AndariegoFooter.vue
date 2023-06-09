@@ -1,6 +1,7 @@
 <script setup>
 import { copyPhone } from '@/assets/utility';
 import { useI18n } from 'vue-i18n';
+import SmartLinks from '@/components/smart/SmartLinks.vue';
 
 const year = new Date().getFullYear();
 const { t } = useI18n({ useScope: 'global' });
@@ -9,21 +10,12 @@ const { t } = useI18n({ useScope: 'global' });
 <template>
   <hr class="my-16" />
   <footer
-    class="mx-auto grid max-w-7xl grid-cols-2 gap-3 gap-y-10 px-6 text-sm sm:px-10 md:grid-cols-4 lg:justify-items-center lg:text-lg"
+    class="mx-auto mb-20 grid max-w-7xl grid-cols-2 gap-3 gap-y-10 px-6 text-sm sm:px-10 md:grid-cols-4 lg:justify-items-center lg:text-lg"
   >
     <div class="flex flex-col gap-3">
       <h5 class="mb-3 font-semibold">{{ t('footer.navigation') }}</h5>
       <div class="flex flex-col items-start gap-1 lg:text-base">
-        <RouterLink class="hover:text-accent-dark" to="/">
-          {{ t('link.home') }}
-        </RouterLink>
-        <RouterLink class="hover:text-accent-dark" to="/menu">
-          {{ t('link.menu') }}
-        </RouterLink>
-        <RouterLink class="hover:text-accent-dark" to="/blog">Blog</RouterLink>
-        <RouterLink class="hover:text-accent-dark" to="/contact">
-          {{ t('link.contact') }}
-        </RouterLink>
+        <SmartLinks />
       </div>
     </div>
     <div class="flex flex-col gap-3">
