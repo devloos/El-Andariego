@@ -105,9 +105,9 @@ function switchLocale() {
     </div>
 
     <SmartDivider :name="t('dividers.platillo')" />
-    <PlatilloSection />
+    <PlatilloSection v-motion-slide-visible-once-bottom />
 
-    <div class="mt-14 bg-light pb-4 pt-2 xl:px-10">
+    <div v-motion-fade-visible-once class="mt-14 bg-light pb-4 pt-2 xl:px-10">
       <SmartDivider :name="t('dividers.testimonial')" class="mt-8" />
       <div class="flex flex-col justify-center lg:flex-row xl:gap-10">
         <div
@@ -149,10 +149,10 @@ function switchLocale() {
     </div>
 
     <SmartDivider :name="t('dividers.categories')" />
-    <CategorySection />
+    <CategorySection v-motion-fade-visible-once />
 
     <SmartDivider :name="t('dividers.cta')" />
-    <CallToAction />
+    <CallToAction v-motion-slide-visible-once-bottom />
   </div>
 </template>
 
