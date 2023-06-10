@@ -37,11 +37,8 @@ onUnmounted(() => {
   <div
     class="sticky inset-x-0 top-0 z-50 mx-auto flex h-[72px] content-center items-center justify-between bg-white/[.9] px-4 backdrop-blur-sm lg:h-20 lg:px-8 xl:px-12"
   >
-    <RouterLink
-      class="text-2xl font-bold text-main transition-all duration-300 hover:text-main-light"
-      to="/"
-    >
-      El Andariego
+    <RouterLink class="lg:ml-7" to="/">
+      <img src="/andariego-nav.png" alt="logo" width="92" height="92" />
     </RouterLink>
     <div
       class="invisible hidden text-lg font-semibold lg:visible lg:flex lg:content-center lg:items-center lg:gap-8"

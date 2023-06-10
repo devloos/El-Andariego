@@ -107,7 +107,7 @@ function switchLocale() {
     <SmartDivider :name="t('dividers.platillo')" />
     <PlatilloSection v-motion-slide-visible-once-bottom />
 
-    <div v-motion-fade-visible-once class="mt-14 bg-light pb-4 pt-2 xl:px-10">
+    <div class="mt-14 bg-light pb-4 pt-2 xl:px-10">
       <SmartDivider :name="t('dividers.testimonial')" class="mt-8" />
       <div class="flex flex-col justify-center lg:flex-row xl:gap-10">
         <div
@@ -116,6 +116,7 @@ function switchLocale() {
           <figure
             v-for="review in testimonials"
             :key="review"
+            v-motion-slide-visible-once-bottom
             class="flex w-full max-w-sm flex-col gap-3"
           >
             <SmartImg

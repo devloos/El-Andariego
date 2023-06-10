@@ -39,6 +39,7 @@ onMounted(async () => {
     <div
       v-for="category in categories"
       :key="category.name"
+      v-motion-slide-visible-once-right
       class="min-h-fit min-w-fit cursor-pointer snap-center rounded hover:scale-[1.01]"
       @click="$router.push(`/menu/${category.name}`)"
     >
