@@ -35,7 +35,7 @@ onUnmounted(() => {
 </script>
 <template>
   <div
-    class="sticky inset-x-0 top-0 z-50 mx-auto flex h-[72px] content-center items-center justify-between bg-white/[.9] px-4 lg:h-20 lg:px-8 xl:px-12"
+    class="sticky inset-x-0 top-0 z-50 mx-auto flex h-[72px] content-center items-center justify-between bg-white/[.9] px-4 backdrop-blur-sm lg:h-20 lg:px-8 xl:px-12"
   >
     <RouterLink
       class="text-2xl font-bold text-main transition-all duration-300 hover:text-main-light"
@@ -65,9 +65,9 @@ onUnmounted(() => {
         <span class="hamburger-inner"></span>
       </span>
     </button>
-    <transition name="fade">
+    <Transition name="slide-from-right">
       <Offcanvas v-if="showOffCanvas" />
-    </transition>
+    </Transition>
   </div>
 </template>
 
@@ -80,21 +80,21 @@ onUnmounted(() => {
     visibility: hidden;
   }
 }
-.fade {
+.slide-from-right {
   &-enter-from {
-    opacity: 0;
+    translate: 100%;
   }
 
   &-enter-active {
-    transition: all 300ms ease-in;
+    transition: all 300ms ease-in-out;
   }
 
   &-leave-active {
-    transition: all 300ms ease-in;
+    transition: all 300ms ease-in-out;
   }
 
   &-leave-to {
-    opacity: 0;
+    translate: 100%;
   }
 }
 </style>
