@@ -25,12 +25,12 @@ const { t } = useI18n({ useScope: 'global' });
           class="cursor-pointer transition-all hover:font-semibold"
           @click.prevent="copyPhone"
         >
-          949-806-0123
+          (949) 806-0123
         </p>
-        <RouterLink class="hover:text-accent-dark" to="/contact">
+        <RouterLink to="/contact">
           {{ t('footer.careers') }}
         </RouterLink>
-        <RouterLink class="hover:text-accent-dark" to="/contact">Catering</RouterLink>
+        <RouterLink to="/contact">Catering</RouterLink>
       </div>
     </div>
     <div class="flex flex-col gap-3 md:order-first">
@@ -67,13 +67,3 @@ const { t } = useI18n({ useScope: 'global' });
     </div>
   </footer>
 </template>
-
-<style lang="scss" scoped>
-a {
-  transition: all 150ms linear;
-}
-
-a:hover {
-  color: #71706a;
-}
-</style>

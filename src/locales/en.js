@@ -19,6 +19,12 @@ export default {
   cta: {
     hook: 'Connect with us and stay informed!',
     info: 'Skip the wait and give us a call during business hours. Want to get notified about promotions and events sign up today!',
+    contact: {
+      open_hours: 'Open Hours',
+      hours: 'Tuesday to Sunday: 4:30 PM - 11:30 PM',
+      location: 'Location',
+      contact: 'Contact',
+    },
   },
   form: {
     email: 'Email',

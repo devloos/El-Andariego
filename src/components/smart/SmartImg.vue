@@ -25,6 +25,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  loading: {
+    type: String,
+    default: 'lazy',
+  },
 });
 
 const srcset = computed(() => {
@@ -34,11 +38,12 @@ const srcset = computed(() => {
 
 <template>
   <img
-    loading="lazy"
+    :loading="loading"
     :src="placeholder"
     :srcset="srcset"
     :width="width"
     :height="height"
     :style="{ 'background-color': isTransparent ? 'transparent' : 'lightgray' }"
+    alt=""
   />
 </template>

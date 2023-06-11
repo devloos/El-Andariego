@@ -100,6 +100,7 @@ function switchLocale() {
           width="1200"
           height="1200"
           :is-transparent="true"
+          loading="eager"
         />
       </div>
     </div>
@@ -107,7 +108,7 @@ function switchLocale() {
     <SmartDivider :name="t('dividers.platillo')" />
     <PlatilloSection v-motion-slide-visible-once-bottom />
 
-    <div class="mt-14 bg-light pb-4 pt-2 xl:px-10">
+    <div class="testimonials mt-14 pb-4 pt-2 xl:px-10">
       <SmartDivider :name="t('dividers.testimonial')" class="mt-8" />
       <div class="flex flex-col justify-center lg:flex-row xl:gap-10">
         <div
@@ -150,7 +151,7 @@ function switchLocale() {
     </div>
 
     <SmartDivider :name="t('dividers.categories')" />
-    <CategorySection v-motion-fade-visible-once />
+    <CategorySection />
 
     <SmartDivider :name="t('dividers.cta')" />
     <CallToAction v-motion-slide-visible-once-bottom />
@@ -158,11 +159,21 @@ function switchLocale() {
 </template>
 
 <style lang="scss" scoped>
-a {
-  transition: all 150ms linear;
-}
-
-a:hover {
-  color: #71706a;
+.testimonials {
+  background: rgb(118, 7, 10);
+  background: linear-gradient(
+    332deg,
+    rgba(118, 7, 10, 1) 0%,
+    rgba(212, 182, 182, 1) 0%,
+    rgba(242, 238, 237, 1) 30%,
+    rgba(246, 245, 244, 1) 40%,
+    rgba(247, 247, 246, 1) 45%,
+    rgba(248, 248, 247, 1) 50%,
+    rgba(246, 247, 245, 1) 55%,
+    rgba(245, 246, 244, 1) 60%,
+    rgba(242, 244, 242, 1) 70%,
+    rgba(195, 208, 199, 1) 100%,
+    rgba(26, 83, 46, 1) 100%
+  );
 }
 </style>

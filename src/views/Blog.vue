@@ -54,7 +54,7 @@ onMounted(async () => {
         :to="`/blog/${post._id}`"
         class="inline-block cursor-pointer hover:opacity-75"
       >
-        <h1 class="text-xl font-semibold hover:text-accent-dark lg:text-2xl">
+        <h1 class="text-xl font-semibold hover:text-main lg:text-2xl">
           {{ post.title }}
         </h1>
       </RouterLink>
