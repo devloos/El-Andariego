@@ -99,8 +99,8 @@ function switchLocale() {
           alt="hero"
           width="1200"
           height="1200"
-          :is-transparent="true"
           loading="eager"
+          is-transparent
         />
       </div>
     </div>
