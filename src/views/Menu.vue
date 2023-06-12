@@ -47,12 +47,10 @@ onMounted(async () => {
 watch(
   route,
   async (to) => {
-    let url = null;
-    if (to.params?.category === 'Platillos') {
-      url = '/api/menu/platillos';
-    } else {
-      url = `/api/menu/items/${to.params?.category}`;
-    }
+    const category = to.params?.category;
+    const url = `/api/menu/${
+      category === 'Platillos' ? 'Platillos' : `items/${category}`
+    }`;
 
     try {
       isLoading.value = true;
