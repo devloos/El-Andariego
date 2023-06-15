@@ -1,21 +1,23 @@
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { copyPhone } from '@/assets/utility';
 import { useI18n } from 'vue-i18n';
 import SmartLinks from '@/components/smart/SmartLinks.vue';
 import Offcanvas from '@/components/nav/Offcanvas.vue';
+import { useWindowSize } from '@vueuse/core';
 
 const { t } = useI18n({ useScope: 'global' });
 
 const showOffCanvas = ref(false);
 const route = useRoute();
+const { width: windowWidth } = useWindowSize();
 
-function onResize() {
-  if (window.innerWidth > 800) {
+watch(windowWidth, () => {
+  if (windowWidth.value >= 1024) {
     showOffCanvas.value = false;
   }
-}
+});
 
 watch(route, () => {
   showOffCanvas.value = false;
@@ -23,14 +25,6 @@ watch(route, () => {
 
 watch(showOffCanvas, (value) => {
   document.body.style.overflow = value ? 'hidden' : 'visible';
-});
-
-onMounted(() => {
-  window.addEventListener('resize', onResize);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('resize', onResize);
 });
 </script>
 <template>
@@ -62,9 +56,11 @@ onUnmounted(() => {
         <span class="hamburger-inner"></span>
       </span>
     </button>
-    <Transition name="slide-from-right">
-      <Offcanvas v-if="showOffCanvas" />
-    </Transition>
+    <Teleport to="body">
+      <Transition name="slide-from-right">
+        <Offcanvas v-if="showOffCanvas" />
+      </Transition>
+    </Teleport>
   </div>
 </template>
 

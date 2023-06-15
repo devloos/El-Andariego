@@ -11,7 +11,7 @@ import testimonials from '@/assets/constants/testimonials.js';
 
 const { t, locale } = useI18n({ useScope: 'global' });
 const localePreference = useStorage('locale', 'en');
-const active = ref(localePreference.value === 'es');
+const isEsLocale = ref(localePreference.value === 'es');
 
 function inWorkSchedule() {
   const now = new Date().getHours() * 60 + new Date().getMinutes();
@@ -36,8 +36,8 @@ const schedule = computed(() => {
 });
 
 function switchLocale() {
-  active.value = !active.value;
-  const preference = active.value ? 'es' : 'en';
+  isEsLocale.value = !isEsLocale.value;
+  const preference = isEsLocale.value ? 'es' : 'en';
   locale.value = preference;
   localePreference.value = preference;
 }
@@ -81,16 +81,14 @@ function switchLocale() {
           </div>
           <div class="flex flex-col items-center justify-center">
             <button
-              class="mx-3 flex h-8 w-16 items-center rounded-full px-1"
-              :class="active ? 'bg-main' : 'bg-accent'"
+              class="mx-3 flex h-9 w-[68px] items-center rounded-full bg-coal px-1"
               @click="switchLocale"
             >
-              <div
-                class="h-6 w-8 transform rounded-full bg-white font-bold uppercase shadow-md transition-all"
-                :class="{ 'translate-x-6': active }"
-              >
-                {{ locale }}
-              </div>
+              <img
+                :src="isEsLocale ? '/mexico.png' : '/usa.png'"
+                class="h-7 w-7 transform rounded-full bg-white uppercase shadow-md transition-all"
+                :class="{ 'translate-x-8': isEsLocale }"
+              />
             </button>
           </div>
         </div>
