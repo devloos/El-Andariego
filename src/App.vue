@@ -22,7 +22,7 @@ locale.value = localePreference.value;
 
 <template>
   <AndariegoNav />
-  <RouterView class="router-link" />
+  <RouterView class="router-view" />
   <AndariegoFooter />
 </template>
 
@@ -37,7 +37,7 @@ a:hover {
 </style>
 
 <style lang="scss" scoped>
-.router-link {
+.router-view {
   min-height: calc(100vh - 460px);
 }
 </style>
