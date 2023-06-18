@@ -9,13 +9,13 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@vueuse/core": "^10.1.2",
+    "@vueuse/core": "^10.2.0",
     "@vueuse/head": "^1.1.26",
     "@vueuse/motion": "^2.0.0",
     "axios": "^1.4.0",
     "vue": "^3.2.13",
     "vue-i18n": "^9.2.2",
-    "vue-router": "^4.2.1",
+    "vue-router": "^4.2.2",
     "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
@@ -28,7 +28,7 @@
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
-    "sass": "^1.62.1",
+    "sass": "^1.63.4",
     "tailwindcss": "^3.3.2",
     "vite": "^4.3.9",
     "vite-plugin-eslint": "^1.8.1"
