@@ -35,7 +35,7 @@ onMounted(async () => {
 <template>
   <DetailSkeleton v-if="isLoading" />
   <div v-else class="container flex flex-col items-center px-3">
-    <h2 class="my-5 text-center text-2xl font-bold text-main">
+    <h2 class="my-5 text-center text-2xl font-bold text-primary-500">
       {{ post.title }}
     </h2>
     <div>

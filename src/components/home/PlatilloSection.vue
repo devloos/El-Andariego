@@ -41,11 +41,11 @@ onMounted(async () => {
           <p class="text-lg font-bold">{{ platillo.name }}</p>
         </div>
         <div class="flex items-center gap-3">
-          <i class="fa-solid fa-money-bill text-main"></i>
+          <i class="fa-solid fa-money-bill text-primary-500"></i>
           <p class="font-semibold">{{ '$' + platillo.price }}</p>
         </div>
         <div class="flex items-center gap-3">
-          <i class="fa-solid fa-heart text-minor"></i>
+          <i class="fa-solid fa-heart text-alternate-500"></i>
           <p class="font-semibold">{{ platillo.likes }}</p>
         </div>
       </div>

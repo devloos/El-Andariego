@@ -60,7 +60,7 @@ async function formSubmitted() {
 
 <template>
   <div class="container">
-    <h4 class="mb-8 mt-4 text-center text-xl font-bold text-main">
+    <h4 class="mb-8 mt-4 text-center text-xl font-bold text-primary-500">
       Contact El Andariego
     </h4>
     <div
@@ -111,7 +111,7 @@ async function formSubmitted() {
         </div>
         <button
           type="submit"
-          class="rounded bg-main px-4 py-2 text-white hover:bg-main-light"
+          class="rounded bg-primary-500 px-4 py-2 text-white hover:bg-primary-400"
         >
           {{ t('form.submit') }}
         </button>

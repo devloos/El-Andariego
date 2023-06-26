@@ -39,7 +39,7 @@ watch(showOffCanvas, (value) => {
     >
       <SmartLinks />
       <button
-        class="rounded-md bg-main px-6 py-3 text-base text-gray-50 transition-all duration-300 hover:bg-main-light"
+        class="rounded-md bg-primary-500 px-6 py-3 text-base text-gray-50 transition-all duration-300 hover:bg-primary-400"
         type="button"
         @click="copyPhone"
       >

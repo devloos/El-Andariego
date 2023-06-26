@@ -60,7 +60,7 @@ function switchLocale() {
             </p>
           </div>
           <button
-            class="rounded-md bg-main px-7 py-3 font-semibold text-gray-50 transition-all duration-300 hover:bg-main-light lg:text-lg"
+            class="rounded-md bg-primary-500 px-7 py-3 font-semibold text-gray-50 transition-all duration-300 hover:bg-primary-400 lg:text-lg"
             @click="$router.push('/menu')"
           >
             {{ t('home.view_menu') }}
@@ -81,7 +81,7 @@ function switchLocale() {
           </div>
           <div class="flex flex-col items-center justify-center">
             <button
-              class="mx-3 flex h-9 w-[68px] items-center rounded-full bg-zinc-600 px-1"
+              class="mx-3 flex h-9 w-[68px] items-center rounded-full bg-coal-400 px-1"
               @click="switchLocale"
             >
               <img
@@ -131,7 +131,7 @@ function switchLocale() {
             <blockquote class="font-medium">
               {{ review.quote }}
             </blockquote>
-            <p class="text-sm text-main">- {{ review.name }}</p>
+            <p class="text-sm text-primary-500">- {{ review.name }}</p>
           </figure>
         </div>
         <div
