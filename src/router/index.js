@@ -21,6 +21,7 @@ const router = createRouter({
     },
     {
       path: '/menu/:category',
+      name: 'Menu',
       component: Menu,
     },
     {

@@ -47,7 +47,7 @@ watch(showOffCanvas, (value) => {
       </button>
     </div>
     <button
-      class="hamburger hamburger--squeeze"
+      class="hamburger hamburger--squeeze lg:!hidden"
       :class="{ 'is-active': showOffCanvas }"
       type="button"
       @click="showOffCanvas = !showOffCanvas"
@@ -67,12 +67,6 @@ watch(showOffCanvas, (value) => {
 <style lang="scss" scoped>
 @import '@/assets/scss/hamburgers.scss';
 
-@media (min-width: 1024px) {
-  .hamburger {
-    display: none;
-    visibility: hidden;
-  }
-}
 .slide-from-right {
   &-enter-from {
     translate: 100%;
