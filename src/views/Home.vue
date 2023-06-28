@@ -106,7 +106,7 @@ function switchLocale() {
     </div>
 
     <SmartDivider :name="t('dividers.platillo')" />
-    <PlatilloSection v-motion-slide-visible-once-bottom />
+    <PlatilloSection />
 
     <div class="testimonials mt-14 pb-4 pt-2 xl:px-10">
       <SmartDivider :name="t('dividers.testimonial')" class="mt-8" />
