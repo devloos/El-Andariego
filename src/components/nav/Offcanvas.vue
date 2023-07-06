@@ -26,7 +26,7 @@ const { t } = useI18n({ useScope: 'global' });
         </a>
       </div>
       <button
-        class="rounded-md bg-primary-500 px-6 py-3 text-xl text-gray-50 transition-all duration-300 hover:bg-primary-400"
+        class="rounded-md bg-primary px-6 py-3 text-xl text-gray-50 transition-all duration-300 hover:bg-primary-400"
         type="button"
         @click="copyPhone"
       >

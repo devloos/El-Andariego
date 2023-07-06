@@ -49,7 +49,7 @@ onMounted(async () => {
         :width="category.images[0].width"
         :height="category.images[0].height"
       />
-      <p class="rounded-b bg-light-500 p-5 text-center font-bold">{{ category.name }}</p>
+      <p class="rounded-b bg-ash p-5 text-center font-bold">{{ category.name }}</p>
     </div>
   </div>
 </template>

@@ -22,7 +22,7 @@ useHead({
     <p>{{ t('error.message') }}</p>
     <RouterLink
       to="/"
-      class="mt-5 cursor-pointer rounded bg-primary-500 px-4 py-2 text-white hover:bg-primary-400"
+      class="mt-5 cursor-pointer rounded bg-primary px-4 py-2 text-white hover:bg-primary-400"
     >
       {{ t('error.homepage') }}
     </RouterLink>

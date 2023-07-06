@@ -76,16 +76,16 @@ watch(
   <MenuSkeleton v-if="isLoading" />
   <div v-else>
     <div class="container mt-5 px-2">
-      <h1 class="mb-6 text-center text-xl font-bold text-primary-500 lg:text-2xl">
+      <h1 class="mb-6 text-center text-xl font-bold text-primary lg:text-2xl">
         {{ t('link.menu') }}
       </h1>
       <div class="scroll-hidden flex gap-2 overflow-scroll px-1 py-4 lg:justify-center">
         <p>|</p>
         <div v-for="category in categories" :key="category.name" class="flex gap-2">
           <RouterLink
-            class="cursor-pointer hover:text-alternate-500"
+            class="cursor-pointer hover:text-alternate"
             :class="{
-              'font-bold text-alternate-500 underline':
+              'font-bold text-alternate underline':
                 `${category.name}` === route.params.category,
             }"
             :to="`/menu/${category.name}`"

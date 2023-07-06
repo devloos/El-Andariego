@@ -13,7 +13,7 @@ defineProps({
   >
     <div v-for="item in items" :key="item.name" class="relative">
       <div class="mb-4 flex justify-between">
-        <p class="font-bold text-primary-500">{{ item.name }}</p>
+        <p class="font-bold text-primary">{{ item.name }}</p>
         <p>{{ `($${item.price})` }}</p>
       </div>
       <p class="mb-5 font-semibold">{{ item.content }}</p>

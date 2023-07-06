@@ -70,7 +70,7 @@ onMounted(async () => {
           <p>{{ post.date }}</p>
         </div>
         <RouterLink :to="`/blog/${post._id}`" class="cursor-pointer">
-          <p class="text-primary-500 underline hover:text-primary-600">
+          <p class="text-primary underline hover:text-primary-600">
             {{ t('blog.read_more') }}
           </p>
         </RouterLink>

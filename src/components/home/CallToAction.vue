@@ -73,7 +73,7 @@ async function signup() {
             required
           />
           <button
-            class="rounded-r bg-alternate-500 px-4 py-[8.2px] text-white hover:bg-alternate-400"
+            class="rounded-r bg-alternate px-4 py-[8.2px] text-white hover:bg-alternate-400"
           >
             {{ t('form.sign_up') }}
           </button>

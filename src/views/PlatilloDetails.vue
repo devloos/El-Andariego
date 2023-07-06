@@ -60,7 +60,7 @@ async function toggleLiked() {
 <template>
   <DetailSkeleton v-if="isLoading" />
   <div v-else class="container mt-2 flex flex-col justify-center">
-    <h3 class="mb-5 text-center text-2xl font-bold text-primary-500">
+    <h3 class="mb-5 text-center text-2xl font-bold text-primary">
       {{ platillo.name }}
     </h3>
     <div class="relative mx-auto mb-8 max-w-5xl">
@@ -71,13 +71,13 @@ async function toggleLiked() {
         :height="platillo.images[1].height"
       />
       <button
-        class="position absolute flex items-center justify-around gap-6 rounded-full bg-white px-4 py-2 shadow-lg hover:bg-light-500"
+        class="position absolute flex items-center justify-around gap-6 rounded-full bg-white px-4 py-2 shadow-lg hover:bg-ash"
         type="button"
         @click="toggleLiked"
       >
         <i
           class="fa-solid fa-heart"
-          :class="userLiked ? 'text-alternate-500' : 'text-black'"
+          :class="userLiked ? 'text-alternate' : 'text-black'"
         ></i>
         <p class="font-semibold">{{ platillo.likes }}</p>
       </button>
