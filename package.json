@@ -15,7 +15,7 @@
     "axios": "^1.4.0",
     "vue": "^3.2.13",
     "vue-i18n": "^9.2.2",
-    "vue-router": "^4.2.2",
+    "vue-router": "^4.2.4",
     "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
@@ -26,12 +26,12 @@
     "autoprefixer": "^10.4.14",
     "eslint": "^8.44.0",
     "eslint-plugin-vue": "^9.15.1",
-    "postcss": "^8.4.24",
+    "postcss": "^8.4.25",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "sass": "^1.63.6",
     "tailwindcss": "^3.3.2",
-    "vite": "^4.3.9",
+    "vite": "^4.4.1",
     "vite-plugin-eslint": "^1.8.1"
   }
 }
