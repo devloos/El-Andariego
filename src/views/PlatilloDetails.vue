@@ -36,7 +36,7 @@ const userLiked = computed(() => platillosLiked.value.includes(platillo.value.na
 async function toggleLiked() {
   if (userLiked.value) {
     platillosLiked.value = platillosLiked.value.filter(
-      (name) => name !== platillo.value.name
+      (name) => name !== platillo.value.name,
     );
   } else {
     platillosLiked.value.push(platillo.value.name);

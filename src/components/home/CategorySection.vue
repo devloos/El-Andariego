@@ -22,7 +22,7 @@ onMounted(async () => {
     });
 
     categories.value = res.data.filter((category) =>
-      TOP_CATEGORIES.includes(category.name)
+      TOP_CATEGORIES.includes(category.name),
     );
 
     categories.value.sort((a, b) => a.priority - b.priority);
