@@ -85,8 +85,7 @@ function switchLocale() {
           </div>
           <div class="flex flex-col items-center justify-center">
             <button
-              class="mx-3 flex h-9 w-[68px] items-center rounded-full px-1"
-              :class="isEsLocale ? 'bg-primary-300' : 'bg-alternate-300'"
+              class="mx-3 flex h-9 w-[68px] items-center rounded-full bg-coal-100 px-1"
               @click="switchLocale"
             >
               <img
