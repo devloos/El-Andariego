@@ -1,14 +1,55 @@
 <script setup>
-defineProps({
-  items: {
-    type: Array,
+import { ref, watch } from 'vue';
+import { prettyContent } from '@/assets/js/utility';
+import { useAxios } from '@/composables/axios.js';
+import { useToast } from '@/composables/toast.js';
+import ItemListSkeleton from '@/components/skeletons/ItemListSkeleton.vue';
+
+const props = defineProps({
+  category: {
+    type: String,
     required: true,
   },
 });
+
+const items = ref([]);
+const isLoading = ref(true);
+
+watch(
+  () => props.category,
+  async () => {
+    if (!props.category) {
+      return;
+    }
+
+    const url = `/api/menu/${
+      props.category === 'Platillos' ? 'Platillos' : `items/${props.category}`
+    }`;
+
+    try {
+      isLoading.value = true;
+      const response = await useAxios({
+        url,
+      });
+
+      items.value = response.data.map((el) => ({
+        ...el,
+        content: prettyContent(el.content),
+      }));
+    } catch (e) {
+      useToast('Failed to fetch items.', { type: 'error' });
+    } finally {
+      isLoading.value = false;
+    }
+  },
+  { immediate: true },
+);
 </script>
 
 <template>
+  <ItemListSkeleton v-if="isLoading" />
   <div
+    v-else
     class="container mx-auto mt-2 grid grid-cols-1 gap-5 px-4 pt-4 sm:grid-cols-2 md:px-8 lg:grid-cols-3 xl:gap-8 xl:px-32"
   >
     <div v-for="item in items" :key="item.name" class="relative">

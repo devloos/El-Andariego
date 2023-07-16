@@ -17,11 +17,12 @@ const router = createRouter({
     },
     {
       path: '/menu',
-      redirect: '/menu/Platillos',
-    },
-    {
-      path: '/menu/:category',
       name: 'Menu',
+      beforeEnter(to) {
+        if (!to.hash) {
+          to.hash = '#Platillos';
+        }
+      },
       component: Menu,
     },
     {

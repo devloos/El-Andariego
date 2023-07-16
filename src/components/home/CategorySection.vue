@@ -40,7 +40,7 @@ onMounted(async () => {
       v-for="category in categories"
       :key="category.name"
       class="cursor-pointer rounded hover:scale-[1.01]"
-      @click="$router.push(`/menu/${category.name}`)"
+      @click="$router.push(`/menu/#${category.name}`)"
     >
       <SmartImg
         :src="category.images[0].url"
