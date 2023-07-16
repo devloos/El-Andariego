@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router';
 import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
-import { formatMongoDate } from '@/assets/utility.js';
+import { formatMongoDate } from '@/assets/js/utility.js';
 import { useI18n } from 'vue-i18n';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import BlogSkeleton from '@/components/skeletons/BlogSkeleton.vue';
