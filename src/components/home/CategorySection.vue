@@ -44,7 +44,7 @@ onMounted(async () => {
     >
       <SmartImg
         :src="category.images[0].url"
-        class="max-w-[380px] rounded-t"
+        class="max-w-xs rounded-t sm:max-w-sm"
         :alt="category.images[0].title"
         :width="category.images[0].width"
         :height="category.images[0].height"
