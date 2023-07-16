@@ -112,7 +112,7 @@ function switchLocale() {
     <SmartDivider :name="t('dividers.platillo')" />
     <PlatilloSection />
 
-    <div class="testimonials mt-14 pb-4 pt-2 xl:px-10">
+    <div class="mex-gradient mt-14 pb-4 pt-2 xl:px-10">
       <SmartDivider :name="t('dividers.testimonial')" class="mt-8" />
       <div class="flex flex-col justify-center lg:flex-row xl:gap-10">
         <div
@@ -161,23 +161,3 @@ function switchLocale() {
     <CallToAction v-motion-slide-visible-once-bottom />
   </div>
 </template>
-
-<style lang="scss" scoped>
-.testimonials {
-  background: rgb(118, 7, 10);
-  background: linear-gradient(
-    332deg,
-    rgba(118, 7, 10, 1) 0%,
-    rgba(212, 182, 182, 1) 0%,
-    rgba(242, 238, 237, 1) 30%,
-    rgba(246, 245, 244, 1) 40%,
-    rgba(247, 247, 246, 1) 45%,
-    rgba(248, 248, 247, 1) 50%,
-    rgba(246, 247, 245, 1) 55%,
-    rgba(245, 246, 244, 1) 60%,
-    rgba(242, 244, 242, 1) 70%,
-    rgba(195, 208, 199, 1) 100%,
-    rgba(26, 83, 46, 1) 100%
-  );
-}
-</style>

@@ -4,7 +4,7 @@ import { ref, onMounted, computed } from 'vue';
 import { useAxios } from '@/composables/axios';
 import { useToast } from '@/composables/toast';
 import { useRoute } from 'vue-router';
-import { prettyContent } from '@/assets/utility';
+import { prettyContent } from '@/assets/js/utility';
 import { useStorage } from '@vueuse/core';
 import DetailSkeleton from '@/components/skeletons/DetailSkeleton.vue';
 

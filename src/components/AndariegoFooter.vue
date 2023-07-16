@@ -1,5 +1,5 @@
 <script setup>
-import { copyPhone } from '@/assets/utility';
+import { copyPhone } from '@/assets/js/utility';
 import { useI18n } from 'vue-i18n';
 import SmartLinks from '@/components/smart/SmartLinks.vue';
 

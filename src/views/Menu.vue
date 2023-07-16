@@ -4,7 +4,7 @@ import { ref, onMounted, watch } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { RouterLink } from 'vue-router';
-import { prettyContent } from '@/assets/utility';
+import { prettyContent } from '@/assets/js/utility';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import ItemList from '@/components/ItemList.vue';

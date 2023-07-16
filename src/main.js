@@ -9,9 +9,9 @@ import Toast from 'vue-toastification';
 import en from '@/locales/en.js';
 import es from '@/locales/es.js';
 
-import '@/assets/css/styles.css';
+import '@/assets/index.css';
 import 'vue-toastification/dist/index.css';
-import '@/assets/css/vue-toast-override.css';
+import '@/assets/overrides.css';
 
 const app = createApp(App);
 const head = createHead();

@@ -3,7 +3,7 @@ import { useToast } from '@/composables/toast.js';
 import { useAxios } from '@/composables/axios.js';
 import { useI18n } from 'vue-i18n';
 import { ref } from 'vue';
-import { copyPhone } from '@/assets/utility';
+import { copyPhone } from '@/assets/js/utility';
 
 const { t } = useI18n({ useScope: 'global' });
 const email = ref('');
@@ -35,7 +35,7 @@ async function signup() {
 <template>
   <div class="flex justify-center px-2">
     <div
-      class="cta flex flex-col items-center justify-between gap-8 rounded p-10 px-3 text-center shadow-lg sm:flex-row md:max-w-3xl md:px-6 lg:px-10 xl:max-w-4xl"
+      class="mex-gradient flex flex-col items-center justify-between gap-8 rounded p-10 px-3 text-center shadow-lg sm:flex-row md:max-w-3xl md:px-6 lg:px-10 xl:max-w-4xl"
     >
       <div class="text-center sm:w-1/2">
         <div class="mb-4">
@@ -82,23 +82,3 @@ async function signup() {
     </div>
   </div>
 </template>
-
-<style scoped>
-.cta {
-  background: rgb(118, 7, 10);
-  background: linear-gradient(
-    332deg,
-    rgba(118, 7, 10, 1) 0%,
-    rgba(212, 182, 182, 1) 0%,
-    rgba(242, 238, 237, 1) 30%,
-    rgba(246, 245, 244, 1) 40%,
-    rgba(247, 247, 246, 1) 45%,
-    rgba(248, 248, 247, 1) 50%,
-    rgba(246, 247, 245, 1) 55%,
-    rgba(245, 246, 244, 1) 60%,
-    rgba(242, 244, 242, 1) 70%,
-    rgba(195, 208, 199, 1) 100%,
-    rgba(26, 83, 46, 1) 100%
-  );
-}
-</style>

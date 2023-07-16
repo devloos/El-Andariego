@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { copyPhone } from '@/assets/utility';
+import { copyPhone } from '@/assets/js/utility';
 import { useI18n } from 'vue-i18n';
 import SmartLinks from '@/components/smart/SmartLinks.vue';
 import Offcanvas from '@/components/nav/Offcanvas.vue';
@@ -65,7 +65,7 @@ watch(showOffCanvas, (value) => {
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/hamburgers.scss';
+@import '@/assets/hamburgers.scss';
 
 .slide-from-right {
   &-enter-from {

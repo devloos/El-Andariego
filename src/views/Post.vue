@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
-import { formatMongoDate } from '@/assets/utility';
+import { formatMongoDate } from '@/assets/js/utility';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import DetailSkeleton from '@/components/skeletons/DetailSkeleton.vue';
 
