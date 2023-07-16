@@ -7,8 +7,8 @@ export default {
   },
   hours: {
     closed: 'Cerrado, Apertura Martes a las 4:30 PM',
-    opening: 'Abriendo en San Juan Capistrano a las 4:30 PM',
-    open: 'Abierto en San Juan Capistrano hasta las 11:30 PM',
+    opening: 'Abriendo en San Juan {location} a las 4:30 PM',
+    open: 'Abierto en San Juan {location} hasta las 11:30 PM',
   },
   dividers: {
     platillo: 'Nuestros Platillos de Especialidad',

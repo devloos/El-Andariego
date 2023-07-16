@@ -24,15 +24,18 @@ function inWorkSchedule() {
 const schedule = computed(() => {
   const day = new Date().getDay();
   const MONDAY = 1;
+  const SATURDAY = 6;
 
   if (day === MONDAY) {
     return t('hours.closed');
   }
 
+  const location = day === SATURDAY ? 'Village' : 'Capistrano';
+
   if (inWorkSchedule()) {
-    return t('hours.open');
+    return t('hours.open', { location });
   } else {
-    return t('hours.opening');
+    return t('hours.opening', { location });
   }
 });
 

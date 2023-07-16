@@ -7,8 +7,8 @@ export default {
   },
   hours: {
     closed: 'Closed, Opening Tuesday at 4:30 PM',
-    opening: 'Opening in San Juan Capistrano at 4:30 PM',
-    open: 'Open in San Juan Capistrano until 11:30 PM',
+    opening: 'Opening in San Juan {location} at 4:30 PM',
+    open: 'Open in San Juan {location} until 11:30 PM',
   },
   dividers: {
     platillo: 'Our Specialty Platillos',
