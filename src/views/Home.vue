@@ -8,6 +8,7 @@ import CallToAction from '@/components/home/CallToAction.vue';
 import SmartDivider from '@/components/smart/SmartDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import testimonials from '@/assets/constants/testimonials.js';
+import gallery from '../assets/constants/gallery';
 
 const { t, locale } = useI18n({ useScope: 'global' });
 const localePreference = useStorage('locale', 'en');
@@ -139,10 +140,10 @@ function switchLocale() {
           class="my-5 grid grid-cols-3 gap-2 rounded px-3 lg:grid-cols-2 xl:grid-cols-3"
         >
           <SmartImg
-            v-for="index in 6"
-            :key="index"
+            v-for="src in gallery"
+            :key="src"
             class="w-full max-w-[350px] rounded"
-            :src="`/andariego/home/gallery/gallery-${index}.jpg`"
+            :src="src"
             alt="Gallery Image"
             width="800"
             height="800"
