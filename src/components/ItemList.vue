@@ -4,6 +4,7 @@ import { prettyContent } from '@/assets/js/utility';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import ItemListSkeleton from '@/components/skeletons/ItemListSkeleton.vue';
+import { useI18n } from 'vue-i18n';
 
 const props = defineProps({
   category: {
@@ -14,6 +15,7 @@ const props = defineProps({
 
 const items = ref([]);
 const isLoading = ref(true);
+const { locale } = useI18n({ useScope: 'global' });
 
 watch(
   () => props.category,
@@ -34,7 +36,7 @@ watch(
 
       items.value = response.data.map((el) => ({
         ...el,
-        content: prettyContent(el.content),
+        content: prettyContent(el.content[locale.value], locale.value),
       }));
     } catch (e) {
       useToast('Failed to fetch items.', { type: 'error' });

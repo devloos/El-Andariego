@@ -18,12 +18,14 @@ export function formatMongoDate(date) {
   });
 }
 
-export function prettyContent(content = []) {
+export function prettyContent(content = [], locale) {
   if (content.length === 1) {
     return content[0];
   }
 
+  const separator = locale === 'es' ? ' y' : ' and';
+
   const res = content.join(', ');
   const index = res.lastIndexOf(',');
-  return res.slice(0, index + 1) + ' y' + res.slice(index + 1);
+  return res.slice(0, index + 1) + separator + res.slice(index + 1);
 }

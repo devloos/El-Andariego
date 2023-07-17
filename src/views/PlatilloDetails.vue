@@ -7,11 +7,13 @@ import { useRoute } from 'vue-router';
 import { prettyContent } from '@/assets/js/utility';
 import { useStorage } from '@vueuse/core';
 import DetailSkeleton from '@/components/skeletons/DetailSkeleton.vue';
+import { useI18n } from 'vue-i18n';
 
 const PLATILLOS_KEY = 'platillos-liked';
 
 const route = useRoute();
 const platillosLiked = useStorage(PLATILLOS_KEY, []);
+const { locale } = useI18n({ useScope: 'global' });
 
 const platillo = ref(null);
 const isLoading = ref(true);
@@ -23,7 +25,10 @@ onMounted(async () => {
     });
 
     platillo.value = response.data;
-    platillo.value.content = prettyContent(platillo.value.content);
+    platillo.value.content = prettyContent(
+      platillo.value.content[locale.value],
+      locale.value,
+    );
   } catch (e) {
     useToast('Failed to fetch platillo.', { type: 'error' });
   } finally {

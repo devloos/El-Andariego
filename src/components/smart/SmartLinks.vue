@@ -6,7 +6,7 @@ const { t } = useI18n({ useScope: 'global' });
 
 <template>
   <RouterLink to="/" active-class="text-primary">{{ t('link.home') }}</RouterLink>
-  <RouterLink to="/menu" :class="{ 'text-primary': $route.name === 'Menu' }">
+  <RouterLink to="/menu/#Platillos" :class="{ 'text-primary': $route.name === 'Menu' }">
     {{ t('link.menu') }}
   </RouterLink>
   <RouterLink to="/blog" active-class="text-primary">Blog</RouterLink>
