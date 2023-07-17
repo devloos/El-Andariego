@@ -5,6 +5,7 @@ import { useToast } from '@/composables/toast.js';
 import { formatMongoDate } from '@/assets/js/utility';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import DetailSkeleton from '@/components/skeletons/DetailSkeleton.vue';
+import { useI18n } from 'vue-i18n';
 
 const props = defineProps({
   id: {
@@ -15,6 +16,7 @@ const props = defineProps({
 
 const post = ref(null);
 const isLoading = ref(true);
+const { locale } = useI18n({ useScope: 'global' });
 
 onMounted(async () => {
   try {
@@ -52,7 +54,7 @@ onMounted(async () => {
       />
     </div>
     <p class="my-5 max-w-2xl text-center lg:text-xl">
-      {{ post.description }}
+      {{ post.description[locale] }}
     </p>
   </div>
 </template>
