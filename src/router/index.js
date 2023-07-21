@@ -47,7 +47,11 @@ const router = createRouter({
       component: Error,
     },
   ],
-  scrollBehavior() {
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash && from.hash) {
+      return savedPosition;
+    }
+
     return { top: 0 };
   },
 });
