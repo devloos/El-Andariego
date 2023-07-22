@@ -66,7 +66,7 @@ async function toggleLiked() {
   <DetailSkeleton v-if="isLoading" />
   <div v-else class="container mt-2 flex flex-col justify-center">
     <h3 class="mb-5 text-center text-2xl font-bold text-primary">
-      {{ platillo.name }}
+      {{ `#${platillo.priority} ${platillo.name}` }}
     </h3>
     <div class="relative mx-auto mb-8 max-w-5xl">
       <SmartImg

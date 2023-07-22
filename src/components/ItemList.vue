@@ -46,6 +46,14 @@ watch(
   },
   { immediate: true },
 );
+
+function getItemName(item) {
+  if (item.priority) {
+    return `#${item.priority} ${item.name}`;
+  }
+
+  return item.name;
+}
 </script>
 
 <template>
@@ -57,7 +65,7 @@ watch(
     <div v-for="item in items" :key="item.name" class="relative">
       <div class="mb-4 flex justify-between">
         <p class="text-lg font-semibold uppercase tracking-wide text-primary">
-          {{ item.name }}
+          {{ getItemName(item) }}
         </p>
         <p>{{ `($${item.price})` }}</p>
       </div>

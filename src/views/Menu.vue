@@ -74,25 +74,26 @@ watch(
         height="922"
         alt="menu header"
       />
-      <img src="" alt="" />
       <div class="container mb-5 mt-6 px-2">
         <div
           class="no-scrollbar flex gap-2 overflow-scroll px-1 py-2 text-lg lg:justify-center"
         >
           <p>|</p>
-          <div
-            v-for="category in categoriesToDisplay"
-            :key="category.name"
-            class="flex gap-2"
-          >
-            <RouterLink
-              class="cursor-pointer hover:text-alternate"
-              :to="`/menu/#${category.name}`"
+          <TransitionGroup name="list">
+            <div
+              v-for="category in categoriesToDisplay"
+              :key="category.name"
+              class="flex gap-2"
             >
-              {{ category.name }}
-            </RouterLink>
-            <p>|</p>
-          </div>
+              <RouterLink
+                class="cursor-pointer hover:text-alternate"
+                :to="`/menu/#${category.name}`"
+              >
+                {{ category.name }}
+              </RouterLink>
+              <p>|</p>
+            </div>
+          </TransitionGroup>
         </div>
         <h1
           class="mt-6 text-center text-2xl font-bold tracking-wider text-alternate lg:text-2xl"
@@ -112,6 +113,23 @@ watch(
 
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+.list {
+  &-move,
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.5s ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-leave-active {
+    position: absolute;
   }
 }
 </style>
