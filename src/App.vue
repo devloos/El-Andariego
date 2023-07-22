@@ -22,7 +22,11 @@ locale.value = localePreference.value;
 
 <template>
   <AndariegoNav />
-  <RouterView class="router-view" />
+  <RouterView v-slot="{ Component }" class="router-view">
+    <Transition name="fade" mode="out-in">
+      <component :is="Component" />
+    </Transition>
+  </RouterView>
   <AndariegoFooter />
 </template>
 
@@ -39,5 +43,17 @@ a:hover {
 <style lang="scss" scoped>
 .router-view {
   min-height: calc(100vh - 460px);
+}
+
+.fade {
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter-active,
+  &-leave-active {
+    transition: all 200ms ease-in-out;
+  }
 }
 </style>
