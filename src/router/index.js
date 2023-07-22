@@ -48,11 +48,14 @@ const router = createRouter({
     },
   ],
   scrollBehavior(to, from, savedPosition) {
-    if (to.hash && from.hash) {
-      return savedPosition;
-    }
+    return new Promise((resolve) => {
+      if (savedPosition || (to.hash && from.hash)) {
+        resolve(savedPosition);
+        return;
+      }
 
-    return { top: 0 };
+      resolve({ left: 0, top: 0 });
+    });
   },
 });
 
