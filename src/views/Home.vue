@@ -139,7 +139,7 @@ function switchLocale() {
           </figure>
         </div>
         <div
-          class="my-5 grid grid-cols-3 gap-2 rounded px-3 lg:grid-cols-2 xl:grid-cols-3"
+          class="my-5 grid grid-cols-2 gap-2 rounded px-3 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3"
         >
           <SmartImg
             v-for="src in gallery"

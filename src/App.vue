@@ -30,16 +30,6 @@ locale.value = localePreference.value;
   <AndariegoFooter />
 </template>
 
-<style>
-a {
-  transition: all 150ms linear;
-}
-
-a:hover {
-  color: #1a532e;
-}
-</style>
-
 <style lang="scss" scoped>
 .router-view {
   min-height: calc(100vh - 460px);

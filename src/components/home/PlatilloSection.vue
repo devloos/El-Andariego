@@ -26,7 +26,7 @@ onMounted(async () => {
     <RouterLink
       v-for="platillo in platillos"
       :key="platillo.name"
-      class="min-h-fit min-w-fit cursor-pointer rounded-b rounded-t shadow hover:scale-[1.01]"
+      class="min-h-fit min-w-fit cursor-pointer rounded-b rounded-t shadow hover:scale-[1.01] hover:text-coal"
       :to="`platillo/${platillo.name}`"
     >
       <SmartImg

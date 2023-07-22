@@ -14,6 +14,15 @@ body {
   box-sizing: border-box;
   font-family: 'Rubik', sans-serif;
   color: #333;
+  @apply bg-primary-50;
+}
+
+a {
+  transition: all 150ms linear;
+}
+
+a:hover {
+  color: #1a532e;
 }
 
 .mex-gradient {
