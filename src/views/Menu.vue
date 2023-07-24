@@ -1,6 +1,6 @@
 <script setup>
 import { useHead } from '@vueuse/head';
-import { ref, onMounted, watch, computed } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { RouterLink } from 'vue-router';
@@ -42,9 +42,11 @@ onMounted(async () => {
   }
 });
 
-const categoriesToDisplay = computed(() => {
-  return categories.value.filter((el) => el.name !== route.hash.slice(1));
-});
+// const categoriesToDisplay = computed(() => {
+//   return categories.value.filter((el) => el.name !== route.hash.slice(1));
+// });
+
+const categoriesToDisplay = ['Menu', 'Platillos', 'Kids', 'Drinks', 'Sides'];
 
 watch(
   route,
@@ -76,24 +78,19 @@ watch(
       />
       <div class="container mb-5 mt-6 px-2">
         <div
-          class="no-scrollbar flex gap-2 overflow-scroll px-1 py-2 text-lg lg:justify-center"
+          class="flex gap-16 px-1 py-2 text-xl font-semibold uppercase lg:justify-center"
         >
-          <p>|</p>
-          <TransitionGroup name="list">
-            <div
-              v-for="category in categoriesToDisplay"
-              :key="category.name"
-              class="flex gap-2"
-            >
-              <RouterLink
-                class="cursor-pointer hover:text-alternate"
-                :to="`/menu/#${category.name}`"
-              >
-                {{ category.name }}
-              </RouterLink>
-              <p>|</p>
-            </div>
-          </TransitionGroup>
+          <RouterLink
+            v-for="category in categoriesToDisplay"
+            :key="category"
+            class="cursor-pointer py-1 tracking-widest hover:border-y-2 hover:border-coal hover:text-alternate"
+            :class="{
+              'border-y-2 border-coal text-alternate': $route.hash.slice(1) === category,
+            }"
+            :to="`/menu/#${category}`"
+          >
+            {{ category }}
+          </RouterLink>
         </div>
         <h1
           class="mt-6 text-center text-2xl font-bold tracking-wider text-alternate lg:text-2xl"
@@ -107,15 +104,6 @@ watch(
 </template>
 
 <style lang="scss" scoped>
-.no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
 .list {
   &-move,
   &-enter-active,
