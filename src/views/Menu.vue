@@ -76,23 +76,17 @@ watch(
       />
       <div class="container mb-5 mt-6 px-2">
         <div
-          class="no-scrollbar flex gap-2 overflow-scroll px-1 py-2 text-lg lg:justify-center"
+          class="no-scrollbar flex gap-5 overflow-scroll px-1 py-2 text-lg lg:justify-center"
         >
-          <p>|</p>
           <TransitionGroup name="list">
-            <div
+            <RouterLink
               v-for="category in categoriesToDisplay"
               :key="category.name"
-              class="flex gap-2"
+              class="cursor-pointer border-b border-coal px-1 hover:text-alternate"
+              :to="`/menu/#${category.name}`"
             >
-              <RouterLink
-                class="cursor-pointer hover:text-alternate"
-                :to="`/menu/#${category.name}`"
-              >
-                {{ category.name }}
-              </RouterLink>
-              <p>|</p>
-            </div>
+              {{ category.name }}
+            </RouterLink>
           </TransitionGroup>
         </div>
         <h1

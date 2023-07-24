@@ -5,13 +5,14 @@ import { copyPhone } from '@/assets/js/utility';
 import { useI18n } from 'vue-i18n';
 import SmartLinks from '@/components/smart/SmartLinks.vue';
 import Offcanvas from '@/components/nav/Offcanvas.vue';
-import { useWindowSize } from '@vueuse/core';
+import { useWindowScroll, useWindowSize } from '@vueuse/core';
 
 const { t } = useI18n({ useScope: 'global' });
 
 const showOffCanvas = ref(false);
 const route = useRoute();
 const { width: windowWidth } = useWindowSize();
+const { y: scrollY } = useWindowScroll();
 
 watch(windowWidth, () => {
   if (windowWidth.value >= 1024) {
@@ -29,17 +30,22 @@ watch(showOffCanvas, (value) => {
 </script>
 <template>
   <div
-    class="sticky inset-x-0 top-0 z-50 mx-auto flex h-[72px] content-center items-center justify-between bg-primary-50/[.9] px-4 backdrop-blur-sm lg:h-20 lg:px-8 xl:px-12"
+    class="sticky inset-x-0 top-0 z-50 mx-auto flex h-[60px] content-center items-center justify-between bg-primary-50/[.9] px-4 backdrop-blur-sm transition-all lg:h-[68px] lg:px-8 xl:px-12"
+    :class="{ 'shadow-md': scrollY > 0 }"
   >
     <RouterLink class="lg:ml-7" to="/">
-      <img src="/andariego-nav.png" alt="logo" width="92" height="92" />
+      <img
+        src="/andariego-nav.png"
+        alt="logo"
+        class="h-[68px] w-[68px] lg:h-[78px] lg:w-[76px]"
+      />
     </RouterLink>
     <div
       class="invisible hidden text-lg font-semibold lg:visible lg:flex lg:content-center lg:items-center lg:gap-8"
     >
       <SmartLinks />
       <button
-        class="rounded-md bg-primary px-6 py-3 text-base text-gray-50 transition-all duration-300 hover:bg-primary-400"
+        class="rounded-md bg-primary px-4 py-2.5 text-base text-gray-50 transition-all duration-300 hover:bg-primary-400"
         type="button"
         @click="copyPhone"
       >
