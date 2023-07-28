@@ -22,13 +22,12 @@ useHead({
 const route = useRoute();
 
 const categories = ref([]);
-const selectedCategory = ref(null);
 const isLoading = ref(true);
 
 onMounted(async () => {
   try {
     const response = await useAxios({
-      url: '/api/menu/categories',
+      url: '/api/categories',
     });
 
     categories.value = response.data;
@@ -42,23 +41,9 @@ onMounted(async () => {
   }
 });
 
-// const categoriesToDisplay = computed(() => {
-//   return categories.value.filter((el) => el.name !== route.hash.slice(1));
-// });
-
 const categoriesToDisplay = ['Menu', 'Platillos', 'Kids', 'Drinks', 'Sides'];
 
-watch(
-  route,
-  async (to) => {
-    if (!to.hash) {
-      return;
-    }
-
-    selectedCategory.value = to.hash.slice(1);
-  },
-  { immediate: true },
-);
+watch(route, async () => {}, { immediate: true });
 </script>
 
 <template>
@@ -79,28 +64,21 @@ watch(
       />
       <div class="container mb-5 mt-6 px-2">
         <div
-          class="flex gap-16 px-1 py-2 text-xl font-semibold uppercase lg:justify-center"
+          class="flex gap-8 overflow-scroll px-1 py-2 text-xl font-semibold uppercase lg:justify-center lg:gap-16"
         >
           <RouterLink
             v-for="category in categoriesToDisplay"
             :key="category"
             class="cursor-pointer py-1 tracking-widest hover:border-y-2 hover:border-coal hover:text-alternate"
-            :class="{
-              'border-y-2 border-coal text-alternate': $route.hash.slice(1) === category,
-            }"
-            :to="`/menu/#${category}`"
+            active-class="border-y-2 border-coal text-alternate"
+            :to="`/menu/${category.toLowerCase()}`"
           >
             {{ category }}
           </RouterLink>
         </div>
-        <h1
-          class="mt-6 text-center text-2xl font-bold tracking-wider text-alternate lg:text-2xl"
-        >
-          {{ $route.hash.slice(1) }}
-        </h1>
       </div>
     </template>
-    <ItemList :category="selectedCategory" />
+    <ItemList :category="$route.params.id" />
   </div>
 </template>
 

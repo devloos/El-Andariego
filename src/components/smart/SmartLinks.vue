@@ -9,7 +9,7 @@ const { t } = useI18n({ useScope: 'global' });
     t('link.home')
   }}</RouterLink>
   <RouterLink
-    to="/menu/#Platillos"
+    to="/menu/menu"
     :class="{ 'text-primary underline underline-offset-2': $route.name === 'Menu' }"
   >
     {{ t('link.menu') }}

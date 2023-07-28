@@ -24,14 +24,10 @@ watch(
       return;
     }
 
-    const url = `/api/menu/${
-      props.category === 'Platillos' ? 'Platillos' : `items/${props.category}`
-    }`;
-
     try {
       isLoading.value = true;
       const response = await useAxios({
-        url,
+        url: `/api/menu/${props.category}`,
       });
 
       items.value = response.data.map((el) => ({

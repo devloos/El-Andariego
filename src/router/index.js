@@ -16,13 +16,8 @@ const router = createRouter({
       component: Home,
     },
     {
-      path: '/menu',
+      path: '/menu/:id',
       name: 'Menu',
-      beforeEnter(to) {
-        if (!to.hash) {
-          to.hash = '#Platillos';
-        }
-      },
       component: Menu,
     },
     {
@@ -49,6 +44,11 @@ const router = createRouter({
   ],
   scrollBehavior(to, from, savedPosition) {
     return new Promise((resolve) => {
+      if (to.path.includes('menu') && from.path.includes('menu')) {
+        resolve(savedPosition);
+        return;
+      }
+
       if (savedPosition || (to.hash && from.hash)) {
         resolve(savedPosition);
         return;

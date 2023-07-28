@@ -18,7 +18,7 @@ const categories = ref([]);
 onMounted(async () => {
   try {
     const res = await useAxios({
-      url: '/api/menu/categories',
+      url: '/api/categories',
     });
 
     categories.value = res.data.filter((category) =>
@@ -40,7 +40,7 @@ onMounted(async () => {
       v-for="category in categories"
       :key="category.name"
       class="cursor-pointer rounded shadow hover:scale-[1.01]"
-      @click="$router.push(`/menu/#${category.name}`)"
+      @click="$router.push(`/menu/${category.name.toLowerCase()}`)"
     >
       <SmartImg
         :src="category.images[0].url"
