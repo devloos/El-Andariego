@@ -8,7 +8,7 @@ const { t } = useI18n({ useScope: 'global' });
 
 <template>
   <div
-    class="fixed bottom-0 left-0 top-[72px] z-50 h-screen w-screen overflow-scroll bg-primary-50/[.9] backdrop-blur-sm"
+    class="fixed bottom-0 left-0 top-[60px] z-50 h-screen w-screen overflow-scroll bg-primary-50/[.9] backdrop-blur-sm"
   >
     <div
       class="mt-12 flex flex-col items-center gap-9 text-center text-3xl font-semibold"

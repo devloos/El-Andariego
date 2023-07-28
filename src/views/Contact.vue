@@ -36,7 +36,7 @@ function resetForm() {
 async function formSubmitted() {
   try {
     await useAxios({
-      url: '/api/sendgrid/save',
+      url: '/api/sendgrid/send',
       method: 'POST',
       data: {
         name: name.value,
