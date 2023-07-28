@@ -60,7 +60,7 @@ function getItemName(item) {
   <ItemListSkeleton v-if="isLoading" />
   <div
     v-else
-    class="container mx-auto grid grid-cols-1 gap-8 px-4 pt-4 sm:grid-cols-2 md:px-8 lg:grid-cols-3 xl:gap-8 xl:px-32"
+    class="mx-auto grid grid-cols-1 gap-8 px-4 pt-4 lg:container sm:grid-cols-2 md:px-8 xl:gap-12 xl:px-32"
   >
     <div v-for="item in items" :key="item.name" class="relative">
       <div class="mb-4 flex justify-between">
