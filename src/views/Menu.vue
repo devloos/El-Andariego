@@ -71,9 +71,10 @@ watch(
     </template>
     <template v-else>
       <SmartImg
-        src="/andariego/menu/header-wide-1689919765595.jpg"
-        width="2048"
-        height="922"
+        src="/andariego/menu/menu-header-image.jpg"
+        class="max-h-[700px] object-none object-center"
+        width="2400"
+        height="1280"
         alt="menu header"
       />
       <div class="container mb-5 mt-6 px-2">
