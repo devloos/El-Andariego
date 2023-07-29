@@ -1,13 +1,13 @@
 <script setup>
 import { ref, watch } from 'vue';
-import { prettyContent } from '@/assets/js/utility';
+import { prettyContent, prettyOptions } from '@/assets/js/utility';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import ItemListSkeleton from '@/components/skeletons/ItemListSkeleton.vue';
 import { useI18n } from 'vue-i18n';
 
 const props = defineProps({
-  category: {
+  menuId: {
     type: String,
     required: true,
   },
@@ -18,21 +18,22 @@ const isLoading = ref(true);
 const { locale } = useI18n({ useScope: 'global' });
 
 watch(
-  () => props.category,
+  () => props.menuId,
   async () => {
-    if (!props.category) {
+    if (!props.menuId) {
       return;
     }
 
     try {
       isLoading.value = true;
       const response = await useAxios({
-        url: `/api/menu/${props.category}`,
+        url: `/api/menu/${props.menuId}`,
       });
 
       items.value = response.data.map((el) => ({
         ...el,
         content: prettyContent(el.content[locale.value], locale.value),
+        options: prettyOptions(el.options?.[locale.value]),
       }));
     } catch (e) {
       useToast('Failed to fetch items.', { type: 'error' });
@@ -63,10 +64,15 @@ function getItemName(item) {
         <p class="text-lg font-semibold uppercase tracking-wide text-primary">
           {{ getItemName(item) }}
         </p>
-        <p>{{ `($${item.price})` }}</p>
+        <p v-if="!item.options" class="font-semibold tracking-widest">
+          {{ `$${item.base_price}` }}
+        </p>
       </div>
-      <p class="mb-5">{{ item.content }}</p>
-      <hr class="border-1 border-gray-700" />
+      <p class="mb-2">{{ item.content }}</p>
+      <p v-if="item.options" class="mb-2 tracking-wide">{{ item.options }}</p>
+      <div class="mt-5">
+        <hr class="border-1 border-gray-700" />
+      </div>
     </div>
   </div>
 </template>

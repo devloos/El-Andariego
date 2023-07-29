@@ -121,7 +121,6 @@ function switchLocale() {
           <figure
             v-for="review in testimonials"
             :key="review"
-            v-motion-slide-visible-once-bottom
             class="flex w-full max-w-sm flex-col gap-3"
           >
             <SmartImg
@@ -158,6 +157,6 @@ function switchLocale() {
     <CategorySection />
 
     <SmartDivider :name="t('dividers.cta')" />
-    <CallToAction v-motion-slide-visible-once-bottom />
+    <CallToAction />
   </div>
 </template>

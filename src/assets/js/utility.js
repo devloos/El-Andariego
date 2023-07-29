@@ -29,3 +29,11 @@ export function prettyContent(content = [], locale) {
   const index = res.lastIndexOf(',');
   return res.slice(0, index + 1) + separator + res.slice(index + 1);
 }
+
+export function prettyOptions(options = []) {
+  if (!options) {
+    return null;
+  }
+
+  return options.map(({ name, price }) => `${name} $${price}`).join(' · ');
+}
