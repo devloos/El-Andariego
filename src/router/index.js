@@ -42,19 +42,27 @@ const router = createRouter({
       component: Error,
     },
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to, from) {
     return new Promise((resolve) => {
-      if (to.path.includes('menu') && from.path.includes('menu')) {
-        resolve(savedPosition);
-        return;
+      if (to.hash) {
+        setTimeout(() => {
+          resolve({
+            el: to.hash,
+            behavior: 'smooth',
+            top: 140,
+          });
+        }, 600);
+      } else if (to.path.includes('menu') && from.path.includes('menu')) {
+        setTimeout(() => {
+          resolve({
+            el: '#menuPicker',
+            behavior: 'smooth',
+            top: 60,
+          });
+        }, 300);
+      } else {
+        resolve({ left: 0, top: 0 });
       }
-
-      if (savedPosition || (to.hash && from.hash)) {
-        resolve(savedPosition);
-        return;
-      }
-
-      resolve({ left: 0, top: 0 });
     });
   },
 });

@@ -30,10 +30,10 @@ export function prettyContent(content = [], locale) {
   return res.slice(0, index + 1) + separator + res.slice(index + 1);
 }
 
-export function prettyOptions(options = []) {
-  if (!options) {
-    return null;
+export function prettyOptions(options) {
+  if (options.length === 1) {
+    return options[0];
   }
 
-  return options.map(({ name, price }) => `${name} $${price}`).join(' · ');
+  return options.map(({ name, price }) => `${name} $${price}`).join('  ·  ');
 }

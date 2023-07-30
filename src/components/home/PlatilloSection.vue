@@ -38,11 +38,11 @@ onMounted(async () => {
       />
       <div class="flex flex-col gap-1 rounded-b p-2">
         <div class="flex items-center gap-3">
-          <p class="text-lg font-bold">{{ `#${platillo.priority} ${platillo.name}` }}</p>
+          <p class="text-lg font-bold">{{ platillo.name }}</p>
         </div>
         <div class="flex items-center gap-3">
           <i class="fa-solid fa-money-bill text-primary"></i>
-          <p class="font-semibold">{{ '$' + platillo.price }}</p>
+          <p class="font-semibold">{{ '$' + platillo.base_price }}</p>
         </div>
         <div class="flex items-center gap-3">
           <i class="fa-solid fa-heart text-alternate"></i>
