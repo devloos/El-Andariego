@@ -35,5 +35,9 @@ export function prettyOptions(options) {
     return options[0];
   }
 
-  return options.map(({ name, price }) => `${name} $${price}`).join('  ·  ');
+  return options
+    .map(({ name, price }) => {
+      return `${name} $${price.toFixed(2).replace('.00', '')}`;
+    })
+    .join('  ·  ');
 }

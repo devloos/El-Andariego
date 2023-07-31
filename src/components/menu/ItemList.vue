@@ -60,7 +60,7 @@ watch(
             {{ item.name }}
           </p>
           <p v-if="!item.options" class="font-semibold tracking-widest">
-            {{ `$${item.base_price}` }}
+            {{ `$${item.base_price.toFixed(2)}` }}
           </p>
         </div>
         <p
