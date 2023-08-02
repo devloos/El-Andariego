@@ -19,7 +19,7 @@ useHead({
 const menuPicker = ref(null);
 const { top } = useElementBounding(menuPicker);
 
-const menuIds = ['Menu', 'Platillos', 'Kids', 'Drinks', 'Sides'];
+const menuIds = ['Menu', 'Platillos', 'Kids', 'Sides', 'Drinks'];
 </script>
 
 <template>
@@ -34,7 +34,7 @@ const menuIds = ['Menu', 'Platillos', 'Kids', 'Drinks', 'Sides'];
     <div
       id="menuPicker"
       ref="menuPicker"
-      class="sticky top-[60px] z-50 mb-5 mt-6 bg-primary-50 p-2"
+      class="sticky top-[60px] z-50 mb-2 mt-6 bg-primary-50 p-2"
       :class="{ 'shadow-md': top === 60 }"
     >
       <div
