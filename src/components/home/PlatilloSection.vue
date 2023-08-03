@@ -2,9 +2,14 @@
 import { ref, onMounted } from 'vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
+import { useStorage } from '@vueuse/core';
 import SmartImg from '@/components/smart/SmartImg.vue';
 
 const platillos = ref([]);
+
+const PLATILLOS_KEY = 'platillos-liked';
+
+const platillosLiked = useStorage(PLATILLOS_KEY, []);
 
 onMounted(async () => {
   try {
@@ -19,6 +24,33 @@ onMounted(async () => {
     });
   }
 });
+
+function userLikesPlatillo(name) {
+  return platillosLiked.value.includes(name);
+}
+
+async function toggleLiked(platillo) {
+  const userLikes = userLikesPlatillo(platillo.name);
+  if (userLikes) {
+    platillosLiked.value = platillosLiked.value.filter((name) => name !== platillo.name);
+  } else {
+    platillosLiked.value.push(platillo.name);
+  }
+
+  // subtract or add depending on user preference already
+  platillo.likes += userLikes ? -1 : 1;
+  try {
+    await useAxios({
+      url: `/api/menu/platillos/${platillo._id}`,
+      method: 'POST',
+      data: {
+        likes: platillo.likes,
+      },
+    });
+  } catch (e) {
+    useToast('Failed to update platillo.', { type: 'error' });
+  }
+}
 </script>
 
 <template>
@@ -26,7 +58,7 @@ onMounted(async () => {
     <RouterLink
       v-for="platillo in platillos"
       :key="platillo.name"
-      class="min-h-fit min-w-fit cursor-pointer rounded-b rounded-t shadow hover:scale-[1.01] hover:text-coal"
+      class="relative min-h-fit min-w-fit cursor-pointer rounded-b rounded-t shadow hover:scale-[1.01] hover:text-coal"
       :to="`/menu/platillos#${platillo._id}`"
     >
       <SmartImg
@@ -49,6 +81,15 @@ onMounted(async () => {
           <p class="font-semibold">{{ platillo.likes }}</p>
         </div>
       </div>
+      <button
+        class="absolute bottom-6 right-6 rounded-full border border-coal-100 bg-primary-100/40 p-3 px-4 transition-all hover:scale-110 hover:bg-primary-100/70"
+        @click.prevent="toggleLiked(platillo)"
+      >
+        <i
+          class="fa-solid fa-heart"
+          :class="userLikesPlatillo(platillo.name) ? 'text-alternate' : 'text-coal'"
+        />
+      </button>
     </RouterLink>
   </div>
 </template>

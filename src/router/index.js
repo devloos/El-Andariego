@@ -48,7 +48,7 @@ const router = createRouter({
             behavior: 'smooth',
             top: 140,
           });
-        }, 400);
+        }, 500);
       } else {
         resolve({ left: 0, top: 0 });
       }
