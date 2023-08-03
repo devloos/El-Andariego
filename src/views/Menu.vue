@@ -19,7 +19,7 @@ useHead({
 const menuPicker = ref(null);
 const { top } = useElementBounding(menuPicker);
 
-const menuIds = ['Menu', 'Platillos', 'Kids', 'Sides', 'Drinks'];
+const menuIds = ['Menu', 'Platillos', 'Kids', 'Sides'];
 </script>
 
 <template>
@@ -37,7 +37,7 @@ const menuIds = ['Menu', 'Platillos', 'Kids', 'Sides', 'Drinks'];
       :class="{ 'shadow-md': top === 60 }"
     >
       <div
-        class="no-scrollbar flex gap-8 overflow-scroll px-1 py-2 text-xl font-semibold uppercase lg:justify-center lg:gap-16"
+        class="no-scrollbar flex justify-center gap-7 overflow-scroll px-1 py-2 text-xl font-semibold uppercase md:gap-16"
       >
         <RouterLink
           v-for="menuId in menuIds"

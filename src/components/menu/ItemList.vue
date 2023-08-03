@@ -3,7 +3,6 @@ import { ref, watch } from 'vue';
 import { prettyContent, prettyOptions } from '@/assets/js/utility';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
-import ItemListSkeleton from '@/components/skeletons/ItemListSkeleton.vue';
 import { useI18n } from 'vue-i18n';
 
 const props = defineProps({
@@ -42,7 +41,6 @@ watch(
 </script>
 
 <template>
-  <ItemListSkeleton v-if="isLoading" />
   <div
     id="itemList"
     class="rounded border-[10px] border-double border-primary-100 bg-primary py-6 text-primary-100 lg:container"
