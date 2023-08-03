@@ -33,11 +33,11 @@ const menuIds = ['Menu', 'Platillos', 'Kids', 'Sides'];
     />
     <div
       ref="menuPicker"
-      class="sticky top-[60px] z-50 mb-2 mt-6 bg-primary-50 p-2"
+      class="sticky top-[60px] z-50 mb-2 mt-6 flex justify-center bg-primary-50 p-2"
       :class="{ 'shadow-md': top === 60 }"
     >
       <div
-        class="no-scrollbar flex justify-center gap-7 overflow-scroll px-1 py-2 text-xl font-semibold uppercase md:gap-16"
+        class="no-scrollbar flex gap-6 overflow-scroll px-1 py-2 text-xl font-semibold uppercase md:gap-16"
       >
         <RouterLink
           v-for="menuId in menuIds"
