@@ -1,7 +1,6 @@
 import { createApp } from 'vue';
 import { createHead } from '@vueuse/head';
 import { createI18n } from 'vue-i18n';
-import { MotionPlugin } from '@vueuse/motion';
 
 import App from './App.vue';
 import router from './router';
@@ -36,7 +35,6 @@ app.use(Toast, {
   },
 });
 
-app.use(MotionPlugin);
 app.use(router);
 app.use(head);
 app.use(i18n);

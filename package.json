@@ -12,7 +12,6 @@
   "dependencies": {
     "@vueuse/core": "^10.2.1",
     "@vueuse/head": "^1.1.26",
-    "@vueuse/motion": "^2.0.0",
     "axios": "^1.4.0",
     "vue": "^3.2.13",
     "vue-i18n": "^9.2.2",
@@ -25,8 +24,8 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/eslint-config-prettier": "^8.0.0",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.45.0",
-    "eslint-plugin-vue": "^9.15.1",
+    "eslint": "^8.46.0",
+    "eslint-plugin-vue": "^9.16.0",
     "postcss": "^8.4.27",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1",

@@ -30,7 +30,7 @@ watch(showOffCanvas, (value) => {
 </script>
 <template>
   <div
-    class="sticky inset-x-0 top-0 z-50 mx-auto flex h-[60px] content-center items-center justify-between bg-primary-50/[.9] px-4 backdrop-blur-sm transition-all lg:h-[68px] lg:px-8 xl:px-12"
+    class="sticky inset-x-0 top-0 z-50 mx-auto flex h-[60px] content-center items-center justify-between bg-primary-50 px-4 transition-all lg:h-[68px] lg:px-8 xl:px-12"
     :class="{ 'shadow-md': scrollY > 0 }"
   >
     <RouterLink class="lg:ml-7" to="/">
