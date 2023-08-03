@@ -5,7 +5,6 @@ const Menu = () => import('@/views/Menu.vue');
 const Contact = () => import('@/views/Contact.vue');
 const Blog = () => import('@/views/Blog.vue');
 const Post = () => import('@/views/Post.vue');
-const PlatilloDetails = () => import('@/views/PlatilloDetails.vue');
 const Error = () => import('@/views/Error.vue');
 
 const router = createRouter({
@@ -34,32 +33,22 @@ const router = createRouter({
       props: true,
     },
     {
-      path: '/platillo/:name',
-      component: PlatilloDetails,
-    },
-    {
       path: '/:pathMatch(.*)*',
       component: Error,
     },
   ],
-  scrollBehavior(to, from) {
+  scrollBehavior(to, from, savedPosition) {
     return new Promise((resolve) => {
-      if (to.hash) {
+      if (savedPosition) {
+        resolve(savedPosition);
+      } else if (to.hash || (to.path.includes('menu') && from.path.includes('menu'))) {
         setTimeout(() => {
           resolve({
-            el: to.hash,
+            el: to.hash || '#itemList',
             behavior: 'smooth',
             top: 140,
           });
-        }, 600);
-      } else if (to.path.includes('menu') && from.path.includes('menu')) {
-        setTimeout(() => {
-          resolve({
-            el: '#menuPicker',
-            behavior: 'smooth',
-            top: 60,
-          });
-        }, 300);
+        }, 400);
       } else {
         resolve({ left: 0, top: 0 });
       }

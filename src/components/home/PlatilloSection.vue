@@ -27,7 +27,7 @@ onMounted(async () => {
       v-for="platillo in platillos"
       :key="platillo.name"
       class="min-h-fit min-w-fit cursor-pointer rounded-b rounded-t shadow hover:scale-[1.01] hover:text-coal"
-      :to="`platillo/${platillo.name}`"
+      :to="`/menu/platillos#${platillo._id}`"
     >
       <SmartImg
         :src="platillo.images[0].url"
@@ -38,7 +38,7 @@ onMounted(async () => {
       />
       <div class="flex flex-col gap-1 rounded-b p-2">
         <div class="flex items-center gap-3">
-          <p class="text-lg font-bold">{{ platillo.name }}</p>
+          <p class="text-lg font-bold">{{ `#${platillo.priority} ${platillo.name}` }}</p>
         </div>
         <div class="flex items-center gap-3">
           <i class="fa-solid fa-money-bill text-primary"></i>

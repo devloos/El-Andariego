@@ -44,6 +44,7 @@ watch(
 <template>
   <ItemListSkeleton v-if="isLoading" />
   <div
+    id="itemList"
     class="rounded border-[10px] border-double border-primary-100 bg-primary py-6 text-primary-100 lg:container"
   >
     <div v-for="(category, i) in categories" :key="i" class="pb-12">
@@ -57,7 +58,12 @@ watch(
       <div
         class="mx-auto grid grid-cols-1 items-start gap-10 px-4 pt-4 lg:container md:grid-cols-2 md:px-8 xl:px-32"
       >
-        <div v-for="item in category.items" :key="item.name" class="relative">
+        <div
+          v-for="item in category.items"
+          :id="item._id"
+          :key="item.name"
+          class="relative"
+        >
           <div class="mb-2 flex justify-between">
             <p
               class="rounded bg-gradient-to-r from-alternate from-70% pe-4 ps-2 text-lg font-semibold uppercase tracking-wide"
