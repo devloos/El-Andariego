@@ -29,3 +29,15 @@ export function prettyContent(content = [], locale) {
   const index = res.lastIndexOf(',');
   return res.slice(0, index + 1) + separator + res.slice(index + 1);
 }
+
+export function prettyOptions(options) {
+  if (options.length === 1) {
+    return options[0];
+  }
+
+  return options
+    .map(({ name, price }) => {
+      return `${name} $${price.toFixed(2).replace('.00', '')}`;
+    })
+    .join('  ·  ');
+}

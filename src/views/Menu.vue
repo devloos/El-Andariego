@@ -1,13 +1,10 @@
 <script setup>
 import { useHead } from '@vueuse/head';
-import { ref, onMounted, watch, computed } from 'vue';
-import { useAxios } from '@/composables/axios.js';
-import { useToast } from '@/composables/toast.js';
 import { RouterLink } from 'vue-router';
-import { useRoute } from 'vue-router';
 import SmartImg from '@/components/smart/SmartImg.vue';
-import ItemList from '@/components/ItemList.vue';
-import Skeleton from '@/components/skeletons/Skeleton.vue';
+import ItemList from '@/components/menu/ItemList.vue';
+import { useElementBounding } from '@vueuse/core';
+import { ref } from 'vue';
 
 useHead({
   title: 'Menu | El Andariego',
@@ -19,85 +16,41 @@ useHead({
   ],
 });
 
-const route = useRoute();
+const menuPicker = ref(null);
+const { top } = useElementBounding(menuPicker);
 
-const categories = ref([]);
-const selectedCategory = ref(null);
-const isLoading = ref(true);
-
-onMounted(async () => {
-  try {
-    const response = await useAxios({
-      url: '/api/menu/categories',
-    });
-
-    categories.value = response.data;
-    categories.value.sort((a, b) => a.priority - b.priority);
-  } catch (e) {
-    useToast('Failed to fetch categories.', {
-      type: 'error',
-    });
-  } finally {
-    isLoading.value = false;
-  }
-});
-
-const categoriesToDisplay = computed(() => {
-  return categories.value.filter((el) => el.name !== route.hash.slice(1));
-});
-
-watch(
-  route,
-  async (to) => {
-    if (!to.hash) {
-      return;
-    }
-
-    selectedCategory.value = to.hash.slice(1);
-  },
-  { immediate: true },
-);
+const menuIds = ['Menu', 'Platillos', 'Kids', 'Sides'];
 </script>
 
 <template>
   <div class="mt-5">
-    <template v-if="isLoading">
-      <Skeleton class="mx-auto mb-6 h-9 w-24 lg:text-2xl" />
-      <div class="scroll-hidden flex gap-2 overflow-scroll px-1 py-4 lg:justify-center">
-        <Skeleton v-for="index in 6" :key="index" class="flex h-6 w-20 gap-2" />
-      </div>
-    </template>
-    <template v-else>
-      <SmartImg
-        src="/andariego/menu/menu-header-image.jpg"
-        class="max-h-[700px] object-none object-center"
-        width="2400"
-        height="1280"
-        alt="menu header"
-      />
-      <div class="container mb-5 mt-6 px-2">
-        <div
-          class="no-scrollbar flex gap-5 overflow-scroll px-1 py-2 text-lg lg:justify-center"
+    <SmartImg
+      src="/andariego/menu/menu-header-image.jpg"
+      class="max-h-[700px] object-none object-center"
+      width="2400"
+      height="1280"
+      alt="menu header"
+    />
+    <div
+      ref="menuPicker"
+      class="sticky top-[60px] z-50 mb-2 mt-6 bg-primary-50 p-2"
+      :class="{ 'shadow-md': top === 60 }"
+    >
+      <div
+        class="no-scrollbar flex justify-center gap-7 overflow-scroll px-1 py-2 text-xl font-semibold uppercase md:gap-16"
+      >
+        <RouterLink
+          v-for="menuId in menuIds"
+          :key="menuId"
+          class="cursor-pointer py-1 tracking-widest hover:border-y-2 hover:border-coal hover:text-alternate"
+          active-class="border-y-2 border-coal text-alternate"
+          :to="`/menu/${menuId.toLowerCase()}`"
         >
-          <TransitionGroup name="list">
-            <RouterLink
-              v-for="category in categoriesToDisplay"
-              :key="category.name"
-              class="cursor-pointer border-b border-coal px-1 hover:text-alternate"
-              :to="`/menu/#${category.name}`"
-            >
-              {{ category.name }}
-            </RouterLink>
-          </TransitionGroup>
-        </div>
-        <h1
-          class="mt-6 text-center text-2xl font-bold tracking-wider text-alternate lg:text-2xl"
-        >
-          {{ $route.hash.slice(1) }}
-        </h1>
+          {{ menuId }}
+        </RouterLink>
       </div>
-    </template>
-    <ItemList :category="selectedCategory" />
+    </div>
+    <ItemList :menu-id="$route.params.id" />
   </div>
 </template>
 

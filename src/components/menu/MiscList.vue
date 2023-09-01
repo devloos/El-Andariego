@@ -7,7 +7,7 @@ import ItemListSkeleton from '@/components/skeletons/ItemListSkeleton.vue';
 import { useI18n } from 'vue-i18n';
 
 const props = defineProps({
-  category: {
+  menuId: {
     type: String,
     required: true,
   },
@@ -18,20 +18,16 @@ const isLoading = ref(true);
 const { locale } = useI18n({ useScope: 'global' });
 
 watch(
-  () => props.category,
+  () => props.menuId,
   async () => {
-    if (!props.category) {
+    if (!props.menuId) {
       return;
     }
-
-    const url = `/api/menu/${
-      props.category === 'Platillos' ? 'Platillos' : `items/${props.category}`
-    }`;
 
     try {
       isLoading.value = true;
       const response = await useAxios({
-        url,
+        url: `/api/menu/${props.menuId}`,
       });
 
       items.value = response.data.map((el) => ({

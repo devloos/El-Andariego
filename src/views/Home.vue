@@ -65,7 +65,7 @@ function switchLocale() {
           </div>
           <button
             class="rounded-md bg-primary px-7 py-3 font-semibold text-gray-50 transition-all duration-300 hover:bg-primary-400 lg:text-lg"
-            @click="$router.push('/menu/#Platillos')"
+            @click="$router.push('/menu/menu')"
           >
             {{ t('home.view_menu') }}
           </button>
@@ -121,7 +121,6 @@ function switchLocale() {
           <figure
             v-for="review in testimonials"
             :key="review"
-            v-motion-slide-visible-once-bottom
             class="flex w-full max-w-sm flex-col gap-3"
           >
             <SmartImg
@@ -158,6 +157,6 @@ function switchLocale() {
     <CategorySection />
 
     <SmartDivider :name="t('dividers.cta')" />
-    <CallToAction v-motion-slide-visible-once-bottom />
+    <CallToAction />
   </div>
 </template>
