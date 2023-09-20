@@ -1,29 +1,10 @@
-# andariego-menu-cli
+## El Andariego
 
-## Project setup
+### Todo
 
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run dev
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Migrate over to new imagekit account
+- Video on landing page
+- Update testimonials
+- Add more news
+- ensure routing for menu is done correctly
+- add more analytics events
