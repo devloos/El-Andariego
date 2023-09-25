@@ -1,5 +1,5 @@
 <script setup>
-import { useHead } from '@vueuse/head';
+import { useHead } from '@unhead/vue';
 import { ref } from 'vue';
 import { useAxios } from '@/composables/axios';
 import { useToast } from '@/composables/toast';

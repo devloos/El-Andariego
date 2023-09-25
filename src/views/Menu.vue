@@ -1,5 +1,5 @@
 <script setup>
-import { useHead } from '@vueuse/head';
+import { useHead } from '@unhead/vue';
 import { RouterLink } from 'vue-router';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import ItemList from '@/components/menu/ItemList.vue';

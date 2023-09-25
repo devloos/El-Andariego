@@ -1,5 +1,5 @@
 <script setup>
-import { useHead } from '@vueuse/head';
+import { useHead } from '@unhead/vue';
 import { RouterLink } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 
