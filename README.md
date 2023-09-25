@@ -8,3 +8,4 @@
 - Add more news
 - ensure routing for menu is done correctly
 - add more analytics events
+- toast messages
