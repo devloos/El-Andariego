@@ -2,8 +2,8 @@
 import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
 import { useStorage } from '@vueuse/core';
-import AndariegoNav from '@/components/nav/AndariegoNav.vue';
-import AndariegoFooter from '@/components/AndariegoFooter.vue';
+import SmartNav from '@/components/smart/SmartNav.vue';
+import SmartFooter from '@/components/smart/SmartFooter.vue';
 
 useHead({
   title: 'El Andariego',
@@ -21,13 +21,13 @@ locale.value = localePreference.value;
 </script>
 
 <template>
-  <AndariegoNav />
+  <SmartNav />
   <RouterView v-slot="{ Component }" class="router-view">
     <Transition name="fade" mode="out-in">
       <component :is="Component" />
     </Transition>
   </RouterView>
-  <AndariegoFooter />
+  <SmartFooter />
 </template>
 
 <style lang="scss" scoped>
