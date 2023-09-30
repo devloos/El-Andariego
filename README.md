@@ -9,3 +9,4 @@
 - ensure routing for menu is done correctly
 - add more analytics events
 - toast messages
+- remove smart links

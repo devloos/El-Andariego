@@ -5,6 +5,7 @@ import { copyPhone } from '@/assets/js/utility';
 import { useI18n } from 'vue-i18n';
 import SmartLinks from '@/components/smart/SmartLinks.vue';
 import { useWindowScroll, useWindowSize } from '@vueuse/core';
+import SmartTransition from '@/components/smart/SmartTransition.vue';
 
 const { t } = useI18n({ useScope: 'global' });
 
@@ -29,7 +30,7 @@ watch(showOffCanvas, (value) => {
 </script>
 <template>
   <div
-    class="sticky inset-x-0 top-0 z-50 mx-auto flex h-[60px] content-center items-center justify-between bg-primary-50 px-4 transition-all lg:h-[68px] lg:px-8 xl:px-12"
+    class="sticky inset-x-0 top-0 z-40 mx-auto flex h-[60px] content-center items-center justify-between bg-primary-50 px-4 transition-all lg:h-[68px] lg:px-8 xl:px-12"
     :class="{ 'shadow-md': scrollY > 0 }"
   >
     <RouterLink class="lg:ml-7" to="/">
@@ -62,10 +63,10 @@ watch(showOffCanvas, (value) => {
       </span>
     </button>
     <Teleport to="body">
-      <Transition name="slide-from-right">
+      <SmartTransition name="slide-from-right">
         <div
           v-if="showOffCanvas"
-          class="fixed bottom-0 left-0 top-[60px] z-50 h-screen w-screen overflow-scroll bg-primary-50"
+          class="fixed bottom-0 left-0 top-[60px] z-40 h-screen w-screen overflow-scroll bg-primary-50"
         >
           <div
             class="mt-12 flex flex-col items-center gap-9 text-center text-3xl font-semibold"
@@ -94,7 +95,7 @@ watch(showOffCanvas, (value) => {
             </button>
           </div>
         </div>
-      </Transition>
+      </SmartTransition>
     </Teleport>
   </div>
 </template>
@@ -108,23 +109,5 @@ a {
 
 a:hover {
   color: #71706a;
-}
-
-.slide-from-right {
-  &-enter-from {
-    translate: 100%;
-  }
-
-  &-enter-active {
-    transition: all 300ms ease-in-out;
-  }
-
-  &-leave-active {
-    transition: all 300ms ease-in-out;
-  }
-
-  &-leave-to {
-    translate: 100%;
-  }
 }
 </style>

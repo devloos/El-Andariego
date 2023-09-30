@@ -33,7 +33,7 @@ const menuIds = ['Menu', 'Platillos', 'Kids', 'Sides'];
     />
     <div
       ref="menuPicker"
-      class="sticky top-[60px] z-50 mb-2 mt-6 bg-primary-50 p-2"
+      class="sticky top-[60px] z-40 mb-2 mt-6 bg-primary-50 p-2"
       :class="{ 'shadow-md': top === 60 }"
     >
       <div
@@ -61,23 +61,6 @@ const menuIds = ['Menu', 'Platillos', 'Kids', 'Sides'];
 
   &::-webkit-scrollbar {
     display: none;
-  }
-}
-
-.list {
-  &-move,
-  &-enter-active,
-  &-leave-active {
-    transition: all 0.5s ease;
-  }
-
-  &-enter-from,
-  &-leave-to {
-    opacity: 0;
-  }
-
-  &-leave-active {
-    position: absolute;
   }
 }
 </style>
