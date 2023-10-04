@@ -10,3 +10,4 @@
 - add more analytics events
 - toast messages
 - remove smart links
+- item reviews
