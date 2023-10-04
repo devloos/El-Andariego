@@ -9,5 +9,6 @@
 - ensure routing for menu is done correctly
 - add more analytics events
 - toast messages
-- remove smart links
 - item reviews
+- move SmartInput into something liked StyledInput same thing with SmartDivider
+- investigate if its better to use axios or fetch
