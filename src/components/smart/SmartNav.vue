@@ -3,11 +3,12 @@ import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { copyPhone } from '@/assets/js/utility';
 import { useI18n } from 'vue-i18n';
-import SmartLinks from '@/components/smart/SmartLinks.vue';
+import { useSmartLinks } from '@/composables/smart-links';
 import { useWindowScroll, useWindowSize } from '@vueuse/core';
 import SmartTransition from '@/components/smart/SmartTransition.vue';
 
 const { t } = useI18n({ useScope: 'global' });
+const navLinks = useSmartLinks();
 
 const showOffCanvas = ref(false);
 const route = useRoute();
@@ -43,7 +44,16 @@ watch(showOffCanvas, (value) => {
     <div
       class="invisible hidden text-lg font-semibold lg:visible lg:flex lg:content-center lg:items-center lg:gap-8"
     >
-      <SmartLinks />
+      <RouterLink
+        v-for="link in navLinks"
+        :key="link.name"
+        :to="link.to"
+        class="hover:text-primary"
+      >
+        <span :class="{ 'text-primary underline underline-offset-2': link.isActive }">
+          {{ link.name }}
+        </span>
+      </RouterLink>
       <button
         class="rounded-md bg-primary px-4 py-2.5 text-base text-gray-50 transition-all duration-300 hover:bg-primary-400"
         type="button"
@@ -71,7 +81,18 @@ watch(showOffCanvas, (value) => {
           <div
             class="mt-12 flex flex-col items-center gap-9 text-center text-3xl font-semibold"
           >
-            <SmartLinks />
+            <RouterLink
+              v-for="link in navLinks"
+              :key="link.name"
+              :to="link.to"
+              class="hover:text-primary"
+            >
+              <span
+                :class="{ 'text-primary underline underline-offset-2': link.isActive }"
+              >
+                {{ link.name }}
+              </span>
+            </RouterLink>
             <div class="my-3 flex justify-center gap-4">
               <a
                 href="https://www.facebook.com/profile.php?id=100082710796984"

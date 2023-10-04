@@ -1,10 +1,11 @@
 <script setup>
 import { copyPhone } from '@/assets/js/utility';
 import { useI18n } from 'vue-i18n';
-import SmartLinks from '@/components/smart/SmartLinks.vue';
+import { useSmartLinks } from '@/composables/smart-links';
 
 const year = new Date().getFullYear();
 const { t } = useI18n({ useScope: 'global' });
+const navLinks = useSmartLinks();
 </script>
 
 <template>
@@ -15,7 +16,16 @@ const { t } = useI18n({ useScope: 'global' });
     <div class="flex flex-col gap-3">
       <h5 class="mb-3 font-semibold">{{ t('footer.navigation') }}</h5>
       <div class="flex flex-col items-start gap-1 lg:text-base">
-        <SmartLinks />
+        <RouterLink
+          v-for="link in navLinks"
+          :key="link.name"
+          :to="link.to"
+          class="hover:text-primary"
+        >
+          <span :class="{ 'text-primary underline underline-offset-2': link.isActive }">
+            {{ link.name }}
+          </span>
+        </RouterLink>
       </div>
     </div>
     <div class="flex flex-col gap-3">
