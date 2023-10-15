@@ -10,5 +10,4 @@
 - add more analytics events
 - toast messages
 - item reviews
-- move SmartInput into something liked StyledInput same thing with SmartDivider
 - investigate if its better to use axios or fetch

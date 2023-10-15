@@ -5,7 +5,7 @@ import { useStorage } from '@vueuse/core';
 import PlatilloSection from '@/components/home/PlatilloSection.vue';
 import CategorySection from '@/components/home/CategorySection.vue';
 import CallToAction from '@/components/home/CallToAction.vue';
-import SmartDivider from '@/components/smart/SmartDivider.vue';
+import StyledDivider from '@/components/StyledDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import testimonials from '@/assets/constants/testimonials.js';
 import gallery from '../assets/constants/gallery';
@@ -109,11 +109,11 @@ function switchLocale() {
       </div>
     </div>
 
-    <SmartDivider :name="t('dividers.platillo')" />
+    <StyledDivider :name="t('dividers.platillo')" />
     <PlatilloSection />
 
     <div class="mex-gradient mt-14 pb-4 pt-2 xl:px-10">
-      <SmartDivider :name="t('dividers.testimonial')" class="mt-8" />
+      <StyledDivider :name="t('dividers.testimonial')" class="mt-8" />
       <div class="flex flex-col justify-center lg:flex-row xl:gap-10">
         <div
           class="my-3 grid grid-cols-1 justify-items-center gap-8 px-5 sm:grid-cols-2 lg:items-center"
@@ -153,10 +153,10 @@ function switchLocale() {
       </div>
     </div>
 
-    <SmartDivider :name="t('dividers.categories')" />
+    <StyledDivider :name="t('dividers.categories')" />
     <CategorySection />
 
-    <SmartDivider :name="t('dividers.cta')" />
+    <StyledDivider :name="t('dividers.cta')" />
     <CallToAction />
   </div>
 </template>
