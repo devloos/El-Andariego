@@ -3,7 +3,6 @@ import SmartImg from '@/components/smart/SmartImg.vue';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
 
 const TOP_CATEGORIES = [
   'Platillos',
@@ -14,15 +13,13 @@ const TOP_CATEGORIES = [
   'Quesadillas',
 ];
 
-const router = useRouter();
 const categories = ref([]);
 
-function navigate(name) {
+function constructUrl(name) {
   if (name === 'Platillos') {
-    router.push('/menu/platillos');
-  } else {
-    router.push(`/menu/menu#${name}`);
+    return '/menu/platillos';
   }
+  return `/menu/menu#${name}`;
 }
 
 onMounted(async () => {
@@ -46,11 +43,11 @@ onMounted(async () => {
 
 <template>
   <div class="mx-auto flex max-w-7xl gap-3 overflow-x-scroll rounded-t p-3">
-    <div
+    <RouterLink
       v-for="category in categories"
       :key="category.name"
+      :to="constructUrl(category.name)"
       class="cursor-pointer rounded shadow hover:scale-[1.01]"
-      @click="navigate(category.name)"
     >
       <SmartImg
         :src="category.images[0].url"
@@ -60,6 +57,6 @@ onMounted(async () => {
         :height="category.images[0].height"
       />
       <p class="rounded-b border-t p-5 text-center font-bold">{{ category.name }}</p>
-    </div>
+    </RouterLink>
   </div>
 </template>

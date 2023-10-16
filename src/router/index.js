@@ -41,7 +41,8 @@ const router = createRouter({
     return new Promise((resolve) => {
       if (savedPosition) {
         resolve(savedPosition);
-      } else if (to.hash || (to.path.includes('menu') && from.path.includes('menu'))) {
+      } else if (to.hash || to.path.includes('menu')) {
+        // to hash or top of menu
         setTimeout(() => {
           resolve({
             el: to.hash || '#itemList',
