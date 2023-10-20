@@ -39,4 +39,6 @@ app.use(router);
 app.use(head);
 app.use(i18n);
 
-app.mount('#app');
+router.isReady().then(() => {
+  app.mount('#app');
+});
