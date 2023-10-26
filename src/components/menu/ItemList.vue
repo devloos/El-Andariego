@@ -45,7 +45,7 @@ watch(
     id="itemList"
     class="rounded border-[10px] border-double border-primary-100 bg-primary py-6 text-primary-100 lg:container"
   >
-    <div v-for="(category, i) in categories" :key="i" class="pb-12">
+    <div v-for="category in categories" :key="category._id" class="pb-12">
       <h1
         v-if="category._id"
         :id="category._id"
