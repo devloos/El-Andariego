@@ -12,9 +12,9 @@
   "dependencies": {
     "@unhead/vue": "^1.7.4",
     "@vueuse/core": "^10.5.0",
-    "axios": "^1.5.1",
+    "axios": "^1.6.0",
     "vue": "^3.2.13",
-    "vue-i18n": "^9.6.0",
+    "vue-i18n": "^9.6.1",
     "vue-router": "^4.2.5",
     "vue-toastification": "^2.0.0-rc.5"
   },
@@ -25,7 +25,7 @@
     "@vue/eslint-config-prettier": "^8.0.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.52.0",
-    "eslint-plugin-vue": "^9.18.0",
+    "eslint-plugin-vue": "^9.18.1",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",
