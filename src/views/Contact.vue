@@ -81,27 +81,27 @@ async function formSubmitted() {
         <SmartInput v-model="email" :label="t('form.email')" type="email" />
         <SmartInput v-model="phone" :label="t('form.phone_number')" type="tel" />
 
-        <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">
-            {{ t('form.message') }}
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">
+              {{ t('form.message') }}
+            </span>
           </label>
           <textarea
             v-model="description"
-            class="h-20 rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+            class="textarea textarea-bordered"
             type="text"
             :placeholder="t('form.descriptive_message')"
             required
           />
         </div>
-        <div class="flex flex-col">
-          <label class="text-sm font-medium leading-6 text-gray-900">
-            {{ t('form.interested_in') }}
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">
+              {{ t('form.interested_in') }}
+            </span>
           </label>
-          <select
-            v-model="eventType"
-            class="rounded-md border border-gray-300 bg-gray-50 px-2 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-            required
-          >
+          <select v-model="eventType" class="select select-bordered w-full" required>
             <option disabled value="">{{ t('form.select.selection') }}</option>
             <option>{{ t('form.select.order') }}</option>
             <option>Catering</option>
@@ -109,10 +109,7 @@ async function formSubmitted() {
             <option>{{ t('form.select.other') }}</option>
           </select>
         </div>
-        <button
-          type="submit"
-          class="rounded bg-primary px-4 py-2 text-white hover:bg-primary-400"
-        >
+        <button type="submit" class="btn btn-primary btn-block">
           {{ t('form.submit') }}
         </button>
       </form>

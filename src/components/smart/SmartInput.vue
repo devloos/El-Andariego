@@ -18,13 +18,15 @@ defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div class="flex flex-col">
-    <label class="text-sm font-medium leading-6 text-gray-900">
-      {{ label }}
+  <div class="form-control">
+    <label class="label">
+      <span class="label-text">
+        {{ label }}
+      </span>
     </label>
     <input
       :value="modelValue"
-      class="rounded-md border border-gray-300 px-3 py-1.5 text-gray-900 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+      class="input input-bordered w-full"
       :type="type"
       required
       @input="$emit('update:modelValue', $event.target.value)"
