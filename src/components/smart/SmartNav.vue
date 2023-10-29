@@ -54,11 +54,7 @@ watch(showOffCanvas, (value) => {
           {{ link.name }}
         </span>
       </RouterLink>
-      <button
-        class="rounded-md bg-primary px-4 py-2.5 text-base text-gray-50 transition-all duration-300 hover:bg-primary-400"
-        type="button"
-        @click="copyPhone"
-      >
+      <button class="btn btn-primary" type="button" @click="copyPhone">
         {{ t('link.call') }}
       </button>
     </div>
@@ -107,11 +103,7 @@ watch(showOffCanvas, (value) => {
                 <i class="fa-brands fa-google fa-xs"></i>
               </a>
             </div>
-            <button
-              class="rounded-md bg-primary px-6 py-3 text-xl text-gray-50 transition-all duration-300 hover:bg-primary-400"
-              type="button"
-              @click="copyPhone"
-            >
+            <button class="btn btn-primary btn-lg" type="button" @click="copyPhone">
               {{ t('link.call') }}
             </button>
           </div>

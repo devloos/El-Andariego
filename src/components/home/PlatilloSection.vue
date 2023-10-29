@@ -58,20 +58,28 @@ async function toggleLiked(platillo) {
     <RouterLink
       v-for="platillo in platillos"
       :key="platillo.name"
-      class="relative min-h-fit min-w-fit cursor-pointer rounded-b rounded-t shadow hover:scale-[1.01] hover:text-coal"
+      class="card card-compact bg-base-100 shadow-md"
       :to="`/menu/platillos#${platillo._id}`"
     >
-      <SmartImg
-        :src="platillo.images[0].url"
-        class="h-auto max-w-[300px] rounded-t"
-        :alt="platillo.images[0].title"
-        :width="platillo.images[0].width"
-        :height="platillo.images[0].height"
-      />
-      <div class="flex flex-col gap-1 rounded-b p-2">
-        <div class="flex items-center gap-3">
-          <p class="text-lg font-bold">{{ `#${platillo.priority} ${platillo.name}` }}</p>
-        </div>
+      <div class="relative">
+        <SmartImg
+          :src="platillo.images[0].url"
+          class="max-w-[300px]"
+          :alt="platillo.images[0].title"
+          :width="platillo.images[0].width"
+          :height="platillo.images[0].height"
+        />
+        <button class="btn absolute right-2 top-2" @click.prevent="toggleLiked(platillo)">
+          <i
+            class="fa-solid fa-heart"
+            :class="userLikesPlatillo(platillo.name) ? 'text-alternate' : 'text-coal'"
+          />
+        </button>
+      </div>
+      <div class="card-body">
+        <p class="card-title">
+          {{ `#${platillo.priority} ${platillo.name}` }}
+        </p>
         <div class="flex items-center gap-3">
           <i class="fa-solid fa-money-bill text-primary"></i>
           <p class="font-semibold">{{ '$' + platillo.base_price }}</p>
@@ -81,15 +89,6 @@ async function toggleLiked(platillo) {
           <p class="font-semibold">{{ platillo.likes }}</p>
         </div>
       </div>
-      <button
-        class="absolute bottom-6 right-6 rounded-full border border-coal-100 bg-primary-100/40 p-3 px-4 transition-all hover:scale-110 hover:bg-primary-100/70"
-        @click.prevent="toggleLiked(platillo)"
-      >
-        <i
-          class="fa-solid fa-heart"
-          :class="userLikesPlatillo(platillo.name) ? 'text-alternate' : 'text-coal'"
-        />
-      </button>
     </RouterLink>
   </div>
 </template>
