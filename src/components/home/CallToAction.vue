@@ -64,17 +64,15 @@ async function signup() {
         <p class="mb-6 xl:text-lg">
           {{ t('cta.info') }}
         </p>
-        <form class="flex items-center justify-center" @submit.prevent="signup">
+        <form class="join" @submit.prevent="signup">
           <input
             v-model="email"
             type="email"
             :placeholder="t('form.email')"
-            class="appearance-none rounded-l border border-r-0 border-gray-300 p-2 text-gray-900 shadow-sm"
+            class="input input-bordered join-item w-full max-w-xs"
             required
           />
-          <button
-            class="rounded-r bg-alternate px-4 py-[8.2px] text-white hover:bg-alternate-400"
-          >
+          <button class="btn btn-secondary join-item">
             {{ t('form.sign_up') }}
           </button>
         </form>
