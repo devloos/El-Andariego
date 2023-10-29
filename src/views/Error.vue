@@ -18,7 +18,6 @@ useHead({
 
 <template>
   <div class="flex flex-col items-center gap-3 p-5 text-center text-xl">
-    <button class="btn">carlos</button>
     <h1 class="text-2xl font-bold">{{ t('error.header') }}</h1>
     <p>{{ t('error.message') }}</p>
     <RouterLink
