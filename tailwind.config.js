@@ -66,5 +66,24 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require('daisyui')],
+  daisyui: {
+    base: false,
+    logs: false,
+    themes: [
+      {
+        mytheme: {
+          primary: '#1a532e',
+          secondary: '#76070a',
+          accent: '#bdbbb0',
+          neutral: '#f8f8f7',
+          'base-100': '#1a532e',
+          info: '#3abff8',
+          success: '#57aaea',
+          warning: '#FFBF37',
+          error: '#76070a',
+        },
+      },
+    ],
+  },
 };
