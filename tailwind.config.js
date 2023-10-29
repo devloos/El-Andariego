@@ -73,13 +73,13 @@ export default {
     themes: [
       {
         mytheme: {
-          primary: '#10321c',
+          primary: '#1a532e',
           secondary: '#76070a',
           accent: '#bdbbb0',
           neutral: '#f8f8f7',
-          'base-100': '#1a532e',
+          'base-100': '#edf1ee',
           info: '#3abff8',
-          success: '#57aaea',
+          success: '#1a532e',
           warning: '#FFBF37',
           error: '#76070a',
         },
