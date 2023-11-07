@@ -7,6 +7,10 @@ import router from './router';
 import Toast from 'vue-toastification';
 import en from '@/locales/en.js';
 import es from '@/locales/es.js';
+import InfoIcon from '@/components/svgs/icons/InfoIcon.vue';
+import SuccessIcon from '@/components/svgs/icons/SuccessIcon.vue';
+import WarningIcon from '@/components/svgs/icons/WarningIcon.vue';
+import ErrorIcon from '@/components/svgs/icons/ErrorIcon.vue';
 
 import '@/assets/index.css';
 import 'vue-toastification/dist/index.css';
@@ -38,6 +42,12 @@ app.use(Toast, {
 app.use(router);
 app.use(head);
 app.use(i18n);
+
+app
+  .component('InfoIcon', InfoIcon)
+  .component('SuccessIcon', SuccessIcon)
+  .component('WarningIcon', WarningIcon)
+  .component('ErrorIcon', ErrorIcon);
 
 router.isReady().then(() => {
   app.mount('#app');
