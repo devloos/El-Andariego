@@ -2,13 +2,13 @@
 import { useI18n } from 'vue-i18n';
 import { computed, ref } from 'vue';
 import { useStorage } from '@vueuse/core';
-import PlatilloSection from '@/components/home/PlatilloSection.vue';
-import CategorySection from '@/components/home/CategorySection.vue';
-import CallToAction from '@/components/home/CallToAction.vue';
+import PlatilloSection from '@/views/homepage/-PlatilloSection.vue';
+import CategorySection from '@/views/homepage/-CategorySection.vue';
+import CallToAction from '@/views/homepage/-CallToAction.vue';
 import StyledDivider from '@/components/StyledDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import testimonials from '@/assets/constants/testimonials.js';
-import gallery from '../assets/constants/gallery';
+import gallery from '@/assets/constants/gallery';
 
 const { t, locale } = useI18n({ useScope: 'global' });
 const localePreference = useStorage('locale', 'en');

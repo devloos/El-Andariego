@@ -2,7 +2,7 @@
 import { useHead } from '@unhead/vue';
 import { RouterLink } from 'vue-router';
 import SmartImg from '@/components/smart/SmartImg.vue';
-import ItemList from '@/components/menu/ItemList.vue';
+import ItemList from '@/views/menu/-ItemList.vue';
 import { useElementBounding } from '@vueuse/core';
 import { ref } from 'vue';
 

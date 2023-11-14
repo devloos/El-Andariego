@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-const Home = () => import('@/views/Home.vue');
-const Menu = () => import('@/views/Menu.vue');
+const Homepage = () => import('@/views/homepage/Homepage.vue');
+const Menu = () => import('@/views/menu/Menu.vue');
 const Contact = () => import('@/views/Contact.vue');
 const Blog = () => import('@/views/Blog.vue');
 const Post = () => import('@/views/Post.vue');
@@ -10,7 +10,8 @@ const Error = () => import('@/views/Error.vue');
 const routes = [
   {
     path: '/',
-    component: Home,
+    name: 'Homepage',
+    component: Homepage,
   },
   {
     path: '/menu/:id',
