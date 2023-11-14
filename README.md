@@ -11,3 +11,4 @@
 - toast messages
 - item reviews
 - investigate if its better to use axios or fetch
+- change menu shit sucks

@@ -37,6 +37,9 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     name: 'PageNotFound',
+    meta: {
+      layout: 'BlankLayout',
+    },
     component: PageNotFound,
   },
 ];

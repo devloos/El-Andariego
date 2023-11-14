@@ -1,4 +1,5 @@
 <script setup>
+import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
 import { computed, ref } from 'vue';
 import { useStorage } from '@vueuse/core';
@@ -9,6 +10,16 @@ import StyledDivider from '@/components/StyledDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import testimonials from '@/assets/constants/testimonials.js';
 import gallery from '@/assets/constants/gallery';
+
+useHead({
+  title: 'El Andariego',
+  meta: [
+    {
+      name: 'description',
+      content: 'Authentic Mexican Food Truck',
+    },
+  ],
+});
 
 const { t, locale } = useI18n({ useScope: 'global' });
 const localePreference = useStorage('locale', 'en');
