@@ -5,7 +5,7 @@ const Menu = () => import('@/views/menu/Menu.vue');
 const Contact = () => import('@/views/Contact.vue');
 const Blog = () => import('@/views/Blog.vue');
 const Post = () => import('@/views/Post.vue');
-const Error = () => import('@/views/Error.vue');
+const PageNotFound = () => import('@/views/PageNotFound.vue');
 
 const routes = [
   {
@@ -20,20 +20,24 @@ const routes = [
   },
   {
     path: '/contact',
+    name: 'Contact',
     component: Contact,
   },
   {
     path: '/blog',
+    name: 'Blog',
     component: Blog,
   },
   {
     path: '/blog/:id',
+    name: 'Post',
     component: Post,
     props: true,
   },
   {
     path: '/:pathMatch(.*)*',
-    component: Error,
+    name: 'PageNotFound',
+    component: PageNotFound,
   },
 ];
 
