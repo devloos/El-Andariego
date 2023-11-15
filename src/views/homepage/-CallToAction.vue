@@ -12,7 +12,7 @@ const form = ref(null);
 async function signup() {
   try {
     if (!email.value) {
-      throw Error();
+      throw Error('No email field provided.');
     }
 
     await useAxios({
