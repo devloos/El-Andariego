@@ -18,20 +18,13 @@ useHead({
 });
 
 const { t } = useI18n({ useScope: 'global' });
+const form = ref(null);
 
 const name = ref('');
 const email = ref('');
 const phone = ref('');
 const description = ref('');
 const eventType = ref('');
-
-function resetForm() {
-  name.value = '';
-  email.value = '';
-  phone.value = '';
-  description.value = '';
-  eventType.value = '';
-}
 
 async function formSubmitted() {
   try {
@@ -53,7 +46,7 @@ async function formSubmitted() {
       type: 'error',
     });
   } finally {
-    resetForm();
+    form.value.reset();
   }
 }
 </script>
@@ -74,6 +67,7 @@ async function formSubmitted() {
         height="1080"
       />
       <form
+        ref="form"
         class="grid w-full max-w-lg grow grid-cols-1 gap-4 px-2"
         @submit.prevent="formSubmitted"
       >

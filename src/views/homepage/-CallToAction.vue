@@ -7,6 +7,7 @@ import { copyPhone } from '@/assets/js/utility';
 
 const { t } = useI18n({ useScope: 'global' });
 const email = ref('');
+const form = ref(null);
 
 async function signup() {
   try {
@@ -22,7 +23,7 @@ async function signup() {
       },
     });
 
-    email.value = '';
+    form.value.reset();
     useToast('Successfully subscribed to El Andariego', {
       type: 'success',
     });
@@ -64,12 +65,12 @@ async function signup() {
         <p class="mb-6 xl:text-lg">
           {{ t('cta.info') }}
         </p>
-        <form class="join" @submit.prevent="signup">
+        <form ref="form" class="join" @submit.prevent="signup">
           <input
             v-model="email"
             type="email"
             :placeholder="t('form.email')"
-            class="input input-bordered join-item w-full max-w-xs"
+            class="input join-item input-bordered w-full max-w-xs"
             required
           />
           <button class="btn btn-secondary join-item">
