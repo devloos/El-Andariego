@@ -47,11 +47,11 @@ onMounted(async () => {
 <template>
   <div class="mt-5">
     <SmartImg
-      src="/andariego/menu/menu-header-image.jpg"
-      class="mb-5 max-h-[700px] object-none object-center"
-      width="2400"
+      src="/andariego/menu/banner-1703922256592.jpg"
+      class="mb-5 max-h-[500px] object-none object-center"
+      width="1920"
       height="1280"
-      alt="menu header"
+      alt="Menu Banner"
     />
     <div
       class="rounded border-[10px] border-double border-primary-100 bg-primary py-6 text-primary-100 lg:container"
