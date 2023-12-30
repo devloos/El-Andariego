@@ -28,8 +28,8 @@ const eventType = ref('');
 
 async function formSubmitted() {
   try {
-    await useAxios({
-      url: '/api/sendgrid/send',
+    const response = await useAxios({
+      url: '/api/sendgrid/send-email',
       method: 'POST',
       data: {
         name: name.value,
@@ -40,7 +40,9 @@ async function formSubmitted() {
       },
     });
 
-    useToast('You will be contacted shortly thank you.');
+    if (response.data.success === true) {
+      useToast('You will be contacted shortly thank you.');
+    }
   } catch (err) {
     useToast('Failed to send information try again.', {
       type: 'error',
