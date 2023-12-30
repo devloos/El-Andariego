@@ -40,7 +40,7 @@ onMounted(async () => {
       v-for="category in categories"
       :key="category._id"
       :to="`/menu/#${category._id}`"
-      class="cursor-pointer rounded shadow hover:scale-[1.01]"
+      class="cursor-pointer rounded shadow transition-all hover:scale-[1.01]"
     >
       <SmartImg
         :src="category.images[0].url"
