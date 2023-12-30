@@ -7,6 +7,7 @@ import { useToast } from '@/composables/toast.js';
 import { useI18n } from 'vue-i18n';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import { onMounted } from 'vue';
+import { meats } from '@/assets/constants/menu';
 
 useHead({
   title: 'Menu | El Andariego',
@@ -17,19 +18,6 @@ useHead({
     },
   ],
 });
-
-const meats = [
-  'Asada',
-  'Chicken',
-  'Carnitas',
-  'Chorizo',
-  'Al Pastor',
-  'Tripa',
-  'Lengua',
-  'Cow Head',
-  'Buche',
-  'Cecina',
-];
 
 const categories = ref([]);
 const isLoading = ref(true);
@@ -71,8 +59,8 @@ onMounted(async () => {
           {{ t('menu.meat_selection') }}
         </p>
         <ul class="flex flex-wrap justify-center gap-3">
-          <li v-for="(meat, i) in meats" :key="meat">
-            <span>{{ meat }}</span>
+          <li v-for="(meat, i) in meats" :key="i">
+            <span>{{ meat[locale] }}</span>
             <span v-if="i + 1 < meats.length">,</span>
           </li>
         </ul>
