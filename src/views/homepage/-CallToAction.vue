@@ -15,7 +15,7 @@ async function signup() {
       throw Error('No email field provided.');
     }
 
-    await useAxios({
+    const response = await useAxios({
       url: '/api/sendgrid/subscribe',
       method: 'POST',
       data: {
@@ -23,12 +23,15 @@ async function signup() {
       },
     });
 
-    form.value.reset();
-    useToast('Successfully subscribed to El Andariego', {
-      type: 'success',
-    });
+    if (response.data.success === true) {
+      useToast('Successfully subscribed to El Andariego', {
+        type: 'success',
+      });
+    }
   } catch (err) {
-    useToast('Error submitting sign up.', { type: 'error' });
+    useToast('Error subscribing to El Andariego.', { type: 'error' });
+  } finally {
+    form.value.reset();
   }
 }
 </script>
