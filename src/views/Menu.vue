@@ -45,7 +45,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="mt-5">
+  <div>
     <SmartImg
       src="/andariego/menu/banner-1703922256592.jpg"
       class="mb-5 max-h-[500px] object-none object-center"

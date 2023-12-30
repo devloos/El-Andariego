@@ -148,15 +148,15 @@ function switchLocale() {
         <div
           class="my-5 grid grid-cols-2 gap-2 rounded px-3 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3"
         >
-          <SmartImg
-            v-for="src in gallery"
-            :key="src"
-            class="w-full max-w-[350px] rounded"
-            :src="src"
-            alt="Gallery Image"
-            width="800"
-            height="800"
-          />
+          <div v-for="src in gallery" :key="src" class="overflow-hidden">
+            <SmartImg
+              class="w-full max-w-[350px] rounded transition-all hover:scale-125"
+              :src="src"
+              alt="Gallery Image"
+              width="800"
+              height="800"
+            />
+          </div>
         </div>
       </div>
     </div>
