@@ -1,17 +1,23 @@
 <script setup>
 import LoadingOverlay from '@/components/LoadingOverlay.vue';
 import SmartTransition from '@/components/smart/SmartTransition.vue';
+import { ref } from 'vue';
+import { provide } from 'vue';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
 
 const layout = computed(() => route.meta.layout || 'DefaultLayout');
+
+const isLoading = ref(false);
+provide('startOverlay', () => (isLoading.value = true));
+provide('stopOverlay', () => (isLoading.value = false));
 </script>
 
 <template>
   <div>
-    <LoadingOverlay />
+    <LoadingOverlay :loading="isLoading" />
     <component :is="layout">
       <RouterView v-slot="{ Component }" class="router-view">
         <SmartTransition name="fade" mode="out-in">

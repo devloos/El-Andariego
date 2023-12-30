@@ -6,6 +6,7 @@ import { useToast } from '@/composables/toast';
 import { useI18n } from 'vue-i18n';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import SmartInput from '@/components/smart/SmartInput.vue';
+import { inject } from 'vue';
 
 useHead({
   title: 'Contact | El Andariego',
@@ -19,6 +20,8 @@ useHead({
 
 const { t } = useI18n({ useScope: 'global' });
 const form = ref(null);
+const startOverlay = inject('startOverlay');
+const stopOverlay = inject('stopOverlay');
 
 const name = ref('');
 const email = ref('');
@@ -28,6 +31,7 @@ const eventType = ref('');
 
 async function formSubmitted() {
   try {
+    startOverlay();
     const response = await useAxios({
       url: '/api/sendgrid/send-email',
       method: 'POST',
@@ -49,6 +53,7 @@ async function formSubmitted() {
     });
   } finally {
     form.value.reset();
+    stopOverlay();
   }
 }
 </script>

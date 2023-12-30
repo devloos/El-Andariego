@@ -2,18 +2,22 @@
 import { useToast } from '@/composables/toast.js';
 import { useAxios } from '@/composables/axios.js';
 import { useI18n } from 'vue-i18n';
-import { ref } from 'vue';
+import { inject, ref } from 'vue';
 import { copyPhone } from '@/assets/js/utility';
 
 const { t } = useI18n({ useScope: 'global' });
 const email = ref('');
 const form = ref(null);
+const startOverlay = inject('startOverlay');
+const stopOverlay = inject('stopOverlay');
 
 async function signup() {
   try {
     if (!email.value) {
       throw Error('No email field provided.');
     }
+
+    startOverlay();
 
     const response = await useAxios({
       url: '/api/sendgrid/subscribe',
@@ -32,6 +36,7 @@ async function signup() {
     useToast('Error subscribing to El Andariego.', { type: 'error' });
   } finally {
     form.value.reset();
+    stopOverlay();
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <script setup>
 import { useHead } from '@unhead/vue';
-import { ref } from 'vue';
+import { inject, ref } from 'vue';
 import { prettyContent } from '@/assets/js/utility';
 import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
@@ -20,12 +20,14 @@ useHead({
 });
 
 const categories = ref([]);
-const isLoading = ref(true);
+const startOverlay = inject('startOverlay');
+const stopOverlay = inject('stopOverlay');
+
 const { locale, t } = useI18n({ useScope: 'global' });
 
 onMounted(async () => {
   try {
-    isLoading.value = true;
+    startOverlay();
     const response = await useAxios({
       url: `/api/categories/list`,
       params: {
@@ -37,7 +39,7 @@ onMounted(async () => {
   } catch (e) {
     useToast('Failed to fetch items.', { type: 'error' });
   } finally {
-    isLoading.value = false;
+    stopOverlay();
   }
 });
 </script>
