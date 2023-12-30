@@ -17,7 +17,7 @@ export function useSmartLinks() {
       },
       {
         name: t('link.menu'),
-        to: '/menu/menu',
+        to: '/menu',
         isActive: route.name === 'Menu',
       },
       {

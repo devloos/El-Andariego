@@ -4,20 +4,25 @@ import { useAxios } from '@/composables/axios.js';
 import { useToast } from '@/composables/toast.js';
 import { useStorage } from '@vueuse/core';
 import SmartImg from '@/components/smart/SmartImg.vue';
+import { useI18n } from 'vue-i18n';
 
 const platillos = ref([]);
 
 const PLATILLOS_KEY = 'platillos-liked';
 
 const platillosLiked = useStorage(PLATILLOS_KEY, []);
+const { locale } = useI18n({ useScope: 'global' });
 
 onMounted(async () => {
   try {
     const response = await useAxios({
-      url: '/api/menu/platillos',
+      url: '/api/categories/get/Platillos',
+      params: {
+        include_items: true,
+      },
     });
 
-    platillos.value = response.data;
+    platillos.value = response.data.items;
   } catch (err) {
     useToast('Failed to fetch platillos.', {
       type: 'error',
@@ -25,28 +30,33 @@ onMounted(async () => {
   }
 });
 
-function userLikesPlatillo(name) {
-  return platillosLiked.value.includes(name);
+function userLikesPlatillo(id) {
+  return platillosLiked.value.includes(id);
 }
 
-async function toggleLiked(platillo) {
-  const userLikes = userLikesPlatillo(platillo.name);
+async function toggleLiked(index) {
+  const platillo = platillos.value[index];
+  const userLikes = userLikesPlatillo(platillo._id);
+
   if (userLikes) {
-    platillosLiked.value = platillosLiked.value.filter((name) => name !== platillo.name);
+    platillosLiked.value = platillosLiked.value.filter((id) => id !== platillo._id);
   } else {
-    platillosLiked.value.push(platillo.name);
+    platillosLiked.value.push(platillo._id);
   }
 
-  // subtract or add depending on user preference already
   platillo.likes += userLikes ? -1 : 1;
+
   try {
-    await useAxios({
-      url: `/api/menu/platillos/${platillo._id}`,
+    const response = await useAxios({
+      url: '/api/items/update-likes',
       method: 'POST',
       data: {
+        _id: platillo._id,
         likes: platillo.likes,
       },
     });
+
+    platillos.value[index] = response.data.data;
   } catch (e) {
     useToast('Failed to update platillo.', { type: 'error' });
   }
@@ -56,10 +66,10 @@ async function toggleLiked(platillo) {
 <template>
   <div class="flex gap-3 overflow-x-scroll p-3 xl:container">
     <RouterLink
-      v-for="platillo in platillos"
-      :key="platillo.name"
+      v-for="(platillo, index) in platillos"
+      :key="platillo._id"
       class="card card-compact bg-base-100 shadow-md"
-      :to="`/menu/platillos#${platillo._id}`"
+      :to="`/menu/#${platillo._id}`"
     >
       <div class="relative">
         <SmartImg
@@ -69,16 +79,16 @@ async function toggleLiked(platillo) {
           :width="platillo.images[0].width"
           :height="platillo.images[0].height"
         />
-        <button class="btn absolute right-2 top-2" @click.prevent="toggleLiked(platillo)">
+        <button class="btn absolute right-2 top-2" @click.prevent="toggleLiked(index)">
           <i
             class="fa-solid fa-heart"
-            :class="userLikesPlatillo(platillo.name) ? 'text-alternate' : 'text-coal'"
+            :class="userLikesPlatillo(platillo._id) ? 'text-alternate' : 'text-coal'"
           />
         </button>
       </div>
       <div class="card-body">
         <p class="card-title">
-          {{ `#${platillo.priority} ${platillo.name}` }}
+          {{ `${platillo.priority}. ${platillo.name[locale]}` }}
         </p>
         <div class="flex items-center gap-3">
           <i class="fa-solid fa-money-bill text-primary"></i>

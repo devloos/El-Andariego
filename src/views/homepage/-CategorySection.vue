@@ -15,17 +15,10 @@ const TOP_CATEGORIES = [
 
 const categories = ref([]);
 
-function constructUrl(name) {
-  if (name === 'Platillos') {
-    return '/menu/platillos';
-  }
-  return `/menu/menu#${name}`;
-}
-
 onMounted(async () => {
   try {
     const res = await useAxios({
-      url: '/api/categories',
+      url: '/api/categories/list',
     });
 
     categories.value = res.data.filter((category) =>
@@ -45,8 +38,8 @@ onMounted(async () => {
   <div class="mx-auto flex max-w-7xl gap-3 overflow-x-scroll rounded-t p-3">
     <RouterLink
       v-for="category in categories"
-      :key="category.name"
-      :to="constructUrl(category.name)"
+      :key="category._id"
+      :to="`/menu/#${category._id}`"
       class="cursor-pointer rounded shadow hover:scale-[1.01]"
     >
       <SmartImg

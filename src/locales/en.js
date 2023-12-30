@@ -66,4 +66,7 @@ export default {
     message: 'If you typed the URL directly, please make sure the spelling is correct.',
     homepage: 'Back To Homepage',
   },
+  menu: {
+    meat_selection: 'Meat Selection',
+  },
 };

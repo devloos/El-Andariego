@@ -74,7 +74,7 @@ function switchLocale() {
               {{ t('home.intro') }}
             </p>
           </div>
-          <button class="btn btn-primary px-8" @click="$router.push('/menu/menu')">
+          <button class="btn btn-primary px-8" @click="$router.push('/menu')">
             {{ t('home.view_menu') }}
           </button>
           <div class="my-2 flex justify-center gap-4 text-2xl lg:my-4">

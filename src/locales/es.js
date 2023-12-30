@@ -67,4 +67,7 @@ export default {
       'Si escribió la URL directamente, asegúrese de que la ortografía sea correcta.',
     homepage: 'Volver a la Página Principal',
   },
+  menu: {
+    meat_selection: 'Selección De Carne',
+  },
 };

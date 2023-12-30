@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 const Homepage = () => import('@/views/homepage/Homepage.vue');
-const Menu = () => import('@/views/menu/Menu.vue');
+const Menu = () => import('@/views/Menu.vue');
 const Contact = () => import('@/views/Contact.vue');
 const Blog = () => import('@/views/Blog.vue');
 const Post = () => import('@/views/Post.vue');
@@ -14,7 +14,7 @@ const routes = [
     component: Homepage,
   },
   {
-    path: '/menu/:id',
+    path: '/menu',
     name: 'Menu',
     component: Menu,
   },
@@ -51,15 +51,15 @@ const router = createRouter({
     return new Promise((resolve) => {
       if (savedPosition) {
         resolve(savedPosition);
-      } else if (to.hash || to.path.includes('menu')) {
+      } else if (to.hash) {
         // to hash or top of menu
         setTimeout(() => {
           resolve({
-            el: to.hash || '#itemList',
+            el: to.hash,
             behavior: 'smooth',
-            top: 140,
+            top: 80,
           });
-        }, 500);
+        }, 800);
       } else {
         resolve({ left: 0, top: 0 });
       }
