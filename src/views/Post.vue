@@ -24,7 +24,7 @@ onMounted(async () => {
       url: `/api/blog/${props.id}`,
     });
 
-    post.value = response.data;
+    post.value = response.data.data;
     post.value.date = formatMongoDate(post.value.date);
   } catch (e) {
     useToast('Failed to fetch post details.', { type: 'error' });

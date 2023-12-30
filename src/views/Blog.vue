@@ -27,10 +27,10 @@ const isLoading = ref(true);
 onMounted(async () => {
   try {
     const response = await useAxios({
-      url: '/api/blog',
+      url: '/api/blog/list',
     });
 
-    posts.value = response.data;
+    posts.value = response.data.data;
     posts.value.sort((a, b) => new Date(b.date) - new Date(a.date));
     posts.value.forEach((post) => {
       post.date = formatMongoDate(post.date);

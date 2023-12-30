@@ -22,9 +22,9 @@ onMounted(async () => {
       },
     });
 
-    platillos.value = response.data.items;
+    platillos.value = response.data.data.items;
   } catch (err) {
-    useToast('Failed to fetch platillos.', {
+    useToast(err.response.data.message, {
       type: 'error',
     });
   }

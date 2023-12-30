@@ -17,11 +17,11 @@ const categories = ref([]);
 
 onMounted(async () => {
   try {
-    const res = await useAxios({
+    const response = await useAxios({
       url: '/api/categories/list',
     });
 
-    categories.value = res.data.filter((category) =>
+    categories.value = response.data.data.filter((category) =>
       TOP_CATEGORIES.includes(category.name),
     );
 

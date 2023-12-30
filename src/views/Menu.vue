@@ -33,7 +33,7 @@ onMounted(async () => {
       },
     });
 
-    categories.value = response.data;
+    categories.value = response.data.data;
   } catch (e) {
     useToast('Failed to fetch items.', { type: 'error' });
   } finally {
