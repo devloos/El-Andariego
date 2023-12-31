@@ -17,6 +17,7 @@ import ErrorIcon from '@/components/icons/ErrorIcon.vue';
 import MessageIcon from '@/components/icons/MessageIcon.vue';
 import HeartIcon from '@/components/icons/HeartIcon.vue';
 import PictureIcon from '@/components/icons/PictureIcon.vue';
+import EhxIcon from '@/components/icons/EhxIcon.vue';
 
 import '@/assets/index.css';
 import 'vue-toastification/dist/index.css';
@@ -58,7 +59,8 @@ app
   .component('ErrorIcon', ErrorIcon)
   .component('HeartIcon', HeartIcon)
   .component('PictureIcon', PictureIcon)
-  .component('MessageIcon', MessageIcon);
+  .component('MessageIcon', MessageIcon)
+  .component('EhxIcon', EhxIcon);
 
 router.isReady().then(() => {
   app.mount('#app');

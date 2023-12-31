@@ -21,6 +21,7 @@ useHead({
 });
 
 const categories = ref([]);
+const modal = ref(null);
 const startOverlay = inject('startOverlay');
 const stopOverlay = inject('stopOverlay');
 
@@ -43,10 +44,76 @@ onMounted(async () => {
     stopOverlay();
   }
 });
+
+function openModal() {
+  modal.value.showModal();
+}
 </script>
 
 <template>
   <div>
+    <dialog ref="modal" class="modal modal-middle">
+      <div class="modal-box w-11/12 max-w-5xl">
+        <form method="dialog">
+          <button class="btn btn-circle btn-ghost btn-sm absolute right-2 top-2">
+            <SmartSvg name="EhxIcon" class="stroke-black" />
+          </button>
+        </form>
+        <div class="pt-3">
+          <div class="carousel w-64 rounded-box">
+            <div class="carousel-item w-full">
+              <img
+                src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
     <SmartImg
       src="/andariego/menu/banner-1703922256592.jpg"
       class="mb-5 max-h-[500px] object-none object-center"
@@ -88,7 +155,7 @@ onMounted(async () => {
                 <div>
                   <SmartImg
                     src="/andariego/menu/items/chicken-taco.jpg"
-                    class="max-w-[140px] rounded"
+                    class="mx-auto max-h-[140px] rounded object-cover object-center lg:max-w-[140px]"
                     width="464"
                     height="464"
                     alt="Menu Banner"
@@ -118,7 +185,10 @@ onMounted(async () => {
                       />
                       <span>3 Review</span>
                     </button>
-                    <button class="group btn btn-outline btn-accent btn-sm">
+                    <button
+                      class="group btn btn-outline btn-accent btn-sm"
+                      @click="openModal"
+                    >
                       <span>9</span>
                       <SmartSvg
                         name="PictureIcon"
