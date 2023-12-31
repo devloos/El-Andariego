@@ -8,6 +8,7 @@ import { useI18n } from 'vue-i18n';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import { onMounted } from 'vue';
 import { meats } from '@/assets/constants/menu';
+import SmartSvg from '@/components/smart/SmartSvg.vue';
 
 useHead({
   title: 'Menu | El Andariego',
@@ -83,17 +84,57 @@ onMounted(async () => {
               :key="item._id"
               class="relative"
             >
-              <p
-                class="mb-2 w-fit rounded bg-gradient-to-r from-alternate from-70% pe-9 ps-2 text-lg font-semibold uppercase tracking-wide"
-              >
-                <span v-if="category.name === 'Platillos'">{{ item.priority }}. </span>
-                <span>{{ item.name[locale] }}</span>
-              </p>
-              <p
-                class="mb-2 flex flex-wrap whitespace-pre-wrap ps-1 font-sans font-semibold tracking-wide"
-              >
-                {{ prettyContent(item.content[locale], locale) }}
-              </p>
+              <div class="flex flex-col gap-2 lg:flex-row">
+                <div>
+                  <SmartImg
+                    src="/andariego/menu/items/chicken-taco.jpg"
+                    class="max-w-[140px] rounded"
+                    width="464"
+                    height="464"
+                    alt="Menu Banner"
+                  />
+                </div>
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <p
+                      class="mb-2 w-fit rounded bg-gradient-to-r from-alternate from-70% pe-9 ps-2 text-lg font-semibold uppercase tracking-wide"
+                    >
+                      <span v-if="category.name === 'Platillos'"
+                        >{{ item.priority }}.
+                      </span>
+                      <span>{{ item.name[locale] }}</span>
+                    </p>
+                    <p
+                      class="mb-2 flex flex-wrap whitespace-pre-wrap ps-1 font-sans font-semibold tracking-wide"
+                    >
+                      {{ prettyContent(item.content[locale], locale) }}
+                    </p>
+                  </div>
+                  <div class="flex flex-wrap gap-3">
+                    <button v-if="false" class="group btn btn-outline btn-accent btn-sm">
+                      <SmartSvg
+                        name="MessageIcon"
+                        class="h-5 w-5 stroke-accent group-hover:stroke-black"
+                      />
+                      <span>3 Review</span>
+                    </button>
+                    <button class="group btn btn-outline btn-accent btn-sm">
+                      <span>9</span>
+                      <SmartSvg
+                        name="PictureIcon"
+                        class="h-5 w-5 stroke-accent group-hover:stroke-black"
+                      />
+                    </button>
+                    <button class="group btn btn-outline btn-accent btn-sm">
+                      <span>2</span>
+                      <SmartSvg
+                        name="HeartIcon"
+                        class="h-5 w-5 stroke-accent group-hover:stroke-black"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
               <div class="mt-5">
                 <hr class="border-[1px] border-coal" />
               </div>

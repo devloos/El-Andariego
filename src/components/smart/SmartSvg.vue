@@ -8,14 +8,5 @@ defineProps({
 </script>
 
 <template>
-  <component :is="name" class="smart-svg" />
+  <component :is="name" />
 </template>
-
-<style>
-.smart-svg {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  stroke-width: 0;
-}
-</style>

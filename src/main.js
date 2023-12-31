@@ -9,10 +9,14 @@ import en from '@/locales/en.js';
 import es from '@/locales/es.js';
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
 import BlankLayout from '@/layouts/BlankLayout.vue';
-import InfoIcon from '@/components/svgs/icons/InfoIcon.vue';
-import SuccessIcon from '@/components/svgs/icons/SuccessIcon.vue';
-import WarningIcon from '@/components/svgs/icons/WarningIcon.vue';
-import ErrorIcon from '@/components/svgs/icons/ErrorIcon.vue';
+
+import InfoIcon from '@/components/icons/InfoIcon.vue';
+import SuccessIcon from '@/components/icons/SuccessIcon.vue';
+import WarningIcon from '@/components/icons/WarningIcon.vue';
+import ErrorIcon from '@/components/icons/ErrorIcon.vue';
+import MessageIcon from '@/components/icons/MessageIcon.vue';
+import HeartIcon from '@/components/icons/HeartIcon.vue';
+import PictureIcon from '@/components/icons/PictureIcon.vue';
 
 import '@/assets/index.css';
 import 'vue-toastification/dist/index.css';
@@ -51,7 +55,10 @@ app
   .component('InfoIcon', InfoIcon)
   .component('SuccessIcon', SuccessIcon)
   .component('WarningIcon', WarningIcon)
-  .component('ErrorIcon', ErrorIcon);
+  .component('ErrorIcon', ErrorIcon)
+  .component('HeartIcon', HeartIcon)
+  .component('PictureIcon', PictureIcon)
+  .component('MessageIcon', MessageIcon);
 
 router.isReady().then(() => {
   app.mount('#app');
