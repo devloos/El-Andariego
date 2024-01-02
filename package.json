@@ -23,7 +23,7 @@
     "@intlify/unplugin-vue-i18n": "^2.0.0",
     "@rushstack/eslint-patch": "^1.6.1",
     "@vitejs/plugin-vue": "^5.0.2",
-    "@vue/eslint-config-prettier": "^8.0.0",
+    "@vue/eslint-config-prettier": "^9.0.0",
     "autoprefixer": "^10.4.16",
     "daisyui": "^4.4.24",
     "eslint": "^8.56.0",
