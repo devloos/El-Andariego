@@ -24,7 +24,7 @@ const platillos = ref(null);
 const startOverlay = inject('startOverlay');
 const stopOverlay = inject('stopOverlay');
 
-const { locale } = useI18n({ useScope: 'global' });
+const { locale, t } = useI18n({ useScope: 'global' });
 
 onMounted(async () => {
   try {
@@ -58,7 +58,7 @@ onMounted(async () => {
     <div class="mb-4 px-1 lg:container lg:px-2">
       <div class="badge my-2 flex !h-8 items-center gap-2 rounded border-coal-300 px-1">
         <SmartSvg class="w-8 text-lg" name="FoodIcon" />
-        <h3 class="font-bold uppercase">Menu Items</h3>
+        <h3 class="font-bold uppercase">{{ t('link.menu') }}</h3>
       </div>
       <div class="gap-x-2 lg:grid lg:grid-cols-2 xl:grid-cols-3">
         <div
