@@ -52,7 +52,6 @@ const router = createRouter({
       if (savedPosition) {
         resolve(savedPosition);
       } else if (to.hash) {
-        // to hash or top of menu
         setTimeout(() => {
           resolve({
             el: to.hash,

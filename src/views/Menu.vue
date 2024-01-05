@@ -63,6 +63,7 @@ onMounted(async () => {
       <div class="gap-x-2 lg:grid lg:grid-cols-2 xl:grid-cols-3">
         <div
           v-for="category in categories"
+          :id="category._id"
           :key="category._id"
           class="collapse collapse-arrow h-fit rounded-none border-b border-gray-400 bg-coal-100 first:rounded-t last:rounded-b lg:first:rounded-none lg:last:rounded-none"
         >
@@ -87,7 +88,7 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-    <div class="mb-2 lg:container lg:px-2">
+    <div v-if="platillos" :id="platillos._id" class="mb-2 lg:container lg:px-2">
       <div
         class="badge my-2 ms-1 flex !h-8 items-center gap-2 rounded border-coal-300 px-1"
       >
@@ -95,7 +96,6 @@ onMounted(async () => {
         <h3 class="font-bold uppercase">Platillos</h3>
       </div>
       <div
-        v-if="platillos"
         class="mx-auto grid grid-cols-1 items-start gap-10 rounded border-[10px] border-double border-primary-100 bg-primary px-3 py-6 text-primary-100 lg:container md:grid-cols-2 md:px-8 xl:px-32"
       >
         <div
