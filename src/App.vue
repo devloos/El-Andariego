@@ -1,9 +1,9 @@
 <script setup>
 import LoadingOverlay from '@/components/LoadingOverlay.vue';
 import SmartTransition from '@/components/smart/SmartTransition.vue';
-import { ref } from 'vue';
-import { provide } from 'vue';
-import { computed } from 'vue';
+import { useStorage } from '@vueuse/core';
+import { ref, provide, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
@@ -13,6 +13,10 @@ const layout = computed(() => route.meta.layout || 'DefaultLayout');
 const isLoading = ref(false);
 provide('startOverlay', () => (isLoading.value = true));
 provide('stopOverlay', () => (isLoading.value = false));
+
+const localePreference = useStorage('locale', 'en');
+const { locale } = useI18n({ useScope: 'global' });
+locale.value = localePreference.value;
 </script>
 
 <template>
