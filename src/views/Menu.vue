@@ -67,6 +67,7 @@ onMounted(async () => {
           :key="category._id"
           class="collapse collapse-arrow h-fit rounded-none border-b border-gray-400 bg-coal-100 first:rounded-t last:rounded-b lg:first:rounded-none lg:last:rounded-none"
         >
+          <span>SOME SICK MESSAGE</span>
           <input type="checkbox" />
           <div class="collapse-title font-bold">{{ category.name }}</div>
           <div class="collapse-content bg-primary-50 px-0 !pb-0">
