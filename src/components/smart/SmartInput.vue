@@ -1,4 +1,6 @@
 <script setup>
+import { defineModel } from 'vue';
+
 defineProps({
   label: {
     type: String,
@@ -8,13 +10,9 @@ defineProps({
     type: String,
     required: true,
   },
-  modelValue: {
-    type: [String, Number, Boolean],
-    required: true,
-  },
 });
 
-defineEmits(['update:modelValue']);
+const model = defineModel({ type: [String, Number, Boolean], required: true });
 </script>
 
 <template>
@@ -24,12 +22,6 @@ defineEmits(['update:modelValue']);
         {{ label }}
       </span>
     </label>
-    <input
-      :value="modelValue"
-      class="input input-bordered w-full"
-      :type="type"
-      required
-      @input="$emit('update:modelValue', $event.target.value)"
-    />
+    <input v-model="model" class="input input-bordered w-full" :type="type" required />
   </div>
 </template>
