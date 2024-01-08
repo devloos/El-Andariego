@@ -6,9 +6,9 @@
 - Video on landing page
 - Update testimonials
 - Add more news
-- ensure routing for menu is done correctly
 - add more analytics events
 - toast messages
-- item reviews
 - investigate if its better to use axios or fetch
-- change menu shit sucks
+- change menu UI for desktop
+
+- (peyt) item reviews
