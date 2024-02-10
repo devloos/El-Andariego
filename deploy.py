@@ -23,7 +23,8 @@ if int(os.popen('echo $?').read()) != 0:
     print('Error building Andariego Vue! [FAILED]')
     exit(1)
 
-os.system(f"mv -f dist {ANDARIEGO_PROJECT_PATH + '/server'}")
+os.system(
+    f"rsync -a --remove-source-files dist {ANDARIEGO_PROJECT_PATH + '/server'}")
 
 os.chdir(ANDARIEGO_PROJECT_PATH)
 os.system('git add .')
