@@ -26,6 +26,8 @@ if int(os.popen('echo $?').read()) != 0:
 os.system(
     f"rsync -a --remove-source-files dist {ANDARIEGO_PROJECT_PATH + '/server'}")
 
+os.system('rm -rf /dist')
+
 os.chdir(ANDARIEGO_PROJECT_PATH)
 os.system('git add .')
 os.system('git commit -m "deploy"')
