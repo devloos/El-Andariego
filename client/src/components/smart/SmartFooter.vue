@@ -71,8 +71,7 @@ const navLinks = useSmartLinks();
         31345 Los Rios St, San Juan Capistrano, CA 92675
       </p>
       <div class="lg:text-base">
-        <p>{{ t('footer.schedule.closed') }}</p>
-        <p>{{ t('footer.schedule.open') }}</p>
+        <p>{{ t('footer.schedule') }}</p>
       </div>
     </div>
   </footer>

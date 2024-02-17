@@ -12,3 +12,10 @@
 - change menu UI for desktop
 
 - (peyt) item reviews
+- FIX MENU PERIOD
+- update UI for platillo slider
+- update menu image
+- add menu images to google profile
+- add more blogs
+- add a way for anyone else to add blogs by themselves
+- toast not showing message when db not running

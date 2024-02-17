@@ -21,7 +21,7 @@ export default {
     info: 'Omita la espera y llámenos durante el horario comercial. ¡Quiere recibir notificaciones sobre promociones y eventos, regístrese hoy!',
     contact: {
       open_hours: 'Horarios Abiertos',
-      hours: 'Martes a Domingo: 4:30 PM - 11:30 PM',
+      hours: 'Lunes a Domingo: 4:30 PM - 11:30 PM',
       location: 'Ubicación',
       contact: 'Contacto',
     },
@@ -53,10 +53,7 @@ export default {
     information: 'Información',
     business_hours: 'Horas de Trabajo',
     careers: 'Carreras',
-    schedule: {
-      closed: 'Lunes: Cerrado',
-      open: 'Martes a Domingo: Abierto',
-    },
+    schedule: 'Lunes a Domingo: Abierto',
   },
   blog: {
     read_more: 'Leer Más',

@@ -21,7 +21,7 @@ export default {
     info: 'Skip the wait and give us a call during business hours. Want to get notified about promotions and events sign up today!',
     contact: {
       open_hours: 'Open Hours',
-      hours: 'Tuesday to Sunday: 4:30 PM - 11:30 PM',
+      hours: 'Monday to Sunday: 4:30 PM - 11:30 PM',
       location: 'Location',
       contact: 'Contact',
     },
@@ -53,10 +53,7 @@ export default {
     information: 'Information',
     business_hours: 'Business Hours',
     careers: 'Careers',
-    schedule: {
-      closed: 'Monday: Closed',
-      open: 'Tuesday to Sunday: Open',
-    },
+    schedule: 'Monday to Sunday: Open',
   },
   blog: {
     read_more: 'Read More',
