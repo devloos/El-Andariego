@@ -14,7 +14,7 @@ router.post('/send-email', async (req, res) => {
     const date = new Date();
 
     const msg = {
-      to: 'guluis1980@gmail.com',
+      to: process.env.SEND_GRID_RECIPIENT,
       from: 'elandariegomex@gmail.com',
       subject: `El Andariego - Contacto: ${request.name}`,
       html: `
@@ -29,6 +29,10 @@ router.post('/send-email', async (req, res) => {
       `,
     };
 
+    if (process.env.NODE_ENV === 'production') {
+      msg.to = [process.env.SEND_GRID_RECIPIENT, 'aguilerak1901@gmail.com'];
+    }
+
     await sgMail.send(msg);
 
     const application = new Applications({
@@ -40,14 +44,14 @@ router.post('/send-email', async (req, res) => {
       created_at: date.toISOString(),
     });
 
-    const payload = application.save();
+    application.save();
 
     res
       .status(200)
       .json({
         success: true,
         message: 'Email was sent successfully.',
-        data: payload,
+        data: {},
       })
       .end();
   } catch (err) {
