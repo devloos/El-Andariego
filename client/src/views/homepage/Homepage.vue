@@ -27,7 +27,7 @@ const isEsLocale = ref(localePreference.value === 'es');
 
 function inWorkSchedule() {
   const now = new Date().getHours() * 60 + new Date().getMinutes();
-  const start = 16 * 60 + 30;
+  const start = 15 * 60;
   const end = 23 * 60 + 30;
   return start <= now && now <= end;
 }

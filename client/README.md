@@ -17,5 +17,4 @@
 - add more blogs
 - add a way for anyone else to add blogs by themselves
 - toast not showing message when db not running
-
-- add menu images to google profile
+- clean up hours on homepage (make it easier for me to modify)

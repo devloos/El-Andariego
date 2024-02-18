@@ -6,8 +6,8 @@ export default {
     view_menu: 'Ver Menú',
   },
   hours: {
-    closed: 'Cerrado, Apertura Martes a las 4:30 PM',
-    opening: 'Abriendo en San Juan {location} a las 4:30 PM',
+    closed: 'Cerrado, Apertura Martes a las 3:00 PM',
+    opening: 'Abriendo en San Juan {location} a las 3:00 PM',
     open: 'Abierto en San Juan {location} hasta las 11:30 PM',
   },
   dividers: {
@@ -22,7 +22,7 @@ export default {
     info: 'Omita la espera y llámenos durante el horario comercial. ¡Quiere recibir notificaciones sobre promociones y eventos, regístrese hoy!',
     contact: {
       open_hours: 'Horarios Abiertos',
-      hours: 'Lunes a Domingo: 4:30 PM - 11:30 PM',
+      hours: 'Lunes a Domingo: 3:00 PM - 11:30 PM',
       location: 'Ubicación',
       contact: 'Contacto',
     },

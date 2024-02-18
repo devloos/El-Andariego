@@ -6,8 +6,8 @@ export default {
     view_menu: 'View Menu',
   },
   hours: {
-    closed: 'Closed, Opening Tuesday at 4:30 PM',
-    opening: 'Opening in San Juan {location} at 4:30 PM',
+    closed: 'Closed, Opening Tuesday at 3:00 PM',
+    opening: 'Opening in San Juan {location} at 3:00 PM',
     open: 'Open in San Juan {location} until 11:30 PM',
   },
   dividers: {
@@ -22,7 +22,7 @@ export default {
     info: 'Skip the wait and give us a call during business hours. Want to get notified about promotions and events sign up today!',
     contact: {
       open_hours: 'Open Hours',
-      hours: 'Monday to Sunday: 4:30 PM - 11:30 PM',
+      hours: 'Monday to Sunday: 3:00 PM - 11:30 PM',
       location: 'Location',
       contact: 'Contact',
     },
