@@ -17,3 +17,4 @@
 - add a way for anyone else to add blogs by themselves
 - toast not showing message when db not running
 - clean up hours on homepage (make it easier for me to modify)
+- change ingredient order
