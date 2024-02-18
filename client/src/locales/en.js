@@ -12,6 +12,7 @@ export default {
   },
   dividers: {
     platillo: 'Our Specialty Platillos',
+    menu: 'Menu Served Daily',
     testimonial: 'Testimonials',
     categories: 'Top Categories',
     cta: 'What are you waiting for?',
@@ -65,5 +66,6 @@ export default {
   },
   menu: {
     meat_selection: 'Meat Selection',
+    full_menu: 'Full Menu',
   },
 };

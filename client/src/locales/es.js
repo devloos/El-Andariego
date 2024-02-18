@@ -12,6 +12,7 @@ export default {
   },
   dividers: {
     platillo: 'Nuestros Platillos de Especialidad',
+    menu: 'Menú servido diariamente',
     testimonial: 'Testimonios',
     categories: 'Categorías Principales',
     cta: '¿Que estas esperando?',
@@ -66,5 +67,6 @@ export default {
   },
   menu: {
     meat_selection: 'Selección De Carne',
+    full_menu: 'Menú Completo',
   },
 };
