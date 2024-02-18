@@ -9,10 +9,8 @@
 - add more analytics events
 - toast messages
 - investigate if its better to use axios or fetch
-- change menu UI for desktop
 
 - (peyt) item reviews
-- FIX MENU PERIOD
 - update UI for platillo slider
 - add more blogs
 - add a way for anyone else to add blogs by themselves
