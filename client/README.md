@@ -9,6 +9,7 @@
 - add more analytics events
 - toast messages
 - investigate if its better to use axios or fetch
+- investigate meta data in index.html
 
 - (peyt) item reviews
 - update UI for platillo slider
