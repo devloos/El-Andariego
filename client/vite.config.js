@@ -27,4 +27,7 @@ export default defineConfig({
       'vue-i18n': 'vue-i18n/dist/vue-i18n.runtime.esm-bundler.js',
     },
   },
+  define: {
+    __VITE_APP_VERSION__: JSON.stringify(process.env.npm_package_version),
+  },
 });

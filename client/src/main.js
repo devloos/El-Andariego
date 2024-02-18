@@ -1,3 +1,4 @@
+/* global  __VITE_APP_VERSION__ */
 import { createApp } from 'vue';
 import { createHead } from '@unhead/vue';
 import { createI18n } from 'vue-i18n';
@@ -19,6 +20,8 @@ import PlateIcon from '@/components/svgs/icons/PlateIcon.vue';
 import '@/assets/index.css';
 import 'vue-toastification/dist/index.css';
 import '@/assets/overrides.css';
+
+localStorage.setItem('version', __VITE_APP_VERSION__);
 
 const app = createApp(App);
 const head = createHead();
