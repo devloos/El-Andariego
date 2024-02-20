@@ -1,4 +1,4 @@
-const command = require('../command-helper');
+const command = require('./command-helper');
 const Platillo = require('../../models/menu/platillo');
 
 command('test', async () => {
