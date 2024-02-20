@@ -64,14 +64,14 @@ async function toggleLiked(index) {
 </script>
 
 <template>
-  <div class="flex gap-3 overflow-x-scroll p-3 xl:container">
+  <div class="carousel carousel-center flex gap-3 overflow-x-scroll p-3 xl:container">
     <RouterLink
       v-for="(platillo, index) in platillos"
       :key="platillo._id"
-      class="card card-compact bg-base-100 shadow-md"
+      class="card carousel-item card-compact rounded bg-base-100 shadow-md"
       :to="`/menu/#${platillo._id}`"
     >
-      <div class="relative">
+      <figure class="relative">
         <SmartImg
           :src="platillo.images[0].url"
           class="max-w-[300px]"
@@ -85,7 +85,7 @@ async function toggleLiked(index) {
             :class="userLikesPlatillo(platillo._id) ? 'text-alternate' : 'text-coal'"
           />
         </button>
-      </div>
+      </figure>
       <div class="card-body">
         <p class="card-title">
           {{ `${platillo.priority}. ${platillo.name[locale]}` }}
