@@ -1,4 +1,4 @@
-require('../../config');
+require('../config');
 const Post = require('../../models/post');
 
 async function command() {
