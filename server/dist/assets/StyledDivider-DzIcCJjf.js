@@ -1,0 +1,1 @@
+import{d as s,e as r,h as e,t as o}from"./index-DywHb6Z4.js";const a={class:"mb-8 mt-14 text-center"},n=e("hr",{class:"m-2 mx-auto w-20 border border-neutral-400"},null,-1),c={class:"text-sm font-semibold uppercase"},d={__name:"StyledDivider",props:{name:{type:String,required:!0}},setup(t){return(i,m)=>(s(),r("div",a,[n,e("p",c,o(t.name),1)]))}};export{d as _};
