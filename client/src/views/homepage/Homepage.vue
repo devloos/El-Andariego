@@ -1,8 +1,7 @@
 <script setup>
 import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
-import { computed, ref } from 'vue';
-import { useStorage } from '@vueuse/core';
+import { computed } from 'vue';
 import PlatilloSection from '@/views/homepage/-PlatilloSection.vue';
 import CategorySection from '@/views/homepage/-CategorySection.vue';
 import CallToAction from '@/views/homepage/-CallToAction.vue';
@@ -10,6 +9,7 @@ import StyledDivider from '@/components/StyledDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import testimonials from '@/assets/constants/testimonials.js';
 import gallery from '@/assets/constants/gallery';
+import LocaleSelector from '@/components/LocaleSelector.vue';
 
 useHead({
   title: 'El Andariego',
@@ -21,9 +21,7 @@ useHead({
   ],
 });
 
-const { t, locale } = useI18n({ useScope: 'global' });
-const localePreference = useStorage('locale', 'en');
-const isEsLocale = ref(localePreference.value === 'es');
+const { t } = useI18n({ useScope: 'global' });
 
 function inWorkSchedule() {
   const now = new Date().getHours() * 60 + new Date().getMinutes();
@@ -49,12 +47,6 @@ const schedule = computed(() => {
     return t('hours.opening', { location });
   }
 });
-
-function setLocale(value) {
-  isEsLocale.value = value === 'es';
-  locale.value = value;
-  localePreference.value = value;
-}
 </script>
 
 <template>
@@ -90,44 +82,7 @@ function setLocale(value) {
               <i class="fa-brands fa-google fa-sm"></i>
             </a>
           </div>
-          <div class="-ms-1 mb-10 flex items-center justify-center">
-            <button
-              class="group flex items-center gap-2"
-              type="button"
-              @click="setLocale('es')"
-            >
-              <img
-                src="/mexico.png"
-                class="h-7 w-7 rounded-full shadow-md"
-                width="256"
-                height="256"
-              />
-              <span
-                class="underline-offset-2 group-hover:underline"
-                :class="{ 'font-semibold text-secondary': isEsLocale }"
-                >Español</span
-              >
-            </button>
-            <div class="divider divider-horizontal" />
-            <button
-              class="group flex items-center gap-2"
-              type="button"
-              @click="setLocale('en')"
-            >
-              <img
-                src="/usa.png"
-                class="h-7 w-7 rounded-full shadow-md"
-                width="256"
-                height="256"
-              />
-              <span
-                class="underline-offset-2 group-hover:underline"
-                :class="{ 'font-semibold text-secondary': !isEsLocale }"
-              >
-                English
-              </span>
-            </button>
-          </div>
+          <LocaleSelector class="-ms-1 mb-10" />
         </div>
         <SmartImg
           src="/andariego/home/hero.webp"

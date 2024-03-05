@@ -5,6 +5,7 @@ import { useI18n } from 'vue-i18n';
 import { useSmartLinks } from '@/composables/smart-links';
 import { useWindowScroll, useWindowSize } from '@vueuse/core';
 import SmartTransition from '@/components/smart/SmartTransition.vue';
+import LocaleSelector from '@/components/LocaleSelector.vue';
 
 const { t } = useI18n({ useScope: 'global' });
 const navLinks = useSmartLinks();
@@ -73,14 +74,12 @@ watch(showOffCanvas, (value) => {
           v-if="showOffCanvas"
           class="fixed bottom-0 left-0 top-[60px] z-40 h-screen w-screen overflow-scroll bg-primary-50"
         >
-          <div
-            class="mt-12 flex flex-col items-center gap-9 text-center text-3xl font-semibold"
-          >
+          <div class="mt-12 flex flex-col items-center gap-9 text-center font-semibold">
             <RouterLink
               v-for="link in navLinks"
               :key="link.name"
               :to="link.to"
-              class="hover:text-primary"
+              class="text-3xl hover:text-primary"
             >
               <span
                 :class="{ 'text-primary underline underline-offset-2': link.isActive }"
@@ -88,7 +87,7 @@ watch(showOffCanvas, (value) => {
                 {{ link.name }}
               </span>
             </RouterLink>
-            <div class="my-3 flex justify-center gap-4">
+            <div class="flex justify-center gap-4 text-3xl">
               <a
                 href="https://www.facebook.com/profile.php?id=100082710796984"
                 target="_blank"
@@ -102,9 +101,10 @@ watch(showOffCanvas, (value) => {
                 <i class="fa-brands fa-google fa-xs"></i>
               </a>
             </div>
-            <a href="tel:9498060123" class="btn btn-primary btn-lg">
+            <a href="tel:9498060123" class="btn btn-primary btn-lg mb-3 text-3xl">
               {{ t('link.call') }}
             </a>
+            <LocaleSelector class="-ms-1 text-xl" />
           </div>
         </div>
       </SmartTransition>
