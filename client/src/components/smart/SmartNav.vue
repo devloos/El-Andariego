@@ -53,7 +53,7 @@ watch(showOffCanvas, (value) => {
           {{ link.name }}
         </span>
       </RouterLink>
-      <a href="tel:9498060124" class="btn btn-primary">
+      <a href="tel:9498060123" class="btn btn-primary">
         {{ t('link.call') }}
       </a>
     </div>
@@ -102,7 +102,7 @@ watch(showOffCanvas, (value) => {
                 <i class="fa-brands fa-google fa-xs"></i>
               </a>
             </div>
-            <a href="tel:9498060124" class="btn btn-primary btn-lg">
+            <a href="tel:9498060123" class="btn btn-primary btn-lg">
               {{ t('link.call') }}
             </a>
           </div>

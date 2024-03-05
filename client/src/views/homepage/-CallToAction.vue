@@ -57,7 +57,7 @@ async function signup() {
         <div>
           <h3 class="mb-2 text-xl font-bold">{{ t('cta.contact.contact') }}</h3>
           <a
-            href="tel:9498060124"
+            href="tel:9498060123"
             class="cursor-pointer transition-all hover:font-semibold"
           >
             (949) 806-0123

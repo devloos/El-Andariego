@@ -30,7 +30,7 @@ const navLinks = useSmartLinks();
     <div class="flex flex-col gap-3">
       <h5 class="mb-3 font-semibold">{{ t('footer.information') }}</h5>
       <div class="flex flex-col items-start gap-1 lg:text-base">
-        <a href="tel:9498060124" class="cursor-pointer"> (949) 806-0123 </a>
+        <a href="tel:9498060123" class="cursor-pointer"> (949) 806-0123 </a>
         <RouterLink to="/contact">
           {{ t('footer.careers') }}
         </RouterLink>
