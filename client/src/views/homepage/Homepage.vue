@@ -76,23 +76,23 @@ function setLocale(value) {
           <button class="btn btn-primary px-8" @click="$router.push('/menu')">
             {{ t('home.view_menu') }}
           </button>
-          <div class="my-2 flex justify-center gap-4 text-2xl lg:my-4">
+          <div class="my-7 flex justify-center gap-6 text-2xl">
             <a
               href="https://www.facebook.com/profile.php?id=100082710796984"
               target="_blank"
             >
-              <i class="fa-brands fa-facebook fa-sm"></i>
+              <i class="fa-brands fa-facebook"></i>
             </a>
             <a href="https://instagram.com/el_andariegotruck" target="_blank">
-              <i class="fa-brands fa-instagram fa-sm"></i>
+              <i class="fa-brands fa-instagram"></i>
             </a>
             <a href="https://g.page/r/CY53oo_JlDb8EAI/review" target="_blank">
-              <i class="fa-brands fa-google fa-xs"></i>
+              <i class="fa-brands fa-google fa-sm"></i>
             </a>
           </div>
-          <div class="mb-10 flex items-center justify-center">
+          <div class="-ms-1 mb-10 flex items-center justify-center">
             <button
-              class="flex items-center gap-2"
+              class="group flex items-center gap-2"
               type="button"
               @click="setLocale('es')"
             >
@@ -102,11 +102,15 @@ function setLocale(value) {
                 width="256"
                 height="256"
               />
-              <span :class="{ 'font-semibold text-secondary': isEsLocale }">Español</span>
+              <span
+                class="underline-offset-2 group-hover:underline"
+                :class="{ 'font-semibold text-secondary': isEsLocale }"
+                >Español</span
+              >
             </button>
             <div class="divider divider-horizontal" />
             <button
-              class="flex items-center gap-2"
+              class="group flex items-center gap-2"
               type="button"
               @click="setLocale('en')"
             >
@@ -116,7 +120,10 @@ function setLocale(value) {
                 width="256"
                 height="256"
               />
-              <span :class="{ 'font-semibold text-secondary': !isEsLocale }">
+              <span
+                class="underline-offset-2 group-hover:underline"
+                :class="{ 'font-semibold text-secondary': !isEsLocale }"
+              >
                 English
               </span>
             </button>
