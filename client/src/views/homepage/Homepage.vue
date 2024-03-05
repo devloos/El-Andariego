@@ -50,11 +50,10 @@ const schedule = computed(() => {
   }
 });
 
-function switchLocale() {
-  isEsLocale.value = !isEsLocale.value;
-  const preference = isEsLocale.value ? 'es' : 'en';
-  locale.value = preference;
-  localePreference.value = preference;
+function setLocale(value) {
+  isEsLocale.value = value === 'es';
+  locale.value = value;
+  localePreference.value = value;
 }
 </script>
 
@@ -91,18 +90,35 @@ function switchLocale() {
               <i class="fa-brands fa-google fa-xs"></i>
             </a>
           </div>
-          <div class="flex flex-col items-center justify-center">
+          <div class="mb-10 flex items-center justify-center">
             <button
-              class="mx-3 flex h-9 w-[68px] items-center rounded-full bg-coal-100 px-1"
-              @click="switchLocale"
+              class="flex items-center gap-2"
+              type="button"
+              @click="setLocale('es')"
             >
               <img
-                :src="isEsLocale ? '/mexico.png' : '/usa.png'"
-                class="h-7 w-7 transform rounded-full bg-white uppercase shadow-md transition-all"
-                :class="{ 'translate-x-8': isEsLocale }"
+                src="/mexico.png"
+                class="h-7 w-7 rounded-full shadow-md"
                 width="256"
                 height="256"
               />
+              <span :class="{ 'font-semibold text-secondary': isEsLocale }">Español</span>
+            </button>
+            <div class="divider divider-horizontal" />
+            <button
+              class="flex items-center gap-2"
+              type="button"
+              @click="setLocale('en')"
+            >
+              <img
+                src="/usa.png"
+                class="h-7 w-7 rounded-full shadow-md"
+                width="256"
+                height="256"
+              />
+              <span :class="{ 'font-semibold text-secondary': !isEsLocale }">
+                English
+              </span>
             </button>
           </div>
         </div>
