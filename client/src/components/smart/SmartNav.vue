@@ -6,6 +6,7 @@ import { useSmartLinks } from '@/composables/smart-links';
 import { useWindowScroll, useWindowSize } from '@vueuse/core';
 import SmartTransition from '@/components/smart/SmartTransition.vue';
 import LocaleSelector from '@/components/LocaleSelector.vue';
+import SocialLinks from '@/components/SocialLinks.vue';
 
 const { t } = useI18n({ useScope: 'global' });
 const navLinks = useSmartLinks();
@@ -87,20 +88,7 @@ watch(showOffCanvas, (value) => {
                 {{ link.name }}
               </span>
             </RouterLink>
-            <div class="flex justify-center gap-4 text-3xl">
-              <a
-                href="https://www.facebook.com/profile.php?id=100082710796984"
-                target="_blank"
-              >
-                <i class="fa-brands fa-facebook fa-sm"></i>
-              </a>
-              <a href="https://instagram.com/el_andariegotruck" target="_blank">
-                <i class="fa-brands fa-instagram fa-sm"></i>
-              </a>
-              <a href="https://g.page/r/CY53oo_JlDb8EAI/review" target="_blank">
-                <i class="fa-brands fa-google fa-xs"></i>
-              </a>
-            </div>
+            <SocialLinks class="flex justify-center gap-6 text-3xl" />
             <a href="tel:9498060123" class="btn btn-primary btn-lg mb-3 text-3xl">
               {{ t('link.call') }}
             </a>

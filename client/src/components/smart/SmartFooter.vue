@@ -1,6 +1,7 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
 import { useSmartLinks } from '@/composables/smart-links';
+import SocialLinks from '@/components/SocialLinks.vue';
 
 const year = new Date().getFullYear();
 const { t } = useI18n({ useScope: 'global' });
@@ -39,17 +40,7 @@ const navLinks = useSmartLinks();
     </div>
     <div class="flex flex-col gap-3 md:order-first">
       <h5 class="mb-3 font-semibold">El Andariego</h5>
-      <div class="flex gap-4 text-base lg:text-lg">
-        <a href="https://www.facebook.com/profile.php?id=100082710796984" target="_blank">
-          <i class="fa-brands fa-facebook fa-md"></i>
-        </a>
-        <a href="https://instagram.com/el_andariegotruck" target="_blank">
-          <i class="fa-brands fa-instagram fa-md"></i>
-        </a>
-        <a href="https://g.page/r/CY53oo_JlDb8EAI/review" target="_blank">
-          <i class="fa-brands fa-google fa-sm"></i>
-        </a>
-      </div>
+      <SocialLinks class="flex gap-4 text-base lg:text-lg" />
       <!-- Had to do it this way not sure why -->
       <div class="flex grow items-end text-xs sm:w-4/5">
         <p>

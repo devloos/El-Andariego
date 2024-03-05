@@ -10,6 +10,7 @@ import SmartImg from '@/components/smart/SmartImg.vue';
 import testimonials from '@/assets/constants/testimonials.js';
 import gallery from '@/assets/constants/gallery';
 import LocaleSelector from '@/components/LocaleSelector.vue';
+import SocialLinks from '@/components/SocialLinks.vue';
 
 useHead({
   title: 'El Andariego',
@@ -68,20 +69,7 @@ const schedule = computed(() => {
           <button class="btn btn-primary px-8" @click="$router.push('/menu')">
             {{ t('home.view_menu') }}
           </button>
-          <div class="my-7 flex justify-center gap-6 text-2xl">
-            <a
-              href="https://www.facebook.com/profile.php?id=100082710796984"
-              target="_blank"
-            >
-              <i class="fa-brands fa-facebook"></i>
-            </a>
-            <a href="https://instagram.com/el_andariegotruck" target="_blank">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://g.page/r/CY53oo_JlDb8EAI/review" target="_blank">
-              <i class="fa-brands fa-google fa-sm"></i>
-            </a>
-          </div>
+          <SocialLinks class="my-7 flex justify-center gap-6 text-2xl" />
           <LocaleSelector class="-ms-1 mb-10" />
         </div>
         <SmartImg
@@ -98,7 +86,7 @@ const schedule = computed(() => {
     <StyledDivider :name="t('dividers.platillo')" />
     <PlatilloSection />
 
-    <div class="mex-gradient mt-14 pb-4 pt-2 xl:px-10">
+    <div class="mt-14 pb-4 pt-2 xl:px-10">
       <StyledDivider :name="t('dividers.testimonial')" class="mt-8" />
       <div class="flex flex-col justify-center lg:flex-row xl:gap-10">
         <div
