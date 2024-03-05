@@ -1,7 +1,6 @@
 <script setup>
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { copyPhone } from '@/assets/js/utility';
 import { useI18n } from 'vue-i18n';
 import { useSmartLinks } from '@/composables/smart-links';
 import { useWindowScroll, useWindowSize } from '@vueuse/core';
@@ -54,9 +53,9 @@ watch(showOffCanvas, (value) => {
           {{ link.name }}
         </span>
       </RouterLink>
-      <button class="btn btn-primary" type="button" @click="copyPhone">
+      <a href="tel:9498060124" class="btn btn-primary">
         {{ t('link.call') }}
-      </button>
+      </a>
     </div>
     <button
       class="hamburger hamburger--squeeze lg:!hidden"
@@ -103,9 +102,9 @@ watch(showOffCanvas, (value) => {
                 <i class="fa-brands fa-google fa-xs"></i>
               </a>
             </div>
-            <button class="btn btn-primary btn-lg" type="button" @click="copyPhone">
+            <a href="tel:9498060124" class="btn btn-primary btn-lg">
               {{ t('link.call') }}
-            </button>
+            </a>
           </div>
         </div>
       </SmartTransition>

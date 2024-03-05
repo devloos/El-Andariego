@@ -1,5 +1,4 @@
 <script setup>
-import { copyPhone } from '@/assets/js/utility';
 import { useI18n } from 'vue-i18n';
 import { useSmartLinks } from '@/composables/smart-links';
 
@@ -31,12 +30,7 @@ const navLinks = useSmartLinks();
     <div class="flex flex-col gap-3">
       <h5 class="mb-3 font-semibold">{{ t('footer.information') }}</h5>
       <div class="flex flex-col items-start gap-1 lg:text-base">
-        <p
-          class="cursor-pointer transition-all hover:font-semibold"
-          @click.prevent="copyPhone"
-        >
-          (949) 806-0123
-        </p>
+        <a href="tel:9498060124" class="cursor-pointer"> (949) 806-0123 </a>
         <RouterLink to="/contact">
           {{ t('footer.careers') }}
         </RouterLink>

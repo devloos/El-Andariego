@@ -3,7 +3,6 @@ import { useToast } from '@/composables/toast.js';
 import { useAxios } from '@/composables/axios.js';
 import { useI18n } from 'vue-i18n';
 import { inject, ref } from 'vue';
-import { copyPhone } from '@/assets/js/utility';
 
 const { t } = useI18n({ useScope: 'global' });
 const email = ref('');
@@ -57,12 +56,12 @@ async function signup() {
         </div>
         <div>
           <h3 class="mb-2 text-xl font-bold">{{ t('cta.contact.contact') }}</h3>
-          <p
+          <a
+            href="tel:9498060124"
             class="cursor-pointer transition-all hover:font-semibold"
-            @click.prevent="copyPhone"
           >
             (949) 806-0123
-          </p>
+          </a>
           <p>elandariegomex@gmail.com</p>
         </div>
       </div>
