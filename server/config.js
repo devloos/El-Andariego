@@ -6,8 +6,6 @@ dotenv.config({
   path: path.resolve(__dirname, `.env.${process.env.NODE_ENV}`),
 });
 
-console.log("hello");
-
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
