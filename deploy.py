@@ -67,7 +67,7 @@ def main():
     push_changes()
 
     # in el-andariego-api
-    os.chdir(ANDARIEGO_PROJECT_PATH + '/server')
+    os.chdir(ANDARIEGO_PROJECT_PATH)
     os.system('railway up --detach')
 
 
