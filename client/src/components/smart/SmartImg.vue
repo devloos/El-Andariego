@@ -52,6 +52,7 @@ const STANDARD_SCREEN_WIDTHS = [
 ];
 
 function calculateWidths(imgWidth) {
+  // only include screen widths smaller than image width
   const widths = STANDARD_SCREEN_WIDTHS.filter((width) => width < imgWidth);
   widths.push(imgWidth);
   return widths.sort((a, b) => (a > b ? -1 : 1));
@@ -81,6 +82,7 @@ const srcset = computed(() => {
     :width="width"
     :height="height"
     :style="{ 'background-color': isTransparent ? 'transparent' : 'lightgray' }"
+    sizes="auto"
     alt=""
   />
 </template>
