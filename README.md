@@ -10,6 +10,7 @@
 - nvm (https://github.com/nvm-sh/nvm)
 - python3 (https://www.python.org/downloads)
 - mongodb compass (https://www.mongodb.com/try/download/shell)
+- railway cli (https://docs.railway.app/guides/cli)
 
 ### Client Setup
 
