@@ -1,14 +1,76 @@
 ## El Andariego
 
-### Todo
+### Preview
 
-- Migrate over to new imagekit account
-- Video on landing page
-- Update testimonials
-- Add more news
-- add more analytics events
-- toast messages
-- investigate if its better to use axios or fetch
-- change menu UI for desktop
+![Homepage](assets/homepage.jpg)
 
-- (peyt) item reviews
+### Repository Requirements
+
+- nodejs (https://nodejs.org/en/download/package-manager)
+- nvm (https://github.com/nvm-sh/nvm)
+- python3 (https://www.python.org/downloads)
+- mongodb compass (https://www.mongodb.com/try/download/shell)
+
+### Client Setup
+
+Enter client directory
+
+```
+cd client
+```
+
+Install required node dependencies
+
+```
+npm install
+```
+
+Run client server (this runs on port 8080)
+
+```
+npm run dev
+```
+
+### Server Setup
+
+Enter client directory
+
+```
+cd server
+```
+
+Install required node dependencies
+
+```
+npm install
+```
+
+Run client server (this runs on port 3080)
+
+```
+npm run dev
+```
+
+### Deployment
+
+Activate python virtual env
+
+```
+source .venv/bin/activate
+```
+
+Run deploy script (follow instructions on screen)
+
+```
+python3 deploy.py
+```
+
+deactivate python virtual env
+
+```
+source .venv/bin/deactivate
+```
+
+### Todos
+
+- Todos are found on notion!
