@@ -66,9 +66,12 @@ const schedule = computed(() => {
               {{ t('home.intro') }}
             </p>
           </div>
-          <button class="btn btn-primary px-8" @click="$router.push('/menu')">
-            {{ t('home.view_menu') }}
-          </button>
+          <a
+            class="btn btn-primary px-8 uppercase"
+            href="https://order.elandariegotruck.com/"
+          >
+            {{ t('home.order_now') }}
+          </a>
           <SocialLinks class="my-7 flex justify-center gap-6 text-2xl" />
           <LocaleSelector class="-ms-1 mb-10" />
         </div>

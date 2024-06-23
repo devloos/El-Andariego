@@ -4,6 +4,12 @@ export default {
     intro:
       'El Andariego es un camión de comida mexicana en San Juan Capistrano, California. Servimos tortas, tacos, burritos y quesadillas auténticos, junto con platos especiales como Alambre, Fortachon y Que Me Notas. Nuestro objetivo es convertirnos en una opción gastronómica favorita en la zona.',
     view_menu: 'Ver Menú',
+    order_now: 'Ordena ahora',
+  },
+  promotional: {
+    header: '¡Ordene en línea ahora!',
+    hook: 'Obtenga 10% de descuento*',
+    body: 'Para las primeras 15 personas que realicen su pedido en línea.',
   },
   hours: {
     closed: 'Cerrado, Apertura Martes a las 3:00 PM',
