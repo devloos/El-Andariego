@@ -8,9 +8,7 @@ import { PostSchema } from './schemas/post.schema';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(
-      'mongodb+srv://admin:Wastedyouth1@tp-cluster.xugrihj.mongodb.net/el-andariego-dev',
-    ),
+    MongooseModule.forRoot(process.env.MONGO_URI),
     MongooseModule.forFeature([{ name: 'post', schema: PostSchema }]),
   ],
   controllers: [PostsController],
