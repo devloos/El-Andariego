@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Transform } from 'class-transformer';
 import { IsNumber, IsOptional } from 'class-validator';
 import { HydratedDocument, Schema as ms } from 'mongoose';
 import { Image } from 'src/types/image';
@@ -17,6 +18,16 @@ export class UpdateItemDto {
   @IsNumber()
   @IsOptional()
   likes: number;
+}
+
+export class ItemMatch {
+  @IsOptional()
+  name: object;
+
+  @IsNumber()
+  @IsOptional()
+  @Transform(({ value }) => Number(value))
+  base_price: number;
 }
 
 @Schema()

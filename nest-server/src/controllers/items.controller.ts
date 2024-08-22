@@ -5,10 +5,16 @@ import {
   NotFoundException,
   Param,
   Patch,
+  Query,
 } from '@nestjs/common';
-import { ItemDocument, UpdateItemDto } from 'src/schemas/item.schema';
+import {
+  ItemDocument,
+  ItemMatch,
+  UpdateItemDto,
+} from 'src/schemas/item.schema';
 import { ItemsService } from 'src/services/items.service';
 import { SmartResponse } from 'src/types/smart-response';
+import { normalizeMatch } from 'src/utiltiy';
 
 @Controller('items')
 export class ItemsController {
@@ -36,8 +42,13 @@ export class ItemsController {
   }
 
   @Get()
-  async findAll(): Promise<SmartResponse<ItemDocument[]>> {
-    const items = await this.itemsService.findAll();
+  async findAll(
+    @Query('match') match: ItemMatch,
+    @Query('include') include: object,
+  ): Promise<SmartResponse<ItemDocument[]>> {
+    const normalizedMatch = normalizeMatch(match);
+
+    const items = await this.itemsService.findAll(normalizedMatch, include);
 
     return {
       message: 'Items found successfully.',
