@@ -10,6 +10,8 @@ import { ItemsService } from './services/items.service';
 import { CategorySchema } from './schemas/category.schema';
 import { CategoriesController } from './controllers/categories.controller';
 import { CategoriesService } from './services/categories.service';
+import { SendGridController } from './controllers/sendgrid.controller';
+import { ApplicationSchema } from './schemas/application.schema';
 
 @Module({
   imports: [
@@ -19,9 +21,15 @@ import { CategoriesService } from './services/categories.service';
       { name: 'post', schema: PostSchema },
       { name: 'item', schema: ItemSchema },
       { name: 'category', schema: CategorySchema },
+      { name: 'application', schema: ApplicationSchema },
     ]),
   ],
-  controllers: [PostsController, ItemsController, CategoriesController],
+  controllers: [
+    PostsController,
+    ItemsController,
+    CategoriesController,
+    SendGridController,
+  ],
   providers: [PostsService, ItemsService, CategoriesService],
 })
 export class AppModule {}
