@@ -7,6 +7,9 @@ import { PostSchema } from './schemas/post.schema';
 import { ItemSchema } from './schemas/item.schema';
 import { ItemsController } from './controllers/items.controller';
 import { ItemsService } from './services/items.service';
+import { CategorySchema } from './schemas/category.schema';
+import { CategoriesController } from './controllers/categories.controller';
+import { CategoriesService } from './services/categories.service';
 
 @Module({
   imports: [
@@ -15,9 +18,10 @@ import { ItemsService } from './services/items.service';
     MongooseModule.forFeature([
       { name: 'post', schema: PostSchema },
       { name: 'item', schema: ItemSchema },
+      { name: 'category', schema: CategorySchema },
     ]),
   ],
-  controllers: [PostsController, ItemsController],
-  providers: [PostsService, ItemsService],
+  controllers: [PostsController, ItemsController, CategoriesController],
+  providers: [PostsService, ItemsService, CategoriesService],
 })
 export class AppModule {}
