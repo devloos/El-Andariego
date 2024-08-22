@@ -27,7 +27,7 @@ const name = ref('');
 const email = ref('');
 const phone = ref('');
 const description = ref('');
-const eventType = ref('');
+const interestedIn = ref('');
 
 async function formSubmitted() {
   try {
@@ -40,7 +40,7 @@ async function formSubmitted() {
         email: email.value,
         phone: phone.value,
         description: description.value,
-        event_type: eventType.value,
+        interestedIn: interestedIn.value,
       },
     });
 
@@ -102,7 +102,7 @@ async function formSubmitted() {
               {{ t('form.interested_in') }}
             </span>
           </label>
-          <select v-model="eventType" class="select select-bordered w-full" required>
+          <select v-model="interestedIn" class="select select-bordered w-full" required>
             <option disabled value="">{{ t('form.select.selection') }}</option>
             <option>{{ t('form.select.order') }}</option>
             <option>Catering</option>

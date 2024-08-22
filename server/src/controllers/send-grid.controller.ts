@@ -33,7 +33,7 @@ export class SendGridController {
         <p><strong>Correo electrónico: </strong>${applicationDto.email}</p>
         <p><strong>Número de teléfono: </strong>${applicationDto.phone}</p>
         <p><strong>Descripción: </strong>${applicationDto.description}</p>
-        <p><strong>Tipo de evento: </strong>${applicationDto.event_type}</p>
+        <p><strong>Tipo de evento: </strong>${applicationDto.interestedIn}</p>
       </div>
       `,
     };

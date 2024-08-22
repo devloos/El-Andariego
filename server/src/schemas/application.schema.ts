@@ -16,7 +16,7 @@ export class ApplicationDto {
   description: string;
 
   @IsString()
-  event_type: string;
+  interestedIn: string;
 }
 
 @Schema()
@@ -34,13 +34,10 @@ export class Application {
   description: string;
 
   @Prop({ required: true })
-  event_type: string;
-
-  @Prop()
-  interested_in: string;
+  interestedIn: string;
 
   @Prop({ default: now() })
-  created_at: Date;
+  createdAt: Date;
 }
 
 export type ApplicationDocument = HydratedDocument<Application>;
