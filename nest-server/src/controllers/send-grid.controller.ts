@@ -1,22 +1,20 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import sgMail from '@sendgrid/mail';
 import { Model } from 'mongoose';
 import {
   ApplicationDocument,
   ApplicationDto,
 } from 'src/schemas/application.schema';
+import { SendGridService } from 'src/services/send-grid.service';
 import { SmartResponse } from 'src/types/smart-response';
-import { default as SendGrid } from '@sendgrid/mail';
 
 @Controller('sendgrid')
 export class SendGridController {
   constructor(
     @InjectModel('application')
     private applicationModel: Model<ApplicationDocument>,
-  ) {
-    SendGrid.setApiKey(process.env.SEND_GRID_API);
-  }
+    private sendGridService: SendGridService,
+  ) {}
 
   @Post('send-email')
   async sendEmail(
@@ -45,7 +43,7 @@ export class SendGridController {
     }
 
     try {
-      await sgMail.send(msg, true);
+      await this.sendGridService.sendEmail(msg, true);
 
       const createdApplication = new this.applicationModel(applicationDto);
 
@@ -59,6 +57,25 @@ export class SendGridController {
     } catch (err) {
       return {
         message: 'Email was not sent successfully.',
+        success: false,
+        data: null,
+      };
+    }
+  }
+
+  @Post('subscribe')
+  async subscribe(@Body('email') email: string): Promise<SmartResponse<null>> {
+    try {
+      await this.sendGridService.subscribe(email);
+
+      return {
+        message: 'Subscribed successfully.',
+        success: true,
+        data: null,
+      };
+    } catch (err) {
+      return {
+        message: 'Unable to subscribe.',
         success: false,
         data: null,
       };

@@ -10,8 +10,9 @@ import { ItemsService } from './services/items.service';
 import { CategorySchema } from './schemas/category.schema';
 import { CategoriesController } from './controllers/categories.controller';
 import { CategoriesService } from './services/categories.service';
-import { SendGridController } from './controllers/sendgrid.controller';
+import { SendGridController } from './controllers/send-grid.controller';
 import { ApplicationSchema } from './schemas/application.schema';
+import { SendGridService } from './services/send-grid.service';
 
 @Module({
   imports: [
@@ -30,6 +31,6 @@ import { ApplicationSchema } from './schemas/application.schema';
     CategoriesController,
     SendGridController,
   ],
-  providers: [PostsService, ItemsService, CategoriesService],
+  providers: [PostsService, ItemsService, CategoriesService, SendGridService],
 })
 export class AppModule {}
