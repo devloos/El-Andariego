@@ -27,7 +27,7 @@ const isLoading = ref(true);
 onMounted(async () => {
   try {
     const response = await useAxios({
-      url: '/api/blog/list',
+      url: '/api/posts',
     });
 
     posts.value = response.data.data;

@@ -33,9 +33,11 @@ onMounted(async () => {
   try {
     startOverlay();
     const response = await useAxios({
-      url: `/api/categories/list`,
+      url: `/api/categories`,
       params: {
-        include_items: true,
+        include: {
+          items: true,
+        },
       },
     });
 

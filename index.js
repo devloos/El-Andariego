@@ -12,7 +12,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/categories', require('./routes/api/categories'));
-app.use('/api/items', require('./routes/api/items'));
 app.use('/api/blog', require('./routes/api/blog'));
 
 // Third party

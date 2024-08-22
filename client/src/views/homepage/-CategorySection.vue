@@ -18,7 +18,7 @@ const categories = ref([]);
 onMounted(async () => {
   try {
     const response = await useAxios({
-      url: '/api/categories/list',
+      url: '/api/categories',
     });
 
     categories.value = response.data.data.filter((category) =>

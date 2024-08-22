@@ -21,7 +21,7 @@ const { locale } = useI18n({ useScope: 'global' });
 onMounted(async () => {
   try {
     const response = await useAxios({
-      url: `/api/blog/${props.id}`,
+      url: `/api/posts/${props.id}`,
     });
 
     post.value = response.data.data;

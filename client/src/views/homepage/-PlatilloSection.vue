@@ -16,13 +16,18 @@ const { locale } = useI18n({ useScope: 'global' });
 onMounted(async () => {
   try {
     const response = await useAxios({
-      url: '/api/categories/get/Platillos',
+      url: '/api/categories',
       params: {
-        include_items: true,
+        match: {
+          name: 'Platillos',
+        },
+        include: {
+          items: true,
+        },
       },
     });
 
-    platillos.value = response.data.data.items;
+    platillos.value = response.data.data?.[0].items || [];
   } catch (err) {
     useToast(err.response.data.message, {
       type: 'error',
@@ -48,10 +53,9 @@ async function toggleLiked(index) {
 
   try {
     const response = await useAxios({
-      url: '/api/items/update-likes',
-      method: 'POST',
+      url: `/api/items/${platillo._id}`,
+      method: 'PATCH',
       data: {
-        _id: platillo._id,
         likes: platillo.likes,
       },
     });
