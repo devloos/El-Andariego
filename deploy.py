@@ -40,9 +40,6 @@ def build_client():
         print('Error building Andariego Vue! [FAILED]')
         exit(1)
 
-    os.system(
-        f"rsync -a --remove-source-files dist {ANDARIEGO_PROJECT_PATH + '/server'}")
-
 
 def push_changes():
     os.chdir(ANDARIEGO_PROJECT_PATH)
@@ -66,8 +63,10 @@ def main():
     build_client()
     push_changes()
 
-    # in el-andariego-api
-    os.chdir(ANDARIEGO_PROJECT_PATH)
+    os.chdir(ANDARIEGO_PROJECT_PATH + '/client')
+    os.system('railway up --detach')
+
+    os.chdir(ANDARIEGO_PROJECT_PATH + '/server')
     os.system('railway up --detach')
 
 
