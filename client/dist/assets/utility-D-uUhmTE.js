@@ -1,1 +1,0 @@
-function a(e){return new Date(e).toLocaleString("en-us",{weekday:"long",year:"numeric",month:"short",day:"numeric"})}function s(e=[],r){if(e.length===1)return e[0];const o=r==="es"?" y":" and",n=e.join(", "),t=n.lastIndexOf(",");return n.slice(0,t+1)+o+n.slice(t+1)}export{a as f,s as p};
