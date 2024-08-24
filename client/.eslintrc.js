@@ -1,6 +1,9 @@
-export default {
-  root: true,
+/* eslint-env node */
+require('@rushstack/eslint-patch/modern-module-resolution');
+
+module.exports = {
   env: {
+    node: true,
     'vue/setup-compiler-macros': true,
   },
   extends: [
