@@ -1,6 +1,6 @@
 <script setup>
 import { useToast } from '@/composables/toast.js';
-import { useAxios } from '@/composables/axios.js';
+import { useSmartFetch } from '@/composables/smart-fetch.js';
 import { useI18n } from 'vue-i18n';
 import { inject, ref } from 'vue';
 
@@ -18,7 +18,7 @@ async function signup() {
 
     startOverlay();
 
-    const response = await useAxios({
+    const response = await useSmartFetch({
       url: '/api/sendgrid/subscribe',
       method: 'POST',
       data: {
@@ -26,7 +26,7 @@ async function signup() {
       },
     });
 
-    if (response.data.success === true) {
+    if (response.success === true) {
       useToast('Successfully subscribed to El Andariego', {
         type: 'success',
       });

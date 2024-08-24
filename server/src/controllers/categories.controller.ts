@@ -1,10 +1,5 @@
-import {
-  Controller,
-  Get,
-  NotFoundException,
-  Param,
-  Query,
-} from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
+import { PublicException } from 'src/errors/public-exception';
 import { CategoryDocument, CategoryMatch } from 'src/schemas/category.schema';
 import { CategoriesService } from 'src/services/categories.service';
 import { SmartResponse } from 'src/types/smart-response';
@@ -21,16 +16,13 @@ export class CategoriesController {
     const category = await this.categoriesService.findOneById(id);
 
     if (!category) {
-      throw new NotFoundException({
-        message: `Category with id: ${id} was not found.`,
-        success: false,
-        data: null,
-      });
+      throw new PublicException(`Category with id: ${id} was not found.`, 404);
     }
 
     return {
       message: 'Category found successfully.',
       success: true,
+      statusCode: 200,
       data: category,
     };
   }
@@ -50,6 +42,7 @@ export class CategoriesController {
     return {
       message: 'Categories found successfully.',
       success: true,
+      statusCode: 200,
       data: categories,
     };
   }

@@ -2,7 +2,7 @@
 import { useHead } from '@unhead/vue';
 import { RouterLink } from 'vue-router';
 import { ref, onMounted } from 'vue';
-import { useAxios } from '@/composables/axios.js';
+import { useSmartFetch } from '@/composables/smart-fetch.js';
 import { useToast } from '@/composables/toast.js';
 import { formatMongoDate } from '@/assets/js/utility.js';
 import { useI18n } from 'vue-i18n';
@@ -26,11 +26,11 @@ const isLoading = ref(true);
 
 onMounted(async () => {
   try {
-    const response = await useAxios({
+    const response = await useSmartFetch({
       url: '/api/posts',
     });
 
-    posts.value = response.data.data;
+    posts.value = response.data;
     posts.value.sort((a, b) => new Date(b.date) - new Date(a.date));
     posts.value.forEach((post) => {
       post.date = formatMongoDate(post.date);

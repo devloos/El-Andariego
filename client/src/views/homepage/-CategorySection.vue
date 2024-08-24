@@ -1,6 +1,6 @@
 <script setup>
 import SmartImg from '@/components/smart/SmartImg.vue';
-import { useAxios } from '@/composables/axios.js';
+import { useSmartFetch } from '@/composables/smart-fetch.js';
 import { useToast } from '@/composables/toast.js';
 import { ref, onMounted } from 'vue';
 
@@ -17,17 +17,22 @@ const categories = ref([]);
 
 onMounted(async () => {
   try {
-    const response = await useAxios({
+    const response = await useSmartFetch({
       url: '/api/categories',
+      notifyOnFailure: true,
     });
 
-    categories.value = response.data.data.filter((category) =>
+    if (response.success === false) {
+      return;
+    }
+
+    categories.value = response.data.filter((category) =>
       TOP_CATEGORIES.includes(category.name),
     );
 
     categories.value.sort((a, b) => a.priority - b.priority);
-  } catch (err) {
-    useToast('Failed to fetch categories', {
+  } catch (_) {
+    useToast('Failed to fetch categories.', {
       type: 'error',
     });
   }

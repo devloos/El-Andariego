@@ -1,4 +1,5 @@
-import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
+import { PublicException } from 'src/errors/public-exception';
 import { PostDocument } from 'src/schemas/post.schema';
 import { PostsService } from 'src/services/posts.service';
 import { SmartResponse } from 'src/types/smart-response';
@@ -14,16 +15,13 @@ export class PostsController {
     const post = await this.postsService.findOneById(id);
 
     if (!post) {
-      throw new NotFoundException({
-        message: `Post with id: ${id} was not found.`,
-        success: false,
-        data: null,
-      });
+      throw new PublicException(`Post with id: ${id} was not found.`, 404);
     }
 
     return {
       message: 'Post found successfully.',
       success: true,
+      statusCode: 200,
       data: post,
     };
   }
@@ -35,6 +33,7 @@ export class PostsController {
     return {
       message: 'Posts found successfully.',
       success: true,
+      statusCode: 200,
       data: posts,
     };
   }

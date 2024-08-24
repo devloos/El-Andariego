@@ -52,12 +52,14 @@ export class SendGridController {
       return {
         message: 'Email was sent successfully.',
         success: true,
+        statusCode: 201,
         data: applicationDoc,
       };
     } catch (err) {
       return {
         message: 'Email was not sent successfully.',
         success: false,
+        statusCode: 500,
         data: null,
       };
     }
@@ -71,12 +73,14 @@ export class SendGridController {
       return {
         message: 'Subscribed successfully.',
         success: true,
+        statusCode: 200,
         data: null,
       };
     } catch (err) {
       return {
         message: 'Unable to subscribe.',
         success: false,
+        statusCode: 500,
         data: null,
       };
     }

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useAxios } from '@/composables/axios.js';
+import { useSmartFetch } from '@/composables/smart-fetch.js';
 import { useToast } from '@/composables/toast.js';
 import { useStorage } from '@vueuse/core';
 import SmartImg from '@/components/smart/SmartImg.vue';
@@ -15,7 +15,7 @@ const { locale } = useI18n({ useScope: 'global' });
 
 onMounted(async () => {
   try {
-    const response = await useAxios({
+    const response = await useSmartFetch({
       url: '/api/categories',
       params: {
         match: {
@@ -25,11 +25,12 @@ onMounted(async () => {
           items: true,
         },
       },
+      notifyOnFailure: true,
     });
 
-    platillos.value = response.data.data?.[0].items || [];
-  } catch (err) {
-    useToast(err.response.data.message, {
+    platillos.value = response.data?.[0].items || [];
+  } catch (_) {
+    useToast('Failed to fetch platillos.', {
       type: 'error',
     });
   }
@@ -52,7 +53,7 @@ async function toggleLiked(index) {
   platillo.likes += userLikes ? -1 : 1;
 
   try {
-    const response = await useAxios({
+    const response = await useSmartFetch({
       url: `/api/items/${platillo._id}`,
       method: 'PATCH',
       data: {

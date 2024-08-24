@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useAxios } from '@/composables/axios.js';
+import { useSmartFetch } from '@/composables/smart-fetch.js';
 import { useToast } from '@/composables/toast.js';
 import { formatMongoDate } from '@/assets/js/utility';
 import SmartImg from '@/components/smart/SmartImg.vue';
@@ -20,11 +20,11 @@ const { locale } = useI18n({ useScope: 'global' });
 
 onMounted(async () => {
   try {
-    const response = await useAxios({
+    const response = await useSmartFetch({
       url: `/api/posts/${props.id}`,
     });
 
-    post.value = response.data.data;
+    post.value = response.data;
     post.value.date = formatMongoDate(post.value.date);
   } catch (e) {
     useToast('Failed to fetch post details.', { type: 'error' });

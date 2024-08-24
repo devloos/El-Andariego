@@ -13,7 +13,7 @@
   "dependencies": {
     "@unhead/vue": "^1.9.16",
     "@vueuse/core": "^10.11.1",
-    "axios": "^1.7.4",
+    "qs": "^6.13.0",
     "vue": "^3.2.13",
     "vue-i18n": "^9.14.0",
     "vue-router": "^4.4.3",

@@ -1,7 +1,7 @@
 <script setup>
 import { useHead } from '@unhead/vue';
 import { ref } from 'vue';
-import { useAxios } from '@/composables/axios';
+import { useSmartFetch } from '@/composables/smart-fetch';
 import { useToast } from '@/composables/toast';
 import { useI18n } from 'vue-i18n';
 import SmartImg from '@/components/smart/SmartImg.vue';
@@ -32,7 +32,7 @@ const interestedIn = ref('');
 async function formSubmitted() {
   try {
     startOverlay();
-    const response = await useAxios({
+    const response = await useSmartFetch({
       url: '/api/sendgrid/send-email',
       method: 'POST',
       data: {
@@ -44,7 +44,7 @@ async function formSubmitted() {
       },
     });
 
-    if (response.data.success === true) {
+    if (response.success === true) {
       useToast('You will be contacted shortly thank you.');
     }
   } catch (err) {

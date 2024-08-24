@@ -2,7 +2,7 @@
 import { useHead } from '@unhead/vue';
 import { inject, ref } from 'vue';
 import { prettyContent } from '@/assets/js/utility';
-import { useAxios } from '@/composables/axios.js';
+import { useSmartFetch } from '@/composables/smart-fetch.js';
 import { useToast } from '@/composables/toast.js';
 import { useI18n } from 'vue-i18n';
 import SmartImg from '@/components/smart/SmartImg.vue';
@@ -32,17 +32,18 @@ const { isMobileDimensions } = useUserAgent();
 onMounted(async () => {
   try {
     startOverlay();
-    const response = await useAxios({
+    const response = await useSmartFetch({
       url: `/api/categories`,
       params: {
         include: {
           items: true,
         },
       },
+      notifyOnFailure: true,
     });
 
-    platillos.value = response.data.data.filter((el) => el.name === 'Platillos')[0];
-    categories.value = response.data.data.filter((el) => el.name !== 'Platillos');
+    platillos.value = response.data.filter((el) => el.name === 'Platillos')[0];
+    categories.value = response.data.filter((el) => el.name !== 'Platillos');
     chosenCategory.value = categories.value[0];
   } catch (e) {
     useToast('Failed to fetch items.', { type: 'error' });
