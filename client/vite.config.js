@@ -11,6 +11,13 @@ export default defineConfig({
       include: path.resolve(__dirname, './src/locales/**'),
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern',
+      },
+    },
+  },
   server: {
     port: 8080,
     proxy: {
