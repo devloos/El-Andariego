@@ -1,1 +1,0 @@
-import{c as s,d as o,g as t,t as a}from"./index-BvcA0MBc.js";const n={class:"mb-8 mt-14 text-center"},c={class:"text-sm font-semibold uppercase"},l={__name:"StyledDivider",props:{name:{type:String,required:!0}},setup(r){return(m,e)=>(s(),o("div",n,[e[0]||(e[0]=t("hr",{class:"m-2 mx-auto w-20 border border-neutral-400"},null,-1)),t("p",c,a(r.name),1)]))}};export{l as _};
