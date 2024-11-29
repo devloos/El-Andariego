@@ -53,7 +53,7 @@ export default {
     home: 'Home',
     menu: 'Menu',
     contact: 'Contact',
-    call: 'GIVE US A CALL',
+    call: 'Call Us',
   },
   footer: {
     navigation: 'Navigation',

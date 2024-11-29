@@ -11,24 +11,14 @@ export function useSmartLinks() {
   watchEffect(() => {
     links.value = [
       {
-        name: t('link.home'),
-        to: '/',
-        isActive: route.fullPath === '/',
-      },
-      {
         name: t('link.menu'),
-        to: '/menu',
-        isActive: route.name === 'Menu',
-      },
-      {
-        name: 'Blog',
-        to: '/blog',
-        isActive: route.fullPath === '/blog',
+        to: '#menu',
+        isActive: route.hash === 'menu',
       },
       {
         name: t('link.contact'),
-        to: '/contact',
-        isActive: route.fullPath === '/contact',
+        to: '#contact',
+        isActive: route.hash === 'contact',
       },
     ];
   });
