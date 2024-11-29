@@ -19,7 +19,7 @@ export default {
   dividers: {
     gallery: 'Galería',
     menu: 'Menú servido diariamente',
-    testimonial: 'Testimonios',
+    reviews: 'Revistas',
     categories: 'Categorías Principales',
     cta: '¿Que estas esperando?',
   },
@@ -50,8 +50,8 @@ export default {
     sign_up: 'Inscribirse',
   },
   link: {
-    home: 'Página Principal',
     menu: 'Menú',
+    reviews: 'Revistas',
     contact: 'Contacto',
     call: 'LLAMANOS',
   },

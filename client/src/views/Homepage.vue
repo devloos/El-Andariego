@@ -5,11 +5,11 @@ import { computed } from 'vue';
 import CallToAction from '@/views/CallToAction.vue';
 import StyledDivider from '@/components/StyledDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
-import testimonials from '@/assets/constants/testimonials.js';
 import LocaleSelector from '@/components/LocaleSelector.vue';
 import SocialLinks from '@/components/SocialLinks.vue';
 import Gallery from '@/views/Gallery.vue';
 import Menu from '@/views/Menu.vue';
+import Reviews from './Reviews.vue';
 
 useHead({
   title: 'El Andariego',
@@ -96,30 +96,9 @@ const schedule = computed(() => {
       <Menu class="container" />
     </div>
 
-    <div class="container mt-14 pb-4 pt-2">
-      <StyledDivider :name="t('dividers.testimonial')" class="mt-8" />
-      <div
-        class="my-3 grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-3 lg:items-center"
-      >
-        <figure
-          v-for="review in testimonials"
-          :key="review"
-          class="flex w-full max-w-sm flex-col gap-3"
-        >
-          <SmartImg
-            :src="review.image"
-            class="max-w-[60px]"
-            :alt="review.name"
-            :is-transparent="true"
-            width="120"
-            height="120"
-          />
-          <blockquote class="font-medium">
-            {{ review.quote }}
-          </blockquote>
-          <p class="text-sm text-primary">- {{ review.name }}</p>
-        </figure>
-      </div>
+    <div id="reviews" class="mt-14 pb-4 pt-2">
+      <StyledDivider :name="t('dividers.reviews')" class="mt-8" />
+      <Reviews class="container" />
     </div>
 
     <StyledDivider :name="t('dividers.cta')" />

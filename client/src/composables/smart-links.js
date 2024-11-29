@@ -16,6 +16,11 @@ export function useSmartLinks() {
         isActive: route.hash === 'menu',
       },
       {
+        name: t('link.reviews'),
+        to: '#reviews',
+        isActive: route.hash === 'reviews',
+      },
+      {
         name: t('link.contact'),
         to: '#contact',
         isActive: route.hash === 'contact',

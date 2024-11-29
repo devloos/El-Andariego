@@ -1,5 +1,5 @@
 <script setup>
-import SmartImg from './smart/SmartImg.vue';
+import SmartImg from '@/components/smart/SmartImg.vue';
 
 const images = [
   {

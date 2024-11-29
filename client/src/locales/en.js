@@ -19,7 +19,7 @@ export default {
   dividers: {
     gallery: 'Gallery',
     menu: 'Menu Served Daily',
-    testimonial: 'Testimonials',
+    reviews: 'Reviews',
     categories: 'Top Categories',
     cta: 'What are you waiting for?',
   },
@@ -50,8 +50,8 @@ export default {
     sign_up: 'Sign up',
   },
   link: {
-    home: 'Home',
     menu: 'Menu',
+    reviews: 'Reviews',
     contact: 'Contact',
     call: 'Call Us',
   },
