@@ -43,6 +43,7 @@ const images = [
 
 <template>
   <div>
+    <!-- TODO: Change bullet pagination style -->
     <swiper-container
       :slides-per-view="1"
       :pagination="{

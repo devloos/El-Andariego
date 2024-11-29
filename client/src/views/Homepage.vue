@@ -96,9 +96,9 @@ const schedule = computed(() => {
       <Menu class="container" />
     </div>
 
-    <div id="reviews" class="mt-14 pb-4 pt-2">
+    <div id="reviews" class="pb-9 pt-14">
       <StyledDivider :name="t('dividers.reviews')" class="mt-8" />
-      <Reviews class="container" />
+      <Reviews class="container px-2" />
     </div>
 
     <StyledDivider :name="t('dividers.cta')" />

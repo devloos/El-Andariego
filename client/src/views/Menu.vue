@@ -50,7 +50,7 @@ onMounted(async () => {
 
 <template>
   <div>
-    <div v-if="categories" class="mb-4 px-1 lg:px-2">
+    <div v-if="categories" class="px-1 lg:px-2">
       <div class="mb-3 flex items-center justify-between gap-3">
         <button
           class="btn btn-outline btn-primary btn-sm px-8 shadow md:btn-md md:btn-wide"
