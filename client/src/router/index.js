@@ -33,7 +33,7 @@ const router = createRouter({
             behavior: 'smooth',
             top: 80,
           });
-        }, 800);
+        }, 300);
       } else {
         resolve({ left: 0, top: 0 });
       }

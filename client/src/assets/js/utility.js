@@ -1,12 +1,3 @@
-export function formatMongoDate(date) {
-  return new Date(date).toLocaleString('en-us', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
-}
-
 export function prettyContent(content = [], locale) {
   if (content.length === 1) {
     return content[0];
