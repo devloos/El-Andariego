@@ -17,7 +17,7 @@ export default {
     open: 'Abierto en San Juan {location} hasta las 11:30 PM',
   },
   dividers: {
-    platillo: 'Nuestros Platillos de Especialidad',
+    gallery: 'Galería',
     menu: 'Menú servido diariamente',
     testimonial: 'Testimonios',
     categories: 'Categorías Principales',

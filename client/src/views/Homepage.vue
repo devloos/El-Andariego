@@ -2,7 +2,6 @@
 import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
-import PlatilloSection from '@/views/homepage/-PlatilloSection.vue';
 import CategorySection from '@/views/homepage/-CategorySection.vue';
 import CallToAction from '@/views/homepage/-CallToAction.vue';
 import StyledDivider from '@/components/StyledDivider.vue';
@@ -11,6 +10,7 @@ import testimonials from '@/assets/constants/testimonials.js';
 import gallery from '@/assets/constants/gallery';
 import LocaleSelector from '@/components/LocaleSelector.vue';
 import SocialLinks from '@/components/SocialLinks.vue';
+import Gallery from '@/components/Gallery.vue';
 
 useHead({
   title: 'El Andariego',
@@ -86,8 +86,11 @@ const schedule = computed(() => {
       </div>
     </div>
 
-    <StyledDivider :name="t('dividers.platillo')" />
-    <PlatilloSection />
+    <!-- TODO: have desktop images -->
+    <div class="sm:invisible sm:hidden">
+      <StyledDivider :name="t('dividers.gallery')" />
+      <Gallery class="mx-auto max-w-6xl px-2" />
+    </div>
 
     <div class="mt-14 pb-4 pt-2 xl:px-10">
       <StyledDivider :name="t('dividers.testimonial')" class="mt-8" />

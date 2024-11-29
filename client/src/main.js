@@ -2,6 +2,7 @@
 import { createApp } from 'vue';
 import { createHead } from '@unhead/vue';
 import { createI18n } from 'vue-i18n';
+import { register } from 'swiper/element/bundle';
 
 import App from './App.vue';
 import router from './router';
@@ -34,6 +35,8 @@ const i18n = createI18n({
     es,
   },
 });
+
+register();
 
 app.use(Toast, {
   maxToasts: 1,

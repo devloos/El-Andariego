@@ -6,7 +6,15 @@ import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => {
+            return tag.startsWith('swiper-');
+          },
+        },
+      },
+    }),
     VueI18nPlugin({
       include: path.resolve(__dirname, './src/locales/**'),
     }),

@@ -17,7 +17,7 @@ export default {
     open: 'Open in San Juan {location} until 11:30 PM',
   },
   dividers: {
-    platillo: 'Our Specialty Platillos',
+    gallery: 'Gallery',
     menu: 'Menu Served Daily',
     testimonial: 'Testimonials',
     categories: 'Top Categories',
