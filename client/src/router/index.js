@@ -1,10 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 const Homepage = () => import('@/views/Homepage.vue');
-const Menu = () => import('@/views/Menu.vue');
-const Contact = () => import('@/views/Contact.vue');
-const Blog = () => import('@/views/Blog.vue');
-const Post = () => import('@/views/Post.vue');
 const PageNotFound = () => import('@/views/PageNotFound.vue');
 
 const routes = [
@@ -12,27 +8,6 @@ const routes = [
     path: '/',
     name: 'Homepage',
     component: Homepage,
-  },
-  {
-    path: '/menu',
-    name: 'Menu',
-    component: Menu,
-  },
-  {
-    path: '/contact',
-    name: 'Contact',
-    component: Contact,
-  },
-  {
-    path: '/blog',
-    name: 'Blog',
-    component: Blog,
-  },
-  {
-    path: '/blog/:id',
-    name: 'Post',
-    component: Post,
-    props: true,
   },
   {
     path: '/:pathMatch(.*)*',

@@ -2,15 +2,14 @@
 import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
-import CategorySection from '@/views/homepage/-CategorySection.vue';
-import CallToAction from '@/views/homepage/-CallToAction.vue';
+import CallToAction from '@/components/CallToAction.vue';
 import StyledDivider from '@/components/StyledDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import testimonials from '@/assets/constants/testimonials.js';
-import gallery from '@/assets/constants/gallery';
 import LocaleSelector from '@/components/LocaleSelector.vue';
 import SocialLinks from '@/components/SocialLinks.vue';
 import Gallery from '@/components/Gallery.vue';
+import Menu from '@/components/Menu.vue';
 
 useHead({
   title: 'El Andariego',
@@ -92,49 +91,36 @@ const schedule = computed(() => {
       <Gallery class="mx-auto max-w-6xl px-2" />
     </div>
 
-    <div class="mt-14 pb-4 pt-2 xl:px-10">
-      <StyledDivider :name="t('dividers.testimonial')" class="mt-8" />
-      <div class="flex flex-col justify-center lg:flex-row xl:gap-10">
-        <div
-          class="my-3 grid grid-cols-1 justify-items-center gap-8 px-5 sm:grid-cols-2 lg:items-center"
-        >
-          <figure
-            v-for="review in testimonials"
-            :key="review"
-            class="flex w-full max-w-sm flex-col gap-3"
-          >
-            <SmartImg
-              :src="review.image"
-              class="max-w-[60px]"
-              :alt="review.name"
-              :is-transparent="true"
-              width="120"
-              height="120"
-            />
-            <blockquote class="font-medium">
-              {{ review.quote }}
-            </blockquote>
-            <p class="text-sm text-primary">- {{ review.name }}</p>
-          </figure>
-        </div>
-        <div
-          class="my-5 grid grid-cols-2 gap-2 rounded px-3 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3"
-        >
-          <div v-for="src in gallery" :key="src" class="overflow-hidden">
-            <SmartImg
-              class="w-full max-w-[350px] rounded transition-all hover:scale-125"
-              :src="src"
-              alt="Gallery Image"
-              width="800"
-              height="800"
-            />
-          </div>
-        </div>
-      </div>
+    <div id="menu">
+      <StyledDivider :name="t('dividers.menu')" />
+      <Menu class="container" />
     </div>
 
-    <StyledDivider :name="t('dividers.categories')" />
-    <CategorySection />
+    <div class="container mt-14 pb-4 pt-2">
+      <StyledDivider :name="t('dividers.testimonial')" class="mt-8" />
+      <div
+        class="my-3 grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-3 lg:items-center"
+      >
+        <figure
+          v-for="review in testimonials"
+          :key="review"
+          class="flex w-full max-w-sm flex-col gap-3"
+        >
+          <SmartImg
+            :src="review.image"
+            class="max-w-[60px]"
+            :alt="review.name"
+            :is-transparent="true"
+            width="120"
+            height="120"
+          />
+          <blockquote class="font-medium">
+            {{ review.quote }}
+          </blockquote>
+          <p class="text-sm text-primary">- {{ review.name }}</p>
+        </figure>
+      </div>
+    </div>
 
     <StyledDivider :name="t('dividers.cta')" />
     <CallToAction />
