@@ -20,7 +20,7 @@ export default {
     gallery: 'Galería',
     menu: 'Menú servido diariamente',
     reviews: 'Revistas',
-    categories: 'Categorías Principales',
+    contact: 'Contacta El Andariego',
     cta: '¿Que estas esperando?',
   },
   cta: {

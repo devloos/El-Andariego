@@ -3,7 +3,13 @@ import SmartImg from '@/components/smart/SmartImg.vue';
 
 const images = [
   {
-    url: '/andariego/home/gallery/gallery-1689472440679.jpg',
+    url: '/andariego/home/gallery/gallery-1689560307316.jpg',
+    width: 800,
+    height: 800,
+    alt: '',
+  },
+  {
+    url: '/andariego/home/gallery/gallery-1689472440682.jpg',
     width: 800,
     height: 800,
     alt: '',
@@ -15,19 +21,14 @@ const images = [
     alt: '',
   },
   {
-    url: '/andariego/home/gallery/gallery-1689560307316.jpg',
-    width: 800,
-    height: 800,
-    alt: '',
-  },
-  {
     url: '/andariego/home/gallery/gallery-1689472440681.jpg',
     width: 800,
     height: 800,
     alt: '',
   },
+
   {
-    url: '/andariego/home/gallery/gallery-1689472440682.jpg',
+    url: '/andariego/home/gallery/gallery-1689472440679.jpg',
     width: 800,
     height: 800,
     alt: '',

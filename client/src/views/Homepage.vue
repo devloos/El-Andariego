@@ -10,6 +10,7 @@ import SocialLinks from '@/components/SocialLinks.vue';
 import Gallery from '@/views/Gallery.vue';
 import Menu from '@/views/Menu.vue';
 import Reviews from './Reviews.vue';
+import Contact from './Contact.vue';
 
 useHead({
   title: 'El Andariego',
@@ -99,6 +100,11 @@ const schedule = computed(() => {
     <div id="reviews" class="pb-9 pt-14">
       <StyledDivider :name="t('dividers.reviews')" class="mt-8" />
       <Reviews class="container px-2" />
+    </div>
+
+    <div id="contact">
+      <StyledDivider :name="t('dividers.contact')" />
+      <Contact class="container" />
     </div>
 
     <StyledDivider :name="t('dividers.cta')" />
