@@ -2,14 +2,14 @@
 import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
-import CallToAction from '@/components/CallToAction.vue';
+import CallToAction from '@/views/CallToAction.vue';
 import StyledDivider from '@/components/StyledDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import testimonials from '@/assets/constants/testimonials.js';
 import LocaleSelector from '@/components/LocaleSelector.vue';
 import SocialLinks from '@/components/SocialLinks.vue';
-import Gallery from '@/components/Gallery.vue';
-import Menu from '@/components/Menu.vue';
+import Gallery from '@/views/Gallery.vue';
+import Menu from '@/views/Menu.vue';
 
 useHead({
   title: 'El Andariego',
