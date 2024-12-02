@@ -63,12 +63,6 @@ def main():
     build_client()
     push_changes()
 
-    os.chdir(ANDARIEGO_PROJECT_PATH + '/client')
-    os.system('railway up --detach')
-
-    os.chdir(ANDARIEGO_PROJECT_PATH + '/server')
-    os.system('railway up --detach')
-
 
 if __name__ == '__main__':
     main()

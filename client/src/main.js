@@ -29,7 +29,7 @@ const head = createHead();
 const i18n = createI18n({
   locale: 'en',
   legacy: false,
-  fallbackLocale: 'es',
+  fallbackLocale: 'en',
   messages: {
     en,
     es,
