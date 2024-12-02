@@ -6,7 +6,6 @@ import { useSmartFetch } from '@/composables/smart-fetch.js';
 import { useToast } from '@/composables/toast.js';
 import { useI18n } from 'vue-i18n';
 import { onMounted } from 'vue';
-import StyledDivider from '@/components/StyledDivider.vue';
 
 useHead({
   title: 'Menu | El Andariego',
@@ -29,11 +28,9 @@ onMounted(async () => {
   try {
     startOverlay();
     const response = await useSmartFetch({
-      url: `/api/categories`,
-      params: {
-        include: {
-          items: true,
-        },
+      url: `${import.meta.env.VITE_AWS_ORIGIN}/andariego-get-categories`,
+      headers: {
+        'Access-Control-Allow-Origin': window.origin,
       },
       notifyOnFailure: true,
     });

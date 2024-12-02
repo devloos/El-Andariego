@@ -6,7 +6,7 @@ export async function useSmartFetch({
   method = 'GET',
   params = null,
   headers = {},
-  data = {},
+  data = null,
   notifyOnSuccess = false,
   notifyOnFailure = false,
 }) {
@@ -20,12 +20,15 @@ export async function useSmartFetch({
 
   const headerObj = new Headers(headers);
 
-  headerObj.append('Content-Type', 'application/json');
+  if (data) {
+    headerObj.append('Content-Type', 'application/json');
+  }
+
   headerObj.set('Accept', 'application/json');
 
   const response = await fetch(url, {
     method,
-    ...(data && { headers: headerObj }),
+    headers,
     ...(data && { body: JSON.stringify(data) }),
   });
 
