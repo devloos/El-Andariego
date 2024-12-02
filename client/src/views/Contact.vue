@@ -22,7 +22,7 @@ async function submitForm() {
   try {
     startOverlay();
     const response = await useSmartFetch({
-      url: 'https://jyzq0v9jy9.execute-api.us-west-1.amazonaws.com/default/sendAndariegoEmail',
+      url: `${import.meta.env.VITE_AWS_ORIGIN}/andariego-send-email`,
       headers: {
         'Access-Control-Allow-Origin': window.origin,
       },

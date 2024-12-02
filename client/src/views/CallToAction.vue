@@ -19,7 +19,10 @@ async function signup() {
     startOverlay();
 
     const response = await useSmartFetch({
-      url: '/api/sendgrid/subscribe',
+      url: `${import.meta.env.VITE_AWS_ORIGIN}/andariego-subscribe`,
+      headers: {
+        'Access-Control-Allow-Origin': window.origin,
+      },
       method: 'POST',
       data: {
         email: email.value,
