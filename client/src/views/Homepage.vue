@@ -2,15 +2,12 @@
 import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
-import CallToAction from '@/views/CallToAction.vue';
 import StyledDivider from '@/components/StyledDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import LocaleSelector from '@/components/LocaleSelector.vue';
-import SocialLinks from '@/components/SocialLinks.vue';
-import Gallery from '@/views/Gallery.vue';
 import Menu from '@/views/Menu.vue';
-import Reviews from './Reviews.vue';
 import Contact from './Contact.vue';
+import SmartSvg from '@/components/smart/SmartSvg.vue';
 
 useHead({
   title: 'El Andariego',
@@ -52,62 +49,156 @@ const schedule = computed(() => {
 
 <template>
   <div>
-    <div class="pt-6 xl:px-10">
-      <div class="grid grid-cols-1 items-center gap-2 lg:grid-cols-2">
-        <div class="mb-2 px-4 pt-6 text-center">
-          <div class="flex flex-col items-center gap-2">
-            <h4
-              class="text-4xl font-bold sm:w-10/12 md:w-2/3 lg:w-11/12 lg:text-5xl xl:w-4/5"
-            >
-              {{ t('home.hook') }}
-            </h4>
-            <p class="my-2 font-semibold xl:text-lg">{{ schedule }}</p>
-            <p class="mb-8 w-auto sm:w-10/12 md:w-3/4 lg:w-11/12 xl:w-4/5 xl:text-lg">
-              {{ t('home.intro') }}
-            </p>
-          </div>
-          <a
-            class="btn btn-primary px-8 uppercase"
-            href="https://order.elandariegotruck.com/"
-          >
-            {{ t('home.order_now') }}
-          </a>
-          <SocialLinks class="my-7 flex justify-center gap-6 text-2xl" />
-          <LocaleSelector class="-ms-1 mb-10" />
+    <div class="flex h-[250px] w-full items-stretch justify-center overflow-hidden">
+      <SmartImg
+        src="/andariego/misc/demo.mp4"
+        class="w-full object-cover object-center"
+        width=""
+        height=""
+        loading="eager"
+        type="video"
+        alt="hero"
+        muted
+        autoplay
+        loop
+        playsinline
+      />
+    </div>
+
+    <div class="relative">
+      <SmartImg
+        src="/andariego/tr:w-100,h-100/misc/andriego.jpg"
+        class="logo-position rounded-xl border border-accent shadow-xl"
+        width="100"
+        height="100"
+        loading="eager"
+        alt="logo"
+      />
+
+      <div class="pt-[70px]">
+        <div class="pb-5 text-center">
+          <h2 class="pb-1 text-2xl font-bold uppercase tracking-wide">El Andariego</h2>
+          <p>Mexican, Food Truck</p>
         </div>
-        <SmartImg
-          src="/andariego/home/hero.webp"
-          alt="hero"
-          width="1200"
-          height="1200"
-          loading="eager"
-          is-transparent
-        />
+
+        <div class="flex justify-center pb-5">
+          <select class="select select-bordered w-full max-w-xs">
+            <option>Capistrano Villas</option>
+            <option>San Juan Village</option>
+          </select>
+        </div>
+
+        <!-- Dynamic -->
+        <div class="flex justify-center gap-3 pb-5 text-center">
+          <div class="rating rating-half">
+            <input
+              type="radio"
+              name="rating-10"
+              class="mask mask-half-1 mask-star-2 bg-primary"
+              disabled
+            />
+            <input
+              type="radio"
+              name="rating-10"
+              class="mask mask-half-2 mask-star-2 bg-primary"
+              disabled
+            />
+            <input
+              type="radio"
+              name="rating-10"
+              class="mask mask-half-1 mask-star-2 bg-primary"
+              disabled
+            />
+            <input
+              type="radio"
+              name="rating-10"
+              class="mask mask-half-2 mask-star-2 bg-primary"
+              disabled
+            />
+            <input
+              type="radio"
+              name="rating-10"
+              class="mask mask-half-1 mask-star-2 bg-primary"
+              disabled
+            />
+            <input
+              type="radio"
+              name="rating-10"
+              class="mask mask-half-2 mask-star-2 bg-primary"
+              disabled
+            />
+            <input
+              type="radio"
+              name="rating-10"
+              class="mask mask-half-1 mask-star-2 bg-primary"
+              disabled
+            />
+            <input
+              type="radio"
+              name="rating-10"
+              class="mask mask-half-2 mask-star-2 bg-primary"
+              disabled
+            />
+            <input
+              type="radio"
+              name="rating-10"
+              class="mask mask-half-1 mask-star-2 bg-primary"
+              checked="checked"
+              disabled
+            />
+            <input
+              type="radio"
+              name="rating-10"
+              class="mask mask-half-2 mask-star-2 bg-primary"
+              disabled
+            />
+          </div>
+
+          <p class="underline">View 19 Ratings</p>
+        </div>
+
+        <p class="pb-5 text-center">Capistrano Villas, San Juan Capistrano, CA 92675</p>
+
+        <!-- Dynamic -->
+        <div class="flex justify-center gap-1 pb-5">
+          <span class="text-primary-400">Open today</span>
+          <span>3:00 PM - 11:30 PM</span>
+        </div>
+
+        <!-- Dynamic -->
+        <div class="flex items-center justify-center gap-2 pb-5">
+          <SmartSvg name="InfoIcon" class="h-5 w-5" />
+          <p>(949) 806-0123</p>
+        </div>
+
+        <LocaleSelector class="pb-5 text-sm" />
+
+        <div class="mx-4 rounded-lg bg-primary-100 px-8 py-4 text-center">
+          <p class="pb-2 font-bold">Get 10% OFF*</p>
+          <p class="pb-4">For the first 15 people to order online.</p>
+          <a
+            href="https://order.elandariegotruck.com/?cc=first-online-15"
+            class="btn btn-primary btn-sm"
+          >
+            Order Now!
+          </a>
+        </div>
+
+        <Menu class="container mt-5" />
+
+        <div id="contact">
+          <StyledDivider :name="t('dividers.contact')" />
+          <Contact class="container" />
+        </div>
       </div>
     </div>
-
-    <!-- TODO: have desktop images -->
-    <div class="sm:invisible sm:hidden">
-      <StyledDivider :name="t('dividers.gallery')" />
-      <Gallery class="mx-auto max-w-6xl px-2" />
-    </div>
-
-    <div id="menu">
-      <StyledDivider :name="t('dividers.menu')" />
-      <Menu class="container" />
-    </div>
-
-    <div id="reviews" class="pb-9 pt-14">
-      <StyledDivider :name="t('dividers.reviews')" class="mt-8" />
-      <Reviews class="container px-2" />
-    </div>
-
-    <div id="contact">
-      <StyledDivider :name="t('dividers.contact')" />
-      <Contact class="container" />
-    </div>
-
-    <StyledDivider :name="t('dividers.cta')" />
-    <CallToAction />
   </div>
 </template>
+
+<style lang="scss" scoped>
+.logo-position {
+  position: absolute;
+  top: -50px;
+  left: calc(50vw - 50px);
+}
+</style>
