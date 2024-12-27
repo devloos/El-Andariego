@@ -2,7 +2,8 @@
 
 ### Preview
 
-![Homepage](assets/homepage.jpg)
+![Screenshot 2024-12-26 at 6 29 39 PM](https://github.com/user-attachments/assets/7982ae43-7cd4-46c0-afad-3cdc584913de)
+
 
 ### Repository Requirements
 
