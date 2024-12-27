@@ -16,6 +16,7 @@ import ErrorIcon from '@/components/svgs/ErrorIcon.vue';
 import FoodIcon from '@/components/svgs/FoodIcon.vue';
 import PlateIcon from '@/components/svgs/PlateIcon.vue';
 import SearchIcon from '@/components/svgs/SearchIcon.vue';
+import XIcon from '@/components/svgs/XIcon.vue';
 
 import '@/assets/index.css';
 import 'vue-toastification/dist/index.css';
@@ -59,7 +60,8 @@ app
   .component('ErrorIcon', ErrorIcon)
   .component('FoodIcon', FoodIcon)
   .component('PlateIcon', PlateIcon)
-  .component('SearchIcon', SearchIcon);
+  .component('SearchIcon', SearchIcon)
+  .component('XIcon', XIcon);
 
 router.isReady().then(() => {
   app.mount('#app');

@@ -66,6 +66,12 @@ const searchItems = computed(() => {
       <label class="input input-bordered flex items-center gap-2">
         <SmartSvg name="SearchIcon" class="h-5 w-5 opacity-80" />
         <input v-model="search" type="text" class="grow" :placeholder="t('search')" />
+        <SmartSvg
+          v-if="search"
+          name="XIcon"
+          class="h-4 w-4 opacity-70 hover:cursor-pointer"
+          @click="search = ''"
+        />
       </label>
     </div>
 
