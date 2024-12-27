@@ -1,13 +1,14 @@
 <script setup>
 import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import StyledDivider from '@/components/StyledDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import LocaleSelector from '@/components/LocaleSelector.vue';
 import Menu from '@/views/Menu.vue';
 import Contact from './Contact.vue';
 import SmartSvg from '@/components/smart/SmartSvg.vue';
+import { LOCATIONS } from '@/assets/constants/locations';
 
 useHead({
   title: 'El Andariego',
@@ -45,11 +46,20 @@ const schedule = computed(() => {
     return t('hours.opening', { location });
   }
 });
+
+const locationId = ref('capistrano-villas');
+const location = ref(LOCATIONS[0]);
+
+watch(locationId, () => {
+  location.value = LOCATIONS.find((el) => el.id === locationId.value);
+});
 </script>
 
 <template>
   <div>
-    <div class="flex h-[250px] w-full items-stretch justify-center overflow-hidden">
+    <div
+      class="flex h-[250px] w-full items-stretch justify-center overflow-hidden md:mx-auto md:h-[400px] md:max-w-5xl"
+    >
       <SmartImg
         src="/andariego/misc/demo.mp4"
         class="w-full object-cover object-center"
@@ -75,16 +85,16 @@ const schedule = computed(() => {
         alt="logo"
       />
 
-      <div class="pt-[70px]">
+      <div class="mx-auto max-w-2xl pt-[70px]">
         <div class="pb-5 text-center">
           <h2 class="pb-1 text-2xl font-bold uppercase tracking-wide">El Andariego</h2>
           <p>Mexican, Food Truck</p>
         </div>
 
         <div class="flex justify-center pb-5">
-          <select class="select select-bordered w-full max-w-xs">
-            <option>Capistrano Villas</option>
-            <option>San Juan Village</option>
+          <select v-model="locationId" class="select select-bordered w-full max-w-xs">
+            <option value="capistrano-villas">Capistrano Villas</option>
+            <option value="village-san-juan">San Juan Village</option>
           </select>
         </div>
 
@@ -154,33 +164,38 @@ const schedule = computed(() => {
             />
           </div>
 
-          <p class="underline">View 19 Ratings</p>
+          <a :href="location.googleProfile" class="underline">{{
+            t('ratings', { numberOfRatings: 19 })
+          }}</a>
         </div>
 
-        <p class="pb-5 text-center">Capistrano Villas, San Juan Capistrano, CA 92675</p>
+        <p class="pb-5 text-center">{{ location.address }}</p>
 
         <!-- Dynamic -->
         <div class="flex justify-center gap-1 pb-5">
           <span class="text-primary-400">Open today</span>
-          <span>3:00 PM - 11:30 PM</span>
+          <span>{{ location.hours }}</span>
         </div>
 
         <!-- Dynamic -->
-        <div class="flex items-center justify-center gap-2 pb-5">
+        <a
+          :href="`tel:${location.phoneNumber}`"
+          class="flex items-center justify-center gap-2 pb-5"
+        >
           <SmartSvg name="InfoIcon" class="h-5 w-5" />
-          <p>(949) 806-0123</p>
-        </div>
+          <p>{{ location.phoneNumber }}</p>
+        </a>
 
         <LocaleSelector class="pb-5 text-sm" />
 
         <div class="mx-4 rounded-lg bg-primary-100 px-8 py-4 text-center">
-          <p class="pb-2 font-bold">Get 10% OFF*</p>
-          <p class="pb-4">For the first 15 people to order online.</p>
+          <p class="pb-2 font-bold">{{ t('promotional.hook') }}</p>
+          <p class="pb-4">{{ t('promotional.body') }}</p>
           <a
             href="https://order.elandariegotruck.com/?cc=first-online-15"
             class="btn btn-primary btn-sm"
           >
-            Order Now!
+            {{ t('home.order_now') }}
           </a>
         </div>
 

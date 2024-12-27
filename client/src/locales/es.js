@@ -4,8 +4,9 @@ export default {
     intro:
       'El Andariego es un camión de comida mexicana en San Juan Capistrano, California. Servimos tortas, tacos, burritos y quesadillas auténticos, junto con platos especiales como Alambre, Fortachon y Que Me Notas. Nuestro objetivo es convertirnos en una opción gastronómica favorita en la zona.',
     view_menu: 'Ver Menú',
-    order_now: 'Ordena ahora',
+    order_now: 'Ordena ahora!',
   },
+  ratings: 'Ver {numberOfRatings} calificaciones',
   promotional: {
     header: '¡Ordene en línea ahora!',
     hook: 'Obtenga 10% de descuento*',
@@ -17,21 +18,7 @@ export default {
     open: 'Abierto en San Juan {location} hasta las 11:30 PM',
   },
   dividers: {
-    gallery: 'Galería',
-    menu: 'Menú servido diariamente',
-    reviews: 'Revistas',
     contact: 'Contacta El Andariego',
-    cta: '¿Que estas esperando?',
-  },
-  cta: {
-    hook: 'Conéctate con nosotros y mantente informado!',
-    info: 'Omita la espera y llámenos durante el horario comercial. ¡Quiere recibir notificaciones sobre promociones y eventos, regístrese hoy!',
-    contact: {
-      open_hours: 'Horarios Abiertos',
-      hours: 'Lunes a Domingo: 3:00 PM - 11:30 PM',
-      location: 'Ubicación',
-      contact: 'Contacto',
-    },
   },
   form: {
     email: 'Correo Electrónico',
@@ -55,24 +42,10 @@ export default {
     contact: 'Contacto',
     call: 'LLAMANOS',
   },
-  footer: {
-    navigation: 'Navegación',
-    information: 'Información',
-    business_hours: 'Horas de Trabajo',
-    careers: 'Carreras',
-    schedule: 'Lunes a Domingo: Abierto',
-  },
-  blog: {
-    read_more: 'Leer Más',
-  },
   error: {
     header: 'LO SENTIMOS, ¡Página No se Encontro!',
     message:
       'Si escribió la URL directamente, asegúrese de que la ortografía sea correcta.',
     homepage: 'Volver a la Página Principal',
-  },
-  menu: {
-    meat_selection: 'Selección De Carne',
-    full_menu: 'Menú Completo',
   },
 };

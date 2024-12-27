@@ -9,8 +9,6 @@ import router from './router';
 import Toast from 'vue-toastification';
 import en from '@/locales/en.js';
 import es from '@/locales/es.js';
-import DefaultLayout from '@/layouts/DefaultLayout.vue';
-import BlankLayout from '@/layouts/BlankLayout.vue';
 import InfoIcon from '@/components/svgs/InfoIcon.vue';
 import SuccessIcon from '@/components/svgs/SuccessIcon.vue';
 import WarningIcon from '@/components/svgs/WarningIcon.vue';
@@ -55,8 +53,6 @@ app.use(head);
 app.use(i18n);
 
 app
-  .component('DefaultLayout', DefaultLayout)
-  .component('BlankLayout', BlankLayout)
   .component('InfoIcon', InfoIcon)
   .component('SuccessIcon', SuccessIcon)
   .component('WarningIcon', WarningIcon)
