@@ -1,4 +1,5 @@
 <script setup>
+import { getImageKitUrl } from '@/assets/js/utility';
 import { computed } from 'vue';
 
 const placeholder =
@@ -24,6 +25,10 @@ const props = defineProps({
   isTransparent: {
     type: Boolean,
     default: false,
+  },
+  type: {
+    type: String,
+    default: 'image',
   },
   loading: {
     type: String,
@@ -76,13 +81,20 @@ const srcset = computed(() => {
 
 <template>
   <img
+    v-if="type === 'image'"
     :loading="loading"
     :src="placeholder"
     :srcset="srcset"
     :width="width"
     :height="height"
     :style="{ 'background-color': isTransparent ? 'transparent' : 'lightgray' }"
+    :alt="alt"
     sizes="auto"
-    alt=""
+  />
+  <video
+    v-else-if="type === 'video'"
+    :src="getImageKitUrl(src)"
+    :width="width"
+    :height="height"
   />
 </template>

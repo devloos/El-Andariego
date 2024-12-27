@@ -1,22 +1,13 @@
 <script setup>
-import { useHead } from '@unhead/vue';
-import { inject, ref } from 'vue';
+import { computed, inject, ref } from 'vue';
 import { prettyContent } from '@/assets/js/utility';
 import { useSmartFetch } from '@/composables/smart-fetch.js';
 import { useToast } from '@/composables/toast.js';
 import { useI18n } from 'vue-i18n';
 import { onMounted } from 'vue';
+import SmartSvg from '@/components/smart/SmartSvg.vue';
 
-useHead({
-  title: 'Menu | El Andariego',
-  meta: [
-    {
-      name: 'description',
-      content: 'El Andariego Menu',
-    },
-  ],
-});
-
+const search = ref('');
 const categories = ref([]);
 const startOverlay = inject('startOverlay');
 const stopOverlay = inject('stopOverlay');
@@ -43,65 +34,111 @@ onMounted(async () => {
     stopOverlay();
   }
 });
+
+const searchItems = computed(() => {
+  if (!search.value) {
+    return [];
+  }
+
+  const items = [];
+
+  categories.value.forEach((category) => {
+    category.items.forEach((item) => {
+      const normalizedEsName = item.name.es.toLowerCase();
+      const normalizedEnName = item.name.en.toLowerCase();
+      const normalizedSearch = search.value.toLowerCase();
+
+      if (normalizedEsName.includes(normalizedSearch)) {
+        items.push(item);
+      } else if (normalizedEnName.includes(normalizedSearch)) {
+        items.push(item);
+      }
+    });
+  });
+
+  return items;
+});
 </script>
 
 <template>
-  <div>
-    <div v-if="categories" class="px-1 lg:px-2">
-      <div class="mb-3 flex items-center justify-between gap-3">
-        <button
-          class="btn btn-outline btn-primary btn-sm px-8 shadow md:btn-md md:btn-wide"
-          @click="useToast('Coming soon.')"
-        >
-          {{ t('menu.full_menu') }}
-        </button>
+  <div v-if="categories.length > 0" class="px-1">
+    <div class="px-1 pb-3">
+      <label class="input input-bordered flex items-center gap-2">
+        <SmartSvg name="SearchIcon" class="h-5 w-5 opacity-80" />
+        <input v-model="search" type="text" class="grow" :placeholder="t('search')" />
+      </label>
+    </div>
 
-        <select
-          v-model="selectedCategory"
-          class="select select-primary select-sm w-full max-w-xs shadow md:select-md"
+    <div v-if="search" class="grid items-stretch gap-6 px-2 pt-2">
+      <div v-for="(item, index) in searchItems" :key="item._id" class="relative">
+        <div
+          class="text-sm"
+          :class="{
+            'mb-3': index + 1 < searchItems.length,
+          }"
         >
-          <option v-for="category in categories" :key="category._id" :value="category">
-            {{ category.name }}
-          </option>
-        </select>
-      </div>
-      <div
-        v-if="selectedCategory"
-        class="grid items-stretch gap-6 p-2 md:grid-cols-2 md:p-3 xl:grid-cols-3"
-      >
-        <div v-for="item in selectedCategory.items" :key="item._id" class="relative">
-          <div class="mb-3 text-sm">
-            <div class="flex justify-between">
-              <p class="mb-1 font-semibold uppercase tracking-wide">
-                {{ item.name[locale] }}
-              </p>
-              <p>${{ item.base_price.toFixed(2) }}</p>
-            </div>
-            <p class="flex flex-wrap font-sans font-semibold italic tracking-wide">
-              {{ prettyContent(item.content[locale], locale) }}
+          <div class="flex justify-between">
+            <p class="mb-1 font-semibold uppercase tracking-wide">
+              {{ item.name[locale] }}
             </p>
+            <p>${{ item.base_price.toFixed(2) }}</p>
           </div>
-          <hr class="absolute bottom-0 left-0 right-0 border-gray-400" />
+          <p class="flex flex-wrap font-sans font-semibold italic tracking-wide">
+            {{ prettyContent(item.content[locale], locale) }}
+          </p>
+        </div>
+        <hr
+          v-if="index + 1 < searchItems.length"
+          class="absolute bottom-0 left-0 right-0 border-gray-400"
+        />
+      </div>
+
+      <div v-if="searchItems.length === 0" class="text-center">
+        <h3 class="pb-3 text-lg font-bold">{{ t('no_items') }}</h3>
+        <p>{{ t('couldnt_find') }}</p>
+        <button class="btn btn-link text-black" type="button" @click="search = ''">
+          {{ t('something_else') }}
+        </button>
+      </div>
+    </div>
+
+    <div v-else class="join join-vertical w-full">
+      <div
+        v-for="category in categories"
+        :key="category._id"
+        class="collapse join-item collapse-arrow border border-base-300"
+      >
+        <input type="radio" name="categories" />
+        <div class="collapse-title text-xl font-medium uppercase tracking-wide">
+          {{ category.name }}
+        </div>
+        <div class="collapse-content">
+          <div v-if="category.items.length > 0" class="grid items-stretch gap-6">
+            <div v-for="(item, index) in category.items" :key="item._id" class="relative">
+              <div
+                class="text-sm"
+                :class="{
+                  'mb-3': index + 1 < category.items.length,
+                }"
+              >
+                <div class="flex justify-between">
+                  <p class="mb-1 font-semibold uppercase tracking-wide">
+                    {{ item.name[locale] }}
+                  </p>
+                  <p>${{ item.base_price.toFixed(2) }}</p>
+                </div>
+                <p class="flex flex-wrap font-sans font-semibold italic tracking-wide">
+                  {{ prettyContent(item.content[locale], locale) }}
+                </p>
+              </div>
+              <hr
+                v-if="index + 1 < category.items.length"
+                class="absolute bottom-0 left-0 right-0 border-gray-400"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.platillo-divider {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
-</style>

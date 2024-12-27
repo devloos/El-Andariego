@@ -9,14 +9,13 @@ import router from './router';
 import Toast from 'vue-toastification';
 import en from '@/locales/en.js';
 import es from '@/locales/es.js';
-import DefaultLayout from '@/layouts/DefaultLayout.vue';
-import BlankLayout from '@/layouts/BlankLayout.vue';
 import InfoIcon from '@/components/svgs/InfoIcon.vue';
 import SuccessIcon from '@/components/svgs/SuccessIcon.vue';
 import WarningIcon from '@/components/svgs/WarningIcon.vue';
 import ErrorIcon from '@/components/svgs/ErrorIcon.vue';
 import FoodIcon from '@/components/svgs/FoodIcon.vue';
 import PlateIcon from '@/components/svgs/PlateIcon.vue';
+import SearchIcon from '@/components/svgs/SearchIcon.vue';
 
 import '@/assets/index.css';
 import 'vue-toastification/dist/index.css';
@@ -54,14 +53,13 @@ app.use(head);
 app.use(i18n);
 
 app
-  .component('DefaultLayout', DefaultLayout)
-  .component('BlankLayout', BlankLayout)
   .component('InfoIcon', InfoIcon)
   .component('SuccessIcon', SuccessIcon)
   .component('WarningIcon', WarningIcon)
   .component('ErrorIcon', ErrorIcon)
   .component('FoodIcon', FoodIcon)
-  .component('PlateIcon', PlateIcon);
+  .component('PlateIcon', PlateIcon)
+  .component('SearchIcon', SearchIcon);
 
 router.isReady().then(() => {
   app.mount('#app');
