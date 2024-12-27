@@ -8,6 +8,10 @@ export default {
   },
   ratings: 'View {numberOfRatings} ratings',
   open_today: 'Open today',
+  search: 'Search',
+  no_items: 'No items found',
+  couldnt_find: "We couldn't find what you were looking for.",
+  something_else: 'Try something else?',
   promotional: {
     header: 'Order Online Now!',
     hook: 'Get 10% OFF*',

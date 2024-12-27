@@ -8,6 +8,10 @@ export default {
   },
   ratings: 'Ver {numberOfRatings} calificaciones',
   open_today: 'Abierto hoy',
+  search: 'Buscar',
+  no_items: 'No se encontraron artículos',
+  couldnt_find: 'No pudimos encontrar lo que estabas buscando.',
+  something_else: '¿Intentar algo más?',
   promotional: {
     header: '¡Ordene en línea ahora!',
     hook: 'Obtenga 10% de descuento*',

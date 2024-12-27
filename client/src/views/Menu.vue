@@ -44,10 +44,13 @@ const searchItems = computed(() => {
 
   categories.value.forEach((category) => {
     category.items.forEach((item) => {
-      const normalizedName = item.name[locale.value].toLowerCase();
+      const normalizedEsName = item.name.es.toLowerCase();
+      const normalizedEnName = item.name.en.toLowerCase();
       const normalizedSearch = search.value.toLowerCase();
 
-      if (normalizedName.includes(normalizedSearch)) {
+      if (normalizedEsName.includes(normalizedSearch)) {
+        items.push(item);
+      } else if (normalizedEnName.includes(normalizedSearch)) {
         items.push(item);
       }
     });
@@ -62,7 +65,7 @@ const searchItems = computed(() => {
     <div class="px-1 pb-3">
       <label class="input input-bordered flex items-center gap-2">
         <SmartSvg name="SearchIcon" class="h-5 w-5 opacity-80" />
-        <input v-model="search" type="text" class="grow" placeholder="Search" />
+        <input v-model="search" type="text" class="grow" :placeholder="t('search')" />
       </label>
     </div>
 
@@ -91,10 +94,10 @@ const searchItems = computed(() => {
       </div>
 
       <div v-if="searchItems.length === 0" class="text-center">
-        <h3 class="pb-3 text-lg font-bold">No items found</h3>
-        <p>We couldn't find what you were looking for.</p>
+        <h3 class="pb-3 text-lg font-bold">{{ t('no_items') }}</h3>
+        <p>{{ t('couldnt_find') }}</p>
         <button class="btn btn-link text-black" type="button" @click="search = ''">
-          Try something else?
+          {{ t('something_else') }}
         </button>
       </div>
     </div>
