@@ -17,12 +17,7 @@ function setLocale(value) {
 <template>
   <div class="flex items-center justify-center">
     <button class="group flex items-center gap-2" type="button" @click="setLocale('es')">
-      <img
-        src="/mexico.png"
-        class="h-7 w-7 rounded-full shadow-md"
-        width="256"
-        height="256"
-      />
+      <img src="/mexico.png" class="h-6 w-6 rounded-full shadow-md" />
       <span
         class="underline-offset-2 group-hover:underline"
         :class="{ 'font-semibold text-secondary': isEsLocale }"
@@ -31,12 +26,7 @@ function setLocale(value) {
     </button>
     <div class="divider divider-horizontal" />
     <button class="group flex items-center gap-2" type="button" @click="setLocale('en')">
-      <img
-        src="/usa.png"
-        class="h-7 w-7 rounded-full shadow-md"
-        width="256"
-        height="256"
-      />
+      <img src="/usa.png" class="h-6 w-6 rounded-full shadow-md" />
       <span
         class="underline-offset-2 group-hover:underline"
         :class="{ 'font-semibold text-secondary': !isEsLocale }"

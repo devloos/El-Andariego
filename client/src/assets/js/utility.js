@@ -9,3 +9,7 @@ export function prettyContent(content = [], locale) {
   const index = res.lastIndexOf(',');
   return res.slice(0, index + 1) + separator + res.slice(index + 1);
 }
+
+export function getImageKitUrl(src) {
+  return new URL(src, 'https://ik.imagekit.io');
+}
