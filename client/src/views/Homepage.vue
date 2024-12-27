@@ -20,32 +20,7 @@ useHead({
   ],
 });
 
-const { t } = useI18n({ useScope: 'global' });
-
-function inWorkSchedule() {
-  const now = new Date().getHours() * 60 + new Date().getMinutes();
-  const start = 15 * 60;
-  const end = 23 * 60 + 30;
-  return start <= now && now <= end;
-}
-
-const schedule = computed(() => {
-  const day = new Date().getDay();
-  const MONDAY = 1;
-  const SATURDAY = 6;
-
-  if (day === MONDAY) {
-    return t('hours.closed');
-  }
-
-  const location = day === SATURDAY ? 'Village' : 'Capistrano';
-
-  if (inWorkSchedule()) {
-    return t('hours.open', { location });
-  } else {
-    return t('hours.opening', { location });
-  }
-});
+const { t, locale } = useI18n({ useScope: 'global' });
 
 const locationId = ref('capistrano-villas');
 const location = ref(LOCATIONS[0]);
@@ -53,6 +28,31 @@ const location = ref(LOCATIONS[0]);
 watch(locationId, () => {
   location.value = LOCATIONS.find((el) => el.id === locationId.value);
 });
+
+function isLocationOpen() {
+  const day = new Date().getDay();
+  const SATURDAY = 6;
+
+  // handle village location
+  if (locationId === 'village-san-juan') {
+    if (day === SATURDAY) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // handle villas location
+  if (locationId.value === 'capistrano-villas') {
+    if (day !== SATURDAY) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  return false;
+}
 </script>
 
 <template>
@@ -173,8 +173,13 @@ watch(locationId, () => {
 
         <!-- Dynamic -->
         <div class="flex justify-center gap-1 pb-5">
-          <span class="text-primary-400">Open today</span>
-          <span>{{ location.hours }}</span>
+          <template v-if="isLocationOpen()">
+            <span class="text-primary-400">{{ t('open_today') }}</span>
+            <span>{{ location.hours }}</span>
+          </template>
+          <span v-else>
+            {{ location.opening[locale] }}
+          </span>
         </div>
 
         <!-- Dynamic -->

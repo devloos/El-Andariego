@@ -7,15 +7,11 @@ export default {
     order_now: 'Ordena ahora!',
   },
   ratings: 'Ver {numberOfRatings} calificaciones',
+  open_today: 'Abierto hoy',
   promotional: {
     header: '¡Ordene en línea ahora!',
     hook: 'Obtenga 10% de descuento*',
     body: 'Para las primeras 15 personas que realicen su pedido en línea.',
-  },
-  hours: {
-    closed: 'Cerrado, Apertura Martes a las 3:00 PM',
-    opening: 'Abriendo en San Juan {location} a las 3:00 PM',
-    open: 'Abierto en San Juan {location} hasta las 11:30 PM',
   },
   dividers: {
     contact: 'Contacta El Andariego',
