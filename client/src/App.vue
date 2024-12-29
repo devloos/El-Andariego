@@ -2,7 +2,7 @@
 import LoadingOverlay from '@/components/LoadingOverlay.vue';
 import SmartTransition from '@/components/smart/SmartTransition.vue';
 import { useStorage } from '@vueuse/core';
-import { ref, provide, computed } from 'vue';
+import { ref, provide } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const isLoading = ref(false);

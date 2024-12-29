@@ -20,7 +20,6 @@ import XIcon from '@/components/svgs/XIcon.vue';
 
 import '@/assets/index.css';
 import 'vue-toastification/dist/index.css';
-import '@/assets/overrides.css';
 
 localStorage.setItem('version', __VITE_APP_VERSION__);
 
