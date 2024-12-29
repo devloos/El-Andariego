@@ -33,25 +33,16 @@ function isLocationOpen() {
   const day = new Date().getDay();
   const SATURDAY = 6;
 
-  // handle village location
-  if (locationId === 'village-san-juan') {
-    if (day === SATURDAY) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  switch (locationId) {
+    case 'village-san-juan':
+      return day === SATURDAY;
 
-  // handle villas location
-  if (locationId.value === 'capistrano-villas') {
-    if (day !== SATURDAY) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+    case 'capistrano-villas':
+      return day !== SATURDAY;
 
-  return false;
+    default:
+      return false;
+  }
 }
 </script>
 
