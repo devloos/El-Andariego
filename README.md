@@ -2,7 +2,7 @@
 
 ### Preview
 
-![Homepage](assets/homepage.jpg)
+<img src="https://github.com/user-attachments/assets/7982ae43-7cd4-46c0-afad-3cdc584913de" width="300px" />
 
 ### Repository Requirements
 
