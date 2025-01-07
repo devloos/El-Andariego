@@ -1,0 +1,12 @@
+# Compiled and build files
+dist/
+node_modules/
+*.log
+*.pyc
+
+# Editor-specific files
+.idea/
+
+# Local environment files
+.env
+.env.local
