@@ -6,7 +6,6 @@ import { register } from 'swiper/element/bundle';
 
 import App from './App.vue';
 import router from './router';
-import Toast from 'vue-toastification';
 import en from '@/locales/en.js';
 import es from '@/locales/es.js';
 import InfoIcon from '@/components/svgs/InfoIcon.vue';
@@ -19,7 +18,6 @@ import SearchIcon from '@/components/svgs/SearchIcon.vue';
 import XIcon from '@/components/svgs/XIcon.vue';
 
 import '@/assets/index.css';
-import 'vue-toastification/dist/index.css';
 
 localStorage.setItem('version', __VITE_APP_VERSION__);
 
@@ -36,17 +34,6 @@ const i18n = createI18n({
 });
 
 register();
-
-app.use(Toast, {
-  maxToasts: 1,
-  filterBeforeCreate: (toast, toasts) => {
-    // dont allow for duplicate toasts
-    if (toasts.filter((t) => t.type === toast.type).length !== 0) {
-      return false;
-    }
-    return toast;
-  },
-});
 
 app.use(router);
 app.use(head);
