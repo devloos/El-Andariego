@@ -1,18 +1,16 @@
-import { useToast as useToastification } from 'vue-toastification';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
-const toast = useToastification();
+export const POSITIONS = toast.POSITION;
+export const THEMES = toast.THEME;
+export const TRANSITIONS = toast.TRANSITIONS;
+export const TYPES = toast.TYPE;
 
 export function useToast(message, options = {}) {
   const toastOptions = {
-    position: 'top-center',
-    toastClassName: 'el-andariego-toast',
-    timeout: 1968,
-    closeOnClick: true,
-    showCloseButtonOnHover: false,
-    hideProgressBar: true,
-    closeButton: false,
-    icon: true,
-    rtl: false,
+    position: POSITIONS.TOP_CENTER,
+    autoClose: 2000,
+    theme: THEMES.LIGHT,
     ...options,
   };
 

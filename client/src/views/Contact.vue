@@ -37,7 +37,9 @@ async function submitForm() {
     });
 
     if (response.success === true) {
-      useToast('You will be contacted shortly thank you.');
+      useToast('You will be contacted shortly thank you.', {
+        type: 'success',
+      });
     }
   } catch (err) {
     useToast('Failed to send information try again.', {
