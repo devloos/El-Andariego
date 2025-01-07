@@ -28,7 +28,7 @@ onMounted(async () => {
 
     categories.value = response.data;
     selectedCategory.value = categories.value[0];
-  } catch (e) {
+  } catch {
     useToast('Failed to fetch items.', { type: 'error' });
   } finally {
     stopOverlay();

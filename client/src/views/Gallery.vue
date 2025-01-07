@@ -40,6 +40,13 @@ const images = [
     alt: '',
   },
 ];
+
+defineProps({
+  lo: {
+    type: String,
+    default: 'bruh',
+  },
+});
 </script>
 
 <template>

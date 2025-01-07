@@ -16,6 +16,7 @@ export default defineConfig({
       },
     }),
     VueI18nPlugin({
+      // eslint-disable-next-line no-undef
       include: path.resolve(__dirname, './src/locales/**'),
     }),
   ],
@@ -36,6 +37,7 @@ export default defineConfig({
     },
   },
   define: {
+    // eslint-disable-next-line no-undef
     __VITE_APP_VERSION__: JSON.stringify(process.env.npm_package_version),
   },
 });

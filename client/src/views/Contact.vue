@@ -41,7 +41,7 @@ async function submitForm() {
         type: 'success',
       });
     }
-  } catch (err) {
+  } catch {
     useToast('Failed to send information try again.', {
       type: 'error',
     });

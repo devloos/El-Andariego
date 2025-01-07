@@ -1,7 +1,7 @@
 <script setup>
 import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
-import { computed, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 import StyledDivider from '@/components/StyledDivider.vue';
 import SmartImg from '@/components/smart/SmartImg.vue';
 import LocaleSelector from '@/components/LocaleSelector.vue';
@@ -33,7 +33,7 @@ function isLocationOpen() {
   const day = new Date().getDay();
   const SATURDAY = 6;
 
-  switch (locationId) {
+  switch (locationId.value) {
     case 'village-san-juan':
       return day === SATURDAY;
 
